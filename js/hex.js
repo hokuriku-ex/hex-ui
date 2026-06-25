@@ -995,24 +995,6 @@ document.addEventListener('DOMContentLoaded',function(){
 });
 </script>
 
-<!-- 施工エリア -->
-<div id='footer-area-template' style='display:none;'>
-  <div class='footer-area'>
-    <h3>工事対応エリア</h3>
-    <div class='footer-area-text'>
-      <p>■ 石川県全域</p>
-      <p>
-        金沢市 / 野々市市 / 白山市 / 津幡町 / 内灘町<br>
-        かほく市 / 能美市 / 川北町 / 小松市 / 加賀市<br>
-        羽咋市 / 宝達志水町 / 志賀町 / 中能登町 / 七尾市<br>
-        穴水町 / 能登町 / 輪島市 / 珠洲市
-      </p>
-      <p>■ 富山県・福井県の一部</p>
-      <p>状況によりご相談させていただきます</p>
-    </div>
-  </div>
-</div>
-
 <script>
 /* 北陸EX 共通フッター */
 document.addEventListener('DOMContentLoaded',function(){
