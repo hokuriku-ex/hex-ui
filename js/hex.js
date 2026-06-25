@@ -1,4 +1,3 @@
-<script>
 /* 記事詳細タイトル整形 */
 window.addEventListener('load',function(){
   setTimeout(function(){
@@ -10,9 +9,7 @@ window.addEventListener('load',function(){
     });
   },0);
 });
-</script>
 
-<script>
 /* 本文リンク 外部リンクアイコン */
 window.addEventListener('load',function(){
   setTimeout(function(){
@@ -33,9 +30,7 @@ window.addEventListener('load',function(){
     });
   },100);
 });
-</script>
 
-<script>
 /* 一覧ページング整形 */
 window.addEventListener('load',function(){
   setTimeout(function(){
@@ -72,9 +67,7 @@ window.addEventListener('load',function(){
     });
   },100);
 });
-</script>
 
-<script>
 /* 記事詳細ページング整形 */
 window.addEventListener('load',function(){
   setTimeout(function(){
@@ -143,9 +136,7 @@ function hexCleanDetailPagerTitle(text){
   if(!text)return '';
   return text.replace(/【(?:スタッフブログ|重要なお知らせ)】[ \u00A0　]*/g,'').replace(/\s+/g,' ').trim();
 }
-</script>
 
-<script>
 /* ヘッダーメニュー採用情報URL・アイコン対応 */
 window.addEventListener('load',function(){
   setTimeout(function(){
@@ -183,9 +174,7 @@ window.addEventListener('load',function(){
     });
   },100);
 });
-</script>
 
-<script>
 /* 共通パーツ */
 window.hexIconClass=function(hexType){
   return hexType==='external'?'fa-solid fa-arrow-up-right-from-square':'fa-solid fa-arrow-right';
@@ -350,9 +339,7 @@ document.addEventListener('DOMContentLoaded',function(){
     hexView.style.display='none';
   });
 });
-</script>
 
-<script>
 /* ギャラリー */
 document.addEventListener('DOMContentLoaded',function(){
   document.querySelectorAll('.hex-gallery-start').forEach(function(galleryStart){
@@ -593,9 +580,7 @@ document.addEventListener('DOMContentLoaded',function(){
     });
   });
 });
-</script>
 
-<script>
 /* バナー */
 document.addEventListener('DOMContentLoaded',function(){
   document.querySelectorAll('.hex-banner-start').forEach(function(start){
@@ -699,9 +684,7 @@ document.addEventListener('DOMContentLoaded',function(){
     }
   });
 });
-</script>
 
-<script>
 /* 画像グリッド */
 document.addEventListener('DOMContentLoaded',function(){
   ['4','5','6'].forEach(function(col){
@@ -755,9 +738,7 @@ document.addEventListener('DOMContentLoaded',function(){
     });
   });
 });
-</script>
 
-<script>
 /* カード */
 document.addEventListener('DOMContentLoaded',function(){
   ['1','2','3'].forEach(function(col){
@@ -891,9 +872,7 @@ document.addEventListener('DOMContentLoaded',function(){
     });
   });
 });
-</script>
 
-<script>
 /* お知らせ・ブログ共通リスト整形 */
 window.addEventListener('load',function(){
   setTimeout(function(){
@@ -922,9 +901,7 @@ window.addEventListener('load',function(){
     document.body.classList.add('hex-news-list-ready');
   },100);
 });
-</script>
 
-<script>
 /* トップ お知らせタブ・一覧リンク */
 window.addEventListener('load',function(){
   setTimeout(function(){
@@ -983,9 +960,7 @@ window.addEventListener('load',function(){
     });
   },500);
 });
-</script>
 
-<script>
 /* 下層ページタイトル共通 */
 document.addEventListener('DOMContentLoaded',function(){
   var enTitle=document.querySelector('.page-title-en');
@@ -993,9 +968,7 @@ document.addEventListener('DOMContentLoaded',function(){
   if(!enTitle||!heroTitle)return;
   heroTitle.appendChild(enTitle);
 });
-</script>
 
-<script>
 /* 北陸EX 共通フッター */
 document.addEventListener('DOMContentLoaded',function(){
   setTimeout(function(){
@@ -1019,9 +992,7 @@ document.addEventListener('DOMContentLoaded',function(){
     footerContents.insertBefore(areaView,copyright);
   },300);
 });
-</script>
 
-<script>
 /* 会社情報ページ レイアウト調整 */
 window.addEventListener('load',function(){
   setTimeout(function(){
@@ -1291,9 +1262,7 @@ window.addEventListener('load',function(){
     body.classList.add('hex-company-layout-done');
   },100);
 });
-</script>
 
-<script>
 /* スタッフ紹介 */
 window.addEventListener('load',function(){
   setTimeout(function(){
@@ -1605,9 +1574,7 @@ window.addEventListener('resize',function(){
     hexResetStaffToggle(wraps[i]);
   }
 });
-</script>
 
-<script>
 /* 私たちについて スタッフ紹介読込 */
 window.addEventListener('load',function(){
   setTimeout(function(){
@@ -1781,9 +1748,7 @@ window.addEventListener('resize',function(){
     hexResetStaffToggle(areas[i]);
   }
 });
-</script>
 
-<script>
 /* よくある質問 */
 window.addEventListener('load',function(){
   setTimeout(function(){
@@ -1845,4 +1810,3 @@ window.addEventListener('load',function(){
     });
   },100);
 });
-</script>
