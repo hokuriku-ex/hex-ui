@@ -538,7 +538,7 @@
 }
 .hex-card.light{
   background:#fff;
-  border-color:rgba(31,39,116,.85);
+  border-color:#383838;
 }
 .hex-card.dark{
   background:transparent;
