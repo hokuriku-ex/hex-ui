@@ -969,7 +969,7 @@ document.addEventListener('DOMContentLoaded',function(){
   heroTitle.appendChild(enTitle);
 });
 
-/* 北陸EX 共通フッター */
+/* 共通フッター レイアウト調整 */
 document.addEventListener('DOMContentLoaded',function(){
   setTimeout(function(){
     var areaView=document.getElementById('footer-area-view');

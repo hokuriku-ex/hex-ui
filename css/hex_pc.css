@@ -1037,6 +1037,13 @@
   background:#1f2774 !important;
 }
 
+.hex-footer-frame .background_color,
+.hex-footer-frame .backgroundcolor_auto,
+.hex-footer-frame .backgroundcolor_footercolor{
+  background:#1f2774 !important;
+  background-color:#1f2774 !important;
+}
+
 .hex-area-source{
   display:none !important;
 }
