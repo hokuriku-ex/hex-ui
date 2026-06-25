@@ -972,13 +972,12 @@ document.addEventListener('DOMContentLoaded',function(){
 /* 北陸EX 共通フッター */
 document.addEventListener('DOMContentLoaded',function(){
   setTimeout(function(){
-    var template=document.getElementById('footer-area-template');
     var areaView=document.getElementById('footer-area-view');
     var footerFrame=document.querySelector('.gc_auto_frame_footer');
     var footerContents=footerFrame?footerFrame.querySelector('.footer_contents'):null;
     var companyText=footerFrame?footerFrame.querySelector('.footer_text'):null;
     var copyright=footerFrame?footerFrame.querySelector('.footer_copyright'):null;
-    if(!template||!areaView||!footerFrame||!footerContents||!companyText||!copyright)return;
+    if(!areaView||!footerFrame||!footerContents||!companyText||!copyright)return;
     if(footerContents.querySelector('.hex-footer-area'))return;
     footerFrame.classList.add('hex-footer-frame');
     if(!companyText.querySelector('.footer-company-name')){
@@ -987,11 +986,42 @@ document.addEventListener('DOMContentLoaded',function(){
       companyName.textContent='北陸エクステリア株式会社';
       companyText.prepend(companyName);
     }
-    areaView.innerHTML=template.innerHTML;
+    areaView.textContent='';
+    areaView.appendChild(hexCreateFooterArea());
     areaView.classList.add('hex-footer-area');
     footerContents.insertBefore(areaView,copyright);
   },300);
 });
+
+function hexCreateFooterArea(){
+  var area=document.createElement('div');
+  var title=document.createElement('h3');
+  var text=document.createElement('div');
+  var p1=document.createElement('p');
+  var p2=document.createElement('p');
+  var p3=document.createElement('p');
+  var p4=document.createElement('p');
+  area.className='footer-area';
+  text.className='footer-area-text';
+  title.textContent='工事対応エリア';
+  p1.textContent='■ 石川県全域';
+  p2.appendChild(document.createTextNode('金沢市 / 野々市市 / 白山市 / 津幡町 / 内灘町'));
+  p2.appendChild(document.createElement('br'));
+  p2.appendChild(document.createTextNode('かほく市 / 能美市 / 川北町 / 小松市 / 加賀市'));
+  p2.appendChild(document.createElement('br'));
+  p2.appendChild(document.createTextNode('羽咋市 / 宝達志水町 / 志賀町 / 中能登町 / 七尾市'));
+  p2.appendChild(document.createElement('br'));
+  p2.appendChild(document.createTextNode('穴水町 / 能登町 / 輪島市 / 珠洲市'));
+  p3.textContent='■ 富山県・福井県の一部';
+  p4.textContent='状況によりご相談させていただきます';
+  text.appendChild(p1);
+  text.appendChild(p2);
+  text.appendChild(p3);
+  text.appendChild(p4);
+  area.appendChild(title);
+  area.appendChild(text);
+  return area;
+}
 
 /* 会社情報ページ レイアウト調整 */
 window.addEventListener('load',function(){
