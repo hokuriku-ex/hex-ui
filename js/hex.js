@@ -1339,16 +1339,38 @@ window.addEventListener('load',function(){
         appendTextWithBreaks(desc,group.description);
         title.appendChild(desc);
       }
-      var grid=document.createElement('div');
-      grid.className='hex-staff-grid';
+      var leaderGrid=document.createElement('div');
+      leaderGrid.className='hex-staff-grid hex-staff-leader-grid';
+      var memberGrid=document.createElement('div');
+      memberGrid.className='hex-staff-grid hex-staff-member-grid';
+      var hasLeader=false;
       group.members.forEach(function(member){
-        grid.appendChild(createStaffCard(member));
+        if(member.isLeader){
+          hasLeader=true;
+          leaderGrid.appendChild(createStaffCard(member));
+        }else{
+          memberGrid.appendChild(createStaffCard(member));
+        }
       });
       section.appendChild(title);
-      section.appendChild(grid);
+      if(hasLeader){
+        section.className+=' has-leader';
+        section.appendChild(leaderGrid);
+        if(memberGrid.children.length){
+          var memberToggle=createMemberToggleButton(group.name);
+          section.appendChild(memberToggle);
+          section.appendChild(memberGrid);
+        }
+      }else{
+        group.members.forEach(function(member){
+          memberGrid.appendChild(createStaffCard(member));
+        });
+        section.appendChild(memberGrid);
+      }
       wrap.appendChild(section);
     });
     original.insertAdjacentElement('afterend',wrap);
+    hexInitStaffSections(wrap);
     hexInitStaffCards(wrap);
   },200);
 });
@@ -1497,6 +1519,25 @@ function createStaffCard(data){
   card.appendChild(body);
   return card;
 }
+function createMemberToggleButton(groupName){
+  var wrap=document.createElement('div');
+  wrap.className='hex-staff-member-toggle-wrap';
+  var button=document.createElement('button');
+  button.className='hex-staff-member-toggle';
+  button.type='button';
+  button.setAttribute('aria-expanded','false');
+  button.setAttribute('data-group-name',groupName);
+  var text=document.createElement('span');
+  text.className='hex-staff-member-toggle-text';
+  text.textContent=groupName+'メンバーを見る';
+  var icon=document.createElement('i');
+  icon.className='fa-solid fa-chevron-down';
+  icon.setAttribute('aria-hidden','true');
+  button.appendChild(text);
+  button.appendChild(icon);
+  wrap.appendChild(button);
+  return wrap;
+}
 function createRoleText(position,attribute){
   var arr=[];
   if(position)arr.push(position);
@@ -1522,6 +1563,36 @@ function appendTextWithBreaks(el,text){
   for(var i=0;i<lines.length;i++){
     if(i>0)el.appendChild(document.createElement('br'));
     el.appendChild(document.createTextNode(lines[i]));
+  }
+}
+function hexInitStaffSections(scope){
+  var sections=scope.getElementsByClassName('hex-staff-section');
+  for(var i=0;i<sections.length;i++){
+    var memberGrid=sections[i].getElementsByClassName('hex-staff-member-grid')[0];
+    var button=sections[i].getElementsByClassName('hex-staff-member-toggle')[0];
+    if(memberGrid&&button){
+      memberGrid.style.display='none';
+      button.onclick=function(){
+        var section=hexClosestByClass(this,'hex-staff-section');
+        if(!section)return;
+        var grid=section.getElementsByClassName('hex-staff-member-grid')[0];
+        if(!grid)return;
+        var isOpen=(' '+section.className+' ').indexOf(' is-members-open ')!==-1;
+        var groupName=this.getAttribute('data-group-name')||'';
+        var text=this.getElementsByClassName('hex-staff-member-toggle-text')[0];
+        if(isOpen){
+          section.className=section.className.replace(/\bis-members-open\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
+          this.setAttribute('aria-expanded','false');
+          if(text)text.textContent=groupName+'メンバーを見る';
+          grid.style.display='none';
+        }else{
+          section.className=section.className+' is-members-open';
+          this.setAttribute('aria-expanded','true');
+          if(text)text.textContent=groupName+'メンバーを閉じる';
+          grid.style.display='grid';
+        }
+      };
+    }
   }
 }
 function hexInitStaffCards(scope){
