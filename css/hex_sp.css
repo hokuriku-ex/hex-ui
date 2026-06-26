@@ -447,10 +447,33 @@
     margin:0 16px;
   }
   .hex-staff-section{
-    margin-bottom:48px;
+    margin-bottom:28px;
   }
   .hex-staff-section .hex-section-subtitle{
+    display:none;
+  }
+  .hex-staff-sp-dept-card{
+    display:block;
+  }
+  .hex-staff-leader-grid,
+  .hex-staff-member-grid{
+    display:none!important;
+  }
+  .hex-staff-wrap.has-dept-filter .hex-staff-section{
+    margin-bottom:48px;
+  }
+  .hex-staff-wrap.has-dept-filter .hex-staff-section .hex-section-subtitle{
+    display:block;
     margin:0 0 24px;
+  }
+  .hex-staff-wrap.has-dept-filter .hex-staff-sp-dept-card{
+    display:none;
+  }
+  .hex-staff-wrap.has-dept-filter .hex-staff-leader-grid{
+    display:grid!important;
+  }
+  .hex-staff-wrap.has-dept-filter .hex-staff-section.is-members-open .hex-staff-member-grid{
+    display:grid!important;
   }
   .hex-staff-section-description{
     margin:8px 0 0;
