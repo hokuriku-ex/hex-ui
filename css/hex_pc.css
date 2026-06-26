@@ -1616,17 +1616,21 @@ body,
   display:flex;
   align-items:center;
   justify-content:center;
-  width:36px;
-  height:36px;
+  width:32px;
+  height:32px;
   margin:0;
-  border:1px solid #1f2774;
+  border:1.5px solid #1f2774;
   border-radius:50%;
   background:#fff;
   color:#1f2774;
-  font-size:13px;
+  font-size:12px;
   line-height:1;
   cursor:pointer;
-  transition:background .25s ease,color .25s ease,border-color .25s ease;
+  transition:
+    background .25s ease,
+    color .25s ease,
+    border-color .25s ease,
+    transform .2s ease;
 }
 .hex-staff-toggle i{
   pointer-events:none;
