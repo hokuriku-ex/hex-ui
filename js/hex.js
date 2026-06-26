@@ -1296,7 +1296,7 @@ window.addEventListener('load',function(){
 /* スタッフ紹介 */
 window.addEventListener('load',function(){
   setTimeout(function(){
-    var frame=document.getElementById('gc_auto_frame_staff_2');
+    var frame=document.querySelector('.gc_auto_frame_publicinfo_staff');
     if(!frame)return;
     var original=frame.querySelector('.bg_publicinfo_staff');
     if(!original)return;
