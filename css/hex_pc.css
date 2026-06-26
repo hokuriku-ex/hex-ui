@@ -1595,9 +1595,9 @@ body,
 }
 .hex-staff-head{
   display:grid;
-  grid-template-columns:1fr 36px;
+  grid-template-columns:1fr 32px;
   align-items:center;
-  column-gap:12px;
+  column-gap:16px;
   margin:0 0 8px;
 }
 .hex-staff-name{
