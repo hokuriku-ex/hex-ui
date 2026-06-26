@@ -1712,6 +1712,7 @@ function hexPrepareStaffIframe(iframe){
       var staff=doc.querySelector('.hex-staff-wrap');
       if(staff){
         clearInterval(timer);
+        hexInjectStaffIframeStyle(doc);
         doc.documentElement.style.margin='0';
         doc.documentElement.style.padding='0';
         doc.documentElement.style.overflow='hidden';
@@ -1731,6 +1732,13 @@ function hexPrepareStaffIframe(iframe){
       clearInterval(timer);
     }
   },200);
+}
+function hexInjectStaffIframeStyle(doc){
+  if(doc.getElementById('hex-staff-iframe-style'))return;
+  var style=doc.createElement('style');
+  style.id='hex-staff-iframe-style';
+  style.textContent='body>*{display:none!important;} .hex-staff-wrap,.hex-staff-wrap *{display:revert!important;} .hex-staff-wrap{display:block!important; max-width:960px!important; margin:0 auto!important;}';
+  doc.head.appendChild(style);
 }
 function hexBindStaffIframeResize(iframe){
   try{
