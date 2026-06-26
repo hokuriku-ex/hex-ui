@@ -499,6 +499,7 @@
     grid-template-columns:1fr 30px;
     align-items:center;
     column-gap:10px;
+    width:100%;
     margin:0 0 8px;
     grid-column:auto;
     grid-row:auto;
