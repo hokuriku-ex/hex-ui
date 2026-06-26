@@ -508,10 +508,24 @@
   }
   .hex-staff-card.is-leader .hex-staff-detail{
     order:4;
+    width:100%;
+    box-sizing:border-box;
+    align-self:stretch;
+    grid-column:auto;
+    grid-row:auto;
+  }
+  .hex-staff-card.is-leader .hex-staff-detail-block,
+  .hex-staff-card.is-leader .hex-staff-divider{
+    width:100%;
+    box-sizing:border-box;
   }
   .hex-staff-card.is-leader .hex-staff-member-toggle-wrap{
     order:5;
+    width:100%;
     margin:24px 0 0;
+    align-self:stretch;
+    grid-column:auto;
+    grid-row:auto;
   }
   .hex-staff-head{
     grid-template-columns:1fr 30px;
