@@ -1313,8 +1313,11 @@ window.addEventListener('load',function(){
       if(!data.name)return;
       if(!data.department)return;
       if(!groupMap[data.department]){
-        groupMap[data.department]={ name:data.department, members:[] };
+        groupMap[data.department]={ name:data.department, description:'', members:[] };
         groups.push(groupMap[data.department]);
+      }
+      if(data.isLeader&&data.departmentDescription&&!groupMap[data.department].description){
+        groupMap[data.department].description=data.departmentDescription;
       }
       groupMap[data.department].members.push(data);
     });
@@ -1324,15 +1327,24 @@ window.addEventListener('load',function(){
     groups.forEach(function(group){
       var section=document.createElement('section');
       section.className='hex-staff-section';
+      var heading=document.createElement('div');
+      heading.className='hex-staff-section-heading';
       var title=document.createElement('h3');
       title.className='hex-section-subtitle';
       title.textContent=group.name;
+      heading.appendChild(title);
+      if(group.description){
+        var desc=document.createElement('p');
+        desc.className='hex-staff-section-description';
+        appendTextWithBreaks(desc,group.description);
+        heading.appendChild(desc);
+      }
       var grid=document.createElement('div');
       grid.className='hex-staff-grid';
       group.members.forEach(function(member){
         grid.appendChild(createStaffCard(member));
       });
-      section.appendChild(title);
+      section.appendChild(heading);
       section.appendChild(grid);
       wrap.appendChild(section);
     });
@@ -1358,10 +1370,27 @@ function getText(root,selector){
   if(!el)return '';
   return el.textContent.replace(/\s+/g,' ').trim();
 }
-function getHtml(root,selector){
+function getContent(root,selector){
   var el=root.querySelector(selector);
   if(!el)return '';
-  return el.innerHTML.trim();
+  return getNodeTextWithBreaks(el).replace(/\n\s*\n/g,'\n').trim();
+}
+function getNodeTextWithBreaks(node){
+  var text='';
+  var children=node.childNodes;
+  for(var i=0;i<children.length;i++){
+    var child=children[i];
+    if(child.nodeType===3){
+      text+=child.nodeValue;
+    }else if(child.nodeType===1){
+      if(child.tagName&&child.tagName.toLowerCase()==='br'){
+        text+='\n';
+      }else{
+        text+=getNodeTextWithBreaks(child);
+      }
+    }
+  }
+  return text;
 }
 function removeStartLabel(text,label){
   if(!text)return '';
@@ -1373,21 +1402,33 @@ function getCleanText(root,selector,label){
   var text=getText(root,selector);
   return removeStartLabel(text,label);
 }
-function getCleanHtml(root,selector,label){
-  var html=getHtml(root,selector);
-  return removeStartLabel(html,label);
+function getCleanContent(root,selector,label){
+  var text=getContent(root,selector);
+  return removeStartLabel(text,label);
+}
+function splitLeaderStrength(strength,isLeader){
+  var result={ departmentDescription:'', personalStrength:strength };
+  if(!isLeader||!strength)return result;
+  var parts=strength.split('|');
+  if(parts.length>1){
+    result.departmentDescription=parts[0].trim();
+    result.personalStrength=parts.slice(1).join('|').trim();
+  }
+  return result;
 }
 function getStaffData(staff,noImage){
   var name=getText(staff,'.contents_staff_name');
   var rawDepartment=getText(staff,'.contents_staff_department');
-  var strength=getCleanHtml(staff,'.contents_staff_post','役割・資格');
+  var strength=getCleanContent(staff,'.contents_staff_post','役割・資格');
   var joined=getCleanText(staff,'.contents_staff_hobby','趣味・特技');
-  var license=getHtml(staff,'.contents_staff_message');
+  var license=getContent(staff,'.contents_staff_message');
   var parts=rawDepartment.split('|').map(function(v){ return v.trim(); });
   var department=parts[0]||'';
   var position=parts[1]||'';
   var attribute=parts[2]||'';
   var leader=parts[3]||'';
+  var isLeader=leader==='代表';
+  var leaderStrength=splitLeaderStrength(strength,isLeader);
   var ownImage=getStaffImage(staff);
   var image=ownImage;
   var isNoImage=false;
@@ -1400,8 +1441,9 @@ function getStaffData(staff,noImage){
     department:department,
     position:position,
     attribute:attribute,
-    isLeader:leader==='代表',
-    strength:strength,
+    isLeader:isLeader,
+    departmentDescription:leaderStrength.departmentDescription,
+    strength:leaderStrength.personalStrength,
     joined:joined,
     license:license,
     image:image,
@@ -1437,33 +1479,15 @@ function createStaffCard(data){
   joined.className='hex-staff-joined';
   joined.textContent=data.joined;
   body.appendChild(deptTag);
-  if(data.isLeader){
-    if(data.strength){
-      var leaderTop=document.createElement('div');
-      leaderTop.className='hex-staff-detail hex-staff-leader-top';
-      leaderTop.appendChild(createDepartmentTextBlock(data.strength));
-      leaderTop.appendChild(createDivider());
-      body.appendChild(leaderTop);
-    }
-    body.appendChild(head);
-    if(data.joined)body.appendChild(joined);
-    if(data.license){
-      var leaderBottom=document.createElement('div');
-      leaderBottom.className='hex-staff-detail hex-staff-leader-bottom';
-      leaderBottom.appendChild(createDetailBlock('[保有資格]',data.license));
-      body.appendChild(leaderBottom);
-    }
-  }else{
-    body.appendChild(head);
-    if(data.joined)body.appendChild(joined);
-    if(data.strength||data.license){
-      var detail=document.createElement('div');
-      detail.className='hex-staff-detail';
-      if(data.strength)detail.appendChild(createTextBlock(data.strength));
-      if(data.strength&&data.license)detail.appendChild(createDivider());
-      if(data.license)detail.appendChild(createDetailBlock('[保有資格]',data.license));
-      body.appendChild(detail);
-    }
+  body.appendChild(head);
+  if(data.joined)body.appendChild(joined);
+  if(data.strength||data.license){
+    var detail=document.createElement('div');
+    detail.className='hex-staff-detail';
+    if(data.strength)detail.appendChild(createDetailBlock('私の強み',data.strength));
+    if(data.strength&&data.license)detail.appendChild(createDivider());
+    if(data.license)detail.appendChild(createDetailBlock('[保有資格]',data.license));
+    body.appendChild(detail);
   }
   card.appendChild(photo);
   card.appendChild(body);
@@ -1480,25 +1504,7 @@ function createDivider(){
   divider.className='hex-staff-divider';
   return divider;
 }
-function createTextBlock(bodyHtml){
-  var block=document.createElement('div');
-  block.className='hex-staff-detail-block';
-  var text=document.createElement('p');
-  text.className='hex-staff-detail-text';
-  text.innerHTML=bodyHtml;
-  block.appendChild(text);
-  return block;
-}
-function createDepartmentTextBlock(bodyHtml){
-  var block=document.createElement('div');
-  block.className='hex-staff-detail-block';
-  var text=document.createElement('p');
-  text.className='hex-staff-department-text';
-  text.innerHTML=bodyHtml;
-  block.appendChild(text);
-  return block;
-}
-function createDetailBlock(titleText,bodyHtml){
+function createDetailBlock(titleText,bodyText){
   var block=document.createElement('div');
   block.className='hex-staff-detail-block';
   var title=document.createElement('p');
@@ -1506,10 +1512,17 @@ function createDetailBlock(titleText,bodyHtml){
   title.textContent=titleText;
   var text=document.createElement('p');
   text.className='hex-staff-detail-text';
-  text.innerHTML=bodyHtml;
+  appendTextWithBreaks(text,bodyText);
   block.appendChild(title);
   block.appendChild(text);
   return block;
+}
+function appendTextWithBreaks(el,text){
+  var lines=String(text).split(/\n/);
+  for(var i=0;i<lines.length;i++){
+    if(i>0)el.appendChild(document.createElement('br'));
+    el.appendChild(document.createTextNode(lines[i]));
+  }
 }
 function hexInitStaffCards(scope){
   hexResetStaffToggle(scope);
@@ -1583,7 +1596,7 @@ function hexInitStaffToggle(scope){
       }else{
         card.className=card.className+' is-open';
         this.setAttribute('aria-expanded','true');
-        this.textContent='?';
+        this.textContent='−';
         for(var b=0;b<details.length;b++){
           details[b].style.display='block';
         }
