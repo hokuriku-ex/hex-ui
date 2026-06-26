@@ -1327,24 +1327,24 @@ window.addEventListener('load',function(){
     groups.forEach(function(group){
       var section=document.createElement('section');
       section.className='hex-staff-section';
-      var heading=document.createElement('div');
-      heading.className='hex-staff-section-heading';
       var title=document.createElement('h3');
-      title.className='hex-section-subtitle';
-      title.textContent=group.name;
-      heading.appendChild(title);
+      title.className=group.description?'hex-section-subtitle has-description':'hex-section-subtitle';
+      var titleText=document.createElement('span');
+      titleText.className='hex-staff-section-title';
+      titleText.textContent=group.name;
+      title.appendChild(titleText);
       if(group.description){
-        var desc=document.createElement('p');
+        var desc=document.createElement('span');
         desc.className='hex-staff-section-description';
         appendTextWithBreaks(desc,group.description);
-        heading.appendChild(desc);
+        title.appendChild(desc);
       }
       var grid=document.createElement('div');
       grid.className='hex-staff-grid';
       group.members.forEach(function(member){
         grid.appendChild(createStaffCard(member));
       });
-      section.appendChild(heading);
+      section.appendChild(title);
       section.appendChild(grid);
       wrap.appendChild(section);
     });
@@ -1472,7 +1472,11 @@ function createStaffCard(data){
   toggle.className='hex-staff-toggle';
   toggle.type='button';
   toggle.setAttribute('aria-expanded','false');
-  toggle.textContent='+';
+  toggle.setAttribute('aria-label','詳細を開く');
+  var icon=document.createElement('i');
+  icon.className='fa-solid fa-chevron-down';
+  icon.setAttribute('aria-hidden','true');
+  toggle.appendChild(icon);
   head.appendChild(name);
   head.appendChild(toggle);
   var joined=document.createElement('p');
@@ -1484,9 +1488,9 @@ function createStaffCard(data){
   if(data.strength||data.license){
     var detail=document.createElement('div');
     detail.className='hex-staff-detail';
-    if(data.strength)detail.appendChild(createDetailBlock('私の強み',data.strength));
+    if(data.strength)detail.appendChild(createSimpleTextBlock(data.strength));
     if(data.strength&&data.license)detail.appendChild(createDivider());
-    if(data.license)detail.appendChild(createDetailBlock('[保有資格]',data.license));
+    if(data.license)detail.appendChild(createSimpleTextBlock(data.license));
     body.appendChild(detail);
   }
   card.appendChild(photo);
@@ -1504,16 +1508,12 @@ function createDivider(){
   divider.className='hex-staff-divider';
   return divider;
 }
-function createDetailBlock(titleText,bodyText){
+function createSimpleTextBlock(bodyText){
   var block=document.createElement('div');
   block.className='hex-staff-detail-block';
-  var title=document.createElement('p');
-  title.className='hex-staff-detail-title';
-  title.textContent=titleText;
   var text=document.createElement('p');
   text.className='hex-staff-detail-text';
   appendTextWithBreaks(text,bodyText);
-  block.appendChild(title);
   block.appendChild(text);
   return block;
 }
@@ -1545,7 +1545,7 @@ function hexResetStaffToggle(scope){
     }
     if(toggle){
       toggle.setAttribute('aria-expanded','false');
-      toggle.textContent='+';
+      toggle.setAttribute('aria-label','詳細を開く');
       if(isLeader&&!isSp){
         toggle.style.display='none';
       }else{
@@ -1573,8 +1573,8 @@ function hexInitStaffToggle(scope){
             var leader=(' '+cards[j].className+' ').indexOf(' is-leader ')!==-1;
             var sp=window.innerWidth<=768;
             if(btn){
-              btn.textContent='+';
               btn.setAttribute('aria-expanded','false');
+              btn.setAttribute('aria-label','詳細を開く');
             }
             for(var k=0;k<dtls.length;k++){
               if(leader&&!sp){
@@ -1589,14 +1589,14 @@ function hexInitStaffToggle(scope){
       if(isOpen){
         card.className=card.className.replace(/\bis-open\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
         this.setAttribute('aria-expanded','false');
-        this.textContent='+';
+        this.setAttribute('aria-label','詳細を開く');
         for(var a=0;a<details.length;a++){
           details[a].style.display='none';
         }
       }else{
         card.className=card.className+' is-open';
         this.setAttribute('aria-expanded','true');
-        this.textContent='−';
+        this.setAttribute('aria-label','詳細を閉じる');
         for(var b=0;b<details.length;b++){
           details[b].style.display='block';
         }
