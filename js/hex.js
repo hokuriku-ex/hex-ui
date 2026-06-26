@@ -1698,27 +1698,27 @@ window.addEventListener('load',function(){
     var staffPageType='staff';
     var staffUrl=hexBuildStaffPageUrl(staffShortname,staffPageType);
     if(!staffUrl)return;
+    while(target.firstChild){
+      target.removeChild(target.firstChild);
+    }
     var iframe=document.createElement('iframe');
-    iframe.className='hex-staff-loader-iframe';
+    iframe.className='hex-staff-iframe';
     iframe.src=staffUrl;
     iframe.setAttribute('loading','eager');
     iframe.setAttribute('scrolling','no');
-    iframe.style.position='absolute';
-    iframe.style.left='-9999px';
-    iframe.style.top='0';
-    iframe.style.width='1200px';
+    iframe.style.width='100%';
     iframe.style.height='1px';
     iframe.style.border='0';
-    iframe.style.visibility='hidden';
+    iframe.style.overflow='hidden';
     iframe.addEventListener('load',function(){
-      hexWaitStaffWrap(iframe,target);
+      hexPrepareStaffIframe(iframe);
     });
-    document.body.appendChild(iframe);
+    target.appendChild(iframe);
   },200);
 });
-function hexWaitStaffWrap(iframe,target){
+function hexPrepareStaffIframe(iframe){
   var count=0;
-  var max=20;
+  var max=30;
   var timer=setInterval(function(){
     count++;
     try{
@@ -1727,126 +1727,44 @@ function hexWaitStaffWrap(iframe,target){
       var staff=doc.querySelector('.hex-staff-wrap');
       if(staff){
         clearInterval(timer);
-        while(target.firstChild){
-          target.removeChild(target.firstChild);
+        while(doc.body.firstChild){
+          doc.body.removeChild(doc.body.firstChild);
         }
-        target.appendChild(staff.cloneNode(true));
-        hexResetStaffToggle(target);
-        hexInitStaffToggle(target);
-        if(iframe.parentNode){
-          iframe.parentNode.removeChild(iframe);
-        }
+        doc.body.appendChild(staff);
+        doc.documentElement.style.margin='0';
+        doc.documentElement.style.padding='0';
+        doc.documentElement.style.overflow='hidden';
+        doc.body.style.margin='0';
+        doc.body.style.padding='0';
+        doc.body.style.overflow='hidden';
+        hexResizeStaffIframe(iframe);
+        setInterval(function(){
+          hexResizeStaffIframe(iframe);
+        },300);
         return;
       }
       if(count>=max){
         clearInterval(timer);
-        if(iframe.parentNode){
-          iframe.parentNode.removeChild(iframe);
-        }
       }
     }catch(e){
       clearInterval(timer);
-      if(iframe.parentNode){
-        iframe.parentNode.removeChild(iframe);
-      }
     }
   },200);
 }
-function hexSetStaffToggleIcon(toggle){
-  if(!toggle)return;
-  if(toggle.getElementsByTagName('i').length)return;
-  while(toggle.firstChild){
-    toggle.removeChild(toggle.firstChild);
-  }
-  var icon=document.createElement('i');
-  icon.className='fa-solid fa-chevron-down';
-  icon.setAttribute('aria-hidden','true');
-  toggle.appendChild(icon);
-}
-function hexResetStaffToggle(scope){
-  var cards=scope.getElementsByClassName('hex-staff-card');
-  var isSp=window.innerWidth<=768;
-  for(var i=0;i<cards.length;i++){
-    cards[i].className=cards[i].className.replace(/\bis-open\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
-    var details=cards[i].getElementsByClassName('hex-staff-detail');
-    var toggle=cards[i].getElementsByClassName('hex-staff-toggle')[0];
-    var isLeader=(' '+cards[i].className+' ').indexOf(' is-leader ')!==-1;
-    for(var d=0;d<details.length;d++){
-      if(isLeader&&!isSp){
-        details[d].style.display='block';
-      }else{
-        details[d].style.display='none';
-      }
+function hexResizeStaffIframe(iframe){
+  try{
+    var doc=iframe.contentDocument||iframe.contentWindow.document;
+    if(!doc)return;
+    var height=Math.max(
+      doc.body.scrollHeight,
+      doc.documentElement.scrollHeight,
+      doc.body.offsetHeight,
+      doc.documentElement.offsetHeight
+    );
+    if(height>0){
+      iframe.style.height=height+'px';
     }
-    if(toggle){
-      hexSetStaffToggleIcon(toggle);
-      toggle.setAttribute('aria-expanded','false');
-      toggle.setAttribute('aria-label','詳細を開く');
-      if(isLeader&&!isSp){
-        toggle.style.display='none';
-      }else{
-        toggle.style.display='';
-      }
-    }
-  }
-}
-function hexInitStaffToggle(scope){
-  var buttons=scope.getElementsByClassName('hex-staff-toggle');
-  for(var i=0;i<buttons.length;i++){
-    buttons[i].onclick=function(){
-      var card=hexClosestByClass(this,'hex-staff-card');
-      if(!card)return;
-      var details=card.getElementsByClassName('hex-staff-detail');
-      var isOpen=(' '+card.className+' ').indexOf(' is-open ')!==-1;
-      var wrap=hexClosestByClass(card,'hex-staff-wrap');
-      if(wrap){
-        var cards=wrap.getElementsByClassName('hex-staff-card');
-        for(var j=0;j<cards.length;j++){
-          if(cards[j]!==card){
-            cards[j].className=cards[j].className.replace(/\bis-open\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
-            var btn=cards[j].getElementsByClassName('hex-staff-toggle')[0];
-            var dtls=cards[j].getElementsByClassName('hex-staff-detail');
-            var leader=(' '+cards[j].className+' ').indexOf(' is-leader ')!==-1;
-            var sp=window.innerWidth<=768;
-            if(btn){
-              hexSetStaffToggleIcon(btn);
-              btn.setAttribute('aria-expanded','false');
-              btn.setAttribute('aria-label','詳細を開く');
-            }
-            for(var k=0;k<dtls.length;k++){
-              if(leader&&!sp){
-                dtls[k].style.display='block';
-              }else{
-                dtls[k].style.display='none';
-              }
-            }
-          }
-        }
-      }
-      if(isOpen){
-        card.className=card.className.replace(/\bis-open\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
-        this.setAttribute('aria-expanded','false');
-        this.setAttribute('aria-label','詳細を開く');
-        for(var a=0;a<details.length;a++){
-          details[a].style.display='none';
-        }
-      }else{
-        card.className=card.className+' is-open';
-        this.setAttribute('aria-expanded','true');
-        this.setAttribute('aria-label','詳細を閉じる');
-        for(var b=0;b<details.length;b++){
-          details[b].style.display='block';
-        }
-      }
-    };
-  }
-}
-function hexClosestByClass(el,className){
-  while(el&&el.nodeType===1){
-    if((' '+el.className+' ').indexOf(' '+className+' ')!==-1)return el;
-    el=el.parentNode;
-  }
-  return null;
+  }catch(e){}
 }
 function hexBuildStaffPageUrl(shortname,pageType){
   var host=location.hostname;
@@ -1869,12 +1787,6 @@ function hexGetDesignSetId(){
   }
   return '';
 }
-window.addEventListener('resize',function(){
-  var areas=document.querySelectorAll('#hex-staff-area,.hex-staff-wrap');
-  for(var i=0;i<areas.length;i++){
-    hexResetStaffToggle(areas[i]);
-  }
-});
 
 /* よくある質問 */
 window.addEventListener('load',function(){
