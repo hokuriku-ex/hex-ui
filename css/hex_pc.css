@@ -1687,7 +1687,7 @@ body,
   border:0;
 }
 .hex-staff-member-toggle-wrap{
-  width:calc((100% - 48px) * 3 / 4 + 32px);
+  width:33%;
   margin:32px 0;
 }
 .hex-staff-member-toggle{
