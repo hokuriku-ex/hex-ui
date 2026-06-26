@@ -1296,10 +1296,10 @@ window.addEventListener('load',function(){
 /* スタッフ紹介 */
 window.addEventListener('load',function(){
   setTimeout(function(){
-    var frame=document.querySelector('.gc_auto_frame_publicinfo_staff');
-    if(!frame)return;
-    var original=frame.querySelector('.bg_publicinfo_staff');
+    var original=document.querySelector('.bg_publicinfo_staff');
     if(!original)return;
+    var frame=original.closest('[id^="gc_auto_frame_staff_"]')||original.parentNode;
+    if(!frame)return;
     var staffNodes=Array.prototype.slice.call(original.querySelectorAll('.staff_content'));
     if(staffNodes.length<2)return;
     if(frame.querySelector('.hex-staff-wrap'))return;
@@ -1345,7 +1345,8 @@ window.addEventListener('load',function(){
       memberGrid.className='hex-staff-grid hex-staff-member-grid';
       var hasLeader=false;
       var leaderCard=null;
-      group.members.forEach(function(member){
+      group.members.forEach(function(member,index){
+        member.number=('0'+(index+1)).slice(-2);
         var card=createStaffCard(member);
         if(member.isLeader){
           hasLeader=true;
@@ -1478,6 +1479,9 @@ function createStaffCard(data){
   var card=document.createElement('article');
   card.className=data.isLeader?'hex-staff-card is-leader':'hex-staff-card';
   if(data.isNoImage)card.className+=' is-noimage';
+  var number=document.createElement('span');
+  number.className='hex-staff-number';
+  number.textContent=data.number||'';
   var photo=document.createElement('div');
   photo.className='hex-staff-photo';
   if(data.image)photo.style.backgroundImage=data.image;
@@ -1517,6 +1521,7 @@ function createStaffCard(data){
     if(data.license)detail.appendChild(createSimpleTextBlock(data.license));
     body.appendChild(detail);
   }
+  card.appendChild(number);
   card.appendChild(photo);
   card.appendChild(body);
   return card;
@@ -1627,7 +1632,7 @@ function hexResetStaffToggle(scope){
   for(var i=0;i<cards.length;i++){
     var isLeader=(' '+cards[i].className+' ').indexOf(' is-leader ')!==-1;
     cards[i].className=cards[i].className.replace(/\bis-open\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
-    if(isLeader&&!isSp){
+    if(!isSp){
       cards[i].className+=' is-open';
       hexOpenStaffDetail(cards[i]);
     }else{
@@ -1635,7 +1640,7 @@ function hexResetStaffToggle(scope){
     }
     var toggle=cards[i].getElementsByClassName('hex-staff-toggle')[0];
     if(toggle){
-      if(isLeader&&!isSp){
+      if(!isSp){
         toggle.setAttribute('aria-expanded','true');
         toggle.setAttribute('aria-label','詳細を閉じる');
       }else{
@@ -1650,6 +1655,7 @@ function hexInitStaffToggle(scope){
   var buttons=scope.getElementsByClassName('hex-staff-toggle');
   for(var i=0;i<buttons.length;i++){
     buttons[i].onclick=function(){
+      if(window.innerWidth>768)return;
       var card=hexClosestByClass(this,'hex-staff-card');
       if(!card)return;
       var isOpen=(' '+card.className+' ').indexOf(' is-open ')!==-1;
