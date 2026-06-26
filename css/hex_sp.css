@@ -506,8 +506,8 @@
   .hex-staff-card.is-leader .hex-staff-dept-tag{
     order:1;
   }
+  .hex-staff-head,
   .hex-staff-card.is-leader .hex-staff-head{
-    order:2;
     display:grid;
     grid-template-columns:1fr 30px;
     align-items:center;
@@ -517,6 +517,9 @@
     margin:0 0 8px;
     grid-column:auto;
     grid-row:auto;
+  }
+  .hex-staff-card.is-leader .hex-staff-head{
+    order:2;
   }
   .hex-staff-card.is-leader .hex-staff-joined{
     order:3;
@@ -542,12 +545,12 @@
     width:100%;
     box-sizing:border-box;
   }
-  .hex-staff-head{
-    display:grid;
-    grid-template-columns:1fr 30px;
-    align-items:center;
-    column-gap:10px;
-    margin:0 0 8px;
+  .hex-staff-name{
+    font-size:17px;
+  }
+  .hex-staff-joined,
+  .hex-staff-detail-text{
+    font-size:13px;
   }
   .hex-staff-toggle{
     display:flex!important;
@@ -580,7 +583,7 @@
   .hex-staff-detail{
     display:block!important;
     overflow:hidden;
-    max-height:0;
+    max-height:0!important;
     opacity:0;
     margin:0;
     padding:0;
@@ -592,13 +595,6 @@
     margin-top:16px;
     padding-top:16px;
     border-top:1px solid #d8d8d8;
-  }
-  .hex-staff-name{
-    font-size:17px;
-  }
-  .hex-staff-joined,
-  .hex-staff-detail-text{
-    font-size:13px;
   }
   .hex-staff-member-grid{
     margin-top:32px;
@@ -613,6 +609,7 @@
     font-size:14px;
   }
 }
+
 @media screen and (max-width:480px){
   .hex-staff-grid{
     grid-template-columns:1fr;
