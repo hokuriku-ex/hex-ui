@@ -1742,16 +1742,22 @@ function hexPrepareStaffIframe(iframe){
       var staff=doc.querySelector('.hex-staff-wrap');
       if(staff){
         clearInterval(timer);
-        doc.documentElement.style.margin='0';
-        doc.documentElement.style.padding='0';
-        doc.documentElement.style.overflow='hidden';
-        doc.body.style.margin='0';
-        doc.body.style.padding='0';
-        doc.body.style.overflow='hidden';
-        hexResizeStaffIframe(iframe);
-        setTimeout(function(){ hexResizeStaffIframe(iframe); },150);
-        setTimeout(function(){ hexResizeStaffIframe(iframe); },400);
-        hexBindStaffIframeResize(iframe);
+        setTimeout(function(){
+          while(doc.body.firstChild){
+            doc.body.removeChild(doc.body.firstChild);
+          }
+          doc.body.appendChild(staff);
+          doc.documentElement.style.margin='0';
+          doc.documentElement.style.padding='0';
+          doc.documentElement.style.overflow='hidden';
+          doc.body.style.margin='0';
+          doc.body.style.padding='0';
+          doc.body.style.overflow='hidden';
+          hexResizeStaffIframe(iframe);
+          setTimeout(function(){ hexResizeStaffIframe(iframe); },150);
+          setTimeout(function(){ hexResizeStaffIframe(iframe); },400);
+          hexBindStaffIframeResize(iframe);
+        },100);
         return;
       }
       if(count>=max){
