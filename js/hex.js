@@ -1724,7 +1724,7 @@ function hexPrepareStaffIframe(iframe){
           setInterval(function(){
             hexResizeStaffIframe(iframe);
           },300);
-        },150);
+        },300);
         return;
       }
       if(count>=max){
