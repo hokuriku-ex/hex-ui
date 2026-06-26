@@ -509,13 +509,22 @@
     grid-template-columns:1fr 30px;
     column-gap:10px;
   }
-  .hex-staff-card.is-leader .hex-staff-head{
-    display:block;
+  .hex-staff-card.is-leader .hex-staff-toggle{
+    display:flex!important;
   }
   .hex-staff-card.is-leader .hex-staff-detail{
+    display:none!important;
+  }
+  .hex-staff-card.is-leader.is-open .hex-staff-detail{
     display:block!important;
   }
+  #hex-staff-area .hex-staff-card.is-leader .hex-staff-toggle{
+    display:flex!important;
+  }
   #hex-staff-area .hex-staff-card.is-leader .hex-staff-detail{
+    display:none!important;
+  }
+  #hex-staff-area .hex-staff-card.is-leader.is-open .hex-staff-detail{
     display:block!important;
   }
   .hex-staff-name{
