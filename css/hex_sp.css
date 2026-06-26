@@ -533,7 +533,7 @@
     column-gap:10px;
   }
   .hex-staff-card.is-leader .hex-staff-toggle{
-    justify-self:end;
+    display:flex!important;
   }
   .hex-staff-card.is-leader .hex-staff-detail{
     display:none!important;
