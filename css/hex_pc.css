@@ -1714,12 +1714,14 @@ body,
   gap:16px;
 }
 .hex-staff-member-toggle .hex-btn-main-title{
+  flex:1;
   font-size:16px;
   white-space:nowrap;
+  text-align:left;
 }
 .hex-staff-member-toggle .hex-btn-main-icon{
   width:18px;
-  flex:0 0 18px;
+  flex:0 0 auto;
   font-size:15px;
 }
 .hex-staff-member-toggle .hex-btn-main-icon i{
