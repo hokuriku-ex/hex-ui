@@ -1712,6 +1712,134 @@ window.addEventListener('resize',function(){
   }
 });
 
+/* 私たちについて スタッフ紹介読込 */
+window.addEventListener('load',function(){
+  setTimeout(function(){
+    var target=document.getElementById('hex-staff-area');
+    if(!target)return;
+    var staffShortname='staff';
+    var staffPageType='staff';
+    var staffUrl=hexBuildStaffPageUrl(staffShortname,staffPageType);
+    if(!staffUrl)return;
+    while(target.firstChild){
+      target.removeChild(target.firstChild);
+    }
+    var iframe=document.createElement('iframe');
+    iframe.className='hex-staff-iframe';
+    iframe.src=staffUrl;
+    iframe.setAttribute('loading','eager');
+    iframe.setAttribute('scrolling','no');
+    iframe.style.width='100%';
+    iframe.style.height='1px';
+    iframe.style.border='0';
+    iframe.style.overflow='hidden';
+    iframe.dataset.hexStaffIframe='1';
+    iframe.addEventListener('load',function(){
+      hexPrepareStaffIframe(iframe);
+    });
+    target.appendChild(iframe);
+  },100);
+});
+function hexPrepareStaffIframe(iframe){
+  var count=0;
+  var max=50;
+  var timer=setInterval(function(){
+    count++;
+    try{
+      var doc=iframe.contentDocument||iframe.contentWindow.document;
+      if(!doc)return;
+      var staff=doc.querySelector('.hex-staff-wrap');
+      if(staff){
+        clearInterval(timer);
+        doc.documentElement.style.margin='0';
+        doc.documentElement.style.padding='0';
+        doc.documentElement.style.overflow='hidden';
+        doc.body.style.margin='0';
+        doc.body.style.padding='0';
+        doc.body.style.overflow='hidden';
+        hexResizeStaffIframe(iframe);
+        setTimeout(function(){ hexResizeStaffIframe(iframe); },150);
+        setTimeout(function(){ hexResizeStaffIframe(iframe); },400);
+        hexBindStaffIframeResize(iframe);
+        return;
+      }
+      if(count>=max){
+        clearInterval(timer);
+      }
+    }catch(e){
+      clearInterval(timer);
+    }
+  },100);
+}
+function hexBindStaffIframeResize(iframe){
+  try{
+    var doc=iframe.contentDocument||iframe.contentWindow.document;
+    if(!doc)return;
+    if(iframe.hexStaffResizeBound)return;
+    iframe.hexStaffResizeBound=true;
+    doc.addEventListener('click',function(){
+      setTimeout(function(){ hexResizeStaffIframe(iframe); },50);
+      setTimeout(function(){ hexResizeStaffIframe(iframe); },200);
+      setTimeout(function(){ hexResizeStaffIframe(iframe); },400);
+    },true);
+    if(window.ResizeObserver){
+      var staff=doc.querySelector('.hex-staff-wrap');
+      var observer=new ResizeObserver(function(){
+        hexResizeStaffIframe(iframe);
+      });
+      if(staff)observer.observe(staff);
+      observer.observe(doc.body);
+      iframe.hexStaffResizeObserver=observer;
+    }else{
+      iframe.hexStaffResizeTimer=setInterval(function(){
+        hexResizeStaffIframe(iframe);
+      },500);
+    }
+  }catch(e){}
+}
+function hexResizeStaffIframe(iframe){
+  try{
+    var doc=iframe.contentDocument||iframe.contentWindow.document;
+    if(!doc)return;
+    var staff=doc.querySelector('.hex-staff-wrap');
+    var height=0;
+    if(staff){
+      height=Math.max(staff.scrollHeight,staff.offsetHeight);
+    }else{
+      height=Math.max(
+        doc.body.scrollHeight,
+        doc.documentElement.scrollHeight,
+        doc.body.offsetHeight,
+        doc.documentElement.offsetHeight
+      );
+    }
+    if(height>0){
+      iframe.style.height=(height+4)+'px';
+    }
+  }catch(e){}
+}
+function hexBuildStaffPageUrl(shortname,pageType){
+  var host=location.hostname;
+  var designSetId=hexGetDesignSetId();
+  if(host.indexOf('02sample28.hopweb.net')!==-1){
+    if(!designSetId)return '';
+    return '/addon/gartencloud/ajax_gethtml_site_from_db.php?gc_design_set_ID='+encodeURIComponent(designSetId)+'&shortname='+encodeURIComponent(shortname)+'&page_type='+encodeURIComponent(pageType);
+  }
+  return '/?p='+encodeURIComponent(shortname)+'&k='+encodeURIComponent(pageType);
+}
+function hexGetDesignSetId(){
+  var match=location.href.match(/[?&]gc_design_set_ID=([^&]+)/);
+  if(match&&match[1])return decodeURIComponent(match[1]);
+  var links=document.getElementsByTagName('a');
+  for(var i=0;i<links.length;i++){
+    var href=links[i].getAttribute('href')||'';
+    if(href.indexOf('gc_design_set_ID=')===-1)continue;
+    var m=href.match(/[?&]gc_design_set_ID=([^&]+)/);
+    if(m&&m[1])return decodeURIComponent(m[1]);
+  }
+  return '';
+}
+
 /* よくある質問 */
 window.addEventListener('load',function(){
   setTimeout(function(){
