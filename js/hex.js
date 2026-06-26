@@ -1802,6 +1802,7 @@ function hexPrepareStaffIframe(iframe){
           while(doc.body.firstChild){
             doc.body.removeChild(doc.body.firstChild);
           }
+          doc.body.className=doc.body.className?doc.body.className+' hex-staff-iframe-mode':'hex-staff-iframe-mode';
           doc.body.appendChild(staff);
           doc.documentElement.style.margin='0';
           doc.documentElement.style.padding='0';
