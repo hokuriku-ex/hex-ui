@@ -1681,6 +1681,17 @@ function hexWaitStaffWrap(iframe,target){
     }
   },200);
 }
+function hexSetStaffToggleIcon(toggle){
+  if(!toggle)return;
+  if(toggle.getElementsByTagName('i').length)return;
+  while(toggle.firstChild){
+    toggle.removeChild(toggle.firstChild);
+  }
+  var icon=document.createElement('i');
+  icon.className='fa-solid fa-chevron-down';
+  icon.setAttribute('aria-hidden','true');
+  toggle.appendChild(icon);
+}
 function hexResetStaffToggle(scope){
   var cards=scope.getElementsByClassName('hex-staff-card');
   var isSp=window.innerWidth<=768;
@@ -1697,8 +1708,9 @@ function hexResetStaffToggle(scope){
       }
     }
     if(toggle){
+      hexSetStaffToggleIcon(toggle);
       toggle.setAttribute('aria-expanded','false');
-      toggle.textContent='+';
+      toggle.setAttribute('aria-label','詳細を開く');
       if(isLeader&&!isSp){
         toggle.style.display='none';
       }else{
@@ -1726,8 +1738,9 @@ function hexInitStaffToggle(scope){
             var leader=(' '+cards[j].className+' ').indexOf(' is-leader ')!==-1;
             var sp=window.innerWidth<=768;
             if(btn){
-              btn.textContent='+';
+              hexSetStaffToggleIcon(btn);
               btn.setAttribute('aria-expanded','false');
+              btn.setAttribute('aria-label','詳細を開く');
             }
             for(var k=0;k<dtls.length;k++){
               if(leader&&!sp){
@@ -1742,14 +1755,14 @@ function hexInitStaffToggle(scope){
       if(isOpen){
         card.className=card.className.replace(/\bis-open\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
         this.setAttribute('aria-expanded','false');
-        this.textContent='+';
+        this.setAttribute('aria-label','詳細を開く');
         for(var a=0;a<details.length;a++){
           details[a].style.display='none';
         }
       }else{
         card.className=card.className+' is-open';
         this.setAttribute('aria-expanded','true');
-        this.textContent='?';
+        this.setAttribute('aria-label','詳細を閉じる');
         for(var b=0;b<details.length;b++){
           details[b].style.display='block';
         }
