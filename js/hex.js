@@ -1490,21 +1490,18 @@ function createStaffCard(data){
   name.className='hex-staff-name';
   var roleText=createRoleText(data.position,data.attribute);
   name.textContent=roleText?data.name+' ['+roleText+']':data.name;
-  if(data.isLeader){
-    head.appendChild(name);
-  }else{
-    var toggle=document.createElement('button');
-    toggle.className='hex-staff-toggle';
-    toggle.type='button';
-    toggle.setAttribute('aria-expanded','false');
-    toggle.setAttribute('aria-label','詳細を開く');
-    var icon=document.createElement('i');
-    icon.className='fa-solid fa-chevron-down';
-    icon.setAttribute('aria-hidden','true');
-    toggle.appendChild(icon);
-    head.appendChild(name);
-    head.appendChild(toggle);
-  }
+  var toggle=document.createElement('button');
+  toggle.className='hex-staff-toggle';
+  toggle.type='button';
+  toggle.setAttribute('aria-expanded','false');
+  toggle.setAttribute('aria-label','詳細を開く');
+  var icon=document.createElement('i');
+  icon.className='fa-solid fa-chevron-down';
+  icon.setAttribute('aria-hidden','true');
+  toggle.appendChild(icon);
+  head.appendChild(name);
+  head.appendChild(toggle);
+
   var joined=document.createElement('p');
   joined.className='hex-staff-joined';
   joined.textContent=data.joined;
