@@ -1664,16 +1664,22 @@ body,
   display:none;
 }
 .hex-staff-detail{
-  display:none;
-  margin:16px 0 0;
-  padding:16px 0 0;
-  border-top:1px solid #d8d8d8;
+  display:block;
+  overflow:hidden;
+  max-height:0;
+  opacity:0;
+  margin:0;
+  padding:0;
+  border-top:0;
+  transition:max-height .35s ease,opacity .25s ease,margin .35s ease,padding .35s ease,border-color .35s ease;
 }
 .hex-staff-card.is-open .hex-staff-detail{
-  display:block;
+  opacity:1;
+  margin-top:16px;
+  padding-top:16px;
+  border-top:1px solid #d8d8d8;
 }
 .hex-staff-card.is-leader .hex-staff-detail{
-  display:block;
   grid-column:1 / -1;
   grid-row:3;
 }
