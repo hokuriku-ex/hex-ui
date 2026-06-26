@@ -1426,13 +1426,26 @@ function createStaffSpDeptCard(group){
 }
 function hexBuildStaffDeptUrl(deptName){
   var host=location.hostname;
-  var path='';
+  var designSetId=hexGetStaffDesignSetId();
   if(host.indexOf('02sample28.hopweb.net')!==-1){
-    path='?shortname=staff&page_type=staff&dept='+encodeURIComponent(deptName);
-  }else{
-    path='/?p=staff&k=staff&dept='+encodeURIComponent(deptName);
+    if(designSetId){
+      return '?gc_design_set_ID='+encodeURIComponent(designSetId)+'&shortname=staff&page_type=staff&dept='+encodeURIComponent(deptName);
+    }
+    return '?shortname=staff&page_type=staff&dept='+encodeURIComponent(deptName);
   }
-  return path;
+  return '/?p=staff&k=staff&dept='+encodeURIComponent(deptName);
+}
+function hexGetStaffDesignSetId(){
+  var match=location.href.match(/[?&]gc_design_set_ID=([^&]+)/);
+  if(match&&match[1])return decodeURIComponent(match[1]);
+  var links=document.getElementsByTagName('a');
+  for(var i=0;i<links.length;i++){
+    var href=links[i].getAttribute('href')||'';
+    if(href.indexOf('gc_design_set_ID=')===-1)continue;
+    var m=href.match(/[?&]gc_design_set_ID=([^&]+)/);
+    if(m&&m[1])return decodeURIComponent(m[1]);
+  }
+  return '';
 }
 function getStaffImage(staff){
   var image='';
