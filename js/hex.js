@@ -1561,70 +1561,14 @@ function appendTextWithBreaks(el,text){
     el.appendChild(document.createTextNode(lines[i]));
   }
 }
-function hexPreparePanel(panel){
-  panel.style.overflow='hidden';
-  panel.style.transition='height .75s cubic-bezier(.22,1,.36,1),opacity .55s ease';
-}
-function hexOpenPanel(panel,displayType){
-  if(!panel)return;
-  hexPreparePanel(panel);
-  panel.style.display=displayType||'block';
-  panel.style.height='0px';
-  panel.style.opacity='0';
-  requestAnimationFrame(function(){
-    panel.style.height=panel.scrollHeight+'px';
-    panel.style.opacity='1';
-  });
-}
-function hexClosePanel(panel){
-  if(!panel)return;
-  hexPreparePanel(panel);
-  if(panel.style.display==='none')return;
-  panel.style.height=panel.scrollHeight+'px';
-  panel.style.opacity='1';
-  requestAnimationFrame(function(){
-    panel.style.height='0px';
-    panel.style.opacity='0';
-  });
-}
-function hexSetPanelClosed(panel){
-  if(!panel)return;
-  hexPreparePanel(panel);
-  panel.style.display='none';
-  panel.style.height='0px';
-  panel.style.opacity='0';
-}
-function hexSetPanelOpen(panel,displayType){
-  if(!panel)return;
-  hexPreparePanel(panel);
-  panel.style.display=displayType||'block';
-  panel.style.height='auto';
-  panel.style.opacity='1';
-}
-function hexBindPanelTransition(panel,displayType){
-  if(!panel)return;
-  panel.addEventListener('transitionend',function(e){
-    if(e.propertyName!=='height')return;
-    if(panel.style.opacity==='1'){
-      panel.style.height='auto';
-    }else{
-      panel.style.display='none';
-    }
-  });
-}
 function hexInitStaffSections(scope){
   var sections=scope.getElementsByClassName('hex-staff-section');
   for(var i=0;i<sections.length;i++){
-    var memberGrid=sections[i].getElementsByClassName('hex-staff-member-grid')[0];
     var button=sections[i].getElementsByClassName('hex-staff-member-toggle')[0];
-    if(memberGrid&&button){
-      hexSetPanelClosed(memberGrid);
-      hexBindPanelTransition(memberGrid,'grid');
+    if(button){
       button.onclick=function(){
         var section=hexClosestByClass(this,'hex-staff-section');
         if(!section)return;
-        var grid=section.getElementsByClassName('hex-staff-member-grid')[0];
-        if(!grid)return;
         var isOpen=(' '+section.className+' ').indexOf(' is-members-open ')!==-1;
         var groupName=this.getAttribute('data-group-name')||'';
         var text=this.getElementsByClassName('hex-staff-member-toggle-text')[0];
@@ -1632,12 +1576,10 @@ function hexInitStaffSections(scope){
           section.className=section.className.replace(/\bis-members-open\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
           this.setAttribute('aria-expanded','false');
           if(text)text.textContent=groupName+'メンバーを見る';
-          hexClosePanel(grid);
         }else{
           section.className=section.className+' is-members-open';
           this.setAttribute('aria-expanded','true');
           if(text)text.textContent=groupName+'メンバーを閉じる';
-          hexOpenPanel(grid,'grid');
         }
       };
     }
@@ -1652,17 +1594,8 @@ function hexResetStaffToggle(scope){
   var isSp=window.innerWidth<=768;
   for(var i=0;i<cards.length;i++){
     cards[i].className=cards[i].className.replace(/\bis-open\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
-    var details=cards[i].getElementsByClassName('hex-staff-detail');
     var toggle=cards[i].getElementsByClassName('hex-staff-toggle')[0];
     var isLeader=(' '+cards[i].className+' ').indexOf(' is-leader ')!==-1;
-    for(var d=0;d<details.length;d++){
-      hexBindPanelTransition(details[d],'block');
-      if(isLeader&&!isSp){
-        hexSetPanelOpen(details[d],'block');
-      }else{
-        hexSetPanelClosed(details[d]);
-      }
-    }
     if(toggle){
       toggle.setAttribute('aria-expanded','false');
       toggle.setAttribute('aria-label','詳細を開く');
@@ -1680,27 +1613,20 @@ function hexInitStaffToggle(scope){
     buttons[i].onclick=function(){
       var card=hexClosestByClass(this,'hex-staff-card');
       if(!card)return;
-      var details=card.getElementsByClassName('hex-staff-detail');
       var isOpen=(' '+card.className+' ').indexOf(' is-open ')!==-1;
       var wrap=hexClosestByClass(card,'hex-staff-wrap');
       if(wrap){
         var cards=wrap.getElementsByClassName('hex-staff-card');
         for(var j=0;j<cards.length;j++){
           if(cards[j]!==card){
-            cards[j].className=cards[j].className.replace(/\bis-open\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
-            var btn=cards[j].getElementsByClassName('hex-staff-toggle')[0];
-            var dtls=cards[j].getElementsByClassName('hex-staff-detail');
             var leader=(' '+cards[j].className+' ').indexOf(' is-leader ')!==-1;
             var sp=window.innerWidth<=768;
-            if(btn){
-              btn.setAttribute('aria-expanded','false');
-              btn.setAttribute('aria-label','詳細を開く');
-            }
-            for(var k=0;k<dtls.length;k++){
-              if(leader&&!sp){
-                hexSetPanelOpen(dtls[k],'block');
-              }else{
-                hexClosePanel(dtls[k]);
+            if(!(leader&&!sp)){
+              cards[j].className=cards[j].className.replace(/\bis-open\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
+              var btn=cards[j].getElementsByClassName('hex-staff-toggle')[0];
+              if(btn){
+                btn.setAttribute('aria-expanded','false');
+                btn.setAttribute('aria-label','詳細を開く');
               }
             }
           }
@@ -1710,16 +1636,10 @@ function hexInitStaffToggle(scope){
         card.className=card.className.replace(/\bis-open\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
         this.setAttribute('aria-expanded','false');
         this.setAttribute('aria-label','詳細を開く');
-        for(var a=0;a<details.length;a++){
-          hexClosePanel(details[a]);
-        }
       }else{
         card.className=card.className+' is-open';
         this.setAttribute('aria-expanded','true');
         this.setAttribute('aria-label','詳細を閉じる');
-        for(var b=0;b<details.length;b++){
-          hexOpenPanel(details[b],'block');
-        }
       }
     };
   }
