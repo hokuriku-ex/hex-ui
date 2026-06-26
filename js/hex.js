@@ -1653,25 +1653,6 @@ function hexInitStaffToggle(scope){
       var card=hexClosestByClass(this,'hex-staff-card');
       if(!card)return;
       var isOpen=(' '+card.className+' ').indexOf(' is-open ')!==-1;
-      var wrap=hexClosestByClass(card,'hex-staff-wrap');
-      if(wrap){
-        var cards=wrap.getElementsByClassName('hex-staff-card');
-        for(var j=0;j<cards.length;j++){
-          if(cards[j]!==card){
-            var leader=(' '+cards[j].className+' ').indexOf(' is-leader ')!==-1;
-            var sp=window.innerWidth<=768;
-            if(!(leader&&!sp)){
-              cards[j].className=cards[j].className.replace(/\bis-open\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
-              hexCloseStaffDetail(cards[j]);
-              var btn=cards[j].getElementsByClassName('hex-staff-toggle')[0];
-              if(btn){
-                btn.setAttribute('aria-expanded','false');
-                btn.setAttribute('aria-label','詳細を開く');
-              }
-            }
-          }
-        }
-      }
       if(isOpen){
         card.className=card.className.replace(/\bis-open\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
         this.setAttribute('aria-expanded','false');
