@@ -1361,7 +1361,7 @@ window.addEventListener('load',function(){
         section.appendChild(leaderGrid);
         if(memberGrid.children.length){
           var leaderBody=leaderCard.getElementsByClassName('hex-staff-body')[0];
-          if(leaderBody)leaderBody.appendChild(createMemberToggleButton(group.name));
+          if(leaderBody)leaderBody.appendChild(createMemberToggleButton());
           section.appendChild(memberGrid);
         }
       }else{
@@ -1490,17 +1490,21 @@ function createStaffCard(data){
   name.className='hex-staff-name';
   var roleText=createRoleText(data.position,data.attribute);
   name.textContent=roleText?data.name+' ['+roleText+']':data.name;
-  var toggle=document.createElement('button');
-  toggle.className='hex-staff-toggle';
-  toggle.type='button';
-  toggle.setAttribute('aria-expanded','false');
-  toggle.setAttribute('aria-label','詳細を開く');
-  var icon=document.createElement('i');
-  icon.className='fa-solid fa-chevron-down';
-  icon.setAttribute('aria-hidden','true');
-  toggle.appendChild(icon);
-  head.appendChild(name);
-  head.appendChild(toggle);
+  if(data.isLeader){
+    head.appendChild(name);
+  }else{
+    var toggle=document.createElement('button');
+    toggle.className='hex-staff-toggle';
+    toggle.type='button';
+    toggle.setAttribute('aria-expanded','false');
+    toggle.setAttribute('aria-label','詳細を開く');
+    var icon=document.createElement('i');
+    icon.className='fa-solid fa-chevron-down';
+    icon.setAttribute('aria-hidden','true');
+    toggle.appendChild(icon);
+    head.appendChild(name);
+    head.appendChild(toggle);
+  }
   var joined=document.createElement('p');
   joined.className='hex-staff-joined';
   joined.textContent=data.joined;
@@ -1519,17 +1523,16 @@ function createStaffCard(data){
   card.appendChild(body);
   return card;
 }
-function createMemberToggleButton(groupName){
+function createMemberToggleButton(){
   var wrap=document.createElement('div');
   wrap.className='hex-button-wrap hex-staff-member-toggle-wrap';
   var button=document.createElement('button');
   button.className='hex-btn-main light hex-staff-member-toggle';
   button.type='button';
   button.setAttribute('aria-expanded','false');
-  button.setAttribute('data-group-name',groupName);
   var text=document.createElement('span');
   text.className='hex-btn-main-title hex-staff-member-toggle-text';
-  text.textContent=groupName+'メンバーを見る';
+  text.textContent='メンバーを見る';
   var iconWrap=document.createElement('span');
   iconWrap.className='hex-btn-main-icon';
   var icon=document.createElement('i');
@@ -1577,16 +1580,15 @@ function hexInitStaffSections(scope){
         var section=hexClosestByClass(this,'hex-staff-section');
         if(!section)return;
         var isOpen=(' '+section.className+' ').indexOf(' is-members-open ')!==-1;
-        var groupName=this.getAttribute('data-group-name')||'';
         var text=this.getElementsByClassName('hex-staff-member-toggle-text')[0];
         if(isOpen){
           section.className=section.className.replace(/\bis-members-open\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
           this.setAttribute('aria-expanded','false');
-          if(text)text.textContent=groupName+'メンバーを見る';
+          if(text)text.textContent='メンバーを見る';
         }else{
           section.className=section.className+' is-members-open';
           this.setAttribute('aria-expanded','true');
-          if(text)text.textContent=groupName+'メンバーを閉じる';
+          if(text)text.textContent='メンバーを閉じる';
         }
       };
     }
@@ -1598,19 +1600,13 @@ function hexInitStaffCards(scope){
 }
 function hexResetStaffToggle(scope){
   var cards=scope.getElementsByClassName('hex-staff-card');
-  var isSp=window.innerWidth<=768;
   for(var i=0;i<cards.length;i++){
     cards[i].className=cards[i].className.replace(/\bis-open\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
     var toggle=cards[i].getElementsByClassName('hex-staff-toggle')[0];
-    var isLeader=(' '+cards[i].className+' ').indexOf(' is-leader ')!==-1;
     if(toggle){
       toggle.setAttribute('aria-expanded','false');
       toggle.setAttribute('aria-label','詳細を開く');
-      if(isLeader&&!isSp){
-        toggle.style.display='none';
-      }else{
-        toggle.style.display='';
-      }
+      toggle.style.display='';
     }
   }
 }
@@ -1626,15 +1622,11 @@ function hexInitStaffToggle(scope){
         var cards=wrap.getElementsByClassName('hex-staff-card');
         for(var j=0;j<cards.length;j++){
           if(cards[j]!==card){
-            var leader=(' '+cards[j].className+' ').indexOf(' is-leader ')!==-1;
-            var sp=window.innerWidth<=768;
-            if(!(leader&&!sp)){
-              cards[j].className=cards[j].className.replace(/\bis-open\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
-              var btn=cards[j].getElementsByClassName('hex-staff-toggle')[0];
-              if(btn){
-                btn.setAttribute('aria-expanded','false');
-                btn.setAttribute('aria-label','詳細を開く');
-              }
+            cards[j].className=cards[j].className.replace(/\bis-open\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
+            var btn=cards[j].getElementsByClassName('hex-staff-toggle')[0];
+            if(btn){
+              btn.setAttribute('aria-expanded','false');
+              btn.setAttribute('aria-label','詳細を開く');
             }
           }
         }
