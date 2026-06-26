@@ -1580,24 +1580,6 @@ function hexInitStaffSections(scope){
         var isOpen=(' '+section.className+' ').indexOf(' is-members-open ')!==-1;
         var groupName=this.getAttribute('data-group-name')||'';
         var text=this.getElementsByClassName('hex-staff-member-toggle-text')[0];
-        var wrap=hexClosestByClass(section,'hex-staff-wrap');
-        if(wrap){
-          var allSections=wrap.getElementsByClassName('hex-staff-section');
-          for(var i=0;i<allSections.length;i++){
-            if(allSections[i]!==section){
-              allSections[i].className=allSections[i].className.replace(/\bis-members-open\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
-              var otherGrid=allSections[i].getElementsByClassName('hex-staff-member-grid')[0];
-              var otherBtn=allSections[i].getElementsByClassName('hex-staff-member-toggle')[0];
-              if(otherGrid)otherGrid.style.display='none';
-              if(otherBtn){
-                var otherGroupName=otherBtn.getAttribute('data-group-name')||'';
-                var otherText=otherBtn.getElementsByClassName('hex-staff-member-toggle-text')[0];
-                otherBtn.setAttribute('aria-expanded','false');
-                if(otherText)otherText.textContent=otherGroupName+'メンバーを見る';
-              }
-            }
-          }
-        }
         if(isOpen){
           section.className=section.className.replace(/\bis-members-open\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
           this.setAttribute('aria-expanded','false');
