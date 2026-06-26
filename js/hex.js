@@ -1344,12 +1344,15 @@ window.addEventListener('load',function(){
       var memberGrid=document.createElement('div');
       memberGrid.className='hex-staff-grid hex-staff-member-grid';
       var hasLeader=false;
+      var leaderCard=null;
       group.members.forEach(function(member){
+        var card=createStaffCard(member);
         if(member.isLeader){
           hasLeader=true;
-          leaderGrid.appendChild(createStaffCard(member));
+          leaderCard=card;
+          leaderGrid.appendChild(card);
         }else{
-          memberGrid.appendChild(createStaffCard(member));
+          memberGrid.appendChild(card);
         }
       });
       section.appendChild(title);
@@ -1357,7 +1360,8 @@ window.addEventListener('load',function(){
         section.className+=' has-leader';
         section.appendChild(leaderGrid);
         if(memberGrid.children.length){
-          section.appendChild(createMemberToggleButton(group.name));
+          var leaderBody=leaderCard.getElementsByClassName('hex-staff-body')[0];
+          if(leaderBody)leaderBody.appendChild(createMemberToggleButton(group.name));
           section.appendChild(memberGrid);
         }
       }else{
@@ -1471,7 +1475,7 @@ function getStaffData(staff,noImage){
 function createStaffCard(data){
   var card=document.createElement('article');
   card.className=data.isLeader?'hex-staff-card is-leader':'hex-staff-card';
-  if(data.isNoImage)card.classList.add('is-noimage');
+  if(data.isNoImage)card.className+=' is-noimage';
   var photo=document.createElement('div');
   photo.className='hex-staff-photo';
   if(data.image)photo.style.backgroundImage=data.image;
