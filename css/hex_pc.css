@@ -1605,6 +1605,7 @@ body,
 .hex-staff-card.is-leader .hex-staff-head{
   grid-column:1;
   grid-row:1;
+  margin:0 0 4px;
 }
 .hex-staff-name{
   margin:0;
@@ -1621,6 +1622,7 @@ body,
 .hex-staff-card.is-leader .hex-staff-joined{
   grid-column:1;
   grid-row:2;
+  margin:0;
 }
 .hex-staff-toggle{
   display:flex;
