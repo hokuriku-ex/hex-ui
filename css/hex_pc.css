@@ -1516,7 +1516,7 @@ body,
    下層ページ：スタッフ紹介
 ======================================= */
 /* iframe表示用 固定フッター非表示 */
-.gc_auto_frame_footer_fixed{
+.hex-staff-iframe-mode .gc_auto_frame_footer_fixed{
   display:none!important;
 }
 
@@ -1633,6 +1633,9 @@ body,
 }
 .hex-staff-section.is-members-open .hex-staff-member-toggle .hex-btn-main-icon i{
   transform:rotate(180deg);
+}
+.hex-staff-sp-dept-card{
+  display:none;
 }
 .hex-staff-iframe-wrap{
   width:100%;
