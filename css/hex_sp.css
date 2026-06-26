@@ -534,6 +534,7 @@
   }
   .hex-staff-card.is-leader .hex-staff-toggle{
     display:flex!important;
+    justify-self:end;
   }
   .hex-staff-card.is-leader .hex-staff-detail{
     display:none!important;
