@@ -537,21 +537,9 @@
     display:flex!important;
     justify-self:end;
   }
-  .hex-staff-card.is-leader .hex-staff-detail{
-    display:none!important;
-  }
-  .hex-staff-card.is-leader.is-open .hex-staff-detail{
-    display:block!important;
-  }
   #hex-staff-area .hex-staff-card.is-leader .hex-staff-toggle{
     display:flex!important;
     justify-self:end;
-  }
-  #hex-staff-area .hex-staff-card.is-leader .hex-staff-detail{
-    display:none!important;
-  }
-  #hex-staff-area .hex-staff-card.is-leader.is-open .hex-staff-detail{
-    display:block!important;
   }
   .hex-staff-name{
     font-size:17px;
