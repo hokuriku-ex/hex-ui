@@ -500,6 +500,8 @@
     align-items:center;
     column-gap:10px;
     margin:0 0 8px;
+    grid-column:auto;
+    grid-row:auto;
   }
   .hex-staff-card.is-leader .hex-staff-joined{
     order:3;
