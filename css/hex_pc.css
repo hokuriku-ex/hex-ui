@@ -1686,6 +1686,25 @@ body,
   min-height:800px;
   border:0;
 }
+.hex-staff-member-toggle-wrap{
+  width:100%;
+  margin:32px 0 32px;
+}
+.hex-staff-member-toggle{
+  cursor:pointer;
+}
+.hex-staff-member-toggle .hex-btn-main-icon{
+  font-size:16px;
+}
+.hex-staff-member-toggle .hex-btn-main-icon i{
+  transition:.3s ease;
+}
+.hex-staff-section.is-members-open .hex-staff-member-toggle .hex-btn-main-icon{
+  transform:translateX(0);
+}
+.hex-staff-section.is-members-open .hex-staff-member-toggle .hex-btn-main-icon i{
+  transform:rotate(180deg);
+}
 
 /* =======================================
    下層ページ：施工事例一覧
