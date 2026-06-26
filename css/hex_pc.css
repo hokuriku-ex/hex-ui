@@ -1596,7 +1596,7 @@ body,
 }
 .hex-staff-card.is-leader .hex-staff-body{
   display:grid;
-  grid-template-columns:1fr 240px;
+  grid-template-columns:1fr 280px;
   column-gap:24px;
   align-items:start;
   padding:28px 0 0 24px;
@@ -1711,9 +1711,11 @@ body,
 .hex-staff-member-toggle{
   cursor:pointer;
   padding:15px 20px;
+  gap:16px;
 }
 .hex-staff-member-toggle .hex-btn-main-title{
   font-size:16px;
+  white-space:nowrap;
 }
 .hex-staff-member-toggle .hex-btn-main-icon{
   font-size:15px;
