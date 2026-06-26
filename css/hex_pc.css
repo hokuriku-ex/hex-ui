@@ -1529,6 +1529,28 @@ body,
 .hex-staff-section:last-child{
   margin-bottom:0;
 }
+.hex-staff-section-heading{
+  margin:0 0 32px;
+  padding:0 0 0 14px;
+  border-left:2px solid #1f2774;
+}
+.hex-staff-section-heading .hex-section-subtitle{
+  margin:0;
+  padding:0;
+  border:none;
+  font-size:22px;
+  font-weight:700;
+  line-height:1.6;
+  color:#1f2774;
+}
+.hex-staff-section-description{
+  margin:10px 0 0;
+  font-size:16px;
+  font-weight:700;
+  line-height:2;
+  letter-spacing:.03em;
+  color:#1f2774;
+}
 .hex-staff-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -1610,9 +1632,6 @@ body,
   cursor:pointer;
   transition:none;
 }
-.hex-staff-card.is-leader .hex-staff-toggle{
-  display:none;
-}
 .hex-staff-card.is-open .hex-staff-toggle{
   background:#1f2774;
   color:#fff;
@@ -1629,20 +1648,8 @@ body,
 .hex-staff-card.is-leader .hex-staff-detail{
   display:block;
 }
-.hex-staff-card.is-leader .hex-staff-leader-top{
-  order:1;
-  margin:0;
-  padding:0;
-  border-top:none;
-}
-.hex-staff-card.is-leader .hex-staff-head{
-  order:2;
-}
-.hex-staff-card.is-leader .hex-staff-joined{
-  order:3;
-}
-.hex-staff-card.is-leader .hex-staff-leader-bottom{
-  order:4;
+.hex-staff-card.is-leader .hex-staff-toggle{
+  display:none;
 }
 .hex-staff-divider{
   margin:16px 0;
@@ -1666,17 +1673,6 @@ body,
   font-size:14px;
   line-height:1.8;
   white-space:normal;
-}
-.hex-staff-department-text{
-  margin:0;
-  padding:0;
-  border:none;
-  background:none;
-  font-size:20px;
-  font-weight:700;
-  line-height:2;
-  letter-spacing:.03em;
-  color:#1f2774;
 }
 .hex-staff-iframe-wrap{
   width:100%;
