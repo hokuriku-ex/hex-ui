@@ -1603,7 +1603,6 @@ body,
   margin:0 0 8px;
 }
 .hex-staff-card.is-leader .hex-staff-head{
-  display:block;
   grid-column:1;
   grid-row:1;
 }
@@ -1649,6 +1648,9 @@ body,
 }
 .hex-staff-card.is-open .hex-staff-toggle i{
   transform:rotate(180deg);
+}
+.hex-staff-card.is-leader .hex-staff-toggle{
+  display:none;
 }
 .hex-staff-detail{
   display:none;
