@@ -1688,7 +1688,7 @@ body,
 }
 .hex-staff-member-toggle-wrap{
   width:33%;
-  margin:32px 0;
+  margin:32px auto;
 }
 .hex-staff-member-toggle{
   cursor:pointer;
