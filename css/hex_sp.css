@@ -507,10 +507,11 @@
     order:3;
   }
   .hex-staff-card.is-leader .hex-staff-detail{
-    order:5;
+    order:4;
   }
   .hex-staff-card.is-leader .hex-staff-member-toggle-wrap{
-    order:4;
+    order:5;
+    margin:24px 0 0;
   }
   .hex-staff-head{
     grid-template-columns:1fr 30px;
