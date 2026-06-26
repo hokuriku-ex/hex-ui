@@ -513,6 +513,7 @@
     width:100%;
     box-sizing:border-box;
     align-self:stretch;
+    flex:0 0 auto;
     grid-column:auto;
     grid-row:auto;
   }
@@ -521,6 +522,7 @@
     width:100%;
     margin:24px 0 0;
     align-self:stretch;
+    flex:0 0 auto;
     grid-column:auto;
     grid-row:auto;
   }
