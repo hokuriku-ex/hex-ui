@@ -538,7 +538,7 @@
   }
   .hex-staff-member-toggle-wrap{
     width:75%;
-    margin:32px 0;
+    margin:32px auto;
   }
 }
 @media screen and (max-width:480px){
