@@ -537,8 +537,8 @@
     font-size:13px;
   }
   .hex-staff-member-toggle-wrap{
-    width:100%;
-    margin:32px 0 32px;
+    width:75%;
+    margin:32px 0;
   }
 }
 @media screen and (max-width:480px){
