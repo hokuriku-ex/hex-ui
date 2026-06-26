@@ -536,6 +536,10 @@
   .hex-staff-detail-text{
     font-size:13px;
   }
+  .hex-staff-member-toggle-wrap{
+    width:100%;
+    margin:32px 0 32px;
+  }
 }
 @media screen and (max-width:480px){
   .hex-staff-grid{
