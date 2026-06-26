@@ -1386,6 +1386,7 @@ body,
 #gc_auto_frame_gccat3_1 h1::after { content: "ABOUT US"; }
 #gc_auto_frame_company_1 h1::after { content: "COMPANY"; }
 #gc_auto_frame_gccat8_1 h1::after { content: "RECRUIT"; }
+#gc_auto_frame_staff_1 h1::after { content: "STAFF"; }
 #gc_auto_frame_gccat2_1 h1::after { content: "FOR HOMEOWNERS"; }
 #gc_auto_frame_gccat1_1 h1::after { content: "FOR BUILDERS"; }
 #gc_auto_frame_gccat9_1 h1::after { content: "NEW HOME EXTERIOR"; }
