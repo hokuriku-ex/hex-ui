@@ -449,19 +449,8 @@
   .hex-staff-section{
     margin-bottom:48px;
   }
-  .hex-staff-section-heading{
+  .hex-staff-section .hex-section-subtitle{
     margin:0 0 24px;
-    padding:0 0 0 12px;
-    border-left:2px solid #1f2774;
-  }
-  .hex-staff-section-heading .hex-section-subtitle{
-    margin:0;
-    padding:0;
-    border:none;
-    font-size:22px;
-    font-weight:700;
-    line-height:1.5;
-    color:#1f2774;
   }
   .hex-staff-section-description{
     margin:8px 0 0;
@@ -541,10 +530,9 @@
   .hex-staff-toggle{
     width:34px;
     height:34px;
-    font-size:22px;
+    font-size:12px;
   }
   .hex-staff-joined,
-  .hex-staff-detail-title,
   .hex-staff-detail-text{
     font-size:13px;
   }
