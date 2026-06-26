@@ -1303,6 +1303,7 @@ window.addEventListener('load',function(){
     var staffNodes=Array.prototype.slice.call(original.querySelectorAll('.staff_content'));
     if(staffNodes.length<2)return;
     if(frame.querySelector('.hex-staff-wrap'))return;
+    var deptParam=new URLSearchParams(location.search).get('dept')||'';
     var sample=staffNodes[0];
     var noImage=getStaffImage(sample);
     if(!noImage)noImage='';
@@ -1321,9 +1322,14 @@ window.addEventListener('load',function(){
       }
       groupMap[data.department].members.push(data);
     });
+    if(deptParam){
+      groups=groups.filter(function(group){
+        return group.name===deptParam;
+      });
+    }
     if(!groups.length)return;
     var wrap=document.createElement('div');
-    wrap.className='hex-staff-wrap';
+    wrap.className=deptParam?'hex-staff-wrap has-dept-filter':'hex-staff-wrap';
     groups.forEach(function(group){
       var section=document.createElement('section');
       section.className='hex-staff-section';
@@ -1357,6 +1363,7 @@ window.addEventListener('load',function(){
         }
       });
       section.appendChild(title);
+      section.appendChild(createStaffSpDeptCard(group));
       if(hasLeader){
         section.className+=' has-leader';
         section.appendChild(leaderGrid);
@@ -1377,6 +1384,56 @@ window.addEventListener('load',function(){
     setTimeout(hexStaffPostResize,400);
   },100);
 });
+function createStaffSpDeptCard(group){
+  var card=document.createElement('article');
+  card.className='hex-card light hex-staff-sp-dept-card';
+  var body=document.createElement('div');
+  body.className='hex-card-body';
+  var head=document.createElement('div');
+  head.className='hex-card-head';
+  var title=document.createElement('h3');
+  title.className='hex-card-title';
+  title.textContent=group.name;
+  head.appendChild(title);
+  body.appendChild(head);
+  if(group.description){
+    var text=document.createElement('p');
+    text.className='hex-card-text';
+    appendTextWithBreaks(text,group.description);
+    body.appendChild(text);
+  }
+  var buttonWrap=document.createElement('div');
+  buttonWrap.className='hex-card-button';
+  var link=document.createElement('a');
+  link.className='hex-btn-main light';
+  link.href=hexBuildStaffDeptUrl(group.name);
+  link.target='_parent';
+  var linkText=document.createElement('span');
+  linkText.className='hex-btn-main-title';
+  linkText.textContent='メンバーを見る';
+  var iconWrap=document.createElement('span');
+  iconWrap.className='hex-btn-main-icon';
+  var icon=document.createElement('i');
+  icon.className='fa-solid fa-chevron-right';
+  icon.setAttribute('aria-hidden','true');
+  iconWrap.appendChild(icon);
+  link.appendChild(linkText);
+  link.appendChild(iconWrap);
+  buttonWrap.appendChild(link);
+  body.appendChild(buttonWrap);
+  card.appendChild(body);
+  return card;
+}
+function hexBuildStaffDeptUrl(deptName){
+  var host=location.hostname;
+  var path='';
+  if(host.indexOf('02sample28.hopweb.net')!==-1){
+    path='?shortname=staff&page_type=staff&dept='+encodeURIComponent(deptName);
+  }else{
+    path='/?p=staff&k=staff&dept='+encodeURIComponent(deptName);
+  }
+  return path;
+}
 function getStaffImage(staff){
   var image='';
   var nodes=staff.querySelectorAll('*');
@@ -1630,7 +1687,6 @@ function hexResetStaffToggle(scope){
   var cards=scope.getElementsByClassName('hex-staff-card');
   var isSp=window.innerWidth<=768;
   for(var i=0;i<cards.length;i++){
-    var isLeader=(' '+cards[i].className+' ').indexOf(' is-leader ')!==-1;
     cards[i].className=cards[i].className.replace(/\bis-open\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
     if(!isSp){
       cards[i].className+=' is-open';
