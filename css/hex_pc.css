@@ -1515,15 +1515,17 @@ body,
    下層ページ：スタッフ紹介
 ======================================= */
 /* iframe表示用 固定フッター非表示 */
-#gc_auto_frame_staff_1,
 .gc_auto_frame_footer_fixed{
   display:none!important;
 }
 
-/* スタッフ紹介ページ調整 */
-#gc_auto_frame_staff_2 .bg_publicinfo_staff{
-  display:none;
+/* HOPWEB標準スタッフ表示を非表示 */
+.gc_auto_frame_publicinfo_staff .bg_publicinfo_staff,
+.bg_publicinfo_staff{
+  display:none!important;
 }
+
+/* スタッフ紹介ページ調整 */
 .hex-staff-wrap{
   max-width:960px;
   margin:0 auto;
