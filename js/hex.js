@@ -1371,6 +1371,9 @@ window.addEventListener('load',function(){
     original.insertAdjacentElement('afterend',wrap);
     hexInitStaffSections(wrap);
     hexInitStaffCards(wrap);
+    hexStaffPostResize();
+    setTimeout(hexStaffPostResize,300);
+    setTimeout(hexStaffPostResize,700);
   },200);
 });
 function getStaffImage(staff){
@@ -1591,6 +1594,9 @@ function hexInitStaffSections(scope){
           this.setAttribute('aria-expanded','true');
           if(text)text.textContent='メンバーを閉じる';
         }
+        hexStaffPostResize();
+        setTimeout(hexStaffPostResize,100);
+        setTimeout(hexStaffPostResize,300);
       };
     }
   }
@@ -1619,6 +1625,7 @@ function hexResetStaffToggle(scope){
       }
     }
   }
+  hexStaffPostResize();
 }
 function hexInitStaffToggle(scope){
   var buttons=scope.getElementsByClassName('hex-staff-toggle');
@@ -1654,8 +1661,21 @@ function hexInitStaffToggle(scope){
         this.setAttribute('aria-expanded','true');
         this.setAttribute('aria-label','詳細を閉じる');
       }
+      hexStaffPostResize();
+      setTimeout(hexStaffPostResize,100);
+      setTimeout(hexStaffPostResize,300);
     };
   }
+}
+function hexStaffPostResize(){
+  try{
+    var wrap=document.getElementsByClassName('hex-staff-wrap')[0];
+    if(!wrap)return;
+    var height=Math.max(wrap.scrollHeight,wrap.offsetHeight,document.body.scrollHeight,document.documentElement.scrollHeight);
+    if(window.parent&&window.parent!==window){
+      window.parent.postMessage({ type:'hexStaffResize', height:height },'*');
+    }
+  }catch(e){}
 }
 function hexClosestByClass(el,className){
   while(el&&el.nodeType===1){
@@ -1695,11 +1715,23 @@ window.addEventListener('load',function(){
     iframe.style.height='1px';
     iframe.style.border='0';
     iframe.style.overflow='hidden';
+    iframe.dataset.hexStaffIframe='1';
     iframe.addEventListener('load',function(){
       hexPrepareStaffIframe(iframe);
     });
     target.appendChild(iframe);
   },200);
+});
+window.addEventListener('message',function(e){
+  if(!e.data)return;
+  if(e.data.type!=='hexStaffResize')return;
+  var iframes=document.querySelectorAll('iframe[data-hex-staff-iframe="1"]');
+  for(var i=0;i<iframes.length;i++){
+    var height=parseInt(e.data.height,10);
+    if(height>0){
+      iframes[i].style.height=(height+4)+'px';
+    }
+  }
 });
 function hexPrepareStaffIframe(iframe){
   var count=0;
@@ -1723,7 +1755,6 @@ function hexPrepareStaffIframe(iframe){
           doc.body.style.margin='0';
           doc.body.style.padding='0';
           doc.body.style.overflow='hidden';
-          hexBindStaffIframeResize(iframe);
           hexResizeStaffIframe(iframe);
           setTimeout(function(){ hexResizeStaffIframe(iframe); },300);
           setTimeout(function(){ hexResizeStaffIframe(iframe); },700);
@@ -1738,36 +1769,6 @@ function hexPrepareStaffIframe(iframe){
     }
   },200);
 }
-function hexInjectStaffIframeStyle(doc){
-  if(doc.getElementById('hex-staff-iframe-style'))return;
-  var style=doc.createElement('style');
-  style.id='hex-staff-iframe-style';
-  style.textContent='body>*{display:none!important;} .hex-staff-wrap,.hex-staff-wrap *{display:revert!important;} .hex-staff-wrap{display:block!important; max-width:960px!important; margin:0 auto!important;}';
-  doc.head.appendChild(style);
-}
-function hexBindStaffIframeResize(iframe){
-  try{
-    var doc=iframe.contentDocument||iframe.contentWindow.document;
-    if(!doc)return;
-    if(iframe.hexStaffResizeBound)return;
-    iframe.hexStaffResizeBound=true;
-    doc.addEventListener('click',function(){
-      hexResizeStaffIframe(iframe);
-      setTimeout(function(){ hexResizeStaffIframe(iframe); },100);
-      setTimeout(function(){ hexResizeStaffIframe(iframe); },300);
-      setTimeout(function(){ hexResizeStaffIframe(iframe); },600);
-    },true);
-    if(window.ResizeObserver){
-      var staff=doc.querySelector('.hex-staff-wrap');
-      var observer=new ResizeObserver(function(){
-        hexResizeStaffIframe(iframe);
-      });
-      if(staff)observer.observe(staff);
-      observer.observe(doc.body);
-      iframe.hexStaffResizeObserver=observer;
-    }
-  }catch(e){}
-}
 function hexResizeStaffIframe(iframe){
   try{
     var doc=iframe.contentDocument||iframe.contentWindow.document;
@@ -1780,7 +1781,7 @@ function hexResizeStaffIframe(iframe){
       height=Math.max(doc.body.scrollHeight,doc.documentElement.scrollHeight,doc.body.offsetHeight,doc.documentElement.offsetHeight);
     }
     if(height>0){
-      iframe.style.height=(height+2)+'px';
+      iframe.style.height=(height+4)+'px';
     }
   }catch(e){}
 }
