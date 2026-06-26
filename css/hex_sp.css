@@ -470,6 +470,19 @@
     display:block;
     min-height:0;
   }
+  .hex-staff-number{
+    display:block;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:2;
+    color:#1f2774;
+    font-size:34px;
+    font-weight:800;
+    line-height:1;
+    letter-spacing:.04em;
+    font-family:"DIN Alternate","Arial",sans-serif;
+  }
   .hex-staff-card.is-leader .hex-staff-photo{
     aspect-ratio:1/1;
     min-height:0;
@@ -513,7 +526,6 @@
     width:100%;
     box-sizing:border-box;
     align-self:stretch;
-    flex:0 0 auto;
     grid-column:auto;
     grid-row:auto;
   }
@@ -522,7 +534,6 @@
     width:100%;
     margin:24px 0 0;
     align-self:stretch;
-    flex:0 0 auto;
     grid-column:auto;
     grid-row:auto;
   }
@@ -532,24 +543,58 @@
     box-sizing:border-box;
   }
   .hex-staff-head{
+    display:grid;
     grid-template-columns:1fr 30px;
+    align-items:center;
     column-gap:10px;
+    margin:0 0 8px;
   }
-  .hex-staff-card.is-leader .hex-staff-toggle{
+  .hex-staff-toggle{
     display:flex!important;
+    align-items:center;
+    justify-content:center;
+    width:30px;
+    height:30px;
+    margin:0;
+    border:1.5px solid #1f2774;
+    border-radius:50%;
+    background:#fff;
+    color:#1f2774;
+    font-size:11px;
+    line-height:1;
+    cursor:pointer;
     justify-self:end;
+    transition:background .25s ease,color .25s ease,border-color .25s ease,transform .2s ease;
   }
-  #hex-staff-area .hex-staff-card.is-leader .hex-staff-toggle{
-    display:flex!important;
-    justify-self:end;
+  .hex-staff-toggle i{
+    pointer-events:none;
+    transition:transform .25s ease;
+  }
+  .hex-staff-card.is-open .hex-staff-toggle{
+    background:#1f2774;
+    color:#fff;
+  }
+  .hex-staff-card.is-open .hex-staff-toggle i{
+    transform:rotate(180deg);
+  }
+  .hex-staff-detail{
+    display:block;
+    overflow:hidden;
+    max-height:0;
+    opacity:0;
+    margin:0;
+    padding:0;
+    border-top:0;
+    transition:max-height .35s ease,opacity .25s ease,margin .35s ease,padding .35s ease,border-color .35s ease;
+  }
+  .hex-staff-card.is-open .hex-staff-detail{
+    opacity:1;
+    margin-top:16px;
+    padding-top:16px;
+    border-top:1px solid #d8d8d8;
   }
   .hex-staff-name{
     font-size:17px;
-  }
-  .hex-staff-toggle{
-    width:30px;
-    height:30px;
-    font-size:11px;
   }
   .hex-staff-joined,
   .hex-staff-detail-text{
