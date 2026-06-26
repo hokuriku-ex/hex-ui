@@ -471,7 +471,7 @@
     min-height:0;
   }
   .hex-staff-number{
-    display:block;
+    display:block!important;
     position:absolute;
     left:0;
     top:0;
@@ -578,7 +578,7 @@
     transform:rotate(180deg);
   }
   .hex-staff-detail{
-    display:block;
+    display:block!important;
     overflow:hidden;
     max-height:0;
     opacity:0;
