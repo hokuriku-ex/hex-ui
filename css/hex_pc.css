@@ -1760,19 +1760,23 @@ body,
   line-height:1.8;
 }
 .publicinfo_qanda .qanda_content>label:after{
-  content:"";
+  content:"\f078";
   position:absolute;
   right:28px;
   top:50%;
-  width:10px;
-  height:10px;
-  border-right:1px solid #1f2774;
-  border-bottom:1px solid #1f2774;
-  transform:translateY(-65%) rotate(45deg);
-  transition:transform .4s ease;
+  width:auto;
+  height:auto;
+  border:none;
+  transform:translateY(-50%);
+  font-family:"Font Awesome 6 Free";
+  font-weight:900;
+  font-size:13px;
+  line-height:1;
+  color:#1f2774;
+  transition:transform .35s ease;
 }
 .publicinfo_qanda .qanda_content.is-open>label:after{
-  transform:translateY(-35%) rotate(-135deg);
+  transform:translateY(-50%) rotate(180deg);
 }
 .publicinfo_qanda .qanda_content>input[type="checkbox"]{
   display:none!important;
