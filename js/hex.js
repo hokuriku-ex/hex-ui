@@ -1517,20 +1517,23 @@ function createStaffCard(data){
 }
 function createMemberToggleButton(groupName){
   var wrap=document.createElement('div');
-  wrap.className='hex-staff-member-toggle-wrap';
+  wrap.className='hex-button-wrap hex-staff-member-toggle-wrap';
   var button=document.createElement('button');
-  button.className='hex-staff-member-toggle';
+  button.className='hex-btn-main light hex-staff-member-toggle';
   button.type='button';
   button.setAttribute('aria-expanded','false');
   button.setAttribute('data-group-name',groupName);
   var text=document.createElement('span');
-  text.className='hex-staff-member-toggle-text';
+  text.className='hex-btn-main-title hex-staff-member-toggle-text';
   text.textContent=groupName+'メンバーを見る';
+  var iconWrap=document.createElement('span');
+  iconWrap.className='hex-btn-main-icon';
   var icon=document.createElement('i');
   icon.className='fa-solid fa-chevron-down';
   icon.setAttribute('aria-hidden','true');
+  iconWrap.appendChild(icon);
   button.appendChild(text);
-  button.appendChild(icon);
+  button.appendChild(iconWrap);
   wrap.appendChild(button);
   return wrap;
 }
