@@ -1574,7 +1574,7 @@ body,
   min-height:280px;
 }
 .hex-staff-number{
-  display:none;
+  display:none!important;
 }
 .hex-staff-photo{
   width:100%;
@@ -1637,7 +1637,7 @@ body,
   display:none!important;
 }
 .hex-staff-detail{
-  display:block;
+  display:block!important;
   overflow:visible;
   max-height:none!important;
   opacity:1;
