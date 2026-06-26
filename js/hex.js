@@ -1578,7 +1578,11 @@ function appendTextWithBreaks(el,text){
 function hexOpenStaffDetail(card){
   var details=card.getElementsByClassName('hex-staff-detail');
   for(var i=0;i<details.length;i++){
-    details[i].style.maxHeight=details[i].scrollHeight+'px';
+    details[i].style.maxHeight='none';
+    var height=details[i].scrollHeight;
+    details[i].style.maxHeight='0px';
+    details[i].offsetHeight;
+    details[i].style.maxHeight=(height+60)+'px';
   }
 }
 function hexCloseStaffDetail(card){
