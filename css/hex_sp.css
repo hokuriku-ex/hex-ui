@@ -449,6 +449,28 @@
   .hex-staff-section{
     margin-bottom:48px;
   }
+  .hex-staff-section-heading{
+    margin:0 0 24px;
+    padding:0 0 0 12px;
+    border-left:2px solid #1f2774;
+  }
+  .hex-staff-section-heading .hex-section-subtitle{
+    margin:0;
+    padding:0;
+    border:none;
+    font-size:22px;
+    font-weight:700;
+    line-height:1.5;
+    color:#1f2774;
+  }
+  .hex-staff-section-description{
+    margin:8px 0 0;
+    font-size:14px;
+    font-weight:700;
+    line-height:1.8;
+    letter-spacing:.03em;
+    color:#1f2774;
+  }
   .hex-staff-grid{
     grid-template-columns:1fr 1fr;
     column-gap:16px;
@@ -488,22 +510,8 @@
   .hex-staff-card.is-leader .hex-staff-joined{
     order:3;
   }
-  .hex-staff-card.is-leader .hex-staff-leader-top{
+  .hex-staff-card.is-leader .hex-staff-detail{
     order:4;
-    margin:14px 0 0;
-    padding:14px 0 0;
-    border-top:1px solid #d8d8d8;
-  }
-  .hex-staff-card.is-leader .hex-staff-leader-bottom{
-    order:5;
-    margin:0;
-    padding:0;
-    border-top:none;
-  }
-  .hex-staff-card.is-leader .hex-staff-leader-bottom.hex-staff-detail{
-    margin:0;
-    padding:0;
-    border-top:none;
   }
   .hex-staff-head{
     grid-template-columns:1fr 34px;
@@ -539,16 +547,6 @@
   .hex-staff-detail-title,
   .hex-staff-detail-text{
     font-size:13px;
-  }
-  .hex-staff-department-text{
-    padding:0;
-    border:none;
-    background:none;
-    font-size:13px;
-    font-weight:400;
-    line-height:1.8;
-    letter-spacing:0;
-    color:#383838;
   }
 }
 @media screen and (max-width:480px){
