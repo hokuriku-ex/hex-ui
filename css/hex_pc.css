@@ -1718,6 +1718,8 @@ body,
   white-space:nowrap;
 }
 .hex-staff-member-toggle .hex-btn-main-icon{
+  width:18px;
+  flex:0 0 18px;
   font-size:15px;
 }
 .hex-staff-member-toggle .hex-btn-main-icon i{
