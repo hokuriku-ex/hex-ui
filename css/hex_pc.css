@@ -1734,7 +1734,8 @@ body,
 .hex-staff-iframe{
   display:block;
   width:100%;
-  min-height:800px;
+  height:1px;
+  min-height:0;
   border:0;
 }
 
