@@ -1573,6 +1573,9 @@ body,
   grid-template-columns:280px 1fr;
   min-height:280px;
 }
+.hex-staff-number{
+  display:none;
+}
 .hex-staff-photo{
   width:100%;
   aspect-ratio:1/1;
@@ -1605,10 +1608,7 @@ body,
   display:none;
 }
 .hex-staff-head{
-  display:grid;
-  grid-template-columns:1fr 32px;
-  align-items:center;
-  column-gap:16px;
+  display:block;
   margin:0 0 8px;
 }
 .hex-staff-card.is-leader .hex-staff-head{
@@ -1634,46 +1634,12 @@ body,
   margin:0;
 }
 .hex-staff-toggle{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:32px;
-  height:32px;
-  margin:0;
-  border:1.5px solid #1f2774;
-  border-radius:50%;
-  background:#fff;
-  color:#1f2774;
-  font-size:12px;
-  line-height:1;
-  cursor:pointer;
-  transition:background .25s ease,color .25s ease,border-color .25s ease,transform .2s ease;
-}
-.hex-staff-toggle i{
-  pointer-events:none;
-  transition:transform .25s ease;
-}
-.hex-staff-card.is-open .hex-staff-toggle{
-  background:#1f2774;
-  color:#fff;
-}
-.hex-staff-card.is-open .hex-staff-toggle i{
-  transform:rotate(180deg);
-}
-.hex-staff-card.is-leader .hex-staff-toggle{
-  display:none;
+  display:none!important;
 }
 .hex-staff-detail{
   display:block;
-  overflow:hidden;
-  max-height:0;
-  opacity:0;
-  margin:0;
-  padding:0;
-  border-top:0;
-  transition:max-height .35s ease,opacity .25s ease,margin .35s ease,padding .35s ease,border-color .35s ease;
-}
-.hex-staff-card.is-open .hex-staff-detail{
+  overflow:visible;
+  max-height:none!important;
   opacity:1;
   margin-top:16px;
   padding-top:16px;
