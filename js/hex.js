@@ -1522,13 +1522,7 @@ function insertMemberToggleButton(leaderCard){
   if(!leaderCard)return;
   var body=leaderCard.getElementsByClassName('hex-staff-body')[0];
   if(!body)return;
-  var button=createMemberToggleButton();
-  var detail=body.getElementsByClassName('hex-staff-detail')[0];
-  if(detail){
-    body.insertBefore(button,detail);
-  }else{
-    body.appendChild(button);
-  }
+  body.appendChild(createMemberToggleButton());
 }
 function createMemberToggleButton(){
   var wrap=document.createElement('div');
