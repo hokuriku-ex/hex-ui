@@ -1664,7 +1664,10 @@ function hexClosestByClass(el,className){
   }
   return null;
 }
+var hexStaffWindowWidth=window.innerWidth;
 window.addEventListener('resize',function(){
+  if(window.innerWidth===hexStaffWindowWidth)return;
+  hexStaffWindowWidth=window.innerWidth;
   var wraps=document.getElementsByClassName('hex-staff-wrap');
   for(var i=0;i<wraps.length;i++){
     hexResetStaffToggle(wraps[i]);
