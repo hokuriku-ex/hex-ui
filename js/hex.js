@@ -1372,9 +1372,9 @@ window.addEventListener('load',function(){
     hexInitStaffSections(wrap);
     hexInitStaffCards(wrap);
     hexStaffPostResize();
-    setTimeout(hexStaffPostResize,300);
-    setTimeout(hexStaffPostResize,700);
-  },200);
+    setTimeout(hexStaffPostResize,150);
+    setTimeout(hexStaffPostResize,400);
+  },100);
 });
 function getStaffImage(staff){
   var image='';
@@ -1595,8 +1595,8 @@ function hexInitStaffSections(scope){
           if(text)text.textContent='メンバーを閉じる';
         }
         hexStaffPostResize();
-        setTimeout(hexStaffPostResize,100);
-        setTimeout(hexStaffPostResize,300);
+        setTimeout(hexStaffPostResize,50);
+        setTimeout(hexStaffPostResize,200);
       };
     }
   }
@@ -1662,8 +1662,8 @@ function hexInitStaffToggle(scope){
         this.setAttribute('aria-label','詳細を閉じる');
       }
       hexStaffPostResize();
-      setTimeout(hexStaffPostResize,100);
-      setTimeout(hexStaffPostResize,300);
+      setTimeout(hexStaffPostResize,50);
+      setTimeout(hexStaffPostResize,200);
     };
   }
 }
