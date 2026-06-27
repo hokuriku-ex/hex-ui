@@ -971,6 +971,12 @@ document.addEventListener('DOMContentLoaded',function(){
 
 /* 共通フッター レイアウト調整 */
 document.addEventListener('DOMContentLoaded',function(){
+  hexReplaceTikTokSvgs(document);
+  setTimeout(function(){
+    hexReplaceTikTokSvgs(document);
+  },100);
+});
+document.addEventListener('DOMContentLoaded',function(){
   setTimeout(function(){
     var areaView=document.getElementById('footer-area-view');
     var footerFrame=document.querySelector('.gc_auto_frame_footer');
