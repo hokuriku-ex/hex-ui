@@ -636,6 +636,16 @@
 }
 
 /* =======================================
+   下層ページ：施工事例一覧
+======================================= */
+@media screen and (max-width:768px){
+  .gc_auto_body_work #gc_auto_frame_work_2 .post_index_contents{
+    padding-top:40px;
+    padding-bottom:56px;
+  }
+}
+
+/* =======================================
    下層ページ：よくある質問
 ======================================= */
 @media screen and (min-width:769px){
