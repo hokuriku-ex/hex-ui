@@ -1184,15 +1184,15 @@
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:0;
-    width:180px;
-    margin:28px auto 0;
+    width:300px;
+    margin:32px auto 0;
   }
   .hex-footer-sns a{
     display:flex;
     align-items:center;
     justify-content:center;
-    width:60px;
-    height:34px;
+    width:100px;
+    height:54px;
     text-decoration:none!important;
     color:#fff!important;
     transition:opacity .25s ease,transform .25s ease;
@@ -1204,8 +1204,8 @@
   .hex-footer-sns svg,
   .hex-footer-sns .bg_svg{
     display:block;
-    width:22px!important;
-    height:22px!important;
+    width:42px!important;
+    height:42px!important;
     fill:currentColor!important;
     color:#fff!important;
   }
@@ -1215,8 +1215,8 @@
   .hex-footer-sns a[href*="tiktok.com"]::before{
     content:"";
     display:block;
-    width:22px;
-    height:22px;
+    width:42px;
+    height:42px;
     background:url("https://hokuriku-ex.github.io/hex-ui/images/tiktok_icon.png") center/contain no-repeat;
     filter:brightness(0) invert(1);
   }
