@@ -927,7 +927,7 @@
   display:block;
   width:20px;
   height:20px;
-  background:url("https://hokuriku-ex.github.io/hex-ui/images/tiktok_icon.png") center/contain no-repeat;
+  background:url("https://hokuriku-ex.github.io/hex-ui/images/tiktok.svg") center/contain no-repeat;
 }
 
 /* 固定フッターのFacebookアイコンを非表示 */
@@ -941,7 +941,7 @@
   display:block;
   width:20px;
   height:20px;
-  background:url("https://hokuriku-ex.github.io/hex-ui/images/tiktok_icon.png") center/contain no-repeat;
+  background:url("https://hokuriku-ex.github.io/hex-ui/images/tiktok.svg") center/contain no-repeat;
 }
 
 /* PCのみ：標準固定フッター非表示 */
