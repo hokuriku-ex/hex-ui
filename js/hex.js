@@ -1681,23 +1681,17 @@ function hexInitStaffCards(scope){
 function hexResetStaffToggle(scope){
   var cards=scope.getElementsByClassName('hex-staff-card');
   var isSp=window.innerWidth<=768;
-  var hasDeptFilter=(' '+scope.className+' ').indexOf(' has-dept-filter ')!==-1;
   for(var i=0;i<cards.length;i++){
     cards[i].className=cards[i].className.replace(/\bis-open\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
     if(!isSp){
       cards[i].className+=' is-open';
       hexOpenStaffDetail(cards[i]);
     }else{
-      if(hasDeptFilter){
-        cards[i].className+=' is-open';
-        hexOpenStaffDetail(cards[i]);
-      }else{
-        hexCloseStaffDetail(cards[i]);
-      }
+      hexCloseStaffDetail(cards[i]);
     }
     var toggle=cards[i].getElementsByClassName('hex-staff-toggle')[0];
     if(toggle){
-      if(!isSp||hasDeptFilter){
+      if(!isSp){
         toggle.setAttribute('aria-expanded','true');
         toggle.setAttribute('aria-label','詳細を閉じる');
       }else{
@@ -1713,8 +1707,6 @@ function hexInitStaffToggle(scope){
   for(var i=0;i<buttons.length;i++){
     buttons[i].onclick=function(){
       if(window.innerWidth>768)return;
-      var wrap=hexClosestByClass(this,'hex-staff-wrap');
-      if(wrap&&(' '+wrap.className+' ').indexOf(' has-dept-filter ')!==-1)return;
       var card=hexClosestByClass(this,'hex-staff-card');
       if(!card)return;
       var isOpen=(' '+card.className+' ').indexOf(' is-open ')!==-1;
