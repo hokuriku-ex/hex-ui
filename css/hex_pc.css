@@ -1530,7 +1530,7 @@ body,
 .hex-staff-wrap{
   max-width:960px;
   margin:0 auto;
-  padding:0;
+  padding:48px 0;
   color:#383838;
 }
 .hex-staff-section{
