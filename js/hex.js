@@ -1006,12 +1006,10 @@ function hexCreateFooterSns(){
   footerLogo.appendChild(sns);
 }
 function hexCreateHeaderSns(){
-  var headerFrame=document.querySelector('.gc_auto_frame_header_home')||document.querySelector('[id^="gc_auto_frame_"][class*="header_home"]');
-  if(!headerFrame)return;
-  if(headerFrame.querySelector('.hex-header-sns'))return;
+  if(document.querySelector('.hex-header-sns'))return;
   var sns=hexCreateSnsLinks('hex-header-sns');
   if(!sns)return;
-  headerFrame.appendChild(sns);
+  document.body.appendChild(sns);
 }
 function hexCreateSnsLinks(className){
   var source=document.querySelector('.ff_sns');
@@ -1075,7 +1073,6 @@ function hexTogglePageTopButton(button){
     button.className=button.className.replace(/\bis-visible\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
   }
 }
-
 function hexCreateFooterArea(){
   var area=document.createElement('div');
   var title=document.createElement('h3');
