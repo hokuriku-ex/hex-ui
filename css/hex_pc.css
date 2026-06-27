@@ -1519,6 +1519,9 @@ body,
 .hex-staff-iframe-mode .gc_auto_frame_footer_fixed{
   display:none!important;
 }
+.hex-staff-iframe-mode .hex-staff-wrap{
+  padding:0;
+}
 
 /* HOPWEB標準スタッフ表示を非表示 */
 .gc_auto_frame_publicinfo_staff .bg_publicinfo_staff,
