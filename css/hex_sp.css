@@ -277,6 +277,22 @@
   }
 }
 
+/* =======================================
+   固定フッター調整
+======================================= */
+@media screen and (max-width:768px){
+  .ff_contents .ff_sns a[href*="tiktok.com"][data-hex-tiktok-svg="1"] .bg_svg{
+    display:none!important;
+  }
+  .ff_contents .ff_sns a[href*="tiktok.com"]::before{
+    content:""!important;
+    display:block!important;
+    width:20px;
+    height:20px;
+    background:url("https://hokuriku-ex.github.io/hex-ui/images/tiktok_icon.png") center/contain no-repeat;
+  }
+}
+
 /* リンクcol=1：詳しく見る非表示 */
 @media screen and (max-width:768px){
 
