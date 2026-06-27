@@ -1349,6 +1349,7 @@ window.addEventListener('load',function(){
       leaderGrid.className='hex-staff-grid hex-staff-leader-grid';
       var memberGrid=document.createElement('div');
       memberGrid.className='hex-staff-grid hex-staff-member-grid';
+      var spButton=createStaffSpButton(group);
       var hasLeader=false;
       var leaderCard=null;
       group.members.forEach(function(member,index){
@@ -1363,7 +1364,7 @@ window.addEventListener('load',function(){
         }
       });
       section.appendChild(title);
-      section.appendChild(createStaffSpDeptCard(group));
+      section.appendChild(spButton);
       if(hasLeader){
         section.className+=' has-leader';
         section.appendChild(leaderGrid);
@@ -1384,45 +1385,26 @@ window.addEventListener('load',function(){
     setTimeout(hexStaffPostResize,400);
   },100);
 });
-function createStaffSpDeptCard(group){
-  var card=document.createElement('article');
-  card.className='hex-card light hex-staff-sp-dept-card';
-  var body=document.createElement('div');
-  body.className='hex-card-body';
-  var head=document.createElement('div');
-  head.className='hex-card-head';
-  var title=document.createElement('h3');
-  title.className='hex-card-title';
-  title.textContent=group.name;
-  head.appendChild(title);
-  body.appendChild(head);
-  if(group.description){
-    var text=document.createElement('p');
-    text.className='hex-card-text';
-    appendTextWithBreaks(text,group.description);
-    body.appendChild(text);
-  }
-  var buttonWrap=document.createElement('div');
-  buttonWrap.className='hex-card-button';
+function createStaffSpButton(group){
+  var wrap=document.createElement('div');
+  wrap.className='hex-button-wrap hex-staff-sp-button-wrap';
   var link=document.createElement('a');
   link.className='hex-btn-main light';
   link.href=hexBuildStaffDeptUrl(group.name);
   link.target='_parent';
-  var linkText=document.createElement('span');
-  linkText.className='hex-btn-main-title';
-  linkText.textContent='メンバーを見る';
+  var text=document.createElement('span');
+  text.className='hex-btn-main-title';
+  text.textContent='メンバーを見る';
   var iconWrap=document.createElement('span');
   iconWrap.className='hex-btn-main-icon';
   var icon=document.createElement('i');
   icon.className='fa-solid fa-chevron-right';
   icon.setAttribute('aria-hidden','true');
   iconWrap.appendChild(icon);
-  link.appendChild(linkText);
+  link.appendChild(text);
   link.appendChild(iconWrap);
-  buttonWrap.appendChild(link);
-  body.appendChild(buttonWrap);
-  card.appendChild(body);
-  return card;
+  wrap.appendChild(link);
+  return wrap;
 }
 function hexBuildStaffDeptUrl(deptName){
   var host=location.hostname;
@@ -1699,17 +1681,23 @@ function hexInitStaffCards(scope){
 function hexResetStaffToggle(scope){
   var cards=scope.getElementsByClassName('hex-staff-card');
   var isSp=window.innerWidth<=768;
+  var hasDeptFilter=(' '+scope.className+' ').indexOf(' has-dept-filter ')!==-1;
   for(var i=0;i<cards.length;i++){
     cards[i].className=cards[i].className.replace(/\bis-open\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
     if(!isSp){
       cards[i].className+=' is-open';
       hexOpenStaffDetail(cards[i]);
     }else{
-      hexCloseStaffDetail(cards[i]);
+      if(hasDeptFilter){
+        cards[i].className+=' is-open';
+        hexOpenStaffDetail(cards[i]);
+      }else{
+        hexCloseStaffDetail(cards[i]);
+      }
     }
     var toggle=cards[i].getElementsByClassName('hex-staff-toggle')[0];
     if(toggle){
-      if(!isSp){
+      if(!isSp||hasDeptFilter){
         toggle.setAttribute('aria-expanded','true');
         toggle.setAttribute('aria-label','詳細を閉じる');
       }else{
@@ -1725,6 +1713,8 @@ function hexInitStaffToggle(scope){
   for(var i=0;i<buttons.length;i++){
     buttons[i].onclick=function(){
       if(window.innerWidth>768)return;
+      var wrap=hexClosestByClass(this,'hex-staff-wrap');
+      if(wrap&&(' '+wrap.className+' ').indexOf(' has-dept-filter ')!==-1)return;
       var card=hexClosestByClass(this,'hex-staff-card');
       if(!card)return;
       var isOpen=(' '+card.className+' ').indexOf(' is-open ')!==-1;
