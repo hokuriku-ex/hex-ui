@@ -590,9 +590,6 @@
     justify-self:end;
     transition:background .25s ease,color .25s ease,border-color .25s ease,transform .2s ease;
   }
-  .hex-staff-wrap.has-dept-filter .hex-staff-toggle{
-    display:none!important;
-  }
   .hex-staff-toggle i{
     pointer-events:none;
     transition:transform .25s ease;
@@ -615,14 +612,6 @@
     transition:max-height .35s ease,opacity .25s ease,margin .35s ease,padding .35s ease,border-color .35s ease;
   }
   .hex-staff-card.is-open .hex-staff-detail{
-    opacity:1;
-    margin-top:16px;
-    padding-top:16px;
-    border-top:1px solid #d8d8d8;
-  }
-  .hex-staff-wrap.has-dept-filter .hex-staff-detail{
-    overflow:visible;
-    max-height:none!important;
     opacity:1;
     margin-top:16px;
     padding-top:16px;
