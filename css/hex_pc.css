@@ -1634,7 +1634,7 @@ body,
 .hex-staff-section.is-members-open .hex-staff-member-toggle .hex-btn-main-icon i{
   transform:rotate(180deg);
 }
-.hex-staff-sp-dept-card{
+.hex-staff-sp-button-wrap{
   display:none;
 }
 .hex-staff-iframe-wrap{
