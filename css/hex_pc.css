@@ -964,15 +964,15 @@
     display:flex;
     align-items:center;
     justify-content:flex-end;
-    gap:14px;
+    gap:20px;
     transform:translateY(-50%);
   }
   .hex-header-sns a{
     display:flex;
     align-items:center;
     justify-content:center;
-    width:22px;
-    height:22px;
+    width:42px;
+    height:42px;
     color:#1f2774!important;
     text-decoration:none!important;
     transition:opacity .25s ease;
@@ -983,8 +983,8 @@
   .hex-header-sns svg,
   .hex-header-sns .bg_svg{
     display:block;
-    width:20px!important;
-    height:20px!important;
+    width:32px!important;
+    height:32px!important;
     fill:currentColor!important;
     color:#1f2774!important;
   }
@@ -994,8 +994,8 @@
   .hex-header-sns a[href*="tiktok.com"]::before{
     content:"";
     display:block;
-    width:20px;
-    height:20px;
+    width:32px;
+    height:32px;
     background:url("https://hokuriku-ex.github.io/hex-ui/images/tiktok_icon.png") center/contain no-repeat;
   }
 }
