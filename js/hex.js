@@ -1398,7 +1398,7 @@ function createStaffSpButton(group){
   var iconWrap=document.createElement('span');
   iconWrap.className='hex-btn-main-icon';
   var icon=document.createElement('i');
-  icon.className='fa-solid fa-chevron-right';
+  icon.className='fa-solid fa-arrow-right';
   icon.setAttribute('aria-hidden','true');
   iconWrap.appendChild(icon);
   link.appendChild(text);
