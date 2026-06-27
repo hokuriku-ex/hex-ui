@@ -223,6 +223,10 @@
     display:none !important;
   }
 
+  .hex-footer-sns{
+    display:none!important;
+  }
+
   .hex-footer-frame .footer_copyright{
     order:3 !important;
   }
