@@ -896,12 +896,12 @@
 ======================================= */
 /* ヘッダー高さ調整 */
 .heroimage_margintop_normal{
-    margin-top: calc(var(--header_height) - 20px) !important;
+  margin-top:calc(var(--header_height) - 20px)!important;
 }
 
 /* ヘッダーメニューホーム非表示 */
 .menu_menu:first-child{
-  display:none !important;
+  display:none!important;
 }
 
 /* PCのみ：ハンバーガーメニュー非表示 */
@@ -917,31 +917,126 @@
 }
 
 /* ヘッダーメニューのFacebookアイコンを非表示 */
-.bg_menu_button_popup .snsbutton_content a[href*="tiktok.com"] .bg_svg {
-    display: none;
+.bg_menu_button_popup .snsbutton_content a[href*="tiktok.com"] .bg_svg{
+  display:none;
 }
 
 /* ヘッダーメニューにTikTokアイコンを表示 */
-.bg_menu_button_popup .snsbutton_content a[href*="tiktok.com"]::before {
-    content: "";
-    display: block;
-    width: 20px;
-    height: 20px;
-    background: url("https://hokuriku-ex.github.io/hex-ui/images/tiktok_icon.png") center / contain no-repeat;
+.bg_menu_button_popup .snsbutton_content a[href*="tiktok.com"]::before{
+  content:"";
+  display:block;
+  width:20px;
+  height:20px;
+  background:url("https://hokuriku-ex.github.io/hex-ui/images/tiktok_icon.png") center/contain no-repeat;
 }
 
 /* 固定フッターのFacebookアイコンを非表示 */
-.ff_contents .ff_sns a[href*="tiktok.com"] .bg_svg {
-    display: none;
+.ff_contents .ff_sns a[href*="tiktok.com"] .bg_svg{
+  display:none;
 }
 
 /* 固定フッターにTikTokアイコンを表示 */
-.ff_contents .ff_sns a[href*="tiktok.com"]::before {
-    content: "";
-    display: block;
-    width: 20px;
-    height: 20px;
-    background: url("https://hokuriku-ex.github.io/hex-ui/images/tiktok_icon.png") center / contain no-repeat;
+.ff_contents .ff_sns a[href*="tiktok.com"]::before{
+  content:"";
+  display:block;
+  width:20px;
+  height:20px;
+  background:url("https://hokuriku-ex.github.io/hex-ui/images/tiktok_icon.png") center/contain no-repeat;
+}
+
+/* PCのみ：標準固定フッター非表示 */
+@media screen and (min-width:769px){
+  .gc_auto_frame_footer_fixed{
+    display:none!important;
+  }
+}
+
+/* PCヘッダーSNS */
+.hex-header-sns{
+  display:none;
+}
+@media screen and (min-width:769px){
+  .hex-header-sns{
+    position:absolute;
+    right:32px;
+    top:50%;
+    z-index:20;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:14px;
+    transform:translateY(-50%);
+  }
+  .hex-header-sns a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:22px;
+    height:22px;
+    color:#1f2774!important;
+    text-decoration:none!important;
+    transition:opacity .25s ease,transform .25s ease;
+  }
+  .hex-header-sns a:hover{
+    opacity:.75;
+    transform:translateY(-1px);
+  }
+  .hex-header-sns svg,
+  .hex-header-sns .bg_svg{
+    display:block;
+    width:20px!important;
+    height:20px!important;
+    fill:currentColor!important;
+    color:#1f2774!important;
+  }
+  .hex-header-sns a[href*="tiktok.com"] .bg_svg{
+    display:none!important;
+  }
+  .hex-header-sns a[href*="tiktok.com"]::before{
+    content:"";
+    display:block;
+    width:20px;
+    height:20px;
+    background:url("https://hokuriku-ex.github.io/hex-ui/images/tiktok_icon.png") center/contain no-repeat;
+  }
+}
+
+/* PC丸型ページトップ */
+.hex-page-top{
+  display:none;
+}
+@media screen and (min-width:769px){
+  .hex-page-top{
+    position:fixed;
+    right:28px;
+    bottom:28px;
+    z-index:9999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:54px;
+    height:54px;
+    border:1px solid #1f2774;
+    border-radius:50%;
+    background:#1f2774;
+    color:#fff!important;
+    font-size:18px;
+    text-decoration:none!important;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(10px);
+    transition:opacity .25s ease,visibility .25s ease,transform .25s ease,background .25s ease,color .25s ease;
+  }
+  .hex-page-top.is-visible{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+  }
+  .hex-page-top:hover{
+    background:#fff;
+    color:#1f2774!important;
+    text-decoration:none!important;
+  }
 }
 
 /* ==========================
