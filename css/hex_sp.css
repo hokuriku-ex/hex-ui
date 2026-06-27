@@ -643,6 +643,9 @@
     padding-top:32px!important;
     padding-bottom:32px!important;
   }
+  #gc_auto_body_work #gc_auto_frame_work_2 .gc_auto_frame_post_index_box_contents_cell_tile{
+    width:100%!important;
+  }
 }
 
 /* =======================================
