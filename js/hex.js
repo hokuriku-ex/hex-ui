@@ -990,8 +990,91 @@ document.addEventListener('DOMContentLoaded',function(){
     areaView.appendChild(hexCreateFooterArea());
     areaView.classList.add('hex-footer-area');
     footerContents.insertBefore(areaView,copyright);
+    hexCreateFooterSns();
+    hexCreateHeaderSns();
+    hexCreatePageTopButton();
   },300);
 });
+function hexCreateFooterSns(){
+  var footerFrame=document.querySelector('.gc_auto_frame_footer');
+  if(!footerFrame)return;
+  var footerLogo=footerFrame.querySelector('.footer_logo');
+  if(!footerLogo)return;
+  if(footerLogo.querySelector('.hex-footer-sns'))return;
+  var sns=hexCreateSnsLinks('hex-footer-sns');
+  if(!sns)return;
+  footerLogo.appendChild(sns);
+}
+function hexCreateHeaderSns(){
+  var headerFrame=document.querySelector('.gc_auto_frame_header_home')||document.querySelector('[id^="gc_auto_frame_"][class*="header_home"]');
+  if(!headerFrame)return;
+  if(headerFrame.querySelector('.hex-header-sns'))return;
+  var sns=hexCreateSnsLinks('hex-header-sns');
+  if(!sns)return;
+  headerFrame.appendChild(sns);
+}
+function hexCreateSnsLinks(className){
+  var source=document.querySelector('.ff_sns');
+  if(!source)return null;
+  var links=source.querySelectorAll('a');
+  if(!links.length)return null;
+  var wrap=document.createElement('div');
+  wrap.className=className;
+  for(var i=0;i<links.length;i++){
+    var href=links[i].getAttribute('href')||'';
+    if(!href)continue;
+    if(href.indexOf('tiktok.com')===-1&&href.indexOf('instagram.com')===-1&&href.indexOf('youtube.com')===-1)continue;
+    var a=links[i].cloneNode(true);
+    a.removeAttribute('onclick');
+    a.setAttribute('target','_blank');
+    a.setAttribute('rel','noopener noreferrer');
+    if(href.indexOf('tiktok.com')!==-1){
+      a.setAttribute('aria-label','TikTok');
+    }else if(href.indexOf('instagram.com')!==-1){
+      a.setAttribute('aria-label','Instagram');
+    }else if(href.indexOf('youtube.com')!==-1){
+      a.setAttribute('aria-label','YouTube');
+    }
+    wrap.appendChild(a);
+  }
+  if(!wrap.children.length)return null;
+  return wrap;
+}
+function hexCreatePageTopButton(){
+  if(document.querySelector('.hex-page-top'))return;
+  var button=document.createElement('a');
+  button.className='hex-page-top';
+  button.href='#header';
+  button.setAttribute('aria-label','ページ上部へ戻る');
+  var icon=document.createElement('i');
+  icon.className='fa-solid fa-arrow-up';
+  icon.setAttribute('aria-hidden','true');
+  button.appendChild(icon);
+  button.addEventListener('click',function(e){
+    e.preventDefault();
+    window.scrollTo({
+      top:0,
+      behavior:'smooth'
+    });
+  });
+  document.body.appendChild(button);
+  hexTogglePageTopButton(button);
+  window.addEventListener('scroll',function(){
+    hexTogglePageTopButton(button);
+  });
+}
+function hexTogglePageTopButton(button){
+  if(window.innerWidth<=768){
+    button.className=button.className.replace(/\bis-visible\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
+    return;
+  }
+  var isVisible=(' '+button.className+' ').indexOf(' is-visible ')!==-1;
+  if(window.scrollY>300&&!isVisible){
+    button.className+=' is-visible';
+  }else if(window.scrollY<=300&&isVisible){
+    button.className=button.className.replace(/\bis-visible\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
+  }
+}
 
 function hexCreateFooterArea(){
   var area=document.createElement('div');
