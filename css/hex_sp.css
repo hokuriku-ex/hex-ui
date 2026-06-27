@@ -640,8 +640,8 @@
 ======================================= */
 @media screen and (max-width:768px){
   #gc_auto_body_work #gc_auto_frame_work_2 .post_index_contents{
-    padding-top:40px!important;
-    padding-bottom:56px!important;
+    padding-top:32px!important;
+    padding-bottom:32px!important;
   }
 }
 
