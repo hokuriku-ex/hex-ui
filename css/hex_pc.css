@@ -957,10 +957,10 @@
 }
 @media screen and (min-width:769px){
   .hex-header-sns{
-    position:absolute;
+    position:fixed;
     right:32px;
-    top:50%;
-    z-index:20;
+    top:42px;
+    z-index:9999;
     display:flex;
     align-items:center;
     justify-content:flex-end;
@@ -975,11 +975,10 @@
     height:22px;
     color:#1f2774!important;
     text-decoration:none!important;
-    transition:opacity .25s ease,transform .25s ease;
+    transition:opacity .25s ease;
   }
   .hex-header-sns a:hover{
     opacity:.75;
-    transform:translateY(-1px);
   }
   .hex-header-sns svg,
   .hex-header-sns .bg_svg{
