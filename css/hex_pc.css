@@ -1200,7 +1200,6 @@
   }
   .hex-footer-sns a:hover{
     opacity:.75;
-    transform:translateY(-1px);
   }
   .hex-footer-sns svg,
   .hex-footer-sns .bg_svg{
