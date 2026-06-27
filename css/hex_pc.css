@@ -1030,103 +1030,150 @@
    フッター調整
 ======================================= */
 .hex-footer-frame{
-  width:100% !important;
-  float:none !important;
-  margin:0 !important;
-  padding:0 !important;
-  background:#1f2774 !important;
+  width:100%!important;
+  float:none!important;
+  margin:0!important;
+  padding:0!important;
+  background:#1f2774!important;
 }
 
 .hex-footer-frame .background_color,
 .hex-footer-frame .backgroundcolor_auto,
 .hex-footer-frame .backgroundcolor_footercolor{
-  background:#1f2774 !important;
-  background-color:#1f2774 !important;
+  background:#1f2774!important;
+  background-color:#1f2774!important;
 }
 
 .hex-area-source{
-  display:none !important;
+  display:none!important;
 }
 
 .hex-footer-frame .footer_contents{
-  max-width:1200px !important;
-  margin:0 auto !important;
-  padding:60px 40px 95px !important;
-  display:grid !important;
-  grid-template-columns:340px 1fr 1.4fr !important;
-  gap:70px !important;
-  align-items:start !important;
+  max-width:1200px!important;
+  margin:0 auto!important;
+  padding:60px 40px 95px!important;
+  display:grid!important;
+  grid-template-columns:340px 1fr 1.4fr!important;
+  gap:70px!important;
+  align-items:start!important;
 }
 
 .hex-footer-frame .footer_contents,
 .hex-footer-frame .footer_contents *{
-  color:#fff !important;
-  box-sizing:border-box !important;
+  color:#fff!important;
+  box-sizing:border-box!important;
 }
 
 /* ロゴ */
 .hex-footer-frame .footer_logo{
-  width:340px !important;
+  width:340px!important;
 }
 
 .hex-footer-frame .footer_logo picture{
-  display:block !important;
-  width:340px !important;
+  display:block!important;
+  width:340px!important;
 }
 
 .hex-footer-frame .footer_logo img{
-  width:340px !important;
-  height:auto !important;
-  max-width:none !important;
+  width:340px!important;
+  height:auto!important;
+  max-width:none!important;
+}
+
+/* フッターSNS */
+.hex-footer-sns{
+  display:none;
+}
+@media screen and (min-width:769px){
+  .hex-footer-sns{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:0;
+    width:180px;
+    margin:28px auto 0;
+  }
+  .hex-footer-sns a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:60px;
+    height:34px;
+    text-decoration:none!important;
+    color:#fff!important;
+    transition:opacity .25s ease,transform .25s ease;
+  }
+  .hex-footer-sns a:hover{
+    opacity:.75;
+    transform:translateY(-1px);
+  }
+  .hex-footer-sns svg,
+  .hex-footer-sns .bg_svg{
+    display:block;
+    width:22px!important;
+    height:22px!important;
+    fill:currentColor!important;
+    color:#fff!important;
+  }
+  .hex-footer-sns a[href*="tiktok.com"] .bg_svg{
+    display:none!important;
+  }
+  .hex-footer-sns a[href*="tiktok.com"]::before{
+    content:"";
+    display:block;
+    width:22px;
+    height:22px;
+    background:url("https://hokuriku-ex.github.io/hex-ui/images/tiktok_icon.png") center/contain no-repeat;
+    filter:brightness(0) invert(1);
+  }
 }
 
 /* 会社情報 */
 .hex-footer-frame .footer_text{
-  text-align:left !important;
-  font-size:16px !important;
-  line-height:2.1 !important;
+  text-align:left!important;
+  font-size:16px!important;
+  line-height:2.1!important;
 }
 
 .footer-company-name{
-  font-size:20px !important;
-  font-weight:600 !important;
-  margin-bottom:18px !important;
+  font-size:20px!important;
+  font-weight:600!important;
+  margin-bottom:18px!important;
 }
 
 /* 施工エリア */
 .hex-footer-frame .hex-footer-area{
-  text-align:left !important;
+  text-align:left!important;
 }
 
 .footer-area h3{
-  font-size:20px !important;
-  font-weight:600 !important;
-  margin:0 0 14px !important;
+  font-size:20px!important;
+  font-weight:600!important;
+  margin:0 0 14px!important;
 }
 
 .footer-area-text{
-  font-size:16px !important;
-  line-height:2 !important;
+  font-size:16px!important;
+  line-height:2!important;
 }
 
 .footer-area-text p{
-  margin:0 0 10px !important;
+  margin:0 0 10px!important;
 }
 
 /* Copyright */
 .hex-footer-frame .footer_copyright{
-  grid-column:1 / 4 !important;
-  text-align:center !important;
-  margin-top:55px !important;
-  font-size:15px !important;
+  grid-column:1 / 4!important;
+  text-align:center!important;
+  margin-top:55px!important;
+  font-size:15px!important;
 }
 
 /* 固定フッターとの隙間対策 */
 html,
 body,
 #gc_auto_body_home{
-  margin-bottom:0 !important;
-  padding-bottom:0 !important;
+  margin-bottom:0!important;
+  padding-bottom:0!important;
 }
 
 /* =======================================
