@@ -1516,6 +1516,7 @@ body,
 #gc_auto_frame_information_1 h1::after { content: "NEWS"; }
 #gc_auto_frame_staffblog_1 h1::after { content: "STAFF BLOG"; }
 #gc_auto_frame_contact_1 h1::after { content: "CONTACT"; }
+#gc_auto_frame_gccat21_1 h1::after { content: "test"; }
 #gc_auto_frame_qanda_1 h1::after { content: "FAQ"; }
 
 /* 記事タイトル非表示 */
