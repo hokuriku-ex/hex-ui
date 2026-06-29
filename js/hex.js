@@ -2152,9 +2152,89 @@ window.addEventListener('load',function(){
       update();
     }
 
+    function isRequiredRow(row){
+      if(!row||row.classList.contains('is-hidden'))return false;
+      var need=row.querySelector('input[type="hidden"][name*="_need"]');
+      return need&&need.value==='1';
+    }
+
+    function isRowEmpty(row){
+      var data=row.querySelector('.gc_form_lp_data');
+      if(!data)return false;
+
+      var radios=data.querySelectorAll('input[type="radio"]:not(:disabled)');
+      if(radios.length){
+        for(var i=0;i<radios.length;i++){
+          if(radios[i].checked)return false;
+        }
+        return true;
+      }
+
+      var checks=data.querySelectorAll('input[type="checkbox"]:not(:disabled)');
+      if(checks.length){
+        for(var j=0;j<checks.length;j++){
+          if(checks[j].checked)return false;
+        }
+        return true;
+      }
+
+      var fields=data.querySelectorAll('input:not([type="hidden"]):not(:disabled),select:not(:disabled),textarea:not(:disabled)');
+      for(var k=0;k<fields.length;k++){
+        if((fields[k].value||'').trim()!=='')return false;
+      }
+      return true;
+    }
+
+    function getRequiredErrors(){
+      var errors=[];
+      var rows=form.querySelectorAll('.hex-form-row');
+      rows.forEach(function(row){
+        if(!isRequiredRow(row))return;
+        if(!isRowEmpty(row))return;
+        var label=row.getAttribute('data-label')||'';
+        label=label.replace('必須','').trim();
+        errors.push({label:label,row:row});
+      });
+      return errors;
+    }
+
+    function setupRequiredMessage(){
+      if(typeof gc_click_open_dialog_lp_form!=='function')return;
+      if(gc_click_open_dialog_lp_form.hexWrapped)return;
+
+      var original=gc_click_open_dialog_lp_form;
+
+      gc_click_open_dialog_lp_form=function(){
+        var errors=getRequiredErrors();
+
+        if(errors.length){
+          var message='未入力の必須項目があります。\n\n';
+          errors.forEach(function(error){
+            message+='・'+error.label+'\n';
+          });
+
+          o7cms_show_message(message);
+
+          setTimeout(function(){
+            errors[0].row.scrollIntoView({
+              behavior:'smooth',
+              block:'center'
+            });
+          },300);
+
+          return false;
+        }
+
+        return original();
+      };
+
+      gc_click_open_dialog_lp_form.hexWrapped=true;
+    }
+
     wrapRows();
     setupRequirementSwitch();
     setupReferralSwitch();
+    setupRequiredMessage();
   },600);
 });
 
