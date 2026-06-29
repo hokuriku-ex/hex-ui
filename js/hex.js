@@ -2038,6 +2038,13 @@ window.addEventListener('load',function(){
     var titleInput=form.querySelector('input[name="form_lp_title"]');
     var pageTitle=titleInput?titleInput.value:'';
 
+    function isContactPage(){
+      return (
+        pageTitle.indexOf('お問い合わせ')!==-1||
+        pageTitle.indexOf('お問合わせ')!==-1
+      );
+    }
+
     function getLabelText(label){
       if(!label)return'';
       return label.textContent.replace(/\s+/g,'').trim();
@@ -2090,7 +2097,7 @@ window.addEventListener('load',function(){
     }
 
     function setupRequirementSwitch(){
-      if(pageTitle.indexOf('お問合わせ')===-1)return;
+      if(!isContactPage())return;
 
       var requirementRow=findRow('ご要件');
       var houseMakerRow=findRow('ハウスメーカー');
@@ -2121,7 +2128,7 @@ window.addEventListener('load',function(){
     }
 
     function setupReferralSwitch(){
-      if(pageTitle.indexOf('お問合わせ')===-1)return;
+      if(!isContactPage())return;
 
       var sourceRow=findRow('弊社を知ったきっかけ');
       var nameRow=findRow('ご紹介');
