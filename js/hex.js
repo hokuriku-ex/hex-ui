@@ -2038,8 +2038,6 @@ window.addEventListener('load',function(){
     var titleInput=form.querySelector('input[name="form_lp_title"]');
     var pageTitle=titleInput?titleInput.value:'';
 
-    form.classList.add('hex-form-ready');
-
     function getLabelText(label){
       if(!label)return'';
       return label.textContent.replace(/\s+/g,'').trim();
@@ -2134,8 +2132,7 @@ window.addEventListener('load',function(){
         var checks=sourceRow.querySelectorAll('input[type="checkbox"]');
         checks.forEach(function(check){
           if(!check.checked)return;
-          var label='';
-          if(check.parentNode)label=check.parentNode.textContent.replace(/\s+/g,'').trim();
+          var label=check.parentNode?check.parentNode.textContent.replace(/\s+/g,'').trim():'';
           if(label.indexOf('ハウスメーカー')!==-1||label.indexOf('知人')!==-1||label.indexOf('友人')!==-1)show=true;
         });
         setRowVisible(nameRow,show);
