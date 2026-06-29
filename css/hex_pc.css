@@ -1950,8 +1950,8 @@ body,
 }
 
 /* 郵便番号 */
-.hex-form-row[data-label*="〒"] input{
-  width:auto!important;
+#form_lp_form .hex-form-row[data-label*="〒"] .gc_form_lp_data_input{
+  width:200px!important;
   max-width:200px!important;
 }
 
