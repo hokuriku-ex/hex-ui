@@ -2100,6 +2100,10 @@ body.hex-form-dialog-open .gc_dialog_lp_form_line{
   border-bottom:1px solid #e5e8f0;
 }
 body.hex-form-dialog-open .gc_dialog_lp_form_label{
+  width:auto!important;
+  min-width:0!important;
+  margin-right:0!important;
+  margin-bottom:0!important;
   color:#383838;
   font-size:15px;
   line-height:1.8;
@@ -2120,72 +2124,87 @@ body.hex-form-dialog-open .gc_dialog_lp_form_line.is-empty{
 body.hex-form-dialog-open .gc_auto_frame_lp_form_dialog_buttons{
   max-width:960px!important;
   margin:48px auto 0!important;
-  display:flex!important;
-  justify-content:center;
-  gap:20px;
+  display:grid!important;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
   background:none!important;
 }
-
 body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round{
-  width:auto!important;
-  min-width:240px;
-  height:56px;
-  padding:0 28px!important;
-  border-radius:999px!important;
+  width:100%!important;
+  min-width:0!important;
+  height:auto!important;
+  margin:0!important;
+  padding:18px 24px!important;
   display:flex!important;
   align-items:center;
-  justify-content:center;
-  gap:10px;
+  justify-content:space-between;
+  gap:24px;
+  border-radius:0!important;
   box-sizing:border-box;
   cursor:pointer;
   transition:.3s ease;
 }
-
 body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:first-child{
   background:#fff!important;
   border:1px solid #1f2774!important;
   color:#1f2774!important;
 }
-
 body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:last-child{
   background:#1f2774!important;
   border:1px solid #1f2774!important;
   color:#fff!important;
 }
-
-body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:first-child:hover{
+body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:hover{
   border-color:#c8a874!important;
+  background:#fff!important;
   color:#c8a874!important;
 }
-
-body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:last-child:hover{
-  background:#2a5bac!important;
-  border-color:#2a5bac!important;
-}
-
 body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_text{
   color:inherit!important;
-  font-size:15px!important;
-  font-weight:700!important;
-  line-height:1!important;
+  font-size:18px!important;
+  font-weight:600!important;
+  line-height:1.5!important;
+  letter-spacing:.04em!important;
+  transition:.3s ease;
 }
-
 body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_svg{
-  width:14px!important;
-  height:14px!important;
+  width:auto!important;
+  height:auto!important;
+  margin:0!important;
+  padding:0!important;
   display:flex!important;
   align-items:center;
   justify-content:center;
+  color:inherit!important;
+  transform:translateX(0);
+  transition:.3s ease;
 }
-
 body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_svg svg{
-  width:14px!important;
-  height:14px!important;
-  fill:currentColor!important;
+  display:none!important;
+}
+body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_svg::before{
+  content:"\f061";
+  font-family:"Font Awesome 6 Free";
+  font-weight:900;
+  font-size:22px;
+  line-height:1;
+  color:inherit!important;
+}
+body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:first-child .gc_auto_frame_lp_form_box_button_svg::before{
+  content:"\f060";
+}
+body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:hover .gc_auto_frame_lp_form_box_button_svg{
+  transform:translateX(3px);
+}
+body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:first-child:hover .gc_auto_frame_lp_form_box_button_svg{
+  transform:translateX(-3px);
 }
 
-body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:hover .gc_auto_frame_lp_form_box_button_svg{
-  transform:translateX(4px);
+/* ボタン PC専用 */
+@media screen and (min-width:769px){
+  body.hex-form-dialog-open .gc_dialog_lp_form_label{
+    white-space:nowrap;
+  }
 }
 
 /* =======================================
