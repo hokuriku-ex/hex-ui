@@ -2245,7 +2245,7 @@ window.addEventListener('load',function(){
               behavior:'smooth',
               block:'center'
             });
-          },300);
+          },50);
 
           return false;
         }
@@ -2261,7 +2261,7 @@ window.addEventListener('load',function(){
     setupReferralSwitch();
     setupRequiredEmptyState();
     setupRequiredMessage();
-  },600);
+  },300);
 });
 
 /* よくある質問 */
