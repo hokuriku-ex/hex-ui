@@ -1923,7 +1923,8 @@ body,
 #form_lp_form input[type="file"],
 #form_lp_form textarea,
 #form_lp_form select{
-  width:100%;
+  width:100%!important;
+  max-width:none!important;
   box-sizing:border-box;
   border:0;
   border-radius:4px;
