@@ -2029,13 +2029,17 @@ body,
   color:#c8a874;
   transform:translateX(3px);
 }
-
-/* チェックをお願いします */
-.hex-check-title{
-  margin-bottom:12px;
-  font-size:15px;
-  font-weight:600;
-  color:#383838;
+#form_lp_form .hex-form-row.is-required-empty .gc_form_lp_data input[type="text"],
+#form_lp_form .hex-form-row.is-required-empty .gc_form_lp_data input[type="email"],
+#form_lp_form .hex-form-row.is-required-empty .gc_form_lp_data input[type="tel"],
+#form_lp_form .hex-form-row.is-required-empty .gc_form_lp_data textarea,
+#form_lp_form .hex-form-row.is-required-empty .gc_form_lp_data select{
+  background:#fff2f4!important;
+}
+#form_lp_form .hex-form-row.is-required-empty .gc_form_lp_data_options_box{
+  background:#fff2f4;
+  padding:10px 12px;
+  border-radius:4px;
 }
 
 /* =======================================
