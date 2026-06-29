@@ -2313,10 +2313,8 @@ window.addEventListener('load',function(){
         var result=original();
 
         setTimeout(function(){
-          if(isDialogAlive()){
-            lockDialogView();
-          }
-        },150);
+          lockDialogView();
+        },500);
 
         return result;
       };
