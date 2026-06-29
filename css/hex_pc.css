@@ -2044,7 +2044,7 @@ body,
   padding:10px 12px;
   border-radius:4px;
 }
-.hex-form-row.is-required-empty[data-label*="添付ファイル"] .gc_form_lp_data{
+#form_lp_form .hex-form-row.is-required-empty[data-label*="添付ファイル"] .gc_form_lp_data_input{
   background:#ffe4ec!important;
 }
 
