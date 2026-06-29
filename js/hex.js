@@ -2037,6 +2037,7 @@ window.addEventListener('load',function(){
 
     var titleInput=form.querySelector('input[name="form_lp_title"]');
     var pageTitle=titleInput?titleInput.value:'';
+    var validationStarted=false;
 
     function isContactPage(){
       return (
@@ -2117,6 +2118,8 @@ window.addEventListener('load',function(){
         setRowVisible(addressRow,isNew||isReform);
         setRowVisible(drawingRow,isNew||isReform);
         setRowVisible(deliveryRow,isNew);
+
+        updateRequiredEmptyState();
       }
 
       if(requirementRow){
@@ -2144,6 +2147,8 @@ window.addEventListener('load',function(){
           if(label.indexOf('ハウスメーカー')!==-1||label.indexOf('知人')!==-1||label.indexOf('友人')!==-1)show=true;
         });
         setRowVisible(nameRow,show);
+
+        updateRequiredEmptyState();
       }
 
       var checks=sourceRow.querySelectorAll('input[type="checkbox"]');
@@ -2200,6 +2205,8 @@ window.addEventListener('load',function(){
     }
 
     function updateRequiredEmptyState(){
+      if(!validationStarted)return;
+
       var rows=form.querySelectorAll('.hex-form-row');
       rows.forEach(function(row){
         if(!isRequiredRow(row)){
@@ -2228,11 +2235,12 @@ window.addEventListener('load',function(){
       var original=gc_click_open_dialog_lp_form;
 
       gc_click_open_dialog_lp_form=function(){
+        validationStarted=true;
+        updateRequiredEmptyState();
+
         var errors=getRequiredErrors();
 
         if(errors.length){
-          updateRequiredEmptyState();
-
           var message='<strong>未入力の必須項目があります。</strong><br><br>';
           errors.forEach(function(error){
             message+='・'+error.label+'<br>';
