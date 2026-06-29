@@ -2145,9 +2145,30 @@ window.addEventListener('load',function(){
       update();
     }
 
+    function setupCheckTitle(){
+      var checkRow=findRow('チェックをお願いします');
+      if(!checkRow)return;
+
+      var label=checkRow.querySelector('.gc_form_lp_label');
+      var data=checkRow.querySelector('.gc_form_lp_data');
+      if(!label||!data)return;
+      if(data.querySelector('.hex-check-title'))return;
+
+      var note=document.createElement('div');
+      note.className='hex-check-title';
+
+      while(label.firstChild){
+        note.appendChild(label.firstChild);
+      }
+
+      data.insertBefore(note,data.firstChild);
+      label.style.display='none';
+    }
+
     wrapRows();
     setupRequirementSwitch();
     setupReferralSwitch();
+    setupCheckTitle();
   },600);
 });
 
