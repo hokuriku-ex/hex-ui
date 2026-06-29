@@ -2038,7 +2038,9 @@ window.addEventListener('load',function(){
     var titleInput=form.querySelector('input[name="form_lp_title"]');
     var pageTitle=titleInput?titleInput.value:'';
     var validationStarted=false;
-    var dialogObserver=null;
+    var dialogPollTimer=null;
+    var dialogLocked=false;
+    var dialogScrollY=0;
 
     function isContactPage(){
       return (
@@ -2230,57 +2232,52 @@ window.addEventListener('load',function(){
     }
 
     function lockDialogView(){
+      if(dialogLocked)return;
+      dialogLocked=true;
+      dialogScrollY=window.pageYOffset||document.documentElement.scrollTop||0;
+
       document.body.classList.add('hex-form-dialog-open');
+      document.body.style.position='fixed';
+      document.body.style.top='-'+dialogScrollY+'px';
+      document.body.style.left='0';
+      document.body.style.right='0';
+      document.body.style.width='100%';
 
-      if(dialogObserver){
-        dialogObserver.disconnect();
-        dialogObserver=null;
-      }
-
-      var dialogBox=document.getElementById('gc_auto_frame_lp_form_dialog_box');
-      if(dialogBox){
-        dialogObserver=new MutationObserver(function(){
-          setTimeout(checkDialogClosed,50);
-        });
-        dialogObserver.observe(dialogBox,{
-          childList:true,
-          subtree:true,
-          attributes:true,
-          attributeFilter:['style','class']
-        });
-      }
-
-      setTimeout(checkDialogClosed,800);
+      startDialogWatch();
     }
 
     function unlockDialogView(){
+      if(!dialogLocked)return;
+      dialogLocked=false;
+
       document.body.classList.remove('hex-form-dialog-open');
-      if(dialogObserver){
-        dialogObserver.disconnect();
-        dialogObserver=null;
+      document.body.style.position='';
+      document.body.style.top='';
+      document.body.style.left='';
+      document.body.style.right='';
+      document.body.style.width='';
+
+      if(dialogPollTimer){
+        clearInterval(dialogPollTimer);
+        dialogPollTimer=null;
       }
+
+      window.scrollTo(0,dialogScrollY);
     }
 
-    function checkDialogClosed(){
-      var dialog=document.getElementById('gc_auto_frame_lp_form_dialog');
-      var dialogBox=document.getElementById('gc_auto_frame_lp_form_dialog_box');
+    function isDialogAlive(){
+      var box=document.getElementById('gc_auto_frame_lp_form_dialog_box');
+      if(!box)return false;
+      return box.innerHTML.replace(/\s+/g,'').length>0;
+    }
 
-      if(!dialog&&!dialogBox){
-        unlockDialogView();
-        return;
-      }
-
-      if(dialogBox&&dialogBox.innerHTML.replace(/\s+/g,'').length===0){
-        unlockDialogView();
-        return;
-      }
-
-      if(dialog){
-        var style=window.getComputedStyle(dialog);
-        if(style.display==='none'||style.visibility==='hidden'||style.opacity==='0'){
+    function startDialogWatch(){
+      if(dialogPollTimer)clearInterval(dialogPollTimer);
+      dialogPollTimer=setInterval(function(){
+        if(!isDialogAlive()){
           unlockDialogView();
         }
-      }
+      },300);
     }
 
     function setupRequiredMessage(){
@@ -2316,8 +2313,10 @@ window.addEventListener('load',function(){
         var result=original();
 
         setTimeout(function(){
-          lockDialogView();
-        },100);
+          if(isDialogAlive()){
+            lockDialogView();
+          }
+        },150);
 
         return result;
       };
@@ -2326,11 +2325,25 @@ window.addEventListener('load',function(){
     }
 
     document.addEventListener('click',function(e){
-      if(!document.body.classList.contains('hex-form-dialog-open'))return;
+      if(!dialogLocked)return;
       var text=(e.target.textContent||'').replace(/\s+/g,'').trim();
       if(text.indexOf('修正')!==-1||text.indexOf('戻る')!==-1||text.indexOf('閉じる')!==-1){
-        setTimeout(unlockDialogView,100);
+        setTimeout(unlockDialogView,80);
       }
+    });
+
+    window.addEventListener('pageshow',function(){
+      if(!isDialogAlive()){
+        unlockDialogView();
+      }
+    });
+
+    window.addEventListener('popstate',function(){
+      setTimeout(function(){
+        if(!isDialogAlive()){
+          unlockDialogView();
+        }
+      },80);
     });
 
     wrapRows();
