@@ -2231,7 +2231,7 @@ window.addEventListener('load',function(){
       gc_click_open_dialog_lp_form.hexWrapped=true;
     }
 
-    function updateRequiredEmptyState(){
+  function updateRequiredEmptyState(){
     var rows=form.querySelectorAll('.hex-form-row');
     rows.forEach(function(row){
       if(!isRequiredRow(row)){
