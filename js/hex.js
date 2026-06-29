@@ -2231,9 +2231,33 @@ window.addEventListener('load',function(){
       gc_click_open_dialog_lp_form.hexWrapped=true;
     }
 
+    function updateRequiredEmptyState(){
+    var rows=form.querySelectorAll('.hex-form-row');
+    rows.forEach(function(row){
+      if(!isRequiredRow(row)){
+        row.classList.remove('is-required-empty');
+        return;
+      }
+      row.classList.toggle('is-required-empty',isRowEmpty(row));
+    });
+  }
+
+  function setupRequiredEmptyState(){
+    var rows=form.querySelectorAll('.hex-form-row');
+    rows.forEach(function(row){
+      var fields=row.querySelectorAll('input,select,textarea');
+      fields.forEach(function(field){
+        field.addEventListener('input',updateRequiredEmptyState);
+        field.addEventListener('change',updateRequiredEmptyState);
+      });
+    });
+    updateRequiredEmptyState();
+  }
+
     wrapRows();
     setupRequirementSwitch();
     setupReferralSwitch();
+    setupRequiredEmptyState();
     setupRequiredMessage();
   },600);
 });
