@@ -1897,6 +1897,8 @@ body,
 #form_lp_form .gc_form_lp_title{
   display:none!important;
 }
+
+/* 行 */
 #form_lp_form .hex-form-row{
   display:grid;
   grid-template-columns:220px 1fr;
@@ -1907,6 +1909,8 @@ body,
 #form_lp_form .hex-form-row.is-hidden{
   display:none!important;
 }
+
+/* ラベル */
 #form_lp_form .gc_form_lp_label{
   margin:0!important;
   padding-top:10px;
@@ -1917,12 +1921,12 @@ body,
 #form_lp_form .gc_form_lp_data{
   margin:0!important;
 }
-#form_lp_form input[type="text"],
-#form_lp_form input[type="email"],
-#form_lp_form input[type="tel"],
-#form_lp_form input[type="file"],
-#form_lp_form textarea,
-#form_lp_form select{
+
+/* 入力欄 */
+#form_lp_form .gc_form_lp_data input[type="text"],
+#form_lp_form .gc_form_lp_data input[type="email"],
+#form_lp_form .gc_form_lp_data input[type="tel"],
+#form_lp_form .gc_form_lp_data textarea{
   width:100%!important;
   max-width:none!important;
   box-sizing:border-box;
@@ -1934,10 +1938,36 @@ body,
   line-height:1.6;
   color:#383838;
 }
+
+/* 添付ファイル */
+#form_lp_form .gc_form_lp_data input[type="file"]{
+  max-width:none!important;
+}
+
+/* セレクト */
+#form_lp_form .gc_form_lp_data select{
+  box-sizing:border-box;
+}
+
+/* 郵便番号 */
+.hex-form-row[data-label*="〒"] input{
+  width:auto!important;
+  max-width:200px!important;
+}
+
+/* 都道府県 */
+.hex-form-row[data-label*="都道府県"] select{
+  width:auto!important;
+  min-width:120px;
+}
+
+/* テキストエリア */
 #form_lp_form textarea{
   min-height:180px;
   resize:vertical;
 }
+
+/* ラジオ・チェック */
 #form_lp_form input[type="radio"],
 #form_lp_form input[type="checkbox"]{
   margin-right:6px;
@@ -1950,6 +1980,8 @@ body,
   margin-bottom:6px;
   line-height:1.7;
 }
+
+/* 確認ボタン */
 #form_lp_form_button{
   width:100%;
   max-width:420px;
@@ -1997,30 +2029,13 @@ body,
   color:#c8a874;
   transform:translateX(3px);
 }
-@media screen and (max-width:768px){
-  #gc_auto_frame_lp_form_body{
-    max-width:none;
-    margin:0 16px;
-  }
-  #form_lp_form{
-    max-width:none;
-    margin:0;
-  }
-  #form_lp_form .hex-form-row{
-    display:block;
-    margin-bottom:28px;
-  }
-  #form_lp_form .gc_form_lp_label{
-    padding-top:0;
-    margin-bottom:6px!important;
-  }
-  #form_lp_form textarea{
-    min-height:150px;
-  }
-  #form_lp_form_button{
-    max-width:280px;
-    margin-top:40px!important;
-  }
+
+/* チェックをお願いします */
+.hex-check-title{
+  margin-bottom:12px;
+  font-size:15px;
+  font-weight:600;
+  color:#383838;
 }
 
 /* =======================================
