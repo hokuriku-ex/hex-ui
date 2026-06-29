@@ -2152,10 +2152,14 @@ window.addEventListener('load',function(){
     var label=checkRow.querySelector('.gc_form_lp_label');
     var data=checkRow.querySelector('.gc_form_lp_data');
     if(!label||!data)return;
+    if(data.querySelector('.hex-check-title'))return;
 
-    data.insertBefore(label,data.firstChild);
-    data.style.gridColumn='1 / -1';
-    checkRow.style.display='block';
+    var note=document.createElement('div');
+    note.className='hex-check-title';
+    note.innerHTML=label.innerHTML;
+
+    data.insertBefore(note,data.firstChild);
+    label.style.visibility='hidden';
   }
 
     wrapRows();
