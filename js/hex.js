@@ -2090,7 +2090,7 @@ window.addEventListener('load',function(){
     }
 
     function setupRequirementSwitch(){
-      if(pageTitle.indexOf('お問い合わせ')===-1)return;
+      if(pageTitle.indexOf('お問合わせ')===-1)return;
 
       var requirementRow=findRow('ご要件');
       var houseMakerRow=findRow('ハウスメーカー');
@@ -2121,7 +2121,7 @@ window.addEventListener('load',function(){
     }
 
     function setupReferralSwitch(){
-      if(pageTitle.indexOf('お問い合わせ')===-1)return;
+      if(pageTitle.indexOf('お問合わせ')===-1)return;
 
       var sourceRow=findRow('弊社を知ったきっかけ');
       var nameRow=findRow('ハウスメーカー担当者')||findRow('ご紹介者');
