@@ -2047,6 +2047,27 @@ body,
 #form_lp_form .hex-form-row.is-required-empty[data-label*="添付ファイル"] .gc_form_lp_data_input{
   background:#ffe4ec!important;
 }
+/* 確認画面表示中 */
+body.hex-form-dialog-open{
+  overflow:hidden!important;
+}
+
+/* 確認画面を最前面へ */
+body.hex-form-dialog-open #gc_auto_frame_lp_form_dialog,
+body.hex-form-dialog-open #gc_auto_frame_lp_form_dialog_box{
+  z-index:999999!important;
+}
+
+/* SP固定フッター対策 */
+body.hex-form-dialog-open .fixed-footer,
+body.hex-form-dialog-open .fixed_footer,
+body.hex-form-dialog-open .footer-fixed,
+body.hex-form-dialog-open .footer_fixed,
+body.hex-form-dialog-open .hex-fixed-footer,
+body.hex-form-dialog-open #fixed_footer,
+body.hex-form-dialog-open #footer_fixed{
+  display:none!important;
+}
 
 /* =======================================
    下層ページ：よくある質問
