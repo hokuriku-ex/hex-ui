@@ -1884,6 +1884,145 @@ body,
 }
 
 /* =======================================
+   下層ページ：お問合わせ
+======================================= */
+#form_lp_form{
+  max-width:960px;
+  margin:0 auto;
+}
+#form_lp_form .gc_form_lp_title{
+  display:none!important;
+}
+#form_lp_form .hex-form-row{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:20px;
+  align-items:start;
+  margin-bottom:24px;
+}
+#form_lp_form .hex-form-row.is-hidden{
+  display:none!important;
+}
+#form_lp_form .gc_form_lp_label{
+  margin:0!important;
+  padding-top:10px;
+  font-size:15px;
+  line-height:1.8;
+  color:#383838;
+}
+#form_lp_form .gc_form_lp_data{
+  margin:0!important;
+}
+#form_lp_form input[type="text"],
+#form_lp_form input[type="email"],
+#form_lp_form input[type="tel"],
+#form_lp_form input[type="file"],
+#form_lp_form textarea,
+#form_lp_form select{
+  width:100%;
+  box-sizing:border-box;
+  border:0;
+  border-radius:4px;
+  background:#f4f4f4;
+  padding:12px 14px;
+  font-size:15px;
+  line-height:1.6;
+  color:#383838;
+}
+#form_lp_form textarea{
+  min-height:180px;
+  resize:vertical;
+}
+#form_lp_form input[type="radio"],
+#form_lp_form input[type="checkbox"]{
+  margin-right:6px;
+}
+#form_lp_form .gc_form_lp_data_options_box{
+  padding-top:6px;
+}
+#form_lp_form .gc_form_lp_data_options{
+  display:block;
+  margin-bottom:6px;
+  line-height:1.7;
+}
+#form_lp_form .gc_form_lp_label .need,
+#form_lp_form .gc_form_lp_label span,
+#form_lp_form .gc_form_lp_label font{
+  vertical-align:middle;
+}
+#form_lp_form_button{
+  width:fit-content;
+  margin:48px auto 0!important;
+  padding:14px 34px!important;
+  border-radius:999px!important;
+  background:#1f2774!important;
+  color:#fff!important;
+  cursor:pointer;
+  display:flex!important;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  transition:all .25s ease;
+}
+#form_lp_form_button:hover{
+  background:#b08a2a!important;
+}
+#form_lp_form_button .gc_auto_frame_lp_form_box_button_text{
+  color:#fff!important;
+  font-size:15px;
+  letter-spacing:.08em;
+}
+#form_lp_form_button .gc_auto_frame_lp_form_box_button_svg{
+  display:none!important;
+}
+.privacy_policy{
+  max-width:960px;
+  margin:40px auto 0!important;
+  border:1px solid #d8d8d8!important;
+  background:#fff;
+}
+.privacy_policy .policy_title{
+  padding:12px 16px;
+  font-size:15px;
+  font-weight:700;
+  color:#383838;
+  border-bottom:1px solid #e5e5e5;
+}
+.privacy_policy .policy_text{
+  max-height:180px;
+  padding:16px;
+  overflow:auto;
+  font-size:13px;
+  line-height:1.8;
+  color:#383838;
+}
+@media screen and (max-width:768px){
+  #form_lp_form{
+    max-width:none;
+    margin:0 16px;
+  }
+  #form_lp_form .hex-form-row{
+    display:block;
+    margin-bottom:28px;
+  }
+  #form_lp_form .gc_form_lp_label{
+    padding-top:0;
+    margin-bottom:6px!important;
+  }
+  #form_lp_form textarea{
+    min-height:150px;
+  }
+  #form_lp_form_button{
+    width:auto;
+    max-width:280px;
+    margin-top:40px!important;
+  }
+  .privacy_policy{
+    margin:36px 16px 0!important;
+  }
+}
+
+/* =======================================
    下層ページ：よくある質問
 ======================================= */
 .publicinfo_qanda .qanda_content{
