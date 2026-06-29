@@ -896,7 +896,7 @@
 ======================================= */
 /* ヘッダー高さ調整 */
 .heroimage_margintop_normal{
-  margin-top:calc(var(--header_height) - 20px)!important;
+  margin-top:var(--header_height)!important;
 }
 
 /* ヘッダーメニューホーム非表示 */
