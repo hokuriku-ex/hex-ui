@@ -2257,6 +2257,52 @@ window.addEventListener('load',function(){
       window.scrollTo(0,dialogScrollY);
     }
 
+    function customizeDialog(){
+      var box=document.getElementById('gc_auto_frame_lp_form_dialog_box');
+      if(!box||box.classList.contains('hex-dialog-ready'))return;
+
+      box.classList.add('hex-dialog-ready');
+
+      var lines=box.querySelectorAll('.gc_dialog_lp_form_line');
+      lines.forEach(function(line){
+        var label=line.querySelector('.gc_dialog_lp_form_label');
+        var value=line.querySelector('.gc_dialog_lp_form_value');
+        if(!label||!value)return;
+
+        var labelText=label.textContent.replace(/\s+/g,'').replace('：','').replace(':','').trim();
+        var valueText=value.textContent.replace(/\s+/g,'').trim();
+
+        label.textContent=labelText;
+
+        if(valueText===''||valueText==='選択されていません'){
+          line.classList.add('is-empty');
+        }
+
+        if(labelText.indexOf('添付ファイル')!==-1&&valueText===''){
+          line.classList.add('is-empty');
+        }
+      });
+
+      var wrap=document.createElement('div');
+      wrap.className='hex-dialog-confirm';
+
+      var title=document.createElement('h3');
+      title.className='hex-dialog-confirm-title';
+      title.textContent='入力内容の確認';
+
+      var lead=document.createElement('p');
+      lead.className='hex-dialog-confirm-lead';
+      lead.textContent='内容をご確認のうえ、問題がなければ送信してください。';
+
+      while(box.firstChild){
+        wrap.appendChild(box.firstChild);
+      }
+
+      wrap.insertBefore(lead,wrap.firstChild);
+      wrap.insertBefore(title,wrap.firstChild);
+      box.appendChild(wrap);
+    }
+
     function setupRequiredMessage(){
       if(typeof gc_click_open_dialog_lp_form!=='function')return;
       if(gc_click_open_dialog_lp_form.hexWrapped)return;
@@ -2290,6 +2336,7 @@ window.addEventListener('load',function(){
         var result=original();
 
         setTimeout(function(){
+          customizeDialog();
           lockDialogView();
         },500);
 
