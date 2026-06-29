@@ -1253,7 +1253,7 @@ body,
 /* スクロール */
 .hex-scroll-indicator{
   text-align:center;
-  padding-top:10px;
+  padding-top:8px;
 }
 
 .hex-scroll-indicator span{
