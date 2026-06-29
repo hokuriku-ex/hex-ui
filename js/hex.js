@@ -2208,9 +2208,9 @@ window.addEventListener('load',function(){
         var errors=getRequiredErrors();
 
         if(errors.length){
-          var message='未入力の必須項目があります。\n\n';
+          var message='未入力の必須項目があります。<br><br>';
           errors.forEach(function(error){
-            message+='・'+error.label+'\n';
+            message+='・'+error.label+'<br>';
           });
 
           o7cms_show_message(message);
