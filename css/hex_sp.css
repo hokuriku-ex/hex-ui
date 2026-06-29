@@ -701,6 +701,19 @@
   }
 }
 
+/* 確認画面表示中 */
+@media screen and (max-width:768px){
+  body.hex-form-dialog-open .hex-fixed-footer,
+  body.hex-form-dialog-open .fixed-footer,
+  body.hex-form-dialog-open .fixed_footer,
+  body.hex-form-dialog-open .footer-fixed,
+  body.hex-form-dialog-open .footer_fixed,
+  body.hex-form-dialog-open #fixed_footer,
+  body.hex-form-dialog-open #footer_fixed{
+    display:none!important;
+  }
+}
+
 /* =======================================
    下層ページ：よくある質問
 ======================================= */
