@@ -2145,10 +2145,19 @@ body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round{
   transition:.3s ease;
 }
 body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:first-child{
-  flex-direction:row-reverse;
   background:#fff!important;
   border:1px solid #1f2774!important;
   color:#1f2774!important;
+}
+body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:first-child::before{
+  content:"\f060";
+  font-family:"Font Awesome 6 Free";
+  font-weight:900;
+  font-size:22px;
+  line-height:1;
+  color:inherit!important;
+  transform:translateX(0);
+  transition:.3s ease;
 }
 body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:last-child{
   background:#1f2774!important;
@@ -2159,6 +2168,9 @@ body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:hover{
   border-color:#c8a874!important;
   background:#fff!important;
   color:#c8a874!important;
+}
+body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:first-child:hover::before{
+  transform:translateX(-3px);
 }
 body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_text{
   color:inherit!important;
@@ -2191,14 +2203,8 @@ body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_svg::before{
   line-height:1;
   color:inherit!important;
 }
-body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:first-child .gc_auto_frame_lp_form_box_button_svg::before{
-  content:"\f060";
-}
 body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:hover .gc_auto_frame_lp_form_box_button_svg{
   transform:translateX(3px);
-}
-body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:first-child:hover .gc_auto_frame_lp_form_box_button_svg{
-  transform:translateX(-3px);
 }
 
 /* ボタン PC専用 */
