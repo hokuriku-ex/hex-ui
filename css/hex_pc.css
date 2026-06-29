@@ -1250,6 +1250,28 @@ body,
 /* =======================================
    トップページ
 ======================================= */
+/* スクロール */
+.hex-scroll-indicator{
+  text-align:center;
+  padding:24px 0 40px;
+}
+
+.hex-scroll-indicator span{
+  font-size:12px;
+  letter-spacing:.2em;
+  color:#777;
+  position:relative;
+}
+
+.hex-scroll-indicator span::after{
+  content:"";
+  display:block;
+  width:1px;
+  height:40px;
+  margin:12px auto 0;
+  background:#ccc;
+}
+
 /* ウェルカムメッセージ */
 .welcome{
   padding:80px 0 30px;
