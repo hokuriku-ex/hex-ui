@@ -701,18 +701,46 @@
   }
 }
 
-/* 確認画面表示中 */
+/* =======================================
+   下層ページ：フォーム確認画面
+======================================= */
 @media screen and (max-width:768px){
+  body.hex-form-dialog-open .gc_auto_frame_footer_fixed,
+  body.hex-form-dialog-open [id^="gc_auto_frame_"][class*="footer_fixed"],
   body.hex-form-dialog-open .hex-fixed-footer,
   body.hex-form-dialog-open .fixed-footer,
   body.hex-form-dialog-open .fixed_footer,
   body.hex-form-dialog-open .footer-fixed,
   body.hex-form-dialog-open .footer_fixed,
   body.hex-form-dialog-open #fixed_footer,
-  body.hex-form-dialog-open #footer_fixed,
-  body.hex-form-dialog-open .gc_auto_frame_footer_fixed,
-  body.hex-form-dialog-open [id^="gc_auto_frame_"][class*="footer_fixed"]{
+  body.hex-form-dialog-open #footer_fixed{
     display:none!important;
+  }
+  body.hex-form-dialog-open #gc_auto_frame_lp_form_dialog_box{
+    max-width:none!important;
+    margin:0!important;
+    padding:32px 16px 40px!important;
+  }
+  body.hex-form-dialog-open .hex-dialog-confirm-title{
+    margin-bottom:24px;
+    font-size:24px;
+  }
+  body.hex-form-dialog-open .hex-dialog-confirm-lead{
+    margin-bottom:28px;
+  }
+  body.hex-form-dialog-open .gc_dialog_lp_form_line{
+    display:block;
+    padding:16px 0;
+  }
+  body.hex-form-dialog-open .gc_dialog_lp_form_label{
+    margin-bottom:6px;
+  }
+  body.hex-form-dialog-open #gc_auto_frame_lp_form_dialog_button{
+    display:block!important;
+    margin-top:32px!important;
+  }
+  body.hex-form-dialog-open #gc_auto_frame_lp_form_dialog_button > div{
+    margin-bottom:14px!important;
   }
 }
 
