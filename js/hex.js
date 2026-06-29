@@ -2040,6 +2040,9 @@ window.addEventListener('load',function(){
     var validationStarted=false;
     var dialogLocked=false;
     var dialogScrollY=0;
+    var dialogObserver=null;
+    var dialogObserveTimer=null;
+    var dialogCustomizeTimer=null;
 
     function isContactPage(){
       return (
@@ -2257,12 +2260,7 @@ window.addEventListener('load',function(){
       window.scrollTo(0,dialogScrollY);
     }
 
-    function customizeDialog(){
-      var box=document.getElementById('gc_auto_frame_lp_form_dialog_box');
-      if(!box||box.classList.contains('hex-dialog-ready'))return;
-
-      box.classList.add('hex-dialog-ready');
-
+    function normalizeDialogLines(box){
       var lines=box.querySelectorAll('.gc_dialog_lp_form_line');
       lines.forEach(function(line){
         var label=line.querySelector('.gc_dialog_lp_form_label');
@@ -2276,31 +2274,99 @@ window.addEventListener('load',function(){
 
         if(valueText===''||valueText==='選択されていません'){
           line.classList.add('is-empty');
+        }else{
+          line.classList.remove('is-empty');
         }
 
         if(labelText.indexOf('添付ファイル')!==-1&&valueText===''){
           line.classList.add('is-empty');
         }
       });
+    }
+
+    function ensureDialogHead(wrap){
+      if(!wrap.querySelector('.hex-dialog-confirm-title')){
+        var title=document.createElement('h3');
+        title.className='hex-dialog-confirm-title';
+        title.textContent='入力内容の確認';
+        wrap.insertBefore(title,wrap.firstChild);
+      }
+
+      if(!wrap.querySelector('.hex-dialog-confirm-lead')){
+        var lead=document.createElement('p');
+        lead.className='hex-dialog-confirm-lead';
+        lead.textContent='内容をご確認のうえ、問題がなければ送信してください。';
+
+        var titleEl=wrap.querySelector('.hex-dialog-confirm-title');
+        if(titleEl&&titleEl.nextSibling){
+          wrap.insertBefore(lead,titleEl.nextSibling);
+        }else{
+          wrap.appendChild(lead);
+        }
+      }
+    }
+
+    function customizeDialog(){
+      var box=document.getElementById('gc_auto_frame_lp_form_dialog_box');
+      if(!box)return;
+
+      var existingWrap=box.querySelector('.hex-dialog-confirm');
+      if(existingWrap){
+        normalizeDialogLines(existingWrap);
+        ensureDialogHead(existingWrap);
+        box.classList.add('hex-dialog-ready');
+        return;
+      }
+
+      var lines=box.querySelectorAll('.gc_dialog_lp_form_line');
+      if(!lines.length)return;
+
+      normalizeDialogLines(box);
 
       var wrap=document.createElement('div');
       wrap.className='hex-dialog-confirm';
-
-      var title=document.createElement('h3');
-      title.className='hex-dialog-confirm-title';
-      title.textContent='入力内容の確認';
-
-      var lead=document.createElement('p');
-      lead.className='hex-dialog-confirm-lead';
-      lead.textContent='内容をご確認のうえ、問題がなければ送信してください。';
 
       while(box.firstChild){
         wrap.appendChild(box.firstChild);
       }
 
-      wrap.insertBefore(lead,wrap.firstChild);
-      wrap.insertBefore(title,wrap.firstChild);
+      ensureDialogHead(wrap);
       box.appendChild(wrap);
+      box.classList.add('hex-dialog-ready');
+    }
+
+    function scheduleDialogCustomize(){
+      clearTimeout(dialogCustomizeTimer);
+      dialogCustomizeTimer=setTimeout(function(){
+        customizeDialog();
+        var box=document.getElementById('gc_auto_frame_lp_form_dialog_box');
+        if(box&&box.querySelector('.gc_dialog_lp_form_line')){
+          lockDialogView();
+        }
+      },80);
+    }
+
+    function observeDialog(){
+      if(dialogObserver)return;
+
+      dialogObserver=new MutationObserver(function(){
+        scheduleDialogCustomize();
+      });
+
+      dialogObserver.observe(document.body,{
+        childList:true,
+        subtree:true
+      });
+    }
+
+    function startDialogWatch(){
+      observeDialog();
+      clearTimeout(dialogObserveTimer);
+      dialogObserveTimer=setTimeout(function(){
+        scheduleDialogCustomize();
+      },80);
+      setTimeout(scheduleDialogCustomize,300);
+      setTimeout(scheduleDialogCustomize,700);
     }
 
     function setupRequiredMessage(){
@@ -2335,10 +2401,7 @@ window.addEventListener('load',function(){
 
         var result=original();
 
-        setTimeout(function(){
-          customizeDialog();
-          lockDialogView();
-        },500);
+        startDialogWatch();
 
         return result;
       };
@@ -2351,6 +2414,8 @@ window.addEventListener('load',function(){
       var text=(e.target.textContent||'').replace(/\s+/g,'').trim();
       if(text.indexOf('修正')!==-1||text.indexOf('戻る')!==-1||text.indexOf('閉じる')!==-1){
         setTimeout(unlockDialogView,80);
+      }else{
+        setTimeout(scheduleDialogCustomize,80);
       }
     });
 
@@ -2367,6 +2432,7 @@ window.addEventListener('load',function(){
     setupReferralSwitch();
     setupRequiredEmptyState();
     setupRequiredMessage();
+    observeDialog();
   },300);
 });
 
