@@ -2134,7 +2134,7 @@ window.addEventListener('load',function(){
     function setupReferralSwitch(){
       if(!isContactPage())return;
 
-      var sourceRow=findRow('弊社を知ったきっかけ');
+      var sourceRow=findRow('当社を知ったきっかけ');
       var nameRow=findRow('ご紹介');
       if(!sourceRow||!nameRow)return;
 
