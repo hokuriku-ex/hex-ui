@@ -1964,6 +1964,7 @@ body,
   cursor:pointer;
   box-sizing:border-box;
   transition:.3s ease;
+  position:relative;
 }
 #form_lp_form_button .gc_auto_frame_lp_form_box_button_text{
   color:#1f2774!important;
@@ -1974,22 +1975,26 @@ body,
   transition:.3s ease;
 }
 #form_lp_form_button .gc_auto_frame_lp_form_box_button_svg{
-  display:flex!important;
-  align-items:center;
-  justify-content:center;
-  transition:.3s ease;
+  display:none!important;
 }
-#form_lp_form_button .gc_auto_frame_lp_form_box_button_svg svg{
-  width:18px;
-  height:18px;
+#form_lp_form_button::after{
+  content:"\f061";
+  font-family:"Font Awesome 6 Free";
+  font-weight:900;
+  font-size:22px;
+  color:#1f2774;
+  transition:.3s ease;
 }
 #form_lp_form_button:hover{
   border-color:#c8a874!important;
   background:#fff!important;
 }
-#form_lp_form_button:hover .gc_auto_frame_lp_form_box_button_text,
-#form_lp_form_button:hover .gc_auto_frame_lp_form_box_button_svg{
+#form_lp_form_button:hover .gc_auto_frame_lp_form_box_button_text{
   color:#c8a874!important;
+}
+#form_lp_form_button:hover::after{
+  color:#c8a874;
+  transform:translateX(3px);
 }
 @media screen and (max-width:768px){
   #gc_auto_frame_lp_form_body{
