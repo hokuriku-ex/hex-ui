@@ -2058,6 +2058,107 @@ body.hex-form-dialog-open #gc_auto_frame_lp_form_dialog_box{
 }
 
 /* =======================================
+   下層ページ：フォーム確認画面
+======================================= */
+body.hex-form-dialog-open{
+  overflow:hidden!important;
+}
+body.hex-form-dialog-open #gc_auto_frame_lp_form_dialog,
+body.hex-form-dialog-open #gc_auto_frame_lp_form_dialog_box{
+  z-index:999999!important;
+}
+body.hex-form-dialog-open #gc_auto_frame_lp_form_dialog{
+  background:#fff!important;
+}
+body.hex-form-dialog-open #gc_auto_frame_lp_form_dialog_box{
+  width:auto!important;
+  max-width:960px!important;
+  margin:60px auto!important;
+  padding:0!important;
+  background:#fff!important;
+  border:none!important;
+  box-shadow:none!important;
+}
+body.hex-form-dialog-open .hex-dialog-confirm{
+  max-width:960px;
+  margin:0 auto;
+  color:#383838;
+}
+body.hex-form-dialog-open .hex-dialog-confirm-title{
+  margin:0 0 32px;
+  padding-bottom:14px;
+  border-bottom:3px solid #e5e8f0;
+  color:#1f2774;
+  font-size:30px;
+  font-weight:700;
+  line-height:1.5;
+  letter-spacing:.04em;
+}
+body.hex-form-dialog-open .hex-dialog-confirm-lead{
+  margin:0 0 36px;
+  color:#383838;
+  font-size:15px;
+  line-height:1.8;
+}
+body.hex-form-dialog-open .gc_dialog_lp_form_line{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:20px;
+  align-items:start;
+  padding:16px 0;
+  border-bottom:1px solid #e5e8f0;
+}
+body.hex-form-dialog-open .gc_dialog_lp_form_label{
+  color:#383838;
+  font-size:15px;
+  line-height:1.8;
+  font-weight:600;
+}
+body.hex-form-dialog-open .gc_dialog_lp_form_value{
+  min-height:24px;
+  color:#383838;
+  font-size:15px;
+  line-height:1.8;
+  word-break:break-word;
+}
+body.hex-form-dialog-open .gc_dialog_lp_form_line.is-empty{
+  display:none!important;
+}
+body.hex-form-dialog-open #gc_auto_frame_lp_form_dialog_button{
+  max-width:960px!important;
+  margin:40px auto 0!important;
+  display:grid!important;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  background:none!important;
+}
+body.hex-form-dialog-open #gc_auto_frame_lp_form_dialog_button > div{
+  width:100%!important;
+  margin:0!important;
+  padding:18px 24px!important;
+  display:flex!important;
+  align-items:center;
+  justify-content:space-between;
+  border:1px solid #1f2774!important;
+  background:#fff!important;
+  color:#1f2774!important;
+  box-sizing:border-box;
+  cursor:pointer;
+  transition:.3s ease;
+}
+body.hex-form-dialog-open #gc_auto_frame_lp_form_dialog_button > div:hover{
+  border-color:#c8a874!important;
+  color:#c8a874!important;
+}
+body.hex-form-dialog-open #gc_auto_frame_lp_form_dialog_button > div::after{
+  content:"\f061";
+  font-family:"Font Awesome 6 Free";
+  font-weight:900;
+  font-size:20px;
+  color:inherit;
+}
+
+/* =======================================
    下層ページ：よくある質問
 ======================================= */
 .publicinfo_qanda .qanda_content{
