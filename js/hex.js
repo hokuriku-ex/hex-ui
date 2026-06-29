@@ -2078,6 +2078,7 @@ window.addEventListener('load',function(){
     function setRowVisible(row,visible){
       if(!row)return;
       row.classList.toggle('is-hidden',!visible);
+      if(!visible)row.classList.remove('is-required-empty');
       var fields=row.querySelectorAll('input,select,textarea,button');
       fields.forEach(function(field){
         if(!visible){
@@ -2198,6 +2199,28 @@ window.addEventListener('load',function(){
       return errors;
     }
 
+    function updateRequiredEmptyState(){
+      var rows=form.querySelectorAll('.hex-form-row');
+      rows.forEach(function(row){
+        if(!isRequiredRow(row)){
+          row.classList.remove('is-required-empty');
+          return;
+        }
+        row.classList.toggle('is-required-empty',isRowEmpty(row));
+      });
+    }
+
+    function setupRequiredEmptyState(){
+      var rows=form.querySelectorAll('.hex-form-row');
+      rows.forEach(function(row){
+        var fields=row.querySelectorAll('input,select,textarea');
+        fields.forEach(function(field){
+          field.addEventListener('input',updateRequiredEmptyState);
+          field.addEventListener('change',updateRequiredEmptyState);
+        });
+      });
+    }
+
     function setupRequiredMessage(){
       if(typeof gc_click_open_dialog_lp_form!=='function')return;
       if(gc_click_open_dialog_lp_form.hexWrapped)return;
@@ -2208,7 +2231,9 @@ window.addEventListener('load',function(){
         var errors=getRequiredErrors();
 
         if(errors.length){
-          var message='<strong>未入力の必須項目があります。</strong><br><br>';
+          updateRequiredEmptyState();
+
+          var message='未入力の必須項目があります。<br><br>';
           errors.forEach(function(error){
             message+='・'+error.label+'<br>';
           });
@@ -2230,29 +2255,6 @@ window.addEventListener('load',function(){
 
       gc_click_open_dialog_lp_form.hexWrapped=true;
     }
-
-  function updateRequiredEmptyState(){
-    var rows=form.querySelectorAll('.hex-form-row');
-    rows.forEach(function(row){
-      if(!isRequiredRow(row)){
-        row.classList.remove('is-required-empty');
-        return;
-      }
-      row.classList.toggle('is-required-empty',isRowEmpty(row));
-    });
-  }
-
-  function setupRequiredEmptyState(){
-    var rows=form.querySelectorAll('.hex-form-row');
-    rows.forEach(function(row){
-      var fields=row.querySelectorAll('input,select,textarea');
-      fields.forEach(function(field){
-        field.addEventListener('input',updateRequiredEmptyState);
-        field.addEventListener('change',updateRequiredEmptyState);
-      });
-    });
-    updateRequiredEmptyState();
-  }
 
     wrapRows();
     setupRequirementSwitch();
