@@ -308,7 +308,7 @@
 /* ヘッダー高さ調整 */
 @media screen and (max-width:768px){
   .heroimage_margintop_normal{
-    margin-top:calc(var(--header_height) - 65px)!important;
+    margin-top:calc(var(--header_height) - 60px)!important;
   }
 }
 
