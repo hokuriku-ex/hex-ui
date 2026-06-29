@@ -669,6 +669,39 @@
 }
 
 /* =======================================
+   下層ページ：お問合わせ
+======================================= */
+@media screen and (max-width:768px){
+  #gc_auto_frame_lp_form_body{
+    max-width:none;
+    margin:0 16px;
+  }
+  #form_lp_form{
+    max-width:none;
+    margin:0;
+  }
+  #form_lp_form .hex-form-row{
+    display:block;
+    margin-bottom:28px;
+  }
+  #form_lp_form .gc_form_lp_label{
+    padding-top:0;
+    margin-bottom:6px!important;
+  }
+  #form_lp_form textarea{
+    min-height:150px;
+  }
+  #form_lp_form_button{
+    max-width:280px;
+    margin-top:40px!important;
+  }
+  .hex-form-row[data-label*="〒"] input,
+  .hex-form-row[data-label*="都道府県"] select{
+    width:auto!important;
+  }
+}
+
+/* =======================================
    下層ページ：よくある質問
 ======================================= */
 @media screen and (min-width:769px){
