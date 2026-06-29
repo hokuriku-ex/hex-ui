@@ -2124,7 +2124,7 @@ window.addEventListener('load',function(){
       if(pageTitle.indexOf('お問合わせ')===-1)return;
 
       var sourceRow=findRow('弊社を知ったきっかけ');
-      var nameRow=findRow('ご紹介いただいた方');
+      var nameRow=findRow('ご紹介');
       if(!sourceRow||!nameRow)return;
 
       function update(){
