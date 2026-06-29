@@ -2038,7 +2038,6 @@ window.addEventListener('load',function(){
     var titleInput=form.querySelector('input[name="form_lp_title"]');
     var pageTitle=titleInput?titleInput.value:'';
     var validationStarted=false;
-    var dialogPollTimer=null;
     var dialogLocked=false;
     var dialogScrollY=0;
 
@@ -2242,8 +2241,6 @@ window.addEventListener('load',function(){
       document.body.style.left='0';
       document.body.style.right='0';
       document.body.style.width='100%';
-
-      startDialogWatch();
     }
 
     function unlockDialogView(){
@@ -2257,27 +2254,7 @@ window.addEventListener('load',function(){
       document.body.style.right='';
       document.body.style.width='';
 
-      if(dialogPollTimer){
-        clearInterval(dialogPollTimer);
-        dialogPollTimer=null;
-      }
-
       window.scrollTo(0,dialogScrollY);
-    }
-
-    function isDialogAlive(){
-      var box=document.getElementById('gc_auto_frame_lp_form_dialog_box');
-      if(!box)return false;
-      return box.innerHTML.replace(/\s+/g,'').length>0;
-    }
-
-    function startDialogWatch(){
-      if(dialogPollTimer)clearInterval(dialogPollTimer);
-      dialogPollTimer=setInterval(function(){
-        if(!isDialogAlive()){
-          unlockDialogView();
-        }
-      },300);
     }
 
     function setupRequiredMessage(){
@@ -2331,17 +2308,11 @@ window.addEventListener('load',function(){
     });
 
     window.addEventListener('pageshow',function(){
-      if(!isDialogAlive()){
-        unlockDialogView();
-      }
+      unlockDialogView();
     });
 
     window.addEventListener('popstate',function(){
-      setTimeout(function(){
-        if(!isDialogAlive()){
-          unlockDialogView();
-        }
-      },80);
+      setTimeout(unlockDialogView,80);
     });
 
     wrapRows();
