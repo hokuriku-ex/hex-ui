@@ -1268,9 +1268,9 @@ body,
   content:"";
   display:block;
   width:1px;
-  height:40px;
-  margin:12px auto 0;
-  background:#ccc;
+  height:30px;
+  margin:8px auto 0;
+  background:#cfcfcf;
 }
 
 /* ウェルカムメッセージ */
