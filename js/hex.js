@@ -2233,7 +2233,7 @@ window.addEventListener('load',function(){
         if(errors.length){
           updateRequiredEmptyState();
 
-          var message='未入力の必須項目があります。<br><br>';
+          var message='<strong>未入力の必須項目があります。</strong><br><br>';
           errors.forEach(function(error){
             message+='・'+error.label+'<br>';
           });
