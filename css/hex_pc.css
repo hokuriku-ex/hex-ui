@@ -1943,6 +1943,10 @@ body,
 #form_lp_form .gc_form_lp_data input[type="file"]{
   max-width:none!important;
 }
+.hex-form-row[data-label*="添付ファイル"] .gc_form_lp_data{
+  background:#f4f8ff;
+  border-radius:4px;
+}
 
 /* セレクト */
 #form_lp_form .gc_form_lp_data select{
@@ -2040,6 +2044,9 @@ body,
   background:#ffe4ec;
   padding:10px 12px;
   border-radius:4px;
+}
+.hex-form-row.is-required-empty[data-label*="添付ファイル"] .gc_form_lp_data{
+  background:#ffe4ec!important;
 }
 
 /* =======================================
