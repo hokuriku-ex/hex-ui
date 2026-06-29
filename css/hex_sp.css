@@ -709,7 +709,9 @@
   body.hex-form-dialog-open .footer-fixed,
   body.hex-form-dialog-open .footer_fixed,
   body.hex-form-dialog-open #fixed_footer,
-  body.hex-form-dialog-open #footer_fixed{
+  body.hex-form-dialog-open #footer_fixed,
+  body.hex-form-dialog-open .gc_auto_frame_footer_fixed,
+  body.hex-form-dialog-open [id^="gc_auto_frame_"][class*="footer_fixed"]{
     display:none!important;
   }
 }
