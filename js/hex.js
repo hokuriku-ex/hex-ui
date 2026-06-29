@@ -2029,6 +2029,131 @@ function hexGetDesignSetId(){
   return '';
 }
 
+/* お問合わせ */
+window.addEventListener('load',function(){
+  setTimeout(function(){
+    var form=document.getElementById('form_lp_form');
+    if(!form)return;
+
+    var titleInput=form.querySelector('input[name="form_lp_title"]');
+    var pageTitle=titleInput?titleInput.value:'';
+
+    form.classList.add('hex-form-ready');
+
+    function getLabelText(label){
+      if(!label)return'';
+      return label.textContent.replace(/\s+/g,'').trim();
+    }
+
+    function wrapRows(){
+      var children=Array.prototype.slice.call(form.children);
+      children.forEach(function(el){
+        if(!el.classList||!el.classList.contains('gc_form_lp_label'))return;
+        if(el.parentNode.classList&&el.parentNode.classList.contains('hex-form-row'))return;
+        var data=el.nextElementSibling;
+        if(!data||!data.classList||!data.classList.contains('gc_form_lp_data'))return;
+        var row=document.createElement('div');
+        row.className='hex-form-row';
+        row.setAttribute('data-label',getLabelText(el));
+        form.insertBefore(row,el);
+        row.appendChild(el);
+        row.appendChild(data);
+      });
+    }
+
+    function findRow(keyword){
+      var rows=form.querySelectorAll('.hex-form-row');
+      for(var i=0;i<rows.length;i++){
+        var label=rows[i].getAttribute('data-label')||'';
+        if(label.indexOf(keyword)!==-1)return rows[i];
+      }
+      return null;
+    }
+
+    function setRowVisible(row,visible){
+      if(!row)return;
+      row.classList.toggle('is-hidden',!visible);
+      var fields=row.querySelectorAll('input,select,textarea,button');
+      fields.forEach(function(field){
+        if(!visible){
+          field.setAttribute('data-hex-disabled','1');
+          field.disabled=true;
+        }else if(field.getAttribute('data-hex-disabled')==='1'){
+          field.disabled=false;
+          field.removeAttribute('data-hex-disabled');
+        }
+      });
+    }
+
+    function getCheckedValue(row){
+      if(!row)return'';
+      var checked=row.querySelector('input[type="radio"]:checked');
+      return checked?checked.value:'';
+    }
+
+    function setupRequirementSwitch(){
+      if(pageTitle.indexOf('お問い合わせ')===-1)return;
+
+      var requirementRow=findRow('ご要件');
+      var houseMakerRow=findRow('ハウスメーカー');
+      var yearsRow=findRow('入居年数');
+      var addressRow=findRow('施工先住所');
+      var deliveryRow=findRow('新築引渡し予定時期')||findRow('新築引渡し予定日');
+      var drawingRow=findRow('図面');
+
+      function update(){
+        var value=getCheckedValue(requirementRow);
+        var isNew=value.indexOf('新築')!==-1;
+        var isReform=value.indexOf('部分')!==-1||value.indexOf('リフォーム')!==-1||value.indexOf('単体')!==-1;
+
+        setRowVisible(houseMakerRow,isNew||isReform);
+        setRowVisible(yearsRow,isNew||isReform);
+        setRowVisible(addressRow,isNew||isReform);
+        setRowVisible(drawingRow,isNew||isReform);
+        setRowVisible(deliveryRow,isNew);
+      }
+
+      if(requirementRow){
+        var radios=requirementRow.querySelectorAll('input[type="radio"]');
+        radios.forEach(function(radio){
+          radio.addEventListener('change',update);
+        });
+      }
+      update();
+    }
+
+    function setupReferralSwitch(){
+      if(pageTitle.indexOf('お問い合わせ')===-1)return;
+
+      var sourceRow=findRow('弊社を知ったきっかけ');
+      var nameRow=findRow('ハウスメーカー担当者')||findRow('ご紹介者');
+      if(!sourceRow||!nameRow)return;
+
+      function update(){
+        var show=false;
+        var checks=sourceRow.querySelectorAll('input[type="checkbox"]');
+        checks.forEach(function(check){
+          if(!check.checked)return;
+          var label='';
+          if(check.parentNode)label=check.parentNode.textContent.replace(/\s+/g,'').trim();
+          if(label.indexOf('ハウスメーカー')!==-1||label.indexOf('知人')!==-1||label.indexOf('友人')!==-1)show=true;
+        });
+        setRowVisible(nameRow,show);
+      }
+
+      var checks=sourceRow.querySelectorAll('input[type="checkbox"]');
+      checks.forEach(function(check){
+        check.addEventListener('change',update);
+      });
+      update();
+    }
+
+    wrapRows();
+    setupRequirementSwitch();
+    setupReferralSwitch();
+  },600);
+});
+
 /* よくある質問 */
 window.addEventListener('load',function(){
   setTimeout(function(){
