@@ -2438,23 +2438,21 @@ window.addEventListener('load',function(){
 
     function blockInputOuterClick(e){
       var dialog=document.getElementById('gc_auto_frame_lp_form_dialog');
+      var formBg=document.querySelector('.gc_auto_frame_lp_form_bg');
       var formBody=document.getElementById('gc_auto_frame_lp_form_body');
       var formEl=document.getElementById('form_lp_form');
       var formButton=document.getElementById('form_lp_form_button');
 
-      if(!formBody||!formEl)return;
+      if(!formEl)return;
       if(dialog&&getComputedStyle(dialog).display!=='none')return;
 
       if(formEl.contains(e.target))return;
       if(formButton&&formButton.contains(e.target))return;
 
-      /* エラーメッセージ・OKボタン系は許可 */
       if(e.target.closest('.o7cms_message_box'))return;
       if(e.target.closest('.o7cms_message'))return;
       if(e.target.closest('[id*="message"]'))return;
       if(e.target.closest('[class*="message"]'))return;
-
-      /* ヘッダー・メニュー・リンク系は許可 */
       if(e.target.closest('header'))return;
       if(e.target.closest('#header'))return;
       if(e.target.closest('[class*="header"]'))return;
@@ -2462,14 +2460,15 @@ window.addEventListener('load',function(){
       if(e.target.closest('a'))return;
       if(e.target.closest('button'))return;
 
-      /* フォームエリア周辺以外は許可 */
-      if(!formBody.contains(e.target))return;
-
-     e.preventDefault();
-      e.stopPropagation();
-      if(e.stopImmediatePropagation)e.stopImmediatePropagation();
+      if(
+        (formBg&&formBg.contains(e.target))||
+        (formBody&&formBody.contains(e.target))
+      ){
+       e.preventDefault();
+        e.stopPropagation();
+        if(e.stopImmediatePropagation)e.stopImmediatePropagation();
+      }
     }
-
     document.addEventListener('click',blockInputOuterClick,true);
 
     document.addEventListener('click',function(e){
