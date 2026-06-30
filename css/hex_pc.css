@@ -2086,6 +2086,11 @@ body,
 #form_lp_form .hex-form-row.is-required-empty[data-label*="添付ファイル"] .gc_form_lp_data_input{
   background:#ffe4ec!important;
 }
+#form_lp_form .gc_form_lp_data input::placeholder,
+#form_lp_form .gc_form_lp_data textarea::placeholder{
+  color:#c7ccd6;
+  opacity:1;
+}
 
 /* =======================================
    下層ページ：フォーム確認画面
