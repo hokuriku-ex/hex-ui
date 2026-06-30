@@ -2247,7 +2247,8 @@ window.addEventListener('load',function(){
     }
 
     function unlockDialogView(){
-      if(!dialogLocked)return;
+      var scrollY=dialogScrollY||0;
+
       dialogLocked=false;
 
       document.body.classList.remove('hex-form-dialog-open');
@@ -2256,8 +2257,9 @@ window.addEventListener('load',function(){
       document.body.style.left='';
       document.body.style.right='';
       document.body.style.width='';
+      document.body.style.overflow='';
 
-      window.scrollTo(0,dialogScrollY);
+      window.scrollTo(0,scrollY);
     }
 
     function normalizeDialogLines(box){
@@ -2410,11 +2412,17 @@ window.addEventListener('load',function(){
     }
 
     document.addEventListener('click',function(e){
-      if(!dialogLocked)return;
       var text=(e.target.textContent||'').replace(/\s+/g,'').trim();
+
       if(text.indexOf('修正')!==-1||text.indexOf('戻る')!==-1||text.indexOf('閉じる')!==-1){
+        unlockDialogView();
         setTimeout(unlockDialogView,80);
-      }else{
+        setTimeout(unlockDialogView,300);
+        setTimeout(unlockDialogView,700);
+        return;
+      }
+
+      if(dialogLocked){
         setTimeout(scheduleDialogCustomize,80);
       }
     });
