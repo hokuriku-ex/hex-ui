@@ -2108,6 +2108,11 @@ body.hex-form-dialog-open{
 }
 #gc_auto_frame_lp_form_dialog{
   background:#fff!important;
+  opacity:0;
+  transition:opacity .15s ease;
+}
+#gc_auto_frame_lp_form_dialog.hex-dialog-visible{
+  opacity:1;
 }
 #gc_auto_frame_lp_form_dialog_box{
   width:auto!important;

@@ -2253,6 +2253,10 @@ window.addEventListener('load',function(){
       dialogLocked=false;
       dialogUnlocking=true;
       stopDialogWatch();
+      var dialog=document.getElementById('gc_auto_frame_lp_form_dialog');
+        if(dialog){
+          dialog.classList.remove('hex-dialog-visible');
+        }
       document.body.classList.remove('hex-form-dialog-open');
       document.body.style.position='';
       document.body.style.top='';
@@ -2326,6 +2330,10 @@ window.addEventListener('load',function(){
         normalizeDialogLines(existingWrap);
         ensureDialogHead(existingWrap);
         box.classList.add('hex-dialog-ready');
+        var dialog=document.getElementById('gc_auto_frame_lp_form_dialog');
+        if(dialog){
+          dialog.classList.add('hex-dialog-visible');
+        }
         return;
       }
 
@@ -2344,6 +2352,10 @@ window.addEventListener('load',function(){
       ensureDialogHead(wrap);
       box.appendChild(wrap);
       box.classList.add('hex-dialog-ready');
+      var dialog=document.getElementById('gc_auto_frame_lp_form_dialog');
+      if(dialog){
+        dialog.classList.add('hex-dialog-visible');
+      }
     }
 
     function scheduleDialogCustomize(){
