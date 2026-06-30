@@ -937,8 +937,8 @@ window.addEventListener('load',function(){
 /* トップ お知らせタブ・一覧リンク */
 window.addEventListener('load',function(){
   setTimeout(function(){
-    var news=document.getElementById('gc_auto_frame_home_4');
-    var blog=document.getElementById('gc_auto_frame_home_5');
+    var news=document.getElementById('gc_auto_frame_home_5');
+    var blog=document.getElementById('gc_auto_frame_home_6');
     if(!news||!blog)return;
     blog.style.display='none';
     if(!document.querySelector('.custom-news-tabs')){
