@@ -2489,6 +2489,7 @@ window.addEventListener('load',function(){
     setupReferralSwitch();
     setupRequiredEmptyState();
     setupRequiredMessage();
+    form.classList.add('hex-form-ready');
   },300);
 });
 

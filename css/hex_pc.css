@@ -1915,6 +1915,16 @@ body,
 /* =======================================
    下層ページ：お問合わせ
 ======================================= */
+/* 入力画面：JS整形前のチラつき防止 */
+#form_lp_form{
+  opacity:0;
+  transition:opacity .15s ease;
+}
+#form_lp_form.hex-form-ready{
+  opacity:1;
+}
+
+/* フォーム */
 #gc_auto_frame_lp_form_body{
   max-width:960px;
   margin:0 auto;
@@ -2080,6 +2090,15 @@ body,
 /* =======================================
    下層ページ：フォーム確認画面
 ======================================= */
+/* 確認画面：JS整形前のチラつき防止 */
+#gc_auto_frame_lp_form_dialog_box{
+  opacity:0;
+}
+#gc_auto_frame_lp_form_dialog_box.hex-dialog-ready{
+  opacity:1;
+}
+
+/* フォーム */
 body.hex-form-dialog-open{
   overflow:hidden!important;
 }
