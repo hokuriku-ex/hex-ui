@@ -2236,6 +2236,14 @@ body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:hover .gc_auto
   }
 }
 
+body.hex-form-dialog-open #gc_auto_frame_lp_form_dialog{
+  pointer-events:none!important;
+}
+
+body.hex-form-dialog-open #gc_auto_frame_lp_form_dialog_box{
+  pointer-events:auto!important;
+}
+
 /* =======================================
    下層ページ：よくある質問
 ======================================= */
