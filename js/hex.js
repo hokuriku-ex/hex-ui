@@ -2355,7 +2355,7 @@ window.addEventListener('load',function(){
         if(isDialogVisible()){
           lockDialogView();
         }
-      },40);
+      },10);
     }
 
     function observeDialog(){
@@ -2385,10 +2385,9 @@ window.addEventListener('load',function(){
       dialogUnlocking=false;
       stopDialogWatch();
       observeDialog();
-      setTimeout(scheduleDialogCustomize,40);
-      setTimeout(scheduleDialogCustomize,160);
-      setTimeout(scheduleDialogCustomize,400);
-      setTimeout(scheduleDialogCustomize,800);
+        scheduleDialogCustomize();
+        setTimeout(scheduleDialogCustomize,80);
+        setTimeout(scheduleDialogCustomize,240);
     }
 
     function setupRequiredMessage(){
@@ -2473,7 +2472,7 @@ window.addEventListener('load',function(){
       }
 
       if(dialogLocked&&!dialogUnlocking){
-        setTimeout(scheduleDialogCustomize,40);
+        setTimeout(scheduleDialogCustomize,10);
       }
     });
 
