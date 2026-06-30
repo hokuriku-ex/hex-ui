@@ -2029,7 +2029,7 @@ function hexGetDesignSetId(){
   return '';
 }
 
-/* お問合わせ */
+/* お問合わせ1 */
 window.addEventListener('load',function(){
   setTimeout(function(){
     var form=document.getElementById('form_lp_form');
@@ -2106,7 +2106,6 @@ window.addEventListener('load',function(){
 
     function setupRequirementSwitch(){
       if(!isContactPage())return;
-
       var requirementRow=findRow('ご要件');
       var houseMakerRow=findRow('ハウスメーカー');
       var yearsRow=findRow('入居年数');
@@ -2118,13 +2117,11 @@ window.addEventListener('load',function(){
         var value=getCheckedValue(requirementRow);
         var isNew=value.indexOf('新築')!==-1;
         var isReform=value.indexOf('部分')!==-1||value.indexOf('リフォーム')!==-1||value.indexOf('単体')!==-1;
-
         setRowVisible(houseMakerRow,isNew||isReform);
         setRowVisible(yearsRow,isNew||isReform);
         setRowVisible(addressRow,isNew||isReform);
         setRowVisible(drawingRow,isNew||isReform);
         setRowVisible(deliveryRow,isNew);
-
         updateRequiredEmptyState();
       }
 
@@ -2139,7 +2136,6 @@ window.addEventListener('load',function(){
 
     function setupReferralSwitch(){
       if(!isContactPage())return;
-
       var sourceRow=findRow('当社を知ったきっかけ');
       var nameRow=findRow('ご紹介');
       if(!sourceRow||!nameRow)return;
@@ -2211,7 +2207,6 @@ window.addEventListener('load',function(){
 
     function updateRequiredEmptyState(){
       if(!validationStarted)return;
-
       var rows=form.querySelectorAll('.hex-form-row');
       rows.forEach(function(row){
         if(!isRequiredRow(row)){
@@ -2237,7 +2232,6 @@ window.addEventListener('load',function(){
       var dialog=document.getElementById('gc_auto_frame_lp_form_dialog');
       var box=document.getElementById('gc_auto_frame_lp_form_dialog_box');
       if(!dialog||!box)return false;
-      if(dialog.offsetParent===null&&getComputedStyle(dialog).position!=='fixed')return false;
       if(getComputedStyle(dialog).display==='none'||getComputedStyle(box).display==='none')return false;
       return !!box.querySelector('.gc_dialog_lp_form_line');
     }
@@ -2245,10 +2239,8 @@ window.addEventListener('load',function(){
     function lockDialogView(){
       if(dialogLocked||dialogUnlocking)return;
       if(!isDialogVisible())return;
-
       dialogLocked=true;
       dialogScrollY=window.pageYOffset||document.documentElement.scrollTop||0;
-
       document.body.classList.add('hex-form-dialog-open');
       document.body.style.position='fixed';
       document.body.style.top='-'+dialogScrollY+'px';
@@ -2268,12 +2260,9 @@ window.addEventListener('load',function(){
 
     function unlockDialogView(){
       var scrollY=dialogScrollY||0;
-
       dialogLocked=false;
       dialogUnlocking=true;
-
       stopDialogWatch();
-
       document.body.classList.remove('hex-form-dialog-open');
       document.body.style.position='';
       document.body.style.top='';
@@ -2281,9 +2270,7 @@ window.addEventListener('load',function(){
       document.body.style.right='';
       document.body.style.width='';
       document.body.style.overflow='';
-
       window.scrollTo(0,scrollY);
-
       setTimeout(function(){
         document.body.classList.remove('hex-form-dialog-open');
         document.body.style.position='';
@@ -2293,7 +2280,6 @@ window.addEventListener('load',function(){
         document.body.style.width='';
         document.body.style.overflow='';
       },300);
-
       setTimeout(function(){
         dialogUnlocking=false;
       },1000);
@@ -2305,18 +2291,14 @@ window.addEventListener('load',function(){
         var label=line.querySelector('.gc_dialog_lp_form_label');
         var value=line.querySelector('.gc_dialog_lp_form_value');
         if(!label||!value)return;
-
         var labelText=label.textContent.replace(/\s+/g,'').replace('：','').replace(':','').trim();
         var valueText=value.textContent.replace(/\s+/g,'').trim();
-
         label.textContent=labelText;
-
         if(valueText===''||valueText==='選択されていません'){
           line.classList.add('is-empty');
         }else{
           line.classList.remove('is-empty');
         }
-
         if(labelText.indexOf('添付ファイル')!==-1&&valueText===''){
           line.classList.add('is-empty');
         }
@@ -2335,7 +2317,6 @@ window.addEventListener('load',function(){
         var lead=document.createElement('p');
         lead.className='hex-dialog-confirm-lead';
         lead.textContent='内容をご確認のうえ、問題がなければ送信してください。';
-
         var titleEl=wrap.querySelector('.hex-dialog-confirm-title');
         if(titleEl&&titleEl.nextSibling){
           wrap.insertBefore(lead,titleEl.nextSibling);
@@ -2347,7 +2328,6 @@ window.addEventListener('load',function(){
 
     function customizeDialog(){
       if(dialogUnlocking)return;
-
       var box=document.getElementById('gc_auto_frame_lp_form_dialog_box');
       if(!box)return;
 
@@ -2390,7 +2370,6 @@ window.addEventListener('load',function(){
 
     function observeDialog(){
       if(dialogObserver)return;
-
       var dialog=document.getElementById('gc_auto_frame_lp_form_dialog');
       var box=document.getElementById('gc_auto_frame_lp_form_dialog_box');
       var target=dialog||box;
@@ -2415,9 +2394,7 @@ window.addEventListener('load',function(){
     function startDialogWatch(){
       dialogUnlocking=false;
       stopDialogWatch();
-
       observeDialog();
-
       setTimeout(scheduleDialogCustomize,40);
       setTimeout(scheduleDialogCustomize,160);
       setTimeout(scheduleDialogCustomize,400);
@@ -2441,28 +2418,36 @@ window.addEventListener('load',function(){
           errors.forEach(function(error){
             message+='・'+error.label+'<br>';
           });
-
           o7cms_show_message(message);
-
           setTimeout(function(){
             errors[0].row.scrollIntoView({
               behavior:'smooth',
               block:'center'
             });
           },50);
-
           return false;
         }
 
         var result=original();
-
         startDialogWatch();
-
         return result;
       };
 
       gc_click_open_dialog_lp_form.hexWrapped=true;
     }
+
+    document.addEventListener('click',function(e){
+      if(!dialogLocked||dialogUnlocking)return;
+      var dialog=document.getElementById('gc_auto_frame_lp_form_dialog');
+      var box=document.getElementById('gc_auto_frame_lp_form_dialog_box');
+      if(!dialog||!box)return;
+      if(dialog.contains(e.target)&&!box.contains(e.target)){
+        e.preventDefault();
+        e.stopPropagation();
+        if(e.stopImmediatePropagation)e.stopImmediatePropagation();
+        scheduleDialogCustomize();
+      }
+    },true);
 
     document.addEventListener('click',function(e){
       var text=(e.target.textContent||'').replace(/\s+/g,'').trim();
@@ -2476,10 +2461,7 @@ window.addEventListener('load',function(){
       }
 
       if(dialogLocked&&!dialogUnlocking){
-        scheduleDialogCustomize();
         setTimeout(scheduleDialogCustomize,40);
-        setTimeout(scheduleDialogCustomize,120);
-        setTimeout(scheduleDialogCustomize,300);
       }
     });
 
