@@ -2584,7 +2584,6 @@ window.addEventListener('load',function(){
       var label=row.getAttribute('data-label')||'';
 
       if(label==='〒必須'){
-        row.setAttribute('data-label','郵便番号必須');
         var labelEl=row.querySelector('.gc_form_lp_label');
         if(labelEl){
           labelEl.textContent='郵便番号';
@@ -2592,7 +2591,6 @@ window.addEventListener('load',function(){
       }
 
       if(label==='建物等'){
-        row.setAttribute('data-label','建物名・部屋番号');
         var labelEl2=row.querySelector('.gc_form_lp_label');
         if(labelEl2){
           labelEl2.textContent='建物名・部屋番号';
