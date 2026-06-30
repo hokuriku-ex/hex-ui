@@ -1982,6 +1982,9 @@ body,
 #form_lp_form .gc_form_lp_data input[type="file"]{
   max-width:none!important;
 }
+#form_lp_form .hex-form-row[data-label*="添付ファイル"] .gc_form_lp_data_input{
+  background:#fff!important;
+}
 
 /* セレクト */
 #form_lp_form .gc_form_lp_data select{
