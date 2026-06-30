@@ -2580,33 +2580,25 @@ window.addEventListener('load',function(){
 /* フォーム項目名変更 */
 window.addEventListener('load',function(){
   setTimeout(function(){
-
     document.querySelectorAll('.hex-form-row').forEach(function(row){
-
       var label=row.getAttribute('data-label')||'';
 
       if(label==='〒必須'){
         row.setAttribute('data-label','郵便番号必須');
+        var labelEl=row.querySelector('.gc_form_lp_label');
+        if(labelEl){
+          labelEl.textContent='郵便番号';
+        }
       }
 
       if(label==='建物等'){
         row.setAttribute('data-label','建物名・部屋番号');
+        var labelEl2=row.querySelector('.gc_form_lp_label');
+        if(labelEl2){
+          labelEl2.textContent='建物名・部屋番号';
+        }
       }
-
     });
-
-    document.querySelectorAll('.gc_form_lp_label').forEach(function(label){
-
-      if(label.textContent.trim()==='〒'){
-        label.textContent='郵便番号';
-      }
-
-      if(label.textContent.trim()==='建物等'){
-        label.textContent='建物名・部屋番号';
-      }
-
-    });
-
   },300);
 });
 
