@@ -2043,6 +2043,7 @@ window.addEventListener('load',function(){
     var dialogObserver=null;
     var dialogObserveTimer=null;
     var dialogCustomizeTimer=null;
+    var dialogUnlocking=false;
 
     function isContactPage(){
       return (
@@ -2152,7 +2153,6 @@ window.addEventListener('load',function(){
           if(label.indexOf('ハウスメーカー')!==-1||label.indexOf('知人')!==-1||label.indexOf('友人')!==-1)show=true;
         });
         setRowVisible(nameRow,show);
-
         updateRequiredEmptyState();
       }
 
@@ -2234,7 +2234,7 @@ window.addEventListener('load',function(){
     }
 
     function lockDialogView(){
-      if(dialogLocked)return;
+      if(dialogLocked||dialogUnlocking)return;
       dialogLocked=true;
       dialogScrollY=window.pageYOffset||document.documentElement.scrollTop||0;
 
@@ -2250,6 +2250,10 @@ window.addEventListener('load',function(){
       var scrollY=dialogScrollY||0;
 
       dialogLocked=false;
+      dialogUnlocking=true;
+
+      clearTimeout(dialogCustomizeTimer);
+      clearTimeout(dialogObserveTimer);
 
       document.body.classList.remove('hex-form-dialog-open');
       document.body.style.position='';
@@ -2260,6 +2264,20 @@ window.addEventListener('load',function(){
       document.body.style.overflow='';
 
       window.scrollTo(0,scrollY);
+
+      setTimeout(function(){
+        document.body.classList.remove('hex-form-dialog-open');
+        document.body.style.position='';
+        document.body.style.top='';
+        document.body.style.left='';
+        document.body.style.right='';
+        document.body.style.width='';
+        document.body.style.overflow='';
+      },300);
+
+      setTimeout(function(){
+        dialogUnlocking=false;
+      },1000);
     }
 
     function normalizeDialogLines(box){
@@ -2309,6 +2327,8 @@ window.addEventListener('load',function(){
     }
 
     function customizeDialog(){
+      if(dialogUnlocking)return;
+
       var box=document.getElementById('gc_auto_frame_lp_form_dialog_box');
       if(!box)return;
 
@@ -2338,8 +2358,10 @@ window.addEventListener('load',function(){
     }
 
     function scheduleDialogCustomize(){
+      if(dialogUnlocking)return;
       clearTimeout(dialogCustomizeTimer);
       dialogCustomizeTimer=setTimeout(function(){
+        if(dialogUnlocking)return;
         customizeDialog();
         var box=document.getElementById('gc_auto_frame_lp_form_dialog_box');
         if(box&&box.querySelector('.gc_dialog_lp_form_line')){
@@ -2352,6 +2374,7 @@ window.addEventListener('load',function(){
       if(dialogObserver)return;
 
       dialogObserver=new MutationObserver(function(){
+        if(dialogUnlocking)return;
         scheduleDialogCustomize();
       });
 
@@ -2362,6 +2385,7 @@ window.addEventListener('load',function(){
     }
 
     function startDialogWatch(){
+      dialogUnlocking=false;
       observeDialog();
       clearTimeout(dialogObserveTimer);
       dialogObserveTimer=setTimeout(function(){
@@ -2422,7 +2446,7 @@ window.addEventListener('load',function(){
         return;
       }
 
-      if(dialogLocked){
+      if(dialogLocked&&!dialogUnlocking){
         setTimeout(scheduleDialogCustomize,80);
       }
     });
