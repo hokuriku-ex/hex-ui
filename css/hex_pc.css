@@ -2181,7 +2181,8 @@ body.hex-form-dialog-open{
 /* ボタン */
 #gc_auto_frame_lp_form_dialog .gc_auto_frame_lp_form_dialog_buttons{
   max-width:960px!important;
-  margin:64px auto 0!important;
+  margin:48px auto 0!important;
+  padding-bottom:40px!important;
   display:grid!important;
   grid-template-columns:1fr 1fr;
   gap:24px;
