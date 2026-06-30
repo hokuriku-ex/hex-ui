@@ -2076,14 +2076,14 @@ body,
 body.hex-form-dialog-open{
   overflow:hidden!important;
 }
-body.hex-form-dialog-open #gc_auto_frame_lp_form_dialog,
-body.hex-form-dialog-open #gc_auto_frame_lp_form_dialog_box{
+#gc_auto_frame_lp_form_dialog,
+#gc_auto_frame_lp_form_dialog_box{
   z-index:999999!important;
 }
-body.hex-form-dialog-open #gc_auto_frame_lp_form_dialog{
+#gc_auto_frame_lp_form_dialog{
   background:#fff!important;
 }
-body.hex-form-dialog-open #gc_auto_frame_lp_form_dialog_box{
+#gc_auto_frame_lp_form_dialog_box{
   width:auto!important;
   max-width:960px!important;
   margin:60px auto!important;
@@ -2092,12 +2092,12 @@ body.hex-form-dialog-open #gc_auto_frame_lp_form_dialog_box{
   border:none!important;
   box-shadow:none!important;
 }
-body.hex-form-dialog-open .hex-dialog-confirm{
+#gc_auto_frame_lp_form_dialog_box .hex-dialog-confirm{
   max-width:960px;
   margin:0 auto;
   color:#383838;
 }
-body.hex-form-dialog-open .hex-dialog-confirm-title{
+#gc_auto_frame_lp_form_dialog_box .hex-dialog-confirm-title{
   margin:0 0 32px;
   padding-bottom:14px;
   border-bottom:3px solid #e5e8f0;
@@ -2107,13 +2107,13 @@ body.hex-form-dialog-open .hex-dialog-confirm-title{
   line-height:1.5;
   letter-spacing:.04em;
 }
-body.hex-form-dialog-open .hex-dialog-confirm-lead{
+#gc_auto_frame_lp_form_dialog_box .hex-dialog-confirm-lead{
   margin:0 0 36px;
   color:#383838;
   font-size:15px;
   line-height:1.8;
 }
-body.hex-form-dialog-open .gc_dialog_lp_form_line{
+#gc_auto_frame_lp_form_dialog_box .gc_dialog_lp_form_line{
   display:grid;
   grid-template-columns:260px 1fr;
   gap:20px;
@@ -2121,7 +2121,7 @@ body.hex-form-dialog-open .gc_dialog_lp_form_line{
   padding:16px 0;
   border-bottom:1px solid #e5e8f0;
 }
-body.hex-form-dialog-open .gc_dialog_lp_form_label{
+#gc_auto_frame_lp_form_dialog_box .gc_dialog_lp_form_label{
   width:auto!important;
   min-width:0!important;
   margin-right:0!important;
@@ -2131,19 +2131,19 @@ body.hex-form-dialog-open .gc_dialog_lp_form_label{
   line-height:1.8;
   font-weight:600;
 }
-body.hex-form-dialog-open .gc_dialog_lp_form_value{
+#gc_auto_frame_lp_form_dialog_box .gc_dialog_lp_form_value{
   min-height:24px;
   color:#383838;
   font-size:15px;
   line-height:1.8;
   word-break:break-word;
 }
-body.hex-form-dialog-open .gc_dialog_lp_form_line.is-empty{
+#gc_auto_frame_lp_form_dialog_box .gc_dialog_lp_form_line.is-empty{
   display:none!important;
 }
 
 /* ボタン */
-body.hex-form-dialog-open .gc_auto_frame_lp_form_dialog_buttons{
+#gc_auto_frame_lp_form_dialog .gc_auto_frame_lp_form_dialog_buttons{
   max-width:960px!important;
   margin:64px auto 0!important;
   display:grid!important;
@@ -2151,7 +2151,7 @@ body.hex-form-dialog-open .gc_auto_frame_lp_form_dialog_buttons{
   gap:24px;
   background:none!important;
 }
-body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round{
+#gc_auto_frame_lp_form_dialog .gc_auto_frame_lp_form_box_button_round{
   width:100%!important;
   min-width:0!important;
   height:auto!important;
@@ -2166,12 +2166,12 @@ body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round{
   cursor:pointer;
   transition:.3s ease;
 }
-body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:first-child{
+#gc_auto_frame_lp_form_dialog .gc_auto_frame_lp_form_box_button_round:first-child{
   background:#fff!important;
   border:1px solid #1f2774!important;
   color:#1f2774!important;
 }
-body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:first-child::before{
+#gc_auto_frame_lp_form_dialog .gc_auto_frame_lp_form_box_button_round:first-child::before{
   content:"\f060";
   font-family:"Font Awesome 6 Free";
   font-weight:900;
@@ -2181,20 +2181,20 @@ body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:first-child::b
   transform:translateX(0);
   transition:.3s ease;
 }
-body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:last-child{
+#gc_auto_frame_lp_form_dialog .gc_auto_frame_lp_form_box_button_round:last-child{
   background:#1f2774!important;
   border:1px solid #1f2774!important;
   color:#fff!important;
 }
-body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:hover{
+#gc_auto_frame_lp_form_dialog .gc_auto_frame_lp_form_box_button_round:hover{
   border-color:#c8a874!important;
   background:#fff!important;
   color:#c8a874!important;
 }
-body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:first-child:hover::before{
+#gc_auto_frame_lp_form_dialog .gc_auto_frame_lp_form_box_button_round:first-child:hover::before{
   transform:translateX(-3px);
 }
-body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_text{
+#gc_auto_frame_lp_form_dialog .gc_auto_frame_lp_form_box_button_text{
   color:inherit!important;
   font-size:18px!important;
   font-weight:600!important;
@@ -2202,7 +2202,7 @@ body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_text{
   letter-spacing:.04em!important;
   transition:.3s ease;
 }
-body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_svg{
+#gc_auto_frame_lp_form_dialog .gc_auto_frame_lp_form_box_button_svg{
   width:auto!important;
   height:auto!important;
   margin:0!important;
@@ -2214,10 +2214,10 @@ body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_svg{
   transform:translateX(0);
   transition:.3s ease;
 }
-body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_svg svg{
+#gc_auto_frame_lp_form_dialog .gc_auto_frame_lp_form_box_button_svg svg{
   display:none!important;
 }
-body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_svg::before{
+#gc_auto_frame_lp_form_dialog .gc_auto_frame_lp_form_box_button_svg::before{
   content:"\f061";
   font-family:"Font Awesome 6 Free";
   font-weight:900;
@@ -2225,23 +2225,15 @@ body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_svg::before{
   line-height:1;
   color:inherit!important;
 }
-body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round:hover .gc_auto_frame_lp_form_box_button_svg{
+#gc_auto_frame_lp_form_dialog .gc_auto_frame_lp_form_box_button_round:hover .gc_auto_frame_lp_form_box_button_svg{
   transform:translateX(3px);
 }
 
-/* ボタン PC専用 */
+/* PC */
 @media screen and (min-width:769px){
-  body.hex-form-dialog-open .gc_dialog_lp_form_label{
+  #gc_auto_frame_lp_form_dialog_box .gc_dialog_lp_form_label{
     white-space:nowrap;
   }
-}
-
-body.hex-form-dialog-open #gc_auto_frame_lp_form_dialog{
-  pointer-events:none!important;
-}
-
-body.hex-form-dialog-open #gc_auto_frame_lp_form_dialog_box{
-  pointer-events:auto!important;
 }
 
 /* =======================================
