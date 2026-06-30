@@ -2114,6 +2114,59 @@ window.addEventListener('load',function(){
       return label.textContent.replace(/\s+/g,'').trim();
     }
 
+    function getDisplayLabel(label){
+      label=(label||'').replace(/\s+/g,'').replace('：','').replace(':','').replace('必須','').trim();
+      if(label==='ふりがな')return'フリガナ';
+      if(label==='〒')return'郵便番号';
+      if(label==='建物等')return'建物名・部屋番号';
+      if(label==='TEL')return'電話番号';
+      if(label==='Eメール')return'メールアドレス';
+      return label;
+    }
+
+    function setLabelText(labelEl,text){
+      if(!labelEl)return;
+      if(labelEl.childNodes.length&&labelEl.childNodes[0].nodeType===3){
+        labelEl.childNodes[0].textContent=text;
+      }else{
+        labelEl.insertBefore(document.createTextNode(text),labelEl.firstChild);
+      }
+    }
+
+    function applyFormLabelsAndPlaceholders(){
+      var rows=form.querySelectorAll('.hex-form-row');
+      rows.forEach(function(row){
+        var label=row.getAttribute('data-label')||'';
+        var displayLabel=getDisplayLabel(label);
+        var labelEl=row.querySelector('.gc_form_lp_label');
+        var field=row.querySelector('input:not([type="hidden"]),textarea');
+
+        setLabelText(labelEl,displayLabel);
+
+        if(!field)return;
+
+        if(label.indexOf('会社名')>-1){
+          field.setAttribute('placeholder','株式会社○○');
+        }
+
+        if(label.indexOf('氏名')>-1){
+          field.setAttribute('placeholder','山田 太郎');
+        }
+
+        if(label.indexOf('ふりがな')>-1){
+          field.setAttribute('placeholder','ヤマダ タロウ');
+        }
+
+        if(label.indexOf('TEL')>-1){
+          field.setAttribute('placeholder','090-1234-5678');
+        }
+
+        if(label.indexOf('Eメール')>-1){
+          field.setAttribute('placeholder','sample@example.com');
+        }
+      });
+    }
+
     function wrapRows(){
       var children=Array.prototype.slice.call(form.children);
       children.forEach(function(el){
@@ -2246,14 +2299,7 @@ window.addEventListener('load',function(){
         if(!isRequiredRow(row))return;
         if(!isRowEmpty(row))return;
         var label=row.getAttribute('data-label')||'';
-        label=label.replace('必須','').trim();
-
-        if(label==='ふりがな')label='フリガナ';
-        if(label==='〒')label='郵便番号';
-        if(label==='建物等')label='建物名・部屋番号';
-        if(label==='TEL')label='電話番号';
-        if(label==='Eメール')label='メールアドレス';
-
+        label=getDisplayLabel(label);
         errors.push({label:label,row:row});
       });
       return errors;
@@ -2318,9 +2364,9 @@ window.addEventListener('load',function(){
       dialogUnlocking=true;
       stopDialogWatch();
       var dialog=document.getElementById('gc_auto_frame_lp_form_dialog');
-        if(dialog){
-          dialog.classList.remove('hex-dialog-visible');
-        }
+      if(dialog){
+        dialog.classList.remove('hex-dialog-visible');
+      }
       document.body.classList.remove('hex-form-dialog-open');
       document.body.style.position='';
       document.body.style.top='';
@@ -2351,7 +2397,7 @@ window.addEventListener('load',function(){
         if(!label||!value)return;
         var labelText=label.textContent.replace(/\s+/g,'').replace('：','').replace(':','').trim();
         var valueText=value.textContent.replace(/\s+/g,'').trim();
-        label.textContent=labelText;
+        label.textContent=getDisplayLabel(labelText);
         if(valueText===''||valueText==='選択されていません'){
           line.classList.add('is-empty');
         }else{
@@ -2461,9 +2507,9 @@ window.addEventListener('load',function(){
       dialogUnlocking=false;
       stopDialogWatch();
       observeDialog();
-        scheduleDialogCustomize();
-        setTimeout(scheduleDialogCustomize,80);
-        setTimeout(scheduleDialogCustomize,240);
+      scheduleDialogCustomize();
+      setTimeout(scheduleDialogCustomize,80);
+      setTimeout(scheduleDialogCustomize,240);
     }
 
     function setupRequiredMessage(){
@@ -2529,7 +2575,7 @@ window.addEventListener('load',function(){
         (formBg&&formBg.contains(e.target))||
         (formBody&&formBody.contains(e.target))
       ){
-       e.preventDefault();
+        e.preventDefault();
         e.stopPropagation();
         if(e.stopImmediatePropagation)e.stopImmediatePropagation();
       }
@@ -2576,64 +2622,12 @@ window.addEventListener('load',function(){
     });
 
     wrapRows();
+    applyFormLabelsAndPlaceholders();
     setupRequirementSwitch();
     setupReferralSwitch();
     setupRequiredEmptyState();
     setupRequiredMessage();
     form.classList.add('hex-form-ready');
-  },300);
-});
-
-/* フォーム項目名・入力例変更 */
-window.addEventListener('load',function(){
-  setTimeout(function(){
-    document.querySelectorAll('.hex-form-row').forEach(function(row){
-      var label=row.getAttribute('data-label')||'';
-      var labelEl=row.querySelector('.gc_form_lp_label');
-      var field=row.querySelector('input:not([type="hidden"]),textarea');
-
-      if(label.indexOf('ふりがな')>-1){
-        if(labelEl)labelEl.childNodes[0].textContent='フリガナ';
-      }
-
-      if(label==='〒必須'){
-        if(labelEl)labelEl.childNodes[0].textContent='郵便番号';
-      }
-
-      if(label.indexOf('建物等')>-1){
-        if(labelEl)labelEl.childNodes[0].textContent='建物名・部屋番号';
-      }
-
-      if(label.indexOf('TEL')>-1){
-        if(labelEl)labelEl.childNodes[0].textContent='電話番号';
-      }
-
-      if(label.indexOf('Eメール')>-1){
-        if(labelEl)labelEl.childNodes[0].textContent='メールアドレス';
-      }
-
-      if(!field)return;
-
-      if(label.indexOf('会社名')>-1){
-        field.setAttribute('placeholder','株式会社○○');
-      }
-
-      if(label.indexOf('氏名')>-1){
-        field.setAttribute('placeholder','山田 太郎');
-      }
-
-      if(label.indexOf('ふりがな')>-1){
-        field.setAttribute('placeholder','ヤマダ タロウ');
-      }
-
-      if(label.indexOf('TEL')>-1){
-        field.setAttribute('placeholder','090-1234-5678');
-      }
-
-      if(label.indexOf('Eメール')>-1){
-        field.setAttribute('placeholder','sample@example.com');
-      }
-    });
   },300);
 });
 
