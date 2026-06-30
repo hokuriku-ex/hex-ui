@@ -969,14 +969,16 @@ document.addEventListener('DOMContentLoaded',function(){
 
   function updateScrollIndicator(){
 
-    const rect=scrollIndicator.getBoundingClientRect();
-    const center=window.innerHeight/2;
+    const rect = scrollIndicator.getBoundingClientRect();
 
-    let opacity=rect.top/center;
+    const start = window.innerHeight;
+    const end = window.innerHeight / 2;
 
-    opacity=Math.max(0,Math.min(1,opacity));
+    let opacity = (rect.top - end) / (start - end);
 
-    scrollIndicator.style.opacity=opacity;
+    opacity = Math.max(0, Math.min(1, opacity));
+
+    scrollIndicator.style.opacity = opacity;
   }
 
   window.addEventListener('scroll',updateScrollIndicator,{passive:true});
