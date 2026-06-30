@@ -2437,27 +2437,6 @@ window.addEventListener('load',function(){
     }
 
     document.addEventListener('click',function(e){
-      if(!dialogLocked||dialogUnlocking)return;
-
-      var dialog=document.getElementById('gc_auto_frame_lp_form_dialog');
-      var box=document.getElementById('gc_auto_frame_lp_form_dialog_box');
-
-      if(!dialog||!box)return;
-
-      /* ボタンは除外 */
-      if(box.contains(e.target))return;
-
-      /* 背景部分のみ */
-      if(dialog.contains(e.target)){
-        e.preventDefault();
-        e.stopPropagation();
-        if(e.stopImmediatePropagation)e.stopImmediatePropagation();
-
-        scheduleDialogCustomize();
-      }
-    },true);
-
-    document.addEventListener('click',function(e){
       var text=(e.target.textContent||'').replace(/\s+/g,'').trim();
 
       if(text.indexOf('修正')!==-1||text.indexOf('戻る')!==-1||text.indexOf('閉じる')!==-1){
