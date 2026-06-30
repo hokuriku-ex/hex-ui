@@ -961,6 +961,29 @@ window.addEventListener('load',function(){
   },500);
 });
 
+/* トップ スクロールナビ */
+document.addEventListener('DOMContentLoaded',function(){
+
+  const scrollIndicator=document.querySelector('.hex-scroll-indicator');
+  if(!scrollIndicator)return;
+
+  function updateScrollIndicator(){
+
+    const rect=scrollIndicator.getBoundingClientRect();
+    const center=window.innerHeight/2;
+
+    let opacity=rect.top/center;
+
+    opacity=Math.max(0,Math.min(1,opacity));
+
+    scrollIndicator.style.opacity=opacity;
+  }
+
+  window.addEventListener('scroll',updateScrollIndicator,{passive:true});
+  updateScrollIndicator();
+
+});
+
 /* 下層ページタイトル共通 */
 document.addEventListener('DOMContentLoaded',function(){
   var enTitle=document.querySelector('.page-title-en');
