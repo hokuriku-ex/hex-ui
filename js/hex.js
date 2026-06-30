@@ -2029,7 +2029,7 @@ function hexGetDesignSetId(){
   return '';
 }
 
-/* お問合わせ3 */
+/* お問合わせ */
 window.addEventListener('load',function(){
   setTimeout(function(){
     var form=document.getElementById('form_lp_form');
