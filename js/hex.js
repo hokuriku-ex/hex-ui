@@ -2585,8 +2585,8 @@ window.addEventListener('load',function(){
 
       var label=row.getAttribute('data-label')||'';
 
-      if(label==='〒'){
-        row.setAttribute('data-label','郵便番号');
+      if(label==='〒必須'){
+        row.setAttribute('data-label','郵便番号必須');
       }
 
       if(label==='建物等'){
