@@ -2436,6 +2436,24 @@ window.addEventListener('load',function(){
       gc_click_open_dialog_lp_form.hexWrapped=true;
     }
 
+    function blockInputOuterClick(e){
+      var dialog=document.getElementById('gc_auto_frame_lp_form_dialog');
+      var formBody=document.getElementById('gc_auto_frame_lp_form_body');
+      var formEl=document.getElementById('form_lp_form');
+      var formButton=document.getElementById('form_lp_form_button');
+
+      if(!formBody||!formEl)return;
+      if(dialog&&getComputedStyle(dialog).display!=='none')return;
+      if(formEl.contains(e.target))return;
+      if(formButton&&formButton.contains(e.target))return;
+
+      e.preventDefault();
+      e.stopPropagation();
+      if(e.stopImmediatePropagation)e.stopImmediatePropagation();
+    }
+
+    document.addEventListener('click',blockInputOuterClick,true);
+
     document.addEventListener('click',function(e){
       var text=(e.target.textContent||'').replace(/\s+/g,'').trim();
 
