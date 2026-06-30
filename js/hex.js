@@ -2247,6 +2247,13 @@ window.addEventListener('load',function(){
         if(!isRowEmpty(row))return;
         var label=row.getAttribute('data-label')||'';
         label=label.replace('必須','').trim();
+
+        if(label==='〒')label='郵便番号';
+        if(label==='ふりがな')label='フリガナ';
+        if(label==='建物等')label='建物名・部屋番号';
+        if(label==='TEL')label='電話番号';
+        if(label==='Eメール')label='メールアドレス';
+
         errors.push({label:label,row:row});
       });
       return errors;
