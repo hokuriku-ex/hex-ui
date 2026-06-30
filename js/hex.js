@@ -2473,6 +2473,21 @@ window.addEventListener('load',function(){
     document.addEventListener('click',blockInputOuterClick,true);
 
     document.addEventListener('click',function(e){
+      var dialog=document.getElementById('gc_auto_frame_lp_form_dialog');
+      var box=document.getElementById('gc_auto_frame_lp_form_dialog_box');
+
+      if(!dialog||!box)return;
+      if(!dialog.classList.contains('hex-dialog-visible'))return;
+
+      if(box.contains(e.target))return;
+      if(e.target.closest('.gc_auto_frame_lp_form_dialog_buttons'))return;
+
+      e.preventDefault();
+      e.stopPropagation();
+      if(e.stopImmediatePropagation)e.stopImmediatePropagation();
+    },true);
+
+    document.addEventListener('click',function(e){
       var text=(e.target.textContent||'').replace(/\s+/g,'').trim();
 
       if(text.indexOf('修正')!==-1||text.indexOf('戻る')!==-1||text.indexOf('閉じる')!==-1){
