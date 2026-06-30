@@ -2294,7 +2294,12 @@ window.addEventListener('load',function(){
         var labelText=label.textContent.replace(/\s+/g,'').replace('：','').replace(':','').trim();
         var valueText=value.textContent.replace(/\s+/g,'').trim();
         label.textContent=labelText;
-        if(valueText===''||valueText==='選択されていません'){
+        var forceShow=false;
+        if(labelText.indexOf('当社を知ったきっかけ')!==-1)forceShow=true;
+        if(labelText.indexOf('ご紹介')!==-1)forceShow=true;
+        if(labelText.indexOf('確認事項')!==-1)forceShow=true;
+
+        if(!forceShow&&(valueText===''||valueText==='選択されていません')){
           line.classList.add('is-empty');
         }else{
           line.classList.remove('is-empty');
