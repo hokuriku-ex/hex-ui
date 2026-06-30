@@ -16,6 +16,19 @@ const HOME_SECTIONS={
   FIXED_FOOTER:'gc_auto_frame_home_12'
 };
 
+/* 交互背景対象 */
+const HOME_DISPLAY_SECTIONS=[
+  HOME_SECTIONS.ABOUT,
+  HOME_SECTIONS.SERVICE,
+  HOME_SECTIONS.PICKUP,
+  'hex-home-news-section',
+  HOME_SECTIONS.BANNER,
+  HOME_SECTIONS.MOVIE,
+  HOME_SECTIONS.AREA
+];
+
+/* -------------------------------------------------- */
+
 /* 記事詳細タイトル整形 */
 window.addEventListener('load',function(){
   setTimeout(function(){
