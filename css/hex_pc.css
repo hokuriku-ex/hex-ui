@@ -2077,6 +2077,15 @@ body,
   background:#ffe4ec!important;
 }
 
+/* 入力画面：フォーム外クリック無効化 */
+#gc_auto_frame_lp_form_body{
+  pointer-events:none;
+}
+#form_lp_form,
+#form_lp_form_button{
+  pointer-events:auto;
+}
+
 /* =======================================
    下層ページ：フォーム確認画面
 ======================================= */
