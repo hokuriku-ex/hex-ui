@@ -1,3 +1,15 @@
+/* 定数定義 */
+/* トップページセクション */
+const HOME_SECTIONS={
+  service:'gc_auto_frame_home_1',
+  item:'gc_auto_frame_home_2',
+  recruit:'gc_auto_frame_home_3',
+  news:'gc_auto_frame_home_4',
+  blog:'gc_auto_frame_home_5',
+  activity:'gc_auto_frame_home_6',
+  footer:'gc_auto_frame_home_7'
+};
+
 /* 記事詳細タイトル整形 */
 window.addEventListener('load',function(){
   setTimeout(function(){
