@@ -723,31 +723,31 @@
   body.hex-form-dialog-open #footer_fixed{
     display:none!important;
   }
-  body.hex-form-dialog-open #gc_auto_frame_lp_form_dialog_box{
+  #gc_auto_frame_lp_form_dialog_box{
     max-width:none!important;
     margin:0!important;
     padding:32px 16px 40px!important;
   }
-  body.hex-form-dialog-open .hex-dialog-confirm-title{
+  #gc_auto_frame_lp_form_dialog_box .hex-dialog-confirm-title{
     margin-bottom:24px;
     font-size:24px;
   }
-  body.hex-form-dialog-open .hex-dialog-confirm-lead{
+  #gc_auto_frame_lp_form_dialog_box .hex-dialog-confirm-lead{
     margin-bottom:28px;
   }
-  body.hex-form-dialog-open .gc_dialog_lp_form_line{
+  #gc_auto_frame_lp_form_dialog_box .gc_dialog_lp_form_line{
     display:block;
     padding:16px 0;
   }
-  body.hex-form-dialog-open .gc_dialog_lp_form_label{
+  #gc_auto_frame_lp_form_dialog_box .gc_dialog_lp_form_label{
     margin-bottom:6px!important;
     white-space:normal;
   }
-  body.hex-form-dialog-open .gc_auto_frame_lp_form_dialog_buttons{
+  #gc_auto_frame_lp_form_dialog .gc_auto_frame_lp_form_dialog_buttons{
     display:block!important;
     margin-top:32px!important;
   }
-  body.hex-form-dialog-open .gc_auto_frame_lp_form_box_button_round{
+  #gc_auto_frame_lp_form_dialog .gc_auto_frame_lp_form_box_button_round{
     width:100%!important;
     margin-bottom:14px!important;
   }
