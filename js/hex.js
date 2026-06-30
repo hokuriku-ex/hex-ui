@@ -2233,8 +2233,19 @@ window.addEventListener('load',function(){
       });
     }
 
+    function isDialogVisible(){
+      var dialog=document.getElementById('gc_auto_frame_lp_form_dialog');
+      var box=document.getElementById('gc_auto_frame_lp_form_dialog_box');
+      if(!dialog||!box)return false;
+      if(dialog.offsetParent===null&&getComputedStyle(dialog).position!=='fixed')return false;
+      if(getComputedStyle(dialog).display==='none'||getComputedStyle(box).display==='none')return false;
+      return !!box.querySelector('.gc_dialog_lp_form_line');
+    }
+
     function lockDialogView(){
       if(dialogLocked||dialogUnlocking)return;
+      if(!isDialogVisible())return;
+
       dialogLocked=true;
       dialogScrollY=window.pageYOffset||document.documentElement.scrollTop||0;
 
@@ -2246,14 +2257,22 @@ window.addEventListener('load',function(){
       document.body.style.width='100%';
     }
 
+    function stopDialogWatch(){
+      clearTimeout(dialogCustomizeTimer);
+      clearTimeout(dialogObserveTimer);
+      if(dialogObserver){
+        dialogObserver.disconnect();
+        dialogObserver=null;
+      }
+    }
+
     function unlockDialogView(){
       var scrollY=dialogScrollY||0;
 
       dialogLocked=false;
       dialogUnlocking=true;
 
-      clearTimeout(dialogCustomizeTimer);
-      clearTimeout(dialogObserveTimer);
+      stopDialogWatch();
 
       document.body.classList.remove('hex-form-dialog-open');
       document.body.style.position='';
@@ -2363,36 +2382,46 @@ window.addEventListener('load',function(){
       dialogCustomizeTimer=setTimeout(function(){
         if(dialogUnlocking)return;
         customizeDialog();
-        var box=document.getElementById('gc_auto_frame_lp_form_dialog_box');
-        if(box&&box.querySelector('.gc_dialog_lp_form_line')){
+        if(isDialogVisible()){
           lockDialogView();
         }
-      },80);
+      },40);
     }
 
     function observeDialog(){
       if(dialogObserver)return;
+
+      var dialog=document.getElementById('gc_auto_frame_lp_form_dialog');
+      var box=document.getElementById('gc_auto_frame_lp_form_dialog_box');
+      var target=dialog||box;
+
+      if(!target){
+        dialogObserveTimer=setTimeout(observeDialog,80);
+        return;
+      }
 
       dialogObserver=new MutationObserver(function(){
         if(dialogUnlocking)return;
         scheduleDialogCustomize();
       });
 
-      dialogObserver.observe(document.body,{
+      dialogObserver.observe(target,{
         childList:true,
-        subtree:true
+        subtree:true,
+        attributes:true
       });
     }
 
     function startDialogWatch(){
       dialogUnlocking=false;
+      stopDialogWatch();
+
       observeDialog();
-      clearTimeout(dialogObserveTimer);
-      dialogObserveTimer=setTimeout(function(){
-        scheduleDialogCustomize();
-      },80);
-      setTimeout(scheduleDialogCustomize,300);
-      setTimeout(scheduleDialogCustomize,700);
+
+      setTimeout(scheduleDialogCustomize,40);
+      setTimeout(scheduleDialogCustomize,160);
+      setTimeout(scheduleDialogCustomize,400);
+      setTimeout(scheduleDialogCustomize,800);
     }
 
     function setupRequiredMessage(){
@@ -2447,7 +2476,7 @@ window.addEventListener('load',function(){
       }
 
       if(dialogLocked&&!dialogUnlocking){
-        setTimeout(scheduleDialogCustomize,80);
+        setTimeout(scheduleDialogCustomize,40);
       }
     });
 
@@ -2464,7 +2493,6 @@ window.addEventListener('load',function(){
     setupReferralSwitch();
     setupRequiredEmptyState();
     setupRequiredMessage();
-    observeDialog();
   },300);
 });
 
