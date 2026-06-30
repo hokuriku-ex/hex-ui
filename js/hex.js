@@ -5,7 +5,7 @@ const HOME_SECTIONS={
   ABOUT:'gc_auto_frame_home_1', /* 私たちについて */
   SERVICE:'gc_auto_frame_home_2', /* サービス案内 */
   PICKUP:'gc_auto_frame_home_3', /* 注目アイテム */
-  NEWS_HEADER:'gc_auto_frame_home_4', /* お知らせヘッダー */
+  NEWS_SECTION:'gc_auto_frame_home_4', /* お知らせセクション */
   NEWS:'gc_auto_frame_home_5', /* 重要なお知らせ */
   BLOG:'gc_auto_frame_home_6', /* スタッフブログ */
   BANNER:'gc_auto_frame_home_7', /* バナー */
