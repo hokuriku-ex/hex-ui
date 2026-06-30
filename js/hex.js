@@ -2585,16 +2585,24 @@ window.addEventListener('load',function(){
       var labelEl=row.querySelector('.gc_form_lp_label');
       var field=row.querySelector('input:not([type="hidden"]),textarea');
 
+      if(label.indexOf('ふりがな')>-1){
+        if(labelEl)labelEl.childNodes[0].textContent='フリガナ';
+      }
+
       if(label==='〒必須'){
         if(labelEl)labelEl.childNodes[0].textContent='郵便番号';
       }
 
-      if(label==='建物等'){
-        if(labelEl)labelEl.textContent='建物名・部屋番号';
+      if(label.indexOf('建物等')>-1){
+        if(labelEl)labelEl.childNodes[0].textContent='建物名・部屋番号';
       }
 
-      if(label.indexOf('ふりがな')>-1){
-        if(labelEl)labelEl.childNodes[0].textContent='フリガナ';
+      if(label.indexOf('TEL')>-1){
+        if(labelEl)labelEl.childNodes[0].textContent='電話番号';
+      }
+
+      if(label.indexOf('Eメール')>-1){
+        if(labelEl)labelEl.childNodes[0].textContent='メールアドレス';
       }
 
       if(!field)return;
