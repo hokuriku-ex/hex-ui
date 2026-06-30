@@ -2086,16 +2086,6 @@ window.addEventListener('load',function(){
       if(!row)return;
       row.classList.toggle('is-hidden',!visible);
       if(!visible)row.classList.remove('is-required-empty');
-      var fields=row.querySelectorAll('input,select,textarea,button');
-      fields.forEach(function(field){
-        if(!visible){
-          field.setAttribute('data-hex-disabled','1');
-          field.disabled=true;
-        }else if(field.getAttribute('data-hex-disabled')==='1'){
-          field.disabled=false;
-          field.removeAttribute('data-hex-disabled');
-        }
-      });
     }
 
     function getCheckedValue(row){
