@@ -5,15 +5,16 @@ const HOME_SECTIONS={
   ABOUT:'gc_auto_frame_home_1',
   SERVICE:'gc_auto_frame_home_2',
   PICKUP:'gc_auto_frame_home_3',
-  NEWS:'gc_auto_frame_home_4',
-  BLOG:'gc_auto_frame_home_5',
-  BANNER:'gc_auto_frame_home_6',
-  MOVIE:'gc_auto_frame_home_7',
-  RECRUIT:'gc_auto_frame_home_8',
-  CALENDAR:'gc_auto_frame_home_9',
-  AREA:'gc_auto_frame_home_10',
-  FOOTER:'gc_auto_frame_home_11',
-  FIXED_FOOTER:'gc_auto_frame_home_12'
+  NEWS_HEADER:'gc_auto_frame_home_4',
+  NEWS:'gc_auto_frame_home_5',
+  BLOG:'gc_auto_frame_home_6',
+  BANNER:'gc_auto_frame_home_7',
+  MOVIE:'gc_auto_frame_home_8',
+  RECRUIT:'gc_auto_frame_home_9',
+  CALENDAR:'gc_auto_frame_home_10',
+  AREA:'gc_auto_frame_home_11',
+  FOOTER:'gc_auto_frame_home_12',
+  FIXED_FOOTER:'gc_auto_frame_home_13'
 };
 
 /* 交互背景対象（薄いグレー） */
