@@ -2259,6 +2259,21 @@ window.addEventListener('load',function(){
       update();
     }
 
+    function setupFileInputClickArea(){
+      var files=form.querySelectorAll('.hex-form-row[data-label*="添付ファイル"] input[type="file"]');
+      files.forEach(function(file){
+        file.addEventListener('click',function(e){
+          var rect=file.getBoundingClientRect();
+          var x=e.clientX-rect.left;
+          if(x>130){
+            e.preventDefault();
+            e.stopPropagation();
+            if(e.stopImmediatePropagation)e.stopImmediatePropagation();
+          }
+        },true);
+      });
+    }
+
     function isRequiredRow(row){
       if(!row||row.classList.contains('is-hidden'))return false;
       var need=row.querySelector('input[type="hidden"][name*="_need"]');
@@ -2623,6 +2638,7 @@ window.addEventListener('load',function(){
 
     wrapRows();
     applyFormLabelsAndPlaceholders();
+    setupFileInputClickArea();
     setupRequirementSwitch();
     setupReferralSwitch();
     setupRequiredEmptyState();
