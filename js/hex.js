@@ -2577,24 +2577,46 @@ window.addEventListener('load',function(){
   },300);
 });
 
-/* フォーム項目名変更 */
+/* フォーム項目名・入力例変更 */
 window.addEventListener('load',function(){
   setTimeout(function(){
     document.querySelectorAll('.hex-form-row').forEach(function(row){
       var label=row.getAttribute('data-label')||'';
+      var labelEl=row.querySelector('.gc_form_lp_label');
+      var field=row.querySelector('input:not([type="hidden"]),textarea');
 
       if(label==='〒必須'){
-        var labelEl=row.querySelector('.gc_form_lp_label');
-        if(labelEl){
-          labelEl.textContent='郵便番号';
-        }
+        if(labelEl)labelEl.childNodes[0].textContent='郵便番号';
       }
 
       if(label==='建物等'){
-        var labelEl2=row.querySelector('.gc_form_lp_label');
-        if(labelEl2){
-          labelEl2.textContent='建物名・部屋番号';
-        }
+        if(labelEl)labelEl.textContent='建物名・部屋番号';
+      }
+
+      if(label.indexOf('ふりがな')>-1){
+        if(labelEl)labelEl.childNodes[0].textContent='フリガナ';
+      }
+
+      if(!field)return;
+
+      if(label.indexOf('会社名')>-1){
+        field.setAttribute('placeholder','株式会社○○');
+      }
+
+      if(label.indexOf('氏名')>-1){
+        field.setAttribute('placeholder','山田 太郎');
+      }
+
+      if(label.indexOf('ふりがな')>-1){
+        field.setAttribute('placeholder','ヤマダ タロウ');
+      }
+
+      if(label.indexOf('TEL')>-1){
+        field.setAttribute('placeholder','090-1234-5678');
+      }
+
+      if(label.indexOf('Eメール')>-1){
+        field.setAttribute('placeholder','sample@example.com');
       }
     });
   },300);
