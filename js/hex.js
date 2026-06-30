@@ -2445,7 +2445,7 @@ window.addEventListener('load',function(){
       var formButton=document.getElementById('form_lp_form_button');
 
       if(!formEl)return;
-      if(dialog&&dialog.classList.contains('hex-dialog-visible'))return;
+      if(dialog&&getComputedStyle(dialog).display!=='none')return;
 
       if(formEl.contains(e.target))return;
       if(formButton&&formButton.contains(e.target))return;
