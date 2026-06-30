@@ -16,7 +16,7 @@ const HOME_SECTIONS={
   FIXED_FOOTER:'gc_auto_frame_home_12'
 };
 
-/* 交互背景対象 */
+/* 交互背景対象（薄いグレー） */
 const HOME_DISPLAY_SECTIONS=[
   HOME_SECTIONS.ABOUT,
   HOME_SECTIONS.SERVICE,
