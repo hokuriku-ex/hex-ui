@@ -2444,10 +2444,28 @@ window.addEventListener('load',function(){
 
       if(!formBody||!formEl)return;
       if(dialog&&getComputedStyle(dialog).display!=='none')return;
+
       if(formEl.contains(e.target))return;
       if(formButton&&formButton.contains(e.target))return;
 
-      e.preventDefault();
+      /* エラーメッセージ・OKボタン系は許可 */
+      if(e.target.closest('.o7cms_message_box'))return;
+      if(e.target.closest('.o7cms_message'))return;
+      if(e.target.closest('[id*="message"]'))return;
+      if(e.target.closest('[class*="message"]'))return;
+
+      /* ヘッダー・メニュー・リンク系は許可 */
+      if(e.target.closest('header'))return;
+      if(e.target.closest('#header'))return;
+      if(e.target.closest('[class*="header"]'))return;
+      if(e.target.closest('.bg_menu_button_popup'))return;
+      if(e.target.closest('a'))return;
+      if(e.target.closest('button'))return;
+
+      /* フォームエリア周辺以外は許可 */
+      if(!formBody.contains(e.target))return;
+
+     e.preventDefault();
       e.stopPropagation();
       if(e.stopImmediatePropagation)e.stopImmediatePropagation();
     }
