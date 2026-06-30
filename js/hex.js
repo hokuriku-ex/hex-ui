@@ -2476,7 +2476,10 @@ window.addEventListener('load',function(){
       }
 
       if(dialogLocked&&!dialogUnlocking){
+        scheduleDialogCustomize();
         setTimeout(scheduleDialogCustomize,40);
+        setTimeout(scheduleDialogCustomize,120);
+        setTimeout(scheduleDialogCustomize,300);
       }
     });
 
