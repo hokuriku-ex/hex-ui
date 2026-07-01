@@ -38,8 +38,8 @@ window.addEventListener('load',function(){
     HOME_DISPLAY_SECTIONS.forEach(function(sectionId){
       var section=document.getElementById(sectionId);
       if(!section)return;
-      if(section.classList.contains('hex-home-bg-ready'))return;
 
+      section.classList.remove('hex-home-bg-white','hex-home-bg-gray');
       section.classList.add('hex-home-bg-ready');
 
       if(count%2===1){
