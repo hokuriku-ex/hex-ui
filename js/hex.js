@@ -100,7 +100,12 @@ window.addEventListener('load',function(){
   if(!list.children.length)return;
   nav.appendChild(list);
   source.parentNode.insertBefore(nav,source.nextSibling);
-  var navTop=0;
+  var placeholder=document.createElement('div');
+  placeholder.className='hex-anchor-nav-placeholder';
+  nav.parentNode.insertBefore(placeholder,nav.nextSibling);
+  var fixedStart=0;
+  var originalParent=nav.parentNode;
+  var originalNext=nav.nextSibling;
   function getHexAnchorHeaderHeight(){
     return 80;
   }
@@ -108,16 +113,33 @@ window.addEventListener('load',function(){
     return getHexAnchorHeaderHeight()+nav.offsetHeight+40;
   }
   function refreshHexAnchorNav(){
-    navTop=nav.getBoundingClientRect().top+window.pageYOffset-getHexAnchorHeaderHeight();
+    nav.classList.remove('is-fixed');
+    placeholder.classList.remove('is-active');
+    placeholder.style.height='0px';
+    if(nav.parentNode!==originalParent)originalParent.insertBefore(nav,originalNext);
+    fixedStart=nav.getBoundingClientRect().top+window.pageYOffset-getHexAnchorHeaderHeight();
     updateHexAnchorNav();
   }
   function updateHexAnchorNav(){
     var scrollTop=window.pageYOffset||document.documentElement.scrollTop;
-    if(scrollTop>=navTop){
-      nav.classList.add('is-sticky');
+    if(scrollTop>=fixedStart){
+      if(!nav.classList.contains('is-fixed')){
+        placeholder.style.height=nav.offsetHeight+'px';
+        placeholder.classList.add('is-active');
+        document.body.appendChild(nav);
+        nav.classList.add('is-fixed');
+      }
     }else{
-      nav.classList.remove('is-sticky');
+      if(nav.classList.contains('is-fixed')){
+        nav.classList.remove('is-fixed');
+        placeholder.classList.remove('is-active');
+        placeholder.style.height='0px';
+        originalParent.insertBefore(nav,originalNext);
+      }
     }
+    updateHexAnchorActive(scrollTop);
+  }
+  function updateHexAnchorActive(scrollTop){
     var activePair=null;
     var checkLine=scrollTop+getHexAnchorOffset()+10;
     pairs.forEach(function(pair){
@@ -129,7 +151,7 @@ window.addEventListener('load',function(){
     });
     if(activePair){
       activePair.link.classList.add('is-active');
-      if(window.innerWidth<=768){
+      if(window.innerWidth<=768&&nav.classList.contains('is-fixed')){
         activePair.link.scrollIntoView({
           behavior:'smooth',
           inline:'center',
