@@ -30,24 +30,26 @@ const HOME_DISPLAY_SECTIONS=[
 
 /* -------------------------------------------------- */
 
-/* トップページ交互背景：デバッグ版 */
+/* トップページ交互背景 */
 window.addEventListener('load',function(){
   setTimeout(function(){
-    console.log('交互背景チェック開始');
+    var count=0;
 
-    HOME_DISPLAY_SECTIONS.forEach(function(sectionId,index){
+    HOME_DISPLAY_SECTIONS.forEach(function(sectionId){
       var section=document.getElementById(sectionId);
-      console.log(index,sectionId,section);
-
       if(!section)return;
 
-      section.classList.add('hex-home-bg-debug');
+      var bgTarget=section.closest('.gc_auto_frame_spotitem')||section;
 
-      if(index%2===1){
-        section.classList.add('hex-home-bg-gray');
+      bgTarget.classList.remove('hex-home-bg-white','hex-home-bg-gray');
+
+      if(count%2===1){
+        bgTarget.classList.add('hex-home-bg-gray');
       }else{
-        section.classList.add('hex-home-bg-white');
+        bgTarget.classList.add('hex-home-bg-white');
       }
+
+      count++;
     });
   },100);
 });
