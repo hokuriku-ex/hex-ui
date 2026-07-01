@@ -1268,6 +1268,7 @@ body,
 }
 .hex-home-bg-gray{
   background:red!important;
+  min-height:300px!important;
 }
 .hex-home-bg-white{
   background:blue!important;
