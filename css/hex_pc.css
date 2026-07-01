@@ -2148,7 +2148,7 @@ body,
   box-sizing:border-box!important;
 }
 #o7cms_dialog::backdrop{
-  background:#2f3138!important;
+  background:rgba(31,39,116,.28)!important;
 }
 #o7cms_dialog,
 #o7cms_dialog *{
