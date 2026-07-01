@@ -1753,6 +1753,7 @@ body,
 }
 .hex-staff-section-heading .hex-section-subtitle:before{
   display:none;
+  padding-left:0;
 }
 .hex-staff-section-description{
   margin:0;
