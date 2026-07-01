@@ -1263,12 +1263,9 @@ body,
    トップページ
 ======================================= */
 /* トップページ交互背景 */
-.hex-home-bg-gray{
+.hex-home-bg-gray .background_color,
+.hex-home-bg-gray .backgroundcolor_auto{
   background:red!important;
-}
-
-.hex-home-bg-white{
-  background:blue!important;
 }
 
 /* スクロールナビ */
