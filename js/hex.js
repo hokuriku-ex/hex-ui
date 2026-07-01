@@ -2203,6 +2203,10 @@ window.addEventListener('load',function(){
           field.setAttribute('placeholder','ヤマダ タロウ');
         }
 
+        if(label.indexOf('〒')>-1){
+          field.setAttribute('placeholder','123-4567');
+        }
+
         if(label.indexOf('TEL')>-1){
           field.setAttribute('placeholder','090-1234-5678');
         }
