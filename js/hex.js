@@ -32,7 +32,7 @@ const HOME_DISPLAY_SECTIONS=[
 
 /* トップページ交互背景 */
 window.addEventListener('load',function(){
-  setTimeout(function(){
+
     var count=0;
 
     HOME_DISPLAY_SECTIONS.forEach(function(sectionId){
@@ -49,7 +49,7 @@ window.addEventListener('load',function(){
 
       count++;
     });
-  },100);
+
 });
 
 /* 記事詳細タイトル整形 */
