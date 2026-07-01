@@ -39,14 +39,12 @@ window.addEventListener('load',function(){
       var section=document.getElementById(sectionId);
       if(!section)return;
 
-      var bgTarget=section.parentElement.parentElement||section;
-
-      bgTarget.classList.remove('hex-home-bg-white','hex-home-bg-gray');
+      section.classList.remove('hex-home-bg-white','hex-home-bg-gray');
 
       if(count%2===1){
-        bgTarget.classList.add('hex-home-bg-gray');
+        section.classList.add('hex-home-bg-gray');
       }else{
-        bgTarget.classList.add('hex-home-bg-white');
+        section.classList.add('hex-home-bg-white');
       }
 
       count++;
