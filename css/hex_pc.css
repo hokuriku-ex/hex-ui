@@ -2135,6 +2135,56 @@ body,
   transform:translateX(3px);
 }
 
+/* 必須エラーダイアログ */
+#o7cms_dialog{
+  width:calc(100% - 32px);
+  max-width:460px;
+  padding:28px 28px 24px;
+  border:none;
+  border-radius:0;
+  background:#fff;
+  color:#383838;
+  box-shadow:0 12px 32px rgba(0,0,0,.18);
+  box-sizing:border-box;
+}
+#o7cms_dialog::backdrop{
+  background:rgba(31,39,116,.35);
+}
+#o7cms_dialog p{
+  margin:0;
+  color:#383838;
+  font-size:15px;
+  line-height:1.8;
+}
+#o7cms_dialog p strong{
+  display:block;
+  margin-bottom:12px;
+  color:#1f2774;
+  font-size:18px;
+  font-weight:700;
+}
+#o7cms_dialog .o7cms_dialog_button_box{
+  margin-top:24px;
+  display:flex;
+  justify-content:center;
+}
+#o7cms_dialog #o7cms_dialog_close{
+  min-width:120px;
+  padding:12px 24px;
+  border:1px solid #1f2774;
+  border-radius:0;
+  background:#1f2774;
+  color:#fff;
+  font-size:15px;
+  font-weight:600;
+  cursor:pointer;
+}
+#o7cms_dialog #o7cms_dialog_close:hover{
+  border-color:#c8a874;
+  background:#fff;
+  color:#c8a874;
+}
+
 /* 未入力エラー */
 #form_lp_form .hex-form-row.is-required-empty .gc_form_lp_data input[type="text"],
 #form_lp_form .hex-form-row.is-required-empty .gc_form_lp_data input[type="email"],
