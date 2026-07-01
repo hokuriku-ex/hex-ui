@@ -2078,6 +2078,14 @@ body,
   color:#d91f26;
 }
 
+/* プライバシーポリシー */
+#gc_auto_frame_lp_form_body .privacy_policy{
+  width:calc(100% - 58px)!important;
+  max-width:902px!important;
+  margin:40px auto 0!important;
+  box-sizing:border-box;
+}
+
 /* 確認ボタン */
 #form_lp_form_button{
   width:100%;
