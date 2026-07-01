@@ -2128,9 +2128,12 @@ window.addEventListener('load',function(){
       if(!row||row.classList.contains('is-hidden'))return false;
       var label=row.getAttribute('data-label')||'';
 
-      if(label.indexOf('ハウスメーカー')!==-1){
-        return true;
-      }
+      if(
+          label.indexOf('ハウスメーカー')!==-1||
+          label.indexOf('ご紹介者名')!==-1
+        ){
+          return true;
+        }
 
       var need=row.querySelector('input[type="hidden"][name*="_need"]');
       return need&&need.value==='1';
