@@ -2172,11 +2172,6 @@ body,
   display:flex!important;
   justify-content:center!important;
 }
-#o7cms_dialog #o7cms_dialog_close:focus,
-#o7cms_dialog #o7cms_dialog_close:focus-visible{
-  outline:none!important;
-  box-shadow:none!important;
-}
 #o7cms_dialog #o7cms_dialog_close{
   min-width:120px!important;
   padding:12px 24px!important;
@@ -2193,6 +2188,11 @@ body,
   border-color:#c8a874!important;
   background:#fff!important;
   color:#c8a874!important;
+}
+#o7cms_dialog #o7cms_dialog_close:focus,
+#o7cms_dialog #o7cms_dialog_close:focus-visible{
+  outline:none!important;
+  box-shadow:none!important;
 }
 
 /* 未入力エラー */
