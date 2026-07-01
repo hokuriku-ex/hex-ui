@@ -1396,24 +1396,6 @@ body,
 .hex-home-news-button .hex-link{
   cursor:pointer;
 }
-.hex-news-start,
-.hex-news-title,
-.hex-news-tabs,
-.hex-news-list,
-.hex-news-button,
-.hex-news-end{
-  margin:0!important;
-  padding:0!important;
-}
-
-.hex-news-start p,
-.hex-news-title p,
-.hex-news-tabs p,
-.hex-news-list p,
-.hex-news-button p,
-.hex-news-end p{
-  margin:0!important;
-}
 
 /* =======================================
    下層ページ共通
