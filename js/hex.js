@@ -2327,6 +2327,22 @@ window.addEventListener('load',function(){
       update();
     }
 
+    function setupHouseMakerNote(){
+      var row=findRow('ハウスメーカー');
+      if(!row)return;
+
+      if(row.querySelector('.hex-housemaker-note'))return;
+
+      var data=row.querySelector('.gc_form_lp_data');
+      if(!data)return;
+
+      var note=document.createElement('div');
+      note.className='hex-housemaker-note';
+      note.textContent='※弊社お取引先との関係上、場合によっては直接お請けできないことがあるため、ご記入をお願いいたします。';
+
+      data.appendChild(note);
+    }
+
     function setupFileInputClickArea(){
       var files=form.querySelectorAll('.hex-form-row[data-label*="添付ファイル"] input[type="file"]');
       files.forEach(function(file){
