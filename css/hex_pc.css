@@ -2047,6 +2047,14 @@ body,
   line-height:1.7;
 }
 
+/* ハウスメーカー説明文 */
+#form_lp_form .hex-housemaker-note{
+  margin-top:8px;
+  color:#d91f26;
+  font-size:13px;
+  line-height:1.7;
+}
+
 /* 確認ボタン */
 #form_lp_form_button{
   width:100%;
