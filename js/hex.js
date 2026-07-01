@@ -2116,6 +2116,7 @@ window.addEventListener('load',function(){
 
     function getDisplayLabel(label){
       label=(label||'').replace(/\s+/g,'').replace('：','').replace(':','').replace('必須','').replace('任意','').trim();
+      if(label==='氏名')return'お名前';
       if(label==='ふりがな')return'フリガナ';
       if(label==='〒')return'郵便番号';
       if(label==='建物等')return'建物名・部屋番号';
