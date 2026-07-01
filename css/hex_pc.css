@@ -1751,9 +1751,11 @@ body,
 .hex-staff-section .hex-section-subtitle{
   margin:0 0 10px;
 }
+.hex-staff-section-heading .hex-section-subtitle{
+  padding-left:0;
+}
 .hex-staff-section-heading .hex-section-subtitle:before{
   display:none;
-  padding-left:0;
 }
 .hex-staff-section-description{
   margin:0;
