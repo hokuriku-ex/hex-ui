@@ -429,10 +429,11 @@
     margin-left:0!important;
     font-size:16px!important;
   }
-  .hex-news-link-area{
+  .hex-home-news-button{
     padding:0 22px!important;
   }
-  .hex-news-link-area .hex-link-wrap{
+
+  .hex-home-news-button .hex-home-news-link-wrap{
     width:100%!important;
     max-width:100%!important;
   }
