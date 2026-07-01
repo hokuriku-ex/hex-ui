@@ -756,10 +756,12 @@
   #gc_auto_frame_lp_form_dialog .gc_auto_frame_lp_form_dialog_buttons{
     display:block!important;
     margin-top:32px!important;
+    text-align:center!important;
   }
   #gc_auto_frame_lp_form_dialog .gc_auto_frame_lp_form_box_button_round{
     width:100%!important;
-    margin-bottom:14px!important;
+    max-width:300px!important;
+    margin:0 auto 14px!important;
   }
 }
 
