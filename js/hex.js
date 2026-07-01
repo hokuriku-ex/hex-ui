@@ -2115,7 +2115,7 @@ window.addEventListener('load',function(){
     }
 
     function getDisplayLabel(label){
-      label=(label||'').replace(/\s+/g,'').replace('：','').replace(':','').replace('必須','').trim();
+      label=(label||'').replace(/\s+/g,'').replace('：','').replace(':','').replace('必須','').replace('任意','').trim();
       if(label==='ふりがな')return'フリガナ';
       if(label==='〒')return'郵便番号';
       if(label==='建物等')return'建物名・部屋番号';
@@ -2124,13 +2124,16 @@ window.addEventListener('load',function(){
       return label;
     }
 
-    function setLabelText(labelEl,text){
-      if(!labelEl)return;
-      if(labelEl.childNodes.length&&labelEl.childNodes[0].nodeType===3){
-        labelEl.childNodes[0].textContent=text;
-      }else{
-        labelEl.insertBefore(document.createTextNode(text),labelEl.firstChild);
+    function isRequiredRow(row){
+      if(!row||row.classList.contains('is-hidden'))return false;
+      var label=row.getAttribute('data-label')||'';
+
+      if(label.indexOf('ハウスメーカー')!==-1){
+        return true;
       }
+
+      var need=row.querySelector('input[type="hidden"][name*="_need"]');
+      return need&&need.value==='1';
     }
 
     function applyFormLabelsAndPlaceholders(){
@@ -2141,7 +2144,20 @@ window.addEventListener('load',function(){
         var labelEl=row.querySelector('.gc_form_lp_label');
         var field=row.querySelector('input:not([type="hidden"]),textarea');
 
-        setLabelText(labelEl,displayLabel);
+        if(labelEl){
+          labelEl.textContent='';
+
+          var badge=document.createElement('span');
+          badge.className=isRequiredRow(row)?'hex-form-badge is-required':'hex-form-badge is-optional';
+          badge.textContent=isRequiredRow(row)?'必須':'任意';
+
+          var text=document.createElement('span');
+          text.className='hex-form-label-text';
+          text.textContent=displayLabel;
+
+          labelEl.appendChild(badge);
+          labelEl.appendChild(text);
+        }
 
         if(!field)return;
 
@@ -2272,12 +2288,6 @@ window.addEventListener('load',function(){
           }
         },true);
       });
-    }
-
-    function isRequiredRow(row){
-      if(!row||row.classList.contains('is-hidden'))return false;
-      var need=row.querySelector('input[type="hidden"][name*="_need"]');
-      return need&&need.value==='1';
     }
 
     function isRowEmpty(row){
