@@ -39,7 +39,7 @@ window.addEventListener('load',function(){
       var section=document.getElementById(sectionId);
       if(!section)return;
 
-      var bgTarget=section.parentElement||section;
+      var bgTarget=section.parentElement.parentElement||section;
 
       bgTarget.classList.remove('hex-home-bg-white','hex-home-bg-gray');
 
