@@ -1273,6 +1273,16 @@ body,
   background:#f5f5f5!important;
 }
 
+.hex-home-bg-gray .gc_auto_frame_spotitem_box,
+.hex-home-bg-gray .gc_auto_frame_spotitem_body{
+  background:#f5f5f5!important;
+}
+
+.hex-home-bg-white .gc_auto_frame_spotitem_box,
+.hex-home-bg-white .gc_auto_frame_spotitem_body{
+  background:#fff!important;
+}
+
 /* スクロールナビ */
 .hex-scroll-indicator{
   text-align:center;
