@@ -968,6 +968,22 @@ window.addEventListener('load',function(){
       el.style.display='none';
     });
 
+    function hexRemoveNewsOuterBr(el){
+      var next=el.nextSibling;
+      while(next){
+        var current=next;
+        next=next.nextSibling;
+        if(current.nodeType===1&&current.tagName==='BR'){
+          current.remove();
+          continue;
+        }
+        if(current.nodeType===3&&!current.textContent.trim()){
+          continue;
+        }
+        break;
+      }
+    }
+
     while(tabsArea.firstChild){
       tabsArea.removeChild(tabsArea.firstChild);
     }
