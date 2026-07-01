@@ -116,10 +116,7 @@
    共通パーツ（アンカーナビ）
 ======================================= */
 @media screen and (max-width:768px){
-  .hex-anchor-nav,
-  header .hex-anchor-nav,
-  .header .hex-anchor-nav,
-  .bg_header .hex-anchor-nav{
+  .hex-anchor-nav{
     width:100vw;
     margin:0 calc(50% - 50vw) 36px;
     padding:0 16px 12px;
@@ -127,10 +124,7 @@
     -webkit-overflow-scrolling:touch;
     text-align:left;
   }
-  .hex-anchor-nav.is-fixed,
-  header .hex-anchor-nav.is-fixed,
-  .header .hex-anchor-nav.is-fixed,
-  .bg_header .hex-anchor-nav.is-fixed{
+  .hex-anchor-nav.is-fixed{
     top:80px;
     width:100vw;
     margin:0;
@@ -142,20 +136,14 @@
   .hex-anchor-nav::-webkit-scrollbar{
     display:none;
   }
-  .hex-anchor-nav-list,
-  header .hex-anchor-nav-list,
-  .header .hex-anchor-nav-list,
-  .bg_header .hex-anchor-nav-list{
-    justify-content:flex-start!important;
-    flex-wrap:nowrap!important;
+  .hex-anchor-nav-list{
+    justify-content:flex-start;
+    flex-wrap:nowrap;
     width:max-content;
     max-width:none;
-    margin:0!important;
+    margin:0;
   }
-  .hex-anchor-nav-link,
-  header .hex-anchor-nav .hex-anchor-nav-link,
-  .header .hex-anchor-nav .hex-anchor-nav-link,
-  .bg_header .hex-anchor-nav .hex-anchor-nav-link{
+  .hex-anchor-nav-link{
     padding:0 14px!important;
     font-size:14px!important;
     white-space:nowrap!important;
