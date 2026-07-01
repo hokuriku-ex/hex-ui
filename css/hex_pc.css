@@ -1263,21 +1263,14 @@ body,
    トップページ
 ======================================= */
 /* デバッグ用：交互背景確認 */
+.hex-home-bg-debug{
+  outline:5px solid red!important;
+}
 .hex-home-bg-gray{
   background:red!important;
 }
-
-/* トップページ交互背景 */
 .hex-home-bg-white{
-  background:#fff!important;
-}
-.hex-home-bg-gray{
-  background:#fafafa!important;
-}
-
-.hex-home-bg-white > *,
-.hex-home-bg-gray > *{
-  background:transparent!important;
+  background:blue!important;
 }
 
 /* スクロールナビ */
