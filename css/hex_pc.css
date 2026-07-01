@@ -2138,7 +2138,7 @@ body,
 /* ダイアログ */
 #o7cms_dialog{
   width:calc(100% - 32px)!important;
-  max-width:460px!important;
+  max-width:520px!important;
   padding:28px 28px 24px!important;
   border:1px solid #e5e8f0!important;
   border-radius:0!important;
