@@ -2177,11 +2177,12 @@ body,
   padding:12px 24px!important;
   border:1px solid #1f2774!important;
   border-radius:0!important;
-  background:#1f2774!important;
-  color:#fff!important;
+  background:#fff!important;
+  color:#1f2774!important;
   font-size:15px!important;
   font-weight:600!important;
   cursor:pointer!important;
+  transition:.3s ease!important;
 }
 #o7cms_dialog #o7cms_dialog_close:hover{
   border-color:#c8a874!important;
