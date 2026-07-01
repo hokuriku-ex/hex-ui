@@ -2242,6 +2242,7 @@ window.addEventListener('load',function(){
         setRowVisible(drawingRow,isNew||isReform);
         setRowVisible(deliveryRow,isNew);
         updateRequiredEmptyState();
+        applyFormLabelsAndPlaceholders();
       }
 
       if(requirementRow){
@@ -2269,6 +2270,7 @@ window.addEventListener('load',function(){
         });
         setRowVisible(nameRow,show);
         updateRequiredEmptyState();
+        applyFormLabelsAndPlaceholders();
       }
 
       var checks=sourceRow.querySelectorAll('input[type="checkbox"]');
@@ -2650,10 +2652,10 @@ window.addEventListener('load',function(){
     });
 
     wrapRows();
-    applyFormLabelsAndPlaceholders();
-    setupFileInputClickArea();
     setupRequirementSwitch();
     setupReferralSwitch();
+    applyFormLabelsAndPlaceholders();
+    setupFileInputClickArea();
     setupRequiredEmptyState();
     setupRequiredMessage();
     form.classList.add('hex-form-ready');
