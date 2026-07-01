@@ -39,7 +39,7 @@ window.addEventListener('load',function(){
       var section=document.getElementById(sectionId);
       if(!section)return;
 
-      var bgTarget=section.closest('.gc_auto_frame_spotitem')||section;
+      var bgTarget=section.parentElement||section;
 
       bgTarget.classList.remove('hex-home-bg-white','hex-home-bg-gray');
 
