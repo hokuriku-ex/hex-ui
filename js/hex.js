@@ -2192,7 +2192,7 @@ window.addEventListener('load',function(){
         if(!field)return;
 
         if(label.indexOf('会社名')>-1){
-          field.setAttribute('placeholder','株式会社○○');
+          field.setAttribute('placeholder','法人の方のみご記入ください。');
         }
 
         if(label.indexOf('氏名')>-1){
