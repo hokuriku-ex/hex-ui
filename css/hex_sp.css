@@ -116,19 +116,35 @@
    共通パーツ（アンカーナビ）
 ======================================= */
 @media screen and (max-width:768px){
-  .hex-anchor-nav.is-fixed{
+  .hex-anchor-nav{
+    margin:0 -16px 36px;
     padding:0 16px 12px;
     overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
     text-align:left;
   }
+  .hex-anchor-nav.is-fixed{
+    top:80px;
+    margin:0;
+    padding:0 16px 12px;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    text-align:left;
+  }
+  .hex-anchor-nav::-webkit-scrollbar{
+    display:none;
+  }
+  .hex-anchor-nav-list,
   .hex-anchor-nav.is-fixed .hex-anchor-nav-list{
     justify-content:flex-start;
     flex-wrap:nowrap;
     width:max-content;
   }
+  .hex-anchor-nav-link,
   .hex-anchor-nav.is-fixed .hex-anchor-nav-link{
     padding:0 14px!important;
     font-size:14px!important;
+    white-space:nowrap;
   }
 }
 
