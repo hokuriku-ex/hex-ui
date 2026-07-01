@@ -2135,7 +2135,7 @@ body,
   transform:translateX(3px);
 }
 
-/* 必須エラーダイアログ */
+/* ダイアログ */
 #o7cms_dialog{
   width:calc(100% - 32px);
   max-width:460px;
