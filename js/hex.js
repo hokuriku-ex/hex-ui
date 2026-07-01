@@ -2196,11 +2196,11 @@ window.addEventListener('load',function(){
         }
 
         if(label.indexOf('氏名')>-1){
-          field.setAttribute('placeholder','山田 太郎');
+          field.setAttribute('placeholder','山田　太郎');
         }
 
         if(label.indexOf('ふりがな')>-1){
-          field.setAttribute('placeholder','ヤマダ タロウ');
+          field.setAttribute('placeholder','ヤマダ　タロウ');
         }
 
         if(label.indexOf('〒')>-1){
