@@ -2126,12 +2126,17 @@ window.addEventListener('load',function(){
 
     function isRequiredRow(row){
       if(!row||row.classList.contains('is-hidden'))return false;
+
       var label=row.getAttribute('data-label')||'';
 
       if(
         label.indexOf('ハウスメーカー')!==-1||
         label.indexOf('ご紹介者名')!==-1
       ){
+        return true;
+      }
+
+      if(label.indexOf('必須')!==-1){
         return true;
       }
 
@@ -2148,11 +2153,35 @@ window.addEventListener('load',function(){
         var field=row.querySelector('input:not([type="hidden"]),textarea');
 
         if(labelEl){
-          labelEl.textContent='';
+
+          Array.prototype.slice.call(labelEl.childNodes).forEach(function(node){
+
+            if(node.nodeType===3){
+              node.remove();
+              return;
+            }
+
+            if(
+              node.nodeType===1&&
+              node.classList&&
+              (
+                node.classList.contains('hex-form-badge')||
+                node.classList.contains('hex-form-label-text')
+              )
+            ){
+              node.remove();
+            }
+
+          });
 
           var badge=document.createElement('span');
-          badge.className=isRequiredRow(row)?'hex-form-badge is-required':'hex-form-badge is-optional';
-          badge.textContent=isRequiredRow(row)?'必須':'任意';
+          badge.className=isRequiredRow(row)
+            ?'hex-form-badge is-required'
+            :'hex-form-badge is-optional';
+
+          badge.textContent=isRequiredRow(row)
+            ?'必須'
+            :'任意';
 
           var text=document.createElement('span');
           text.className='hex-form-label-text';
