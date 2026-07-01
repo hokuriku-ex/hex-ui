@@ -371,8 +371,7 @@ html{
 }
 .hex-anchor-nav.is-fixed{
   position:fixed;
-  left:0;
-  right:0;
+  left:50%;
   top:80px;
   z-index:70;
   width:100vw;
@@ -383,6 +382,7 @@ html{
   border-bottom:1px solid #e5e7eb;
   background:#fff;
   box-shadow:none;
+  transform:translateX(-50%);
 }
 .hex-anchor-nav-placeholder{
   display:none;
