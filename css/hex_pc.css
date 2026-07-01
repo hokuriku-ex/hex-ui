@@ -906,8 +906,13 @@ html{
   margin-top:var(--header_height)!important;
 }
 
-/* ヘッダーメニューホーム非表示 */
+/* ヘッダーメニュー「ホーム」非表示 */
 .menu_menu:first-child{
+  display:none!important;
+}
+
+/* ヘッダーメニュー「スタッフ紹介」非表示 */
+.menu_sub > .menu_inner[onclick*="'staff'"]{
   display:none!important;
 }
 
