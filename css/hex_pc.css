@@ -1262,16 +1262,19 @@ body,
 /* =======================================
    トップページ
 ======================================= */
-/* デバッグ用：交互背景確認 */
-.hex-home-bg-debug{
-  outline:5px solid red!important;
-}
-.hex-home-bg-gray{
-  background:red!important;
+/* トップページ交互背景 */
+.hex-home-bg-white,
+.hex-home-bg-white .gc_auto_frame_spotitem_box,
+.hex-home-bg-white .gc_auto_frame_spotitem_body,
+.hex-home-bg-white .gc_auto_frame_spotitem_body > span{
+  background:#fff!important;
 }
 
-.hex-home-bg-white{
-  background:blue!important;
+.hex-home-bg-gray,
+.hex-home-bg-gray .gc_auto_frame_spotitem_box,
+.hex-home-bg-gray .gc_auto_frame_spotitem_body,
+.hex-home-bg-gray .gc_auto_frame_spotitem_body > span{
+  background:#fafafa!important;
 }
 
 /* スクロールナビ */
