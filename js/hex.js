@@ -955,6 +955,15 @@ window.addEventListener('load',function(){
     listArea.classList.add('hex-home-news-list');
     buttonArea.classList.add('hex-home-news-button');
 
+    while(listArea.firstChild){
+      listArea.removeChild(listArea.firstChild);
+    }
+
+    var oldButtons=newsSection.querySelectorAll('.post_index_home_contents .bg_button');
+    Array.prototype.forEach.call(oldButtons,function(oldButton){
+      oldButton.style.display='none';
+    });
+
     [start,end].forEach(function(el){
       el.style.display='none';
     });
