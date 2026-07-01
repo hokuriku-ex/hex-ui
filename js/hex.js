@@ -51,6 +51,11 @@ window.addEventListener('load',function(){
 
 /* 共通アンカーナビ */
 window.addEventListener('load',function(){
+  setTimeout(function(){
+    hexInitAnchorNav();
+  },800);
+});
+function hexInitAnchorNav(){
   var source=document.querySelector('.hex-anchor-source');
   if(!source)return;
   var text=source.textContent||'';
@@ -107,7 +112,7 @@ window.addEventListener('load',function(){
   var originalParent=nav.parentNode;
   var originalNext=nav.nextSibling;
   function getHexAnchorHeaderHeight(){
-    return 80;
+    return window.innerWidth<=768?68:80;
   }
   function getHexAnchorOffset(){
     return getHexAnchorHeaderHeight()+nav.offsetHeight+40;
@@ -169,7 +174,7 @@ window.addEventListener('load',function(){
   window.addEventListener('resize',function(){
     refreshHexAnchorNav();
   });
-});
+}
 
 /* 記事詳細タイトル整形 */
 window.addEventListener('load',function(){
