@@ -2344,19 +2344,18 @@ window.addEventListener('load',function(){
     }
 
     function setupFormNotice(){
-      var agreeRow=findRow('プライバシーポリシー');
-      if(!agreeRow)return;
+      var row=findRow('確認事項');
+      if(!row)return;
 
-      if(agreeRow.querySelector('.hex-form-notice'))return;
+      if(row.querySelector('.hex-form-notice'))return;
 
-      var data=agreeRow.querySelector('.gc_form_lp_data');
+      var data=row.querySelector('.gc_form_lp_data');
       if(!data)return;
 
       var notice=document.createElement('div');
       notice.className='hex-form-notice';
 
       notice.innerHTML=
-        '<div class="hex-form-notice-title">確認事項</div>'+
         '<p>・営業・セールスを目的としたお問い合わせはご遠慮ください。</p>'+
         '<p>・内容によりご回答までお時間をいただく場合があります。</p>'+
         '<p>・必要に応じてお電話でご連絡させていただく場合があります。</p>';
