@@ -1953,9 +1953,33 @@ body,
 #form_lp_form .gc_form_lp_label{
   margin:0!important;
   padding-top:10px;
+  display:flex;
+  align-items:center;
+  gap:10px;
   font-size:15px;
   line-height:1.8;
   color:#383838;
+}
+#form_lp_form .hex-form-badge{
+  flex:0 0 44px;
+  height:22px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:11px;
+  font-weight:700;
+  line-height:1;
+  letter-spacing:.04em;
+}
+#form_lp_form .hex-form-badge.is-required{
+  background:#d91f26;
+}
+#form_lp_form .hex-form-badge.is-optional{
+  background:#9aa3ad;
+}
+#form_lp_form .hex-form-label-text{
+  flex:1 1 auto;
 }
 #form_lp_form .gc_form_lp_data{
   margin:0!important;
@@ -2071,6 +2095,8 @@ body,
   color:#c8a874;
   transform:translateX(3px);
 }
+
+/* 未入力エラー */
 #form_lp_form .hex-form-row.is-required-empty .gc_form_lp_data input[type="text"],
 #form_lp_form .hex-form-row.is-required-empty .gc_form_lp_data input[type="email"],
 #form_lp_form .hex-form-row.is-required-empty .gc_form_lp_data input[type="tel"],
@@ -2086,6 +2112,8 @@ body,
 #form_lp_form .hex-form-row.is-required-empty[data-label*="添付ファイル"] .gc_form_lp_data_input{
   background:#ffe4ec!important;
 }
+
+/* プレースホルダー */
 #form_lp_form .gc_form_lp_data input::placeholder,
 #form_lp_form .gc_form_lp_data textarea::placeholder{
   color:#c7ccd6;
