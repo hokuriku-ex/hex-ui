@@ -1262,29 +1262,17 @@ body,
 /* =======================================
    トップページ
 ======================================= */
-/* トップページ交互背景 */
+/* 交互背景 */
 .hex-home-bg-white .background_color,
-.hex-home-bg-white .backgroundcolor_auto{
+.hex-home-bg-white .backgroundcolor_auto,
+.hex-home-bg-white .backgroundcolor_white{
   background:#fff!important;
 }
 
 .hex-home-bg-gray .background_color,
-.hex-home-bg-gray .backgroundcolor_auto{
-  background:#f5f5f5!important;
-}
-
-.hex-home-bg-gray .gc_auto_frame_spotitem_box,
-.hex-home-bg-gray .gc_auto_frame_spotitem_body{
-  background:#f5f5f5!important;
-}
-
-.hex-home-bg-white .gc_auto_frame_spotitem_box,
-.hex-home-bg-white .gc_auto_frame_spotitem_body{
-  background:#fff!important;
-}
-
+.hex-home-bg-gray .backgroundcolor_auto,
 .hex-home-bg-gray .backgroundcolor_white{
-  background:red!important;
+  background:#fafafa!important;
 }
 
 /* スクロールナビ */
