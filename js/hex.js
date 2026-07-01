@@ -49,6 +49,55 @@ window.addEventListener('load',function(){
   });
 });
 
+/* 共通アンカーナビ */
+window.addEventListener('load',function(){
+  var source=document.querySelector('.hex-anchor-source');
+  if(!source)return;
+  var text=source.textContent||'';
+  if(!text)return;
+  var titles=text.split('|').map(function(item){
+    return item.trim();
+  }).filter(function(item){
+    return item!=='';
+  });
+  if(!titles.length)return;
+  var targets=document.querySelectorAll('h2.hex-section-title,h2.hex-center-title');
+  if(!targets.length)return;
+  var nav=document.createElement('div');
+  nav.className='hex-anchor-nav';
+  var list=document.createElement('div');
+  list.className='hex-anchor-nav-list';
+  titles.forEach(function(title){
+    var target=null;
+    targets.forEach(function(h2){
+      if(target)return;
+      var h2Text=(h2.textContent||'').trim();
+      if(h2Text===title)target=h2;
+    });
+    if(!target)return;
+    if(!target.id){
+      target.id='hex-anchor-'+title.replace(/\s+/g,'-').replace(/[^\w\-ぁ-んァ-ヶ一-龯]/g,'');
+    }
+    var link=document.createElement('a');
+    link.className='hex-anchor-nav-link';
+    link.href='#'+target.id;
+    link.textContent=title;
+    link.addEventListener('click',function(e){
+      e.preventDefault();
+      var headerOffset=100;
+      var top=target.getBoundingClientRect().top+window.pageYOffset-headerOffset;
+      window.scrollTo({
+        top:top,
+        behavior:'smooth'
+      });
+    });
+    list.appendChild(link);
+  });
+  if(!list.children.length)return;
+  nav.appendChild(list);
+  source.parentNode.insertBefore(nav,source.nextSibling);
+});
+
 /* 記事詳細タイトル整形 */
 window.addEventListener('load',function(){
   setTimeout(function(){
