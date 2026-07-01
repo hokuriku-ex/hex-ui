@@ -61,7 +61,7 @@ window.addEventListener('load',function(){
     return item!=='';
   });
   if(!titles.length)return;
-  var targets=document.querySelectorAll('h2.hex-section-title,h2.hex-center-title');
+  var targets=document.querySelectorAll('h2');
   if(!targets.length)return;
   var nav=document.createElement('div');
   nav.className='hex-anchor-nav';
