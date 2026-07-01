@@ -1266,20 +1266,9 @@ body,
 .hex-home-bg-white{
   background:#fff!important;
 }
+
 .hex-home-bg-gray{
   background:#fafafa!important;
-}
-
-.hex-home-bg-white .gc_auto_frame_spotitem_box,
-.hex-home-bg-white .gc_auto_frame_spotitem_body,
-.hex-home-bg-white .gc_auto_frame_spotitem_body > span{
-  background:transparent!important;
-}
-
-.hex-home-bg-gray .gc_auto_frame_spotitem_box,
-.hex-home-bg-gray .gc_auto_frame_spotitem_body,
-.hex-home-bg-gray .gc_auto_frame_spotitem_body > span{
-  background:transparent!important;
 }
 
 /* スクロールナビ */
