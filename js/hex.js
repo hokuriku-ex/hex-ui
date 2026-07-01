@@ -2153,35 +2153,32 @@ window.addEventListener('load',function(){
         var field=row.querySelector('input:not([type="hidden"]),textarea');
 
         if(labelEl){
+          var oldNeed=labelEl.querySelector('.gc_form_lp_label_need');
+          if(oldNeed){
+            oldNeed.remove();
+          }
+
+          var oldBadge=labelEl.querySelector('.hex-form-badge');
+          if(oldBadge){
+            oldBadge.remove();
+          }
+
+          var oldText=labelEl.querySelector('.hex-form-label-text');
+          if(oldText){
+            oldText.remove();
+          }
 
           Array.prototype.slice.call(labelEl.childNodes).forEach(function(node){
-
             if(node.nodeType===3){
               node.remove();
-              return;
             }
-
-            if(
-              node.nodeType===1&&
-              node.classList&&
-              (
-                node.classList.contains('hex-form-badge')||
-                node.classList.contains('hex-form-label-text')
-              )
-            ){
-              node.remove();
-            }
-
           });
 
-          var badge=document.createElement('span');
-          badge.className=isRequiredRow(row)
-            ?'hex-form-badge is-required'
-            :'hex-form-badge is-optional';
+          var required=isRequiredRow(row);
 
-          badge.textContent=isRequiredRow(row)
-            ?'必須'
-            :'任意';
+          var badge=document.createElement('span');
+          badge.className=required?'hex-form-badge is-required':'hex-form-badge is-optional';
+          badge.textContent=required?'必須':'任意';
 
           var text=document.createElement('span');
           text.className='hex-form-label-text';
