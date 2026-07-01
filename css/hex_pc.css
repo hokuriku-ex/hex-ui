@@ -359,8 +359,9 @@ html{
 }
 .hex-anchor-nav{
   z-index:70;
-  margin:0 auto 48px;
-  padding:0 0 16px;
+  width:100vw;
+  margin:0 calc(50% - 50vw) 48px;
+  padding:0 16px 16px;
   overflow:visible;
   text-align:center;
   border-bottom:1px solid #e5e7eb;
@@ -373,8 +374,9 @@ html{
   right:0;
   top:80px;
   z-index:70;
+  width:100vw;
   margin:0;
-  padding:0 0 16px;
+  padding:0 16px 16px;
   overflow:visible;
   text-align:center;
   border-bottom:1px solid #e5e7eb;
@@ -387,16 +389,16 @@ html{
 .hex-anchor-nav-placeholder.is-active{
   display:block;
 }
-.hex-anchor-nav-list,
-.hex-anchor-nav.is-fixed .hex-anchor-nav-list{
+.hex-anchor-nav-list{
   display:flex;
   justify-content:center;
   align-items:center;
   flex-wrap:wrap;
-  width:auto;
-  gap:0;
-  margin:0;
+  width:100%;
+  max-width:1100px;
+  margin:0 auto;
   padding:0;
+  gap:0;
   list-style:none;
 }
 .hex-anchor-nav a,
@@ -409,8 +411,7 @@ html{
   box-shadow:none!important;
   text-decoration:none!important;
 }
-.hex-anchor-nav-link,
-.hex-anchor-nav.is-fixed .hex-anchor-nav-link{
+.hex-anchor-nav-link{
   position:relative;
   display:inline-block;
   width:auto!important;
@@ -433,14 +434,11 @@ html{
   transition:.3s;
 }
 .hex-anchor-nav-link:hover,
-.hex-anchor-nav-link.is-active,
-.hex-anchor-nav.is-fixed .hex-anchor-nav-link:hover,
-.hex-anchor-nav.is-fixed .hex-anchor-nav-link.is-active{
+.hex-anchor-nav-link.is-active{
   color:#1f2774!important;
   font-weight:700!important;
 }
-.hex-anchor-nav-link:not(:last-child)::after,
-.hex-anchor-nav.is-fixed .hex-anchor-nav-link:not(:last-child)::after{
+.hex-anchor-nav-link:not(:last-child)::after{
   content:"|";
   position:absolute;
   right:-2px;
