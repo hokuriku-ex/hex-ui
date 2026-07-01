@@ -479,8 +479,7 @@
     display:none!important;
   }
   .hex-staff-grid{
-    grid-template-columns:1fr 1fr;
-    column-gap:16px;
+    grid-template-columns:1fr;
     row-gap:32px;
   }
   .hex-staff-card.is-leader{
@@ -622,12 +621,6 @@
   }
   .hex-staff-member-toggle .hex-btn-main-icon{
     font-size:14px;
-  }
-}
-
-@media screen and (max-width:480px){
-  .hex-staff-grid{
-    grid-template-columns:1fr;
   }
 }
 
