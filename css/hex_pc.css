@@ -365,7 +365,6 @@ html{
   padding:0 16px 16px;
   overflow:visible;
   text-align:center;
-  border-bottom:1px solid #e5e7eb;
   background:#fff;
   box-shadow:none;
 }
@@ -379,7 +378,6 @@ html{
   padding:0 16px 16px;
   overflow:visible;
   text-align:center;
-  border-bottom:1px solid #e5e7eb;
   background:#fff;
   box-shadow:none;
   transform:translateX(-50%);
