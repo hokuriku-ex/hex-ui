@@ -1262,6 +1262,11 @@ body,
 /* =======================================
    トップページ
 ======================================= */
+/* デバッグ用：交互背景確認 */
+.hex-home-bg-gray{
+  background:red!important;
+}
+
 /* トップページ交互背景 */
 .hex-home-bg-white{
   background:#fff!important;
