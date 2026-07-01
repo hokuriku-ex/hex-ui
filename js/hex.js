@@ -2214,6 +2214,22 @@ window.addEventListener('load',function(){
         if(label.indexOf('Eメール')>-1){
           field.setAttribute('placeholder','sample@example.com');
         }
+
+        if(label.indexOf('ハウスメーカー')>-1){
+          field.setAttribute('placeholder','分からない場合は不明とご記入ください。');
+        }
+
+        if(label.indexOf('施工先住所')>-1){
+          field.setAttribute('placeholder','現住所と異なる場合のみご記入ください。');
+        }
+
+        if(label.indexOf('新築引渡し予定時期')>-1){
+          field.setAttribute('placeholder','例）2020年3月頃');
+        }
+
+        if(label.indexOf('ご紹介者名')>-1){
+          field.setAttribute('placeholder','分からない場合は不明とご記入ください。');
+        }
       });
     }
 
