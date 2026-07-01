@@ -1283,6 +1283,10 @@ body,
   background:#fff!important;
 }
 
+.hex-home-bg-gray .backgroundcolor_white{
+  background:red!important;
+}
+
 /* スクロールナビ */
 .hex-scroll-indicator{
   text-align:center;
