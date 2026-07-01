@@ -1016,7 +1016,7 @@ window.addEventListener('load',function(){
     tabBlog.addEventListener('click',function(){
       hexHomeNewsSwitch(blog,news,tabBlog,tabNews,buttonArea,'staffblog','staffblog');
     });
-  },500);
+  },100);
 });
 
 function hexHomeNewsSwitch(showPanel,hidePanel,activeTab,inactiveTab,buttonArea,shortname,pagetype){
