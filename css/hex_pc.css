@@ -2062,17 +2062,14 @@ body,
   font-size:13px;
   line-height:1.8;
 }
-
 #form_lp_form .hex-form-notice-title{
   margin:0 0 8px;
   font-size:13px;
   font-weight:600;
 }
-
 #form_lp_form .hex-form-notice p{
   margin:0 0 4px;
 }
-
 #form_lp_form .hex-form-notice p:last-child{
   margin-bottom:0;
 }
