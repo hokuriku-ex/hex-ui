@@ -115,6 +115,30 @@
 /* =======================================
    共通パーツ（新規）
 ======================================= */
+/* 共通アンカーナビ */
+@media screen and (max-width:768px){
+  .hex-anchor-nav{
+    margin:0 -16px 36px;
+    padding:0 16px 12px;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    text-align:left;
+  }
+  .hex-anchor-nav::-webkit-scrollbar{
+    display:none;
+  }
+  .hex-anchor-nav-list{
+    justify-content:flex-start;
+    flex-wrap:nowrap;
+    width:max-content;
+  }
+  .hex-anchor-nav-link{
+    padding:0 14px;
+    font-size:14px;
+    white-space:nowrap;
+  }
+}
+
 /* ボタン・リンク・カード */
 @media screen and (max-width:768px){
   .hex-col-1,
