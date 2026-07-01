@@ -30,6 +30,29 @@ const HOME_DISPLAY_SECTIONS=[
 
 /* -------------------------------------------------- */
 
+/* トップページ交互背景 */
+window.addEventListener('load',function(){
+  setTimeout(function(){
+    var count=0;
+
+    HOME_DISPLAY_SECTIONS.forEach(function(sectionId){
+      var section=document.getElementById(sectionId);
+      if(!section)return;
+      if(section.classList.contains('hex-home-bg-ready'))return;
+
+      section.classList.add('hex-home-bg-ready');
+
+      if(count%2===1){
+        section.classList.add('hex-home-bg-gray');
+      }else{
+        section.classList.add('hex-home-bg-white');
+      }
+
+      count++;
+    });
+  },100);
+});
+
 /* 記事詳細タイトル整形 */
 window.addEventListener('load',function(){
   setTimeout(function(){
