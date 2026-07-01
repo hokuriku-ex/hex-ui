@@ -2228,7 +2228,7 @@ window.addEventListener('load',function(){
         }
 
         if(label.indexOf('ご紹介者名')>-1){
-          field.setAttribute('placeholder','例）○○ホーム　山田様');
+          field.setAttribute('placeholder','例）◯◯ホーム　山田様');
         }
       });
     }
