@@ -455,8 +455,20 @@
   .hex-staff-section{
     margin-bottom:48px;
   }
+  .hex-staff-section-heading{
+    margin:0 0 24px;
+    padding-left:16px;
+  }
   .hex-staff-section .hex-section-subtitle{
-    margin:0 0 20px;
+    margin:0 0 8px;
+  }
+  .hex-staff-section-description{
+    margin:0;
+    font-size:14px;
+    font-weight:700;
+    line-height:1.8;
+    letter-spacing:.03em;
+    color:#1f2774;
   }
   .hex-staff-sp-button-wrap{
     display:flex;
@@ -465,27 +477,6 @@
   .hex-staff-leader-grid,
   .hex-staff-member-grid{
     display:none!important;
-  }
-  .hex-staff-wrap.has-dept-filter .hex-staff-sp-button-wrap{
-    display:none!important;
-  }
-  .hex-staff-wrap.has-dept-filter .hex-staff-leader-grid{
-    display:grid!important;
-  }
-  .hex-staff-wrap.has-dept-filter .hex-staff-member-grid{
-    display:grid!important;
-    margin-top:32px;
-  }
-  .hex-staff-wrap.has-dept-filter .hex-staff-member-toggle-wrap{
-    display:none!important;
-  }
-  .hex-staff-section-description{
-    margin:8px 0 0;
-    font-size:14px;
-    font-weight:700;
-    line-height:1.8;
-    letter-spacing:.03em;
-    color:#1f2774;
   }
   .hex-staff-grid{
     grid-template-columns:1fr 1fr;
