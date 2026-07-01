@@ -2059,12 +2059,12 @@ body,
 #form_lp_form .hex-form-notice{
   margin:0 0 18px;
   color:#383838;
-  font-size:13px;
+  font-size:16px;
   line-height:1.8;
 }
 #form_lp_form .hex-form-notice-title{
   margin:0 0 8px;
-  font-size:13px;
+  font-size:16px;
   font-weight:600;
 }
 #form_lp_form .hex-form-notice p{
