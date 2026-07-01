@@ -1750,7 +1750,7 @@ window.addEventListener('load',function(){
     var staffNodes=Array.prototype.slice.call(original.querySelectorAll('.staff_content'));
     if(staffNodes.length<2)return;
     if(frame.querySelector('.hex-staff-wrap'))return;
-    var deptParam=new URLSearchParams(location.search).get('dept')||'';
+    var anchorParam=new URLSearchParams(location.search).get('anchor')||'';
     var sample=staffNodes[0];
     var noImage=getStaffImage(sample);
     if(!noImage)noImage='';
@@ -1771,21 +1771,21 @@ window.addEventListener('load',function(){
     });
     if(!groups.length)return;
     var wrap=document.createElement('div');
-    wrap.className=deptParam?'hex-staff-wrap has-dept-filter':'hex-staff-wrap';
+    wrap.className='hex-staff-wrap';
     groups.forEach(function(group){
       var section=document.createElement('section');
       section.className='hex-staff-section';
-      var title=document.createElement('h3');
-      title.className=group.description?'hex-section-subtitle has-description':'hex-section-subtitle';
-      var titleText=document.createElement('span');
-      titleText.className='hex-staff-section-title';
-      titleText.textContent=group.name;
-      title.appendChild(titleText);
+      var heading=document.createElement('div');
+      heading.className=group.description?'hex-staff-section-heading has-description':'hex-staff-section-heading';
+      var title=document.createElement('h2');
+      title.className='hex-section-subtitle';
+      title.textContent=group.name;
+      heading.appendChild(title);
       if(group.description){
-        var desc=document.createElement('span');
+        var desc=document.createElement('h3');
         desc.className='hex-staff-section-description';
         appendTextWithBreaks(desc,group.description);
-        title.appendChild(desc);
+        heading.appendChild(desc);
       }
       var leaderGrid=document.createElement('div');
       leaderGrid.className='hex-staff-grid hex-staff-leader-grid';
@@ -1805,7 +1805,7 @@ window.addEventListener('load',function(){
           memberGrid.appendChild(card);
         }
       });
-      section.appendChild(title);
+      section.appendChild(heading);
       section.appendChild(spButton);
       if(hasLeader){
         section.className+=' has-leader';
@@ -1823,21 +1823,22 @@ window.addEventListener('load',function(){
     hexInitStaffSections(wrap);
     hexInitStaffCards(wrap);
     hexStaffPostResize();
-    if(deptParam){
+    if(anchorParam){
       setTimeout(function(){
         var sections=wrap.getElementsByClassName('hex-staff-section');
         for(var i=0;i<sections.length;i++){
-          var title=sections[i].querySelector('.hex-staff-section-title');
+          var title=sections[i].querySelector('h2');
           if(!title)continue;
-          if(title.textContent.trim()!==deptParam)continue;
-
-          sections[i].scrollIntoView({
-            behavior:'smooth',
-            block:'start'
+          if(title.textContent.trim()!==anchorParam)continue;
+          var offset=window.innerWidth<=768?130:150;
+          var top=sections[i].getBoundingClientRect().top+window.pageYOffset-offset;
+          window.scrollTo({
+            top:top,
+            behavior:'smooth'
           });
           break;
         }
-      },300);
+      },500);
     }
     setTimeout(hexStaffPostResize,150);
     setTimeout(hexStaffPostResize,400);
@@ -1848,7 +1849,7 @@ function createStaffSpButton(group){
   wrap.className='hex-button-wrap hex-staff-sp-button-wrap';
   var link=document.createElement('a');
   link.className='hex-btn-main light';
-  link.href=hexBuildStaffDeptUrl(group.name);
+  link.href=hexBuildStaffAnchorUrl(group.name);
   link.target='_parent';
   var text=document.createElement('span');
   text.className='hex-btn-main-title';
@@ -1864,16 +1865,16 @@ function createStaffSpButton(group){
   wrap.appendChild(link);
   return wrap;
 }
-function hexBuildStaffDeptUrl(deptName){
+function hexBuildStaffAnchorUrl(anchorName){
   var host=location.hostname;
   var designSetId=hexGetStaffDesignSetId();
   if(host.indexOf('02sample28.hopweb.net')!==-1){
     if(designSetId){
-      return '?gc_design_set_ID='+encodeURIComponent(designSetId)+'&shortname=staff&page_type=staff&dept='+encodeURIComponent(deptName);
+      return '?gc_design_set_ID='+encodeURIComponent(designSetId)+'&shortname=staff&page_type=staff&anchor='+encodeURIComponent(anchorName);
     }
-    return '?shortname=staff&page_type=staff&dept='+encodeURIComponent(deptName);
+    return '?shortname=staff&page_type=staff&anchor='+encodeURIComponent(anchorName);
   }
-  return '/?p=staff&k=staff&dept='+encodeURIComponent(deptName);
+  return '/?p=staff&k=staff&anchor='+encodeURIComponent(anchorName);
 }
 function hexGetStaffDesignSetId(){
   var match=location.href.match(/[?&]gc_design_set_ID=([^&]+)/);
