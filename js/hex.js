@@ -162,7 +162,7 @@ window.addEventListener('load',function(){
   }
   setTimeout(function(){
     refreshHexAnchorNav();
-  },100);
+  },800);
   window.addEventListener('scroll',function(){
     updateHexAnchorNav();
   });
