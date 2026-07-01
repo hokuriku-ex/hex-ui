@@ -2129,11 +2129,11 @@ window.addEventListener('load',function(){
       var label=row.getAttribute('data-label')||'';
 
       if(
-          label.indexOf('ハウスメーカー')!==-1||
-          label.indexOf('ご紹介者名')!==-1
-        ){
-          return true;
-        }
+        label.indexOf('ハウスメーカー')!==-1||
+        label.indexOf('ご紹介者名')!==-1
+      ){
+        return true;
+      }
 
       var need=row.querySelector('input[type="hidden"][name*="_need"]');
       return need&&need.value==='1';
