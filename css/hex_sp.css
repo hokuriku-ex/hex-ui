@@ -117,15 +117,14 @@
 ======================================= */
 @media screen and (max-width:768px){
   .hex-anchor-nav{
+    top:80px;
     margin:0 -16px 36px;
     padding:0 16px 12px;
     overflow-x:auto;
     -webkit-overflow-scrolling:touch;
     text-align:left;
   }
-  .hex-anchor-nav.is-fixed{
-    top:80px;
-    margin:0;
+  .hex-anchor-nav.is-sticky{
     padding:10px 16px;
   }
   .hex-anchor-nav::-webkit-scrollbar{
