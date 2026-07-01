@@ -215,23 +215,18 @@
     flex-direction:column !important;
     padding:35px 22px 95px !important;
   }
-
   .hex-footer-frame .hex-footer-area{
     order:1 !important;
   }
-
   .hex-footer-frame .footer_text{
     order:2 !important;
   }
-
   .hex-footer-frame .footer_logo{
     display:none !important;
   }
-
   .hex-footer-sns{
     display:none!important;
   }
-
   .hex-footer-frame .footer_copyright{
     order:3 !important;
   }
@@ -243,22 +238,18 @@
     margin:0 auto 35px !important;
     text-align:center !important;
   }
-
   .footer-area{
     text-align:center !important;
   }
-
   .footer-area h3{
     font-size:20px !important;
     margin-bottom:12px !important;
   }
-
   .footer-area-text{
     font-size:14px !important;
     line-height:2 !important;
     text-align:center !important;
   }
-
   .footer-area-text p{
     margin:0 0 10px !important;
   }
@@ -269,7 +260,6 @@
     font-size:14px !important;
     line-height:2 !important;
   }
-
   .footer-company-name{
     font-size:18px !important;
     margin-bottom:14px !important;
@@ -285,6 +275,13 @@
 /* =======================================
    固定ヘッダー・フッター
 ======================================= */
+/* ヘッダー高さ調整 */
+@media screen and (max-width:768px){
+  .heroimage_margintop_normal{
+    margin-top:calc(var(--header_height) - 60px)!important;
+  }
+}
+
 /* ヘッダーメニュー「スタッフ紹介」非表示 */
 @media screen and (max-width:768px){
   .menu_sub .menu_inner_group[onclick*="'staff'"]{
@@ -309,59 +306,42 @@
 /* =======================================
    トップページ
 ======================================= */
-/* ヘッダー高さ調整 */
-@media screen and (max-width:768px){
-  .heroimage_margintop_normal{
-    margin-top:calc(var(--header_height) - 60px)!important;
-  }
-}
-
 /* ウェルカムメッセージ */
 @media screen and (max-width:768px){
-
   .welcome{
     padding:50px 0 20px;
   }
-
   .welcome_contents{
     padding:0 24px;
   }
-
   .welcome .title{
     margin-bottom:50px;
   }
-
   .welcome .title span{
     font-size:28px;
   }
-
   .welcome .kakko_l{
     top:-18px;
     left:-22px;
     width:45px;
     height:45px;
   }
-
   .welcome .kakko_br{
     right:-22px;
     bottom:-18px;
     width:45px;
     height:45px;
   }
-
   .hex-welcome-pc{
     display:none;
   }
-
   .hex-welcome-sp{
     display:block;
   }
-
   .welcome .text{
     font-size:16px;
     line-height:2;
   }
-
 }
 
 /* ギャラリー */
@@ -383,8 +363,8 @@
   }
 }
 
-/* お知らせトップタブ化、一覧調整 */
-@media screen and (max-width:600px){
+/* お知らせ */
+@media screen and (max-width:768px){
   .hex-home-news-tabs{
     max-width:90%;
   }
@@ -392,47 +372,9 @@
     padding:11px 10px;
     font-size:14px;
   }
-}
-@media screen and (max-width:768px){
-  .post_index_home_contents{
-    padding:26px 0 34px!important;
-  }
-  .gc_auto_frame_post_index_home_box_contents_cell_text_list,
-  .gc_auto_frame_post_index_box_contents_cell_text_list{
-    display:block!important;
-    position:relative!important;
-    padding:14px 30px 14px 0!important;
-  }
-  .gc_auto_frame_post_index_home_box_contents_cell_date_list,
-  .gc_auto_frame_post_index_box_contents_cell_date_list{
-    display:block!important;
-    width:auto!important;
-    margin-bottom:6px!important;
-    text-align:left!important;
-  }
-  .hex-news-separator{
-    display:none!important;
-  }
-  .gc_auto_frame_post_index_home_box_contents_cell_caption_list,
-  .gc_auto_frame_post_index_box_contents_cell_caption_list{
-    display:block!important;
-    margin-left:0!important;
-    line-height:1.8!important;
-    word-break:keep-all;
-  }
-  .hex-news-arrow{
-    position:absolute!important;
-    right:2px!important;
-    top:auto!important;
-    bottom:18px!important;
-    transform:none!important;
-    margin-left:0!important;
-    font-size:16px!important;
-  }
   .hex-home-news-button{
     padding:0 22px!important;
   }
-
   .hex-home-news-button .hex-home-news-link-wrap{
     width:100%!important;
     max-width:100%!important;
@@ -677,6 +619,47 @@
   }
   #gc_auto_body_work #gc_auto_frame_work_2 .gc_auto_frame_post_index_box_contents_cell_tile{
     width:100%!important;
+  }
+}
+
+/* =======================================
+   下層ページ：お知らせ・スタッフブログ一覧（トップ共通）
+======================================= */
+@media screen and (max-width:768px){
+  .post_index_home_contents{
+    padding:26px 0 34px!important;
+  }
+  .gc_auto_frame_post_index_home_box_contents_cell_text_list,
+  .gc_auto_frame_post_index_box_contents_cell_text_list{
+    display:block!important;
+    position:relative!important;
+    padding:14px 30px 14px 0!important;
+  }
+  .gc_auto_frame_post_index_home_box_contents_cell_date_list,
+  .gc_auto_frame_post_index_box_contents_cell_date_list{
+    display:block!important;
+    width:auto!important;
+    margin-bottom:6px!important;
+    text-align:left!important;
+  }
+  .hex-news-separator{
+    display:none!important;
+  }
+  .gc_auto_frame_post_index_home_box_contents_cell_caption_list,
+  .gc_auto_frame_post_index_box_contents_cell_caption_list{
+    display:block!important;
+    margin-left:0!important;
+    line-height:1.8!important;
+    word-break:keep-all;
+  }
+  .hex-news-arrow{
+    position:absolute!important;
+    right:2px!important;
+    top:auto!important;
+    bottom:18px!important;
+    transform:none!important;
+    margin-left:0!important;
+    font-size:16px!important;
   }
 }
 
