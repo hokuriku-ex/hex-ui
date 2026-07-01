@@ -385,10 +385,10 @@
 
 /* お知らせトップタブ化、一覧調整 */
 @media screen and (max-width:600px){
-  .custom-news-tabs{
+  .hex-home-news-tabs{
     max-width:90%;
   }
-  .custom-news-tab{
+  .hex-home-news-tab{
     padding:11px 10px;
     font-size:14px;
   }

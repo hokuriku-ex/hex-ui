@@ -1344,7 +1344,7 @@ body,
 }
 
 /* お知らせトップタブ化、一覧調整 */
-.custom-news-tabs{
+.hex-home-news-tabs{
   display:flex;
   justify-content:center;
   max-width:520px;
@@ -1353,11 +1353,12 @@ body,
   border-radius:0;
   overflow:hidden;
 }
-.custom-news-tab{
+.hex-home-news-tab{
   flex:1;
   display:block;
   text-align:center;
   padding:12px 20px;
+  border:0;
   background:#fff;
   color:#1f2774;
   font-size:15px;
@@ -1365,15 +1366,35 @@ body,
   cursor:pointer;
   transition:.2s;
 }
-.custom-news-tab+.custom-news-tab{
+.hex-home-news-tab+.hex-home-news-tab{
   border-left:1px solid #1f2774;
 }
-.custom-news-tab.is-active{
+.hex-home-news-tab.is-active{
   background:#1f2774;
   color:#fff;
 }
-.custom-news-tab:hover{
+.hex-home-news-tab:hover{
   opacity:1;
+}
+.hex-home-news-list{
+  max-width:1200px;
+  margin:0 auto;
+}
+.hex-home-news-button{
+  width:100%;
+  max-width:1200px;
+  margin:50px auto 0;
+  padding:0 32px;
+  display:flex;
+  justify-content:center;
+  box-sizing:border-box;
+}
+.hex-home-news-button .hex-home-news-link-wrap{
+  width:calc(25% - 27px);
+  max-width:none;
+}
+.hex-home-news-button .hex-link{
+  cursor:pointer;
 }
 .post_index_home_contents .bg_title_desc{
   display:none;
@@ -1462,22 +1483,6 @@ body,
 }
 .hex-news-arrow i{
   color:#1f2774!important;
-}
-.hex-news-link-area{
-  width:100%!important;
-  max-width:1200px!important;
-  margin:50px auto 0!important;
-  padding:0 32px!important;
-  display:flex!important;
-  justify-content:center!important;
-  box-sizing:border-box!important;
-}
-.hex-news-link-area .hex-link-wrap{
-  width:calc(25% - 27px)!important;
-  max-width:none!important;
-}
-.hex-news-link-area .hex-link{
-  cursor:pointer;
 }
 
 /* =======================================
