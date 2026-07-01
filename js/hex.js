@@ -2717,6 +2717,7 @@ window.addEventListener('load',function(){
     wrapRows();
     setupRequirementSwitch();
     setupReferralSwitch();
+    setupHouseMakerNote();
     applyFormLabelsAndPlaceholders();
     setupFileInputClickArea();
     setupRequiredEmptyState();
