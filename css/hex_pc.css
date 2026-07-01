@@ -2073,9 +2073,9 @@ body,
 #form_lp_form .hex-form-notice p:last-child{
   margin-bottom:0;
 }
-#form_lp_form .hex-form-notice-warning{
-  color:#d91f26;
+#form_lp_form .hex-form-notice p.hex-form-notice-warning{
   margin-bottom:10px;
+  color:#d91f26;
 }
 
 /* 確認ボタン */
