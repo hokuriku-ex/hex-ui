@@ -681,11 +681,15 @@
 @media screen and (max-width:768px){
   #gc_auto_frame_lp_form_body{
     max-width:none;
+    width:auto;
     margin:0 16px;
+    box-sizing:border-box;
   }
   #form_lp_form{
     max-width:none;
+    width:100%;
     margin:0;
+    box-sizing:border-box;
   }
   #form_lp_form .hex-form-row{
     display:block;
@@ -707,9 +711,9 @@
     width:auto!important;
   }
   #gc_auto_frame_lp_form_body .privacy_policy{
-    width:calc(100% - 26px)!important;
+    width:100%!important;
     max-width:none!important;
-    margin:40px auto 0!important;
+    margin:40px 0 0!important;
     box-sizing:border-box;
   }
 }
