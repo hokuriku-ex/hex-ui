@@ -934,64 +934,130 @@ window.addEventListener('load',function(){
   },100);
 });
 
-/* トップ お知らせタブ・一覧リンク */
+/* トップ お知らせセクション */
 window.addEventListener('load',function(){
   setTimeout(function(){
-    var news=document.getElementById('gc_auto_frame_home_5');
-    var blog=document.getElementById('gc_auto_frame_home_6');
-    if(!news||!blog)return;
-    blog.style.display='none';
-    if(!document.querySelector('.custom-news-tabs')){
-      var tabs=document.createElement('div');
-      var tabNews=document.createElement('span');
-      var tabBlog=document.createElement('span');
-      tabs.className='custom-news-tabs';
-      tabNews.className='custom-news-tab is-active';
-      tabNews.textContent='重要なお知らせ';
-      tabBlog.className='custom-news-tab';
-      tabBlog.textContent='スタッフブログ';
-      tabs.appendChild(tabNews);
-      tabs.appendChild(tabBlog);
-      news.insertAdjacentElement('beforebegin',tabs);
-      tabNews.addEventListener('click',function(){
-        news.style.display='block';
-        blog.style.display='none';
-        tabNews.classList.add('is-active');
-        tabBlog.classList.remove('is-active');
-      });
-      tabBlog.addEventListener('click',function(){
-        news.style.display='none';
-        blog.style.display='block';
-        tabNews.classList.remove('is-active');
-        tabBlog.classList.add('is-active');
-      });
+    var newsSection=document.getElementById(HOME_SECTIONS.NEWS_SECTION);
+    var news=document.getElementById(HOME_SECTIONS.NEWS);
+    var blog=document.getElementById(HOME_SECTIONS.BLOG);
+    if(!newsSection||!news||!blog)return;
+
+    var start=newsSection.querySelector('.hex-news-start');
+    var end=newsSection.querySelector('.hex-news-end');
+    var tabsArea=newsSection.querySelector('.hex-news-tabs');
+    var listArea=newsSection.querySelector('.hex-news-list');
+    var buttonArea=newsSection.querySelector('.hex-news-button');
+    if(!start||!end||!tabsArea||!listArea||!buttonArea)return;
+    if(newsSection.classList.contains('hex-home-news-ready'))return;
+
+    newsSection.classList.add('hex-home-news-section','hex-home-news-ready');
+    tabsArea.classList.add('hex-home-news-tabs-area');
+    listArea.classList.add('hex-home-news-list');
+    buttonArea.classList.add('hex-home-news-button');
+
+    [start,end].forEach(function(el){
+      el.style.display='none';
+    });
+
+    while(tabsArea.firstChild){
+      tabsArea.removeChild(tabsArea.firstChild);
     }
-    var btnAreas=document.querySelectorAll('.post_index_home_contents .bg_button');
-    Array.prototype.forEach.call(btnAreas,function(btnArea){
-      if(btnArea.classList.contains('hex-news-link-done'))return;
-      btnArea.classList.add('hex-parts-group','hex-align-center','hex-news-link-area','hex-news-link-done');
-      while(btnArea.firstChild){
-        btnArea.removeChild(btnArea.firstChild);
-      }
-      var wrap=document.createElement('div');
-      var link=document.createElement('div');
-      var title=document.createElement('span');
-      var iconSpan=document.createElement('span');
-      var icon=document.createElement('i');
-      wrap.className='hex-link-wrap hex-col-4';
-      link.className='hex-link light';
-      title.className='hex-link-title';
-      title.textContent='一覧を見る';
-      iconSpan.className='hex-link-icon';
-      icon.className='fa-solid fa-arrow-right';
-      iconSpan.appendChild(icon);
-      link.appendChild(title);
-      link.appendChild(iconSpan);
-      wrap.appendChild(link);
-      btnArea.appendChild(wrap);
+
+    var tabs=document.createElement('div');
+    var tabNews=document.createElement('button');
+    var tabBlog=document.createElement('button');
+
+    tabs.className='hex-home-news-tabs';
+    tabNews.type='button';
+    tabBlog.type='button';
+    tabNews.className='hex-home-news-tab is-active';
+    tabBlog.className='hex-home-news-tab';
+    tabNews.textContent='重要なお知らせ';
+    tabBlog.textContent='スタッフブログ';
+    tabNews.dataset.target='news';
+    tabBlog.dataset.target='blog';
+
+    tabs.appendChild(tabNews);
+    tabs.appendChild(tabBlog);
+    tabsArea.appendChild(tabs);
+
+    listArea.appendChild(news);
+    listArea.appendChild(blog);
+
+    news.classList.add('hex-home-news-panel','is-active');
+    blog.classList.add('hex-home-news-panel');
+    blog.style.display='none';
+
+    hexHomeNewsUpdateButton(buttonArea,'information','information');
+
+    tabNews.addEventListener('click',function(){
+      hexHomeNewsSwitch(news,blog,tabNews,tabBlog,buttonArea,'information','information');
+    });
+
+    tabBlog.addEventListener('click',function(){
+      hexHomeNewsSwitch(blog,news,tabBlog,tabNews,buttonArea,'staffblog','staffblog');
     });
   },500);
 });
+
+function hexHomeNewsSwitch(showPanel,hidePanel,activeTab,inactiveTab,buttonArea,shortname,pagetype){
+  showPanel.style.display='block';
+  hidePanel.style.display='none';
+  showPanel.classList.add('is-active');
+  hidePanel.classList.remove('is-active');
+  activeTab.classList.add('is-active');
+  inactiveTab.classList.remove('is-active');
+  hexHomeNewsUpdateButton(buttonArea,shortname,pagetype);
+}
+
+function hexHomeNewsUpdateButton(buttonArea,shortname,pagetype){
+  var view=buttonArea.querySelector('.hex-link-view');
+  if(!view)return;
+
+  view.dataset.shortname=shortname;
+  view.dataset.pagetype=pagetype;
+
+  var url=window.hexBuildUrl(view);
+  if(!url)return;
+
+  var wrap=buttonArea.querySelector('.hex-home-news-link-wrap');
+  var link=null;
+  var title=null;
+  var iconSpan=null;
+  var icon=null;
+
+  if(!wrap){
+    wrap=document.createElement('div');
+    link=document.createElement('a');
+    title=document.createElement('span');
+    iconSpan=document.createElement('span');
+    icon=document.createElement('i');
+
+    wrap.className='hex-link-wrap hex-col-'+(view.dataset.col||'3')+' hex-align-center hex-home-news-link-wrap';
+    link.className='hex-link '+(view.dataset.style||'light');
+    title.className='hex-link-title';
+    iconSpan.className='hex-link-icon';
+    icon.className=window.hexIconClass(view.dataset.type||'internal');
+
+    iconSpan.appendChild(icon);
+    link.appendChild(title);
+    link.appendChild(iconSpan);
+    wrap.appendChild(link);
+    buttonArea.insertBefore(wrap,view);
+    view.style.display='none';
+  }else{
+    link=wrap.querySelector('a');
+    title=wrap.querySelector('.hex-link-title');
+  }
+
+  if(link){
+    link.href=url;
+    window.hexSetExternal(link,view.dataset.type||'internal');
+  }
+  if(title){
+    title.textContent=view.dataset.title||'一覧を見る';
+  }
+}
 
 /* トップ スクロールナビ */
 document.addEventListener('DOMContentLoaded',function(){
