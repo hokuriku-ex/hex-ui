@@ -993,6 +993,16 @@ window.addEventListener('load',function(){
     listArea.appendChild(news);
     listArea.appendChild(blog);
 
+    var newsButtons=news.querySelectorAll('.post_index_home_contents .bg_button,.bg_button');
+    var blogButtons=blog.querySelectorAll('.post_index_home_contents .bg_button,.bg_button');
+
+    Array.prototype.forEach.call(newsButtons,function(btn){
+      btn.style.display='none';
+    });
+    Array.prototype.forEach.call(blogButtons,function(btn){
+      btn.style.display='none';
+    });
+
     news.classList.add('hex-home-news-panel','is-active');
     blog.classList.add('hex-home-news-panel');
     blog.style.display='none';
