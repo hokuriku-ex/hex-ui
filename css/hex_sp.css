@@ -333,13 +333,6 @@
   }
 }
 
-/* ヘッダーメニュー「スタッフ紹介」非表示 */
-@media screen and (max-width:768px){
-  .menu_sub .menu_inner_group[onclick*="'staff'"]{
-    display:none!important;
-  }
-}
-
 /* 固定フッターtiktokアイコン */
 @media screen and (max-width:768px){
   .ff_contents .ff_sns a[href*="tiktok.com"][data-hex-tiktok-svg="1"] .bg_svg{
