@@ -1769,11 +1769,6 @@ window.addEventListener('load',function(){
       }
       groupMap[data.department].members.push(data);
     });
-    if(deptParam){
-      groups=groups.filter(function(group){
-        return group.name===deptParam;
-      });
-    }
     if(!groups.length)return;
     var wrap=document.createElement('div');
     wrap.className=deptParam?'hex-staff-wrap has-dept-filter':'hex-staff-wrap';
@@ -1828,6 +1823,22 @@ window.addEventListener('load',function(){
     hexInitStaffSections(wrap);
     hexInitStaffCards(wrap);
     hexStaffPostResize();
+    if(deptParam){
+      setTimeout(function(){
+        var sections=wrap.getElementsByClassName('hex-staff-section');
+        for(var i=0;i<sections.length;i++){
+          var title=sections[i].querySelector('.hex-staff-section-title');
+          if(!title)continue;
+          if(title.textContent.trim()!==deptParam)continue;
+
+          sections[i].scrollIntoView({
+            behavior:'smooth',
+            block:'start'
+          });
+          break;
+        }
+      },300);
+    }
     setTimeout(hexStaffPostResize,150);
     setTimeout(hexStaffPostResize,400);
   },100);
