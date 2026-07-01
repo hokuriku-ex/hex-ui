@@ -497,6 +497,50 @@ header .hex-anchor-nav .hex-anchor-nav-link:not(:last-child)::after,
 .sub_menu *{
   z-index:200;
 }
+.hex-anchor-nav .hex-anchor-nav-link,
+.hex-anchor-nav .hex-anchor-nav-link:link,
+.hex-anchor-nav .hex-anchor-nav-link:visited,
+.hex-anchor-nav .hex-anchor-nav-link:hover,
+.hex-anchor-nav .hex-anchor-nav-link:active{
+  all:unset!important;
+  position:relative!important;
+  display:inline-block!important;
+  box-sizing:border-box!important;
+  margin:0!important;
+  padding:0 18px!important;
+  color:#383838!important;
+  font-family:inherit!important;
+  font-size:15px!important;
+  line-height:1.6!important;
+  font-weight:400!important;
+  letter-spacing:normal!important;
+  text-align:center!important;
+  white-space:nowrap!important;
+  cursor:pointer!important;
+}
+.hex-anchor-nav .hex-anchor-nav-link::before{
+  content:none!important;
+  display:none!important;
+}
+.hex-anchor-nav .hex-anchor-nav-link::after{
+  content:none!important;
+  display:none!important;
+}
+.hex-anchor-nav .hex-anchor-nav-link:not(:last-child)::after{
+  content:"|"!important;
+  display:block!important;
+  position:absolute!important;
+  right:-2px!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  color:#cbd5e1!important;
+  font-weight:400!important;
+}
+.hex-anchor-nav .hex-anchor-nav-link:hover,
+.hex-anchor-nav .hex-anchor-nav-link.is-active{
+  color:#1f2774!important;
+  font-weight:700!important;
+}
 
 /* =======================================
    共通パーツ（新規）
