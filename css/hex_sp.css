@@ -287,7 +287,7 @@
 ======================================= */
 /* ヘッダーメニュー「スタッフ紹介」非表示 */
 @media screen and (max-width:768px){
-  .popupmenu_menu_sub .menu_inner_group[onclick*="'staff'"]{
+  .popupmenu_menu_sub .menu_inner[onclick*="page_type=staff"]{
     display:none!important;
   }
 }
