@@ -123,6 +123,11 @@
     -webkit-overflow-scrolling:touch;
     text-align:left;
   }
+  .hex-anchor-nav.is-fixed{
+    top:80px;
+    margin:0;
+    padding:10px 16px;
+  }
   .hex-anchor-nav::-webkit-scrollbar{
     display:none;
   }
