@@ -49,31 +49,44 @@ window.addEventListener('load',function(){
   });
 });
 
-/* アンカー付きURL位置補正 */
+/* URLアンカー補正 */
 window.addEventListener('load',function(){
   var hash=location.hash;
-  var target=null;
+  var anchor='';
   var offset=120;
-  var top=0;
+  var count=0;
 
   if(!hash)return;
 
-  target=document.getElementById(hash.substring(1));
+  anchor=decodeURIComponent(hash.replace('#',''));
 
-  if(!target){
-    target=document.querySelector('a[name="'+hash.substring(1)+'"]');
-  }
+  function scrollToAnchor(){
+    var target=null;
+    var top=0;
 
-  if(!target)return;
+    target=document.getElementById(anchor);
 
-  setTimeout(function(){
+    if(!target){
+      target=document.querySelector('a[name="'+anchor+'"]');
+    }
+
+    if(!target){
+      count++;
+      if(count<10){
+        setTimeout(scrollToAnchor,300);
+      }
+      return;
+    }
+
     top=target.getBoundingClientRect().top+window.pageYOffset-offset;
 
     window.scrollTo({
       top:top,
       behavior:'smooth'
     });
-  },300);
+  }
+
+  setTimeout(scrollToAnchor,500);
 });
 
 /* 共通アンカーナビ */
