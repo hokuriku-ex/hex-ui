@@ -400,6 +400,19 @@ window.hexGetDesignId=function(){
   }
   return '';
 };
+window.hexAddAnchor=function(hexUrl,hexAnchor){
+  if(!hexUrl){
+    return '';
+  }
+  if(!hexAnchor){
+    return hexUrl;
+  }
+  hexAnchor=String(hexAnchor).replace(/^#/,'');
+  if(!hexAnchor){
+    return hexUrl;
+  }
+  return hexUrl+'#'+encodeURIComponent(hexAnchor);
+};
 window.hexBuildUrl=function(hexView){
   var hexType=hexView.dataset.type||'internal';
   var origin=location.origin;
@@ -407,6 +420,8 @@ window.hexBuildUrl=function(hexView){
   var shortname='';
   var pagetype='';
   var designId='';
+  var anchor=hexView.dataset.anchor||'';
+  var url='';
   if(hexType==='external'){
     return hexView.dataset.url||'';
   }
@@ -419,14 +434,16 @@ window.hexBuildUrl=function(hexView){
     return '';
   }
   if(host==='hokuriku-ex.co.jp'){
-    return origin+'/?p='+encodeURIComponent(shortname)+'&k='+encodeURIComponent(pagetype);
+    url=origin+'/?p='+encodeURIComponent(shortname)+'&k='+encodeURIComponent(pagetype);
+    return window.hexAddAnchor(url,anchor);
   }
   if(host==='02sample28.hopweb.net'){
     designId=window.hexGetDesignId();
     if(!designId){
       return '';
     }
-    return origin+'/addon/gartencloud/ajax_gethtml_site_from_db.php?gc_design_set_ID='+encodeURIComponent(designId)+'&shortname='+encodeURIComponent(shortname)+'&page_type='+encodeURIComponent(pagetype);
+    url=origin+'/addon/gartencloud/ajax_gethtml_site_from_db.php?gc_design_set_ID='+encodeURIComponent(designId)+'&shortname='+encodeURIComponent(shortname)+'&page_type='+encodeURIComponent(pagetype);
+    return window.hexAddAnchor(url,anchor);
   }
   return '';
 };
