@@ -29,7 +29,7 @@ const HOME_DISPLAY_SECTIONS=[
 
 /* -------------------------------------------------- */
 
-/* トップページ交互背景 */
+/* アンカーリンク補正スクロール　URLにhashが付いていた時だけ */
 window.addEventListener('load',function(){
   var count=0;
 
@@ -47,6 +47,33 @@ window.addEventListener('load',function(){
 
     count++;
   });
+});
+
+/* 共通アンカーナビ */
+window.addEventListener('load',function(){
+  var hash=location.hash;
+  var target=null;
+  var offset=120;
+  var top=0;
+
+  if(!hash)return;
+
+  target=document.getElementById(hash.substring(1));
+
+  if(!target){
+    target=document.querySelector('a[name="'+hash.substring(1)+'"]');
+  }
+
+  if(!target)return;
+
+  setTimeout(function(){
+    top=target.getBoundingClientRect().top+window.pageYOffset-offset;
+
+    window.scrollTo({
+      top:top,
+      behavior:'smooth'
+    });
+  },300);
 });
 
 /* 共通アンカーナビ */
