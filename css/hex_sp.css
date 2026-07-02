@@ -446,22 +446,41 @@
 /* =======================================
    下層ページ：私たちについて
 ======================================= */
-
-
-/* =======================================
-   下層ページ：スタッフ紹介
-======================================= */
-/* 私たちについて内 iframeスタッフ表示 */
+/* 体制・スタッフ紹介 */
 @media screen and (max-width:768px){
-  .hex-staff-iframe-mode .hex-staff-photo{
+  .hex-staff-iframe-mode .hex-staff-wrap{
+    width:auto;
+    margin:0 16px;
+    padding:0;
+  }
+  .hex-staff-iframe-mode .hex-staff-section{
+    margin-bottom:36px;
+  }
+  .hex-staff-iframe-mode .hex-staff-leader-grid{
+    display:grid!important;
+  }
+  .hex-staff-iframe-mode .hex-staff-member-grid{
     display:none!important;
   }
   .hex-staff-iframe-mode .hex-staff-card.is-leader{
     display:block;
   }
+  .hex-staff-iframe-mode .hex-staff-photo,
+  .hex-staff-iframe-mode .hex-staff-number{
+    display:none!important;
+  }
+  .hex-staff-iframe-mode .hex-staff-card{
+    overflow:visible;
+  }
+  .hex-staff-iframe-mode .hex-staff-body,
+  .hex-staff-iframe-mode .hex-staff-card.is-leader .hex-staff-body{
+    padding:0;
+  }
 }
 
-/* 共通 */
+/* =======================================
+   下層ページ：スタッフ紹介
+======================================= */
 @media screen and (max-width:768px){
   .hex-staff-wrap{
     width:auto;
@@ -480,24 +499,16 @@
     padding-left:0!important;
   }
   .hex-staff-section-description{
-    margin:0;
     font-size:14px;
-    font-weight:700;
     line-height:1.8;
-    letter-spacing:.03em;
-    color:#1f2774;
-  }
-  .hex-staff-leader-grid,
-  .hex-staff-member-grid{
-    display:grid!important;
-  }
-  .hex-staff-member-grid{
-    margin-top:32px;
   }
   .hex-staff-grid{
     grid-template-columns:1fr;
     column-gap:16px;
     row-gap:32px;
+  }
+  .hex-staff-member-grid{
+    margin-top:32px;
   }
   .hex-staff-card.is-leader{
     grid-column:1 / -1;
@@ -521,12 +532,10 @@
     aspect-ratio:1/1;
     min-height:0;
   }
+  .hex-staff-body,
   .hex-staff-card.is-leader .hex-staff-body{
     display:flex;
     flex-direction:column;
-    padding:14px 0 0;
-  }
-  .hex-staff-body{
     padding:14px 0 0;
   }
   .hex-staff-dept-tag{
@@ -549,8 +558,6 @@
     width:100%;
     box-sizing:border-box;
     margin:0 0 8px;
-    grid-column:auto;
-    grid-row:auto;
   }
   .hex-staff-card.is-leader .hex-staff-head{
     order:2;
@@ -563,13 +570,6 @@
     width:100%;
     box-sizing:border-box;
     align-self:stretch;
-    grid-column:auto;
-    grid-row:auto;
-  }
-  .hex-staff-card.is-leader .hex-staff-detail-block,
-  .hex-staff-card.is-leader .hex-staff-divider{
-    width:100%;
-    box-sizing:border-box;
   }
   .hex-staff-name{
     font-size:17px;

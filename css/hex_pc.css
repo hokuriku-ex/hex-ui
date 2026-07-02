@@ -1707,37 +1707,69 @@ body,
 /* =======================================
    下層ページ：私たちについて
 ======================================= */
-
-
-/* =======================================
-   下層ページ：スタッフ紹介
-======================================= */
-/* iframe表示用 固定フッター非表示 */
+/* 体制・スタッフ紹介 */
 .hex-staff-iframe-mode .gc_auto_frame_footer_fixed{
   display:none!important;
 }
 .hex-staff-iframe-mode .hex-staff-wrap{
+  max-width:960px;
+  margin:0 auto;
   padding:0;
 }
-
-/* 私たちについて内 iframeスタッフ表示 */
+.hex-staff-iframe-mode .hex-staff-section{
+  margin:0 0 48px;
+}
 .hex-staff-iframe-mode .hex-staff-member-grid{
   display:none!important;
 }
 .hex-staff-iframe-mode .hex-staff-sp-button-wrap{
   display:flex!important;
+  margin-top:22px;
 }
 .hex-staff-iframe-mode .hex-staff-member-toggle-wrap{
   display:none!important;
 }
+.hex-staff-iframe-mode .hex-staff-toggle{
+  display:none!important;
+}
+.hex-staff-iframe-mode .hex-staff-detail{
+  display:block!important;
+  overflow:visible;
+  max-height:none!important;
+  opacity:1;
+  margin-top:16px;
+  padding-top:16px;
+  border-top:1px solid #d8d8d8;
+}
+@media screen and (min-width:769px){
+  .hex-staff-iframe-mode .hex-staff-card.is-leader{
+    grid-column:1 / -1;
+    display:grid;
+    grid-template-columns:280px 1fr;
+    min-height:280px;
+  }
+  .hex-staff-iframe-mode .hex-staff-card.is-leader .hex-staff-photo{
+    display:block;
+    aspect-ratio:auto;
+    min-height:280px;
+  }
+  .hex-staff-iframe-mode .hex-staff-card.is-leader .hex-staff-body{
+    display:grid;
+    grid-template-columns:1fr;
+    padding:28px 0 0 24px;
+  }
+}
 
+/* =======================================
+   下層ページ：スタッフ紹介
+======================================= */
 /* HOPWEB標準スタッフ表示を非表示 */
 .gc_auto_frame_publicinfo_staff .bg_publicinfo_staff,
 .bg_publicinfo_staff{
   display:none!important;
 }
 
-/* 共通 */
+/* スタッフ紹介ページ本体 */
 .hex-staff-wrap{
   max-width:960px;
   margin:0 auto;
@@ -1784,6 +1816,13 @@ body,
   grid-template-columns:repeat(4,1fr);
   column-gap:24px;
   row-gap:48px;
+}
+.hex-staff-leader-grid,
+.hex-staff-member-grid{
+  display:grid;
+}
+.hex-staff-member-grid{
+  margin-top:48px;
 }
 .hex-staff-card{
   position:relative;
@@ -1837,13 +1876,6 @@ body,
   line-height:1.8;
   white-space:normal;
 }
-.hex-staff-leader-grid,
-.hex-staff-member-grid{
-  display:grid;
-}
-.hex-staff-member-grid{
-  margin-top:48px;
-}
 .hex-staff-sp-button-wrap,
 .hex-staff-member-toggle-wrap{
   display:none!important;
@@ -1881,7 +1913,6 @@ body,
   .hex-staff-card.is-leader .hex-staff-body{
     display:grid;
     grid-template-columns:1fr;
-    column-gap:24px;
     align-items:start;
     padding:28px 0 0 24px;
   }
