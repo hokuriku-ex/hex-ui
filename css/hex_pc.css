@@ -1715,6 +1715,17 @@ body,
   padding:0;
 }
 
+/* 私たちについて内 iframeスタッフ表示 */
+.hex-staff-iframe-mode .hex-staff-member-grid{
+  display:none!important;
+}
+.hex-staff-iframe-mode .hex-staff-sp-button-wrap{
+  display:flex!important;
+}
+.hex-staff-iframe-mode .hex-staff-member-toggle-wrap{
+  display:none!important;
+}
+
 /* HOPWEB標準スタッフ表示を非表示 */
 .gc_auto_frame_publicinfo_staff .bg_publicinfo_staff,
 .bg_publicinfo_staff{
@@ -1899,7 +1910,7 @@ body,
     grid-column:1;
     grid-row:3;
   }
-} 
+}
 
 /* =======================================
    下層ページ：施工事例一覧
