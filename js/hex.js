@@ -53,7 +53,7 @@ window.addEventListener('load',function(){
 window.addEventListener('load',function(){
   setTimeout(function(){
     hexInitAnchorNav();
-  },800);
+  },1000);
 });
 function hexInitAnchorNav(){
   var source=document.querySelector('.hex-anchor-source');
