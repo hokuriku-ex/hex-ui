@@ -153,7 +153,8 @@
 /* 自動生成ページ位置調整用 */
 @media screen and (max-width:768px){
   .hex-anchor-nav-auto-page:not(.is-fixed){
-    margin-top:32px;
+    position:relative;
+    top:32px;
   }
 }
 
