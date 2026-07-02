@@ -53,7 +53,7 @@ window.addEventListener('load',function(){
 window.addEventListener('load',function(){
   var hash=location.hash;
   var anchor='';
-  var offset=120;
+  var offset=130;
   var count=0;
 
   if(!hash)return;
