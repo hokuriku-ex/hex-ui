@@ -1588,10 +1588,7 @@ body,
 #gc_auto_frame_staff_1 h1::after { content: "STAFF"; }
 #gc_auto_frame_gccat2_1 h1::after { content: "FOR HOMEOWNERS"; }
 #gc_auto_frame_gccat1_1 h1::after { content: "FOR BUILDERS"; }
-#gc_auto_frame_gccat9_1 h1::after { content: "NEW HOME EXTERIOR"; }
-#gc_auto_frame_gccat5_1 h1::after { content: "PARTIAL WORKS"; }
-#gc_auto_frame_gccat7_1 h1::after { content: "CIVIL WORKS & PERMITS"; }
-#gc_auto_frame_gccat10_1 h1::after { content: "SITE DEVELOPMENT"; }
+#gc_auto_frame_gccat9_1 h1::after { content: "WORK MENU"; }
 #gc_auto_frame_gccat14_1 h1::after { content: "FEATURED ITEMS"; }
 #gc_auto_frame_work_1 h1::after { content: "WORKS"; }
 #gc_auto_frame_information_1 h1::after { content: "NEWS"; }
