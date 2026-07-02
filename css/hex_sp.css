@@ -459,8 +459,9 @@
     margin:0 0 24px;
     padding-left:16px;
   }
-  .hex-staff-section .hex-section-subtitle{
+  .hex-staff-section-heading .hex-section-subtitle{
     margin:0 0 8px;
+    padding-left:0!important;
   }
   .hex-staff-section-description{
     margin:0;
@@ -470,16 +471,16 @@
     letter-spacing:.03em;
     color:#1f2774;
   }
-  .hex-staff-sp-button-wrap{
-    display:flex;
-    margin-top:22px;
-  }
   .hex-staff-leader-grid,
   .hex-staff-member-grid{
-    display:none!important;
+    display:grid!important;
+  }
+  .hex-staff-member-grid{
+    margin-top:32px;
   }
   .hex-staff-grid{
     grid-template-columns:1fr;
+    column-gap:16px;
     row-gap:32px;
   }
   .hex-staff-card.is-leader{
@@ -549,14 +550,6 @@
     grid-column:auto;
     grid-row:auto;
   }
-  .hex-staff-card.is-leader .hex-staff-member-toggle-wrap{
-    order:5;
-    width:100%;
-    margin:24px 0 0;
-    align-self:stretch;
-    grid-column:auto;
-    grid-row:auto;
-  }
   .hex-staff-card.is-leader .hex-staff-detail-block,
   .hex-staff-card.is-leader .hex-staff-divider{
     width:100%;
@@ -612,15 +605,6 @@
     margin-top:16px;
     padding-top:16px;
     border-top:1px solid #d8d8d8;
-  }
-  .hex-staff-member-toggle{
-    padding:15px 18px;
-  }
-  .hex-staff-member-toggle .hex-btn-main-title{
-    font-size:15px;
-  }
-  .hex-staff-member-toggle .hex-btn-main-icon{
-    font-size:14px;
   }
 }
 
