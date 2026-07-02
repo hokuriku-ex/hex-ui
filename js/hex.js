@@ -2341,7 +2341,7 @@ function hexGetDesignSetId(){
   return '';
 }
 
-/* お問合わせ */
+/* お問い合わせ */
 window.addEventListener('load',function(){
   setTimeout(function(){
     var form=document.getElementById('form_lp_form');
