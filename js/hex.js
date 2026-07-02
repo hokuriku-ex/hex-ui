@@ -1796,36 +1796,30 @@ window.addEventListener('load',function(){
       leaderGrid.className='hex-staff-grid hex-staff-leader-grid';
       var memberGrid=document.createElement('div');
       memberGrid.className='hex-staff-grid hex-staff-member-grid';
-      var spButton=createStaffSpButton(group);
+      var linkButton=createStaffLinkButton(group);
       var hasLeader=false;
-      var leaderCard=null;
       group.members.forEach(function(member,index){
         member.number=('0'+(index+1)).slice(-2);
         var card=createStaffCard(member);
         if(member.isLeader){
           hasLeader=true;
-          leaderCard=card;
           leaderGrid.appendChild(card);
         }else{
           memberGrid.appendChild(card);
         }
       });
       section.appendChild(heading);
-      section.appendChild(spButton);
+      section.appendChild(linkButton);
       if(hasLeader){
         section.className+=' has-leader';
         section.appendChild(leaderGrid);
-        if(memberGrid.children.length){
-          insertMemberToggleButton(leaderCard);
-          section.appendChild(memberGrid);
-        }
-      }else{
+      }
+      if(memberGrid.children.length){
         section.appendChild(memberGrid);
       }
       wrap.appendChild(section);
     });
     original.insertAdjacentElement('afterend',wrap);
-    hexInitStaffSections(wrap);
     hexInitStaffCards(wrap);
     hexStaffPostResize();
     if(anchorParam){
@@ -1849,7 +1843,7 @@ window.addEventListener('load',function(){
     setTimeout(hexStaffPostResize,400);
   },100);
 });
-function createStaffSpButton(group){
+function createStaffLinkButton(group){
   var wrap=document.createElement('div');
   wrap.className='hex-button-wrap hex-staff-sp-button-wrap';
   var link=document.createElement('a');
@@ -2042,33 +2036,6 @@ function createStaffCard(data){
   card.appendChild(body);
   return card;
 }
-function insertMemberToggleButton(leaderCard){
-  if(!leaderCard)return;
-  var body=leaderCard.getElementsByClassName('hex-staff-body')[0];
-  if(!body)return;
-  body.appendChild(createMemberToggleButton());
-}
-function createMemberToggleButton(){
-  var wrap=document.createElement('div');
-  wrap.className='hex-button-wrap hex-staff-member-toggle-wrap';
-  var button=document.createElement('button');
-  button.className='hex-btn-main light hex-staff-member-toggle';
-  button.type='button';
-  button.setAttribute('aria-expanded','false');
-  var text=document.createElement('span');
-  text.className='hex-btn-main-title hex-staff-member-toggle-text';
-  text.textContent='メンバーを見る';
-  var iconWrap=document.createElement('span');
-  iconWrap.className='hex-btn-main-icon';
-  var icon=document.createElement('i');
-  icon.className='fa-solid fa-chevron-down';
-  icon.setAttribute('aria-hidden','true');
-  iconWrap.appendChild(icon);
-  button.appendChild(text);
-  button.appendChild(iconWrap);
-  wrap.appendChild(button);
-  return wrap;
-}
 function createRoleText(position,attribute){
   var arr=[];
   if(position)arr.push(position);
@@ -2110,32 +2077,6 @@ function hexCloseStaffDetail(card){
   var details=card.getElementsByClassName('hex-staff-detail');
   for(var i=0;i<details.length;i++){
     details[i].style.maxHeight='0px';
-  }
-}
-function hexInitStaffSections(scope){
-  var sections=scope.getElementsByClassName('hex-staff-section');
-  for(var i=0;i<sections.length;i++){
-    var button=sections[i].getElementsByClassName('hex-staff-member-toggle')[0];
-    if(button){
-      button.onclick=function(){
-        var section=hexClosestByClass(this,'hex-staff-section');
-        if(!section)return;
-        var isOpen=(' '+section.className+' ').indexOf(' is-members-open ')!==-1;
-        var text=this.getElementsByClassName('hex-staff-member-toggle-text')[0];
-        if(isOpen){
-          section.className=section.className.replace(/\bis-members-open\b/g,'').replace(/\s+/g,' ').replace(/^\s+|\s+$/g,'');
-          this.setAttribute('aria-expanded','false');
-          if(text)text.textContent='メンバーを見る';
-        }else{
-          section.className=section.className+' is-members-open';
-          this.setAttribute('aria-expanded','true');
-          if(text)text.textContent='メンバーを閉じる';
-        }
-        hexStaffPostResize();
-        setTimeout(hexStaffPostResize,50);
-        setTimeout(hexStaffPostResize,200);
-      };
-    }
   }
 }
 function hexInitStaffCards(scope){
