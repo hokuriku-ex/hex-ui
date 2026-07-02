@@ -1754,26 +1754,37 @@ body,
     min-height:280px;
   }
   .hex-staff-iframe-mode .hex-staff-card.is-leader .hex-staff-body{
-    display:grid;
-    grid-template-columns:1fr;
+    display:block;
     padding:28px 0 0 24px;
   }
-  /* セクション下の元ボタンを消す */
   .hex-staff-iframe-mode > .hex-staff-sp-button-wrap,
   .hex-staff-iframe-mode .hex-staff-section > .hex-staff-sp-button-wrap{
     display:none!important;
   }
-  /* JSで移動したボタン */
-  .hex-staff-iframe-mode .hex-staff-pc-link-wrap{
-    display:flex!important;
-    justify-content:flex-end;
-    margin:0;
-  }
   .hex-staff-iframe-mode .hex-staff-card.is-leader .hex-staff-head{
     display:grid;
     grid-template-columns:1fr auto;
-    align-items:end;
+    grid-template-rows:auto auto;
+    align-items:center;
     column-gap:24px;
+    margin:0;
+  }
+  .hex-staff-iframe-mode .hex-staff-card.is-leader .hex-staff-name{
+    grid-column:1;
+    grid-row:1;
+  }
+  .hex-staff-iframe-mode .hex-staff-card.is-leader .hex-staff-joined{
+    grid-column:1;
+    grid-row:2;
+    margin:4px 0 0;
+  }
+  .hex-staff-iframe-mode .hex-staff-pc-link-wrap{
+    grid-column:2;
+    grid-row:1 / 3;
+    display:flex!important;
+    align-items:center;
+    justify-content:flex-end;
+    margin:0;
   }
   .hex-staff-iframe-mode .hex-staff-pc-link-wrap .hex-btn-main{
     padding:15px 20px;
@@ -1936,9 +1947,7 @@ body,
     background-position:center top;
   }
   .hex-staff-card.is-leader .hex-staff-body{
-    display:grid;
-    grid-template-columns:1fr;
-    align-items:start;
+    display:block;
     padding:28px 0 0 24px;
   }
   .hex-staff-head{
@@ -1946,14 +1955,10 @@ body,
     margin:0 0 8px;
   }
   .hex-staff-card.is-leader .hex-staff-head{
-    grid-column:1;
-    grid-row:1;
-    margin:0 0 4px;
+    margin:0;
   }
   .hex-staff-card.is-leader .hex-staff-joined{
-    grid-column:1;
-    grid-row:2;
-    margin:0;
+    margin:4px 0 0;
   }
   .hex-staff-toggle{
     display:none!important;
@@ -1966,10 +1971,6 @@ body,
     margin-top:16px;
     padding-top:16px;
     border-top:1px solid #d8d8d8;
-  }
-  .hex-staff-card.is-leader .hex-staff-detail{
-    grid-column:1;
-    grid-row:3;
   }
 }
 
