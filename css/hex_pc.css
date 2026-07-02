@@ -1758,6 +1758,31 @@ body,
     grid-template-columns:1fr;
     padding:28px 0 0 24px;
   }
+  /* セクション下の元ボタンを消す */
+  .hex-staff-iframe-mode > .hex-staff-sp-button-wrap,
+  .hex-staff-iframe-mode .hex-staff-section > .hex-staff-sp-button-wrap{
+    display:none!important;
+  }
+  /* JSで移動したボタン */
+  .hex-staff-iframe-mode .hex-staff-pc-link-wrap{
+    display:flex!important;
+    justify-content:flex-end;
+    margin:0;
+  }
+  .hex-staff-iframe-mode .hex-staff-card.is-leader .hex-staff-head{
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-items:end;
+    column-gap:24px;
+  }
+  .hex-staff-iframe-mode .hex-staff-pc-link-wrap .hex-btn-main{
+    padding:15px 20px;
+    gap:16px;
+  }
+  .hex-staff-iframe-mode .hex-staff-pc-link-wrap .hex-btn-main-title{
+    font-size:16px;
+    white-space:nowrap;
+  }
 }
 
 /* =======================================
