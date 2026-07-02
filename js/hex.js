@@ -2233,9 +2233,20 @@ function hexAdjustStaffIframeView(doc){
     var button=section.getElementsByClassName('hex-staff-sp-button-wrap')[0];
     var leader=section.querySelector('.hex-staff-card.is-leader');
     if(!button||!leader)continue;
+
     var head=leader.getElementsByClassName('hex-staff-head')[0];
+    var joined=leader.getElementsByClassName('hex-staff-joined')[0];
+
     if(!head)continue;
+
+    /* 入社年を名前と同じヘッダー領域へ移動 */
+    if(joined&&joined.parentNode!==head){
+      head.appendChild(joined);
+    }
+
+    /* PC用ボタン追加 */
     if(leader.getElementsByClassName('hex-staff-pc-link-wrap')[0])continue;
+
     var pcButton=button.cloneNode(true);
     pcButton.className='hex-button-wrap hex-staff-pc-link-wrap';
     head.appendChild(pcButton);
