@@ -70,6 +70,9 @@ function hexInitAnchorNav(){
   if(!targets.length)return;
   var nav=document.createElement('div');
   nav.className='hex-anchor-nav';
+  if(source.id==='hex-anchor-auto-page'){
+    nav.classList.add('hex-anchor-nav-auto-page');
+  }
   var list=document.createElement('div');
   list.className='hex-anchor-nav-list';
   var pairs=[];
