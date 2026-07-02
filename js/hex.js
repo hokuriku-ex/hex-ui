@@ -78,11 +78,12 @@ function hexInitAnchorNav(){
   var pairs=[];
   titles.forEach(function(title){
     var target=null;
-    targets.forEach(function(h2){
-      if(target)return;
-      var h2Text=(h2.textContent||'').trim();
-      if(h2Text===title)target=h2;
-    });
+      targets.forEach(function(h2){
+        if(target)return;
+        if(h2.offsetParent===null)return;
+        var h2Text=(h2.textContent||'').trim();
+        if(h2Text===title)target=h2;
+      });
     if(!target)return;
     if(!target.id){
       target.id='hex-anchor-'+title.replace(/\s+/g,'-').replace(/[^\w\-ぁ-んァ-ヶ一-龯]/g,'');
