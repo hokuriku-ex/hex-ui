@@ -29,7 +29,7 @@ const HOME_DISPLAY_SECTIONS=[
 
 /* -------------------------------------------------- */
 
-/* アンカーリンク補正スクロール　URLにhashが付いていた時だけ */
+/* トップページ交互背景 */
 window.addEventListener('load',function(){
   var count=0;
 
@@ -49,7 +49,7 @@ window.addEventListener('load',function(){
   });
 });
 
-/* 共通アンカーナビ */
+/* アンカー付きURL位置補正 */
 window.addEventListener('load',function(){
   var hash=location.hash;
   var target=null;
