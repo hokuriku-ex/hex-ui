@@ -461,6 +461,15 @@ html{
   z-index:200;
 }
 
+/* 自動生成ページ位置調整用 */
+@media screen and (max-width:768px){
+  #gc_auto_frame_staff_2 .hex-anchor-nav:not(.is-fixed),
+  #gc_auto_frame_company_2 .hex-anchor-nav:not(.is-fixed){
+    position:relative;
+    top:90px;
+  }
+}
+
 /* =======================================
    共通パーツ（新規）
 ======================================= */
