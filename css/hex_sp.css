@@ -447,6 +447,15 @@
    下層ページ：スタッフ紹介
 ======================================= */
 @media screen and (max-width:768px){
+  .hex-staff-iframe-mode .hex-staff-photo{
+    display:none!important;
+  }
+  .hex-staff-iframe-mode .hex-staff-card.is-leader{
+    display:block;
+  }
+}
+
+@media screen and (max-width:768px){
   .hex-staff-wrap{
     width:auto;
     margin:0 16px;
