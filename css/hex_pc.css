@@ -149,20 +149,6 @@ html{
   line-height:1.9;
 }
 
-/* hex共通パーツ内リンクリセット */
-.bg_post_index .linktext_color_basecolor2 a[class^="hex-"],
-.bg_post_index .linktext_color_basecolor2 a[class*=" hex-"],
-.bg_post_index .linktext_color_basecolor2 [class^="hex-"] a,
-.bg_post_index .linktext_color_basecolor2 [class*=" hex-"] a,
-.bg_post_index .linktext_color_basecolor2 a[class^="hex-"] *,
-.bg_post_index .linktext_color_basecolor2 a[class*=" hex-"] *,
-.bg_post_index .linktext_color_basecolor2 [class^="hex-"] a *,
-.bg_post_index .linktext_color_basecolor2 [class*=" hex-"] a *{
-  color:var(--hex-link-color,currentColor)!important;
-  text-decoration:var(--hex-link-decoration,inherit)!important;
-  text-decoration-color:var(--hex-link-decoration-color,currentColor)!important;
-}
-
 /* 本文テキストリンク */
 a.hex-text-link,
 a.hex-text-link:link,
