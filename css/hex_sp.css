@@ -66,6 +66,14 @@
   }
 }
 
+/* 共通セクション小見出し（h4専用） */
+@media screen and (max-width:768px){
+  .hex-section-smalltitle{
+    margin:0 0 14px;
+    font-size:18px;
+  }
+}
+
 /* 一覧ページング */
 @media screen and (max-width:768px){
   .bg_page_button{
