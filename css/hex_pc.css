@@ -92,6 +92,25 @@ html{
 }
 
 /* 本文リンク */
+.hex-text-link{
+  color:#2a5bac;
+  text-decoration:underline;
+  transition:.2s;
+}
+.hex-text-link:hover{
+  color:#1f2774;
+}
+.hex-text-link[target="_blank"]::after{
+  content:"\f35d";
+  display:inline-block;
+  margin-left:.28em;
+  font-family:"Font Awesome 6 Free";
+  font-weight:900;
+  font-size:.78em;
+  line-height:1;
+}
+
+/* 本文リンク 内部リンク（既存記事内） */
 .gc_auto_frame_post_item_body a{
   color:#2a5bac!important;
   text-decoration:underline!important;
@@ -130,7 +149,7 @@ html{
   line-height:2;
 }
 
-/* 本文リンク 外部リンク */
+/* 本文リンク 外部リンク（既存記事内） */
 .gc_auto_frame_post_item_body a.hex-link-external::after{
   content:"\f35d";
   display:inline-block;
@@ -473,25 +492,6 @@ html{
 /* =======================================
    共通パーツ（新規）
 ======================================= */
-/* テキストリンク */
-.hex-text-link{
-  color:#2a5bac;
-  text-decoration:underline;
-  transition:.2s;
-}
-.hex-text-link:hover{
-  color:#1f2774;
-}
-.hex-text-link[target="_blank"]::after{
-  content:"\f35d";
-  display:inline-block;
-  margin-left:.28em;
-  font-family:"Font Awesome 6 Free";
-  font-weight:900;
-  font-size:.78em;
-  line-height:1;
-}
-
 /* カラム設定：ボタン幅用 */
 .hex-col-1{width:100%;}
 .hex-col-2{width:calc(50% - 18px);}
