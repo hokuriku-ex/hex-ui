@@ -144,9 +144,10 @@ html{
   margin:14px 0 0;
   padding-top:18px;
   border-top:1px dotted #d9dce8;
-  color:#1f2774;
-  font-size:16px;
-  line-height:1.9;
+  color:#383838;
+  font-size:20px;
+  font-weight:700;
+  line-height:1.6;
 }
 
 /* 共通セクション小見出し（h4専用） */
