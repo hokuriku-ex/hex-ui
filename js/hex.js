@@ -2661,7 +2661,7 @@ window.addEventListener('load',function(){
 
       var note=document.createElement('div');
       note.className='hex-housemaker-note';
-      note.textContent='※弊社お取引先との関係上、場合によっては直接お請けできないことがあるため、ご記入をお願いいたします。';
+      note.textContent='※ 弊社お取引先との関係上、場合によっては直接お請けできないことがあるため、ご記入をお願いいたします。';
 
       data.appendChild(note);
     }
