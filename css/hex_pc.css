@@ -139,7 +139,7 @@ html{
   margin-left:.45em;
   font-size:.9em;
 }
-.hex-section-action p{
+.hex-section-action h4{
   grid-column:1 / -1;
   margin:14px 0 0;
   padding-top:18px;
