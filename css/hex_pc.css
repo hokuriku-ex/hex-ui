@@ -91,6 +91,57 @@ html{
   background:#1f2774;
 }
 
+/* 共通セクションアクション見出し（h3専用） */
+.hex-section-action{
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:8px 24px;
+  margin:0 0 28px;
+  padding:0 0 18px 18px;
+  border-bottom:1px dotted #d9dce8;
+}
+.hex-section-action:before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:3px;
+  height:30px;
+  background:#1f2774;
+}
+.hex-section-action h3{
+  margin:0;
+  color:#1f2774;
+  font-size:24px;
+  font-weight:700;
+  line-height:1.4;
+}
+.hex-section-action p{
+  grid-column:1 / -1;
+  margin:0;
+  color:#383838;
+  font-size:16px;
+  line-height:1.8;
+}
+.hex-section-action a{
+  align-self:center;
+  color:#1f2774!important;
+  text-decoration:none!important;
+  font-size:15px;
+  font-weight:700;
+  line-height:1.4;
+  white-space:nowrap;
+  transition:color .2s ease;
+}
+.hex-section-action a:hover{
+  color:#4a7fd0!important;
+}
+.hex-section-action a i{
+  margin-left:.4em;
+  font-size:.9em;
+}
+
 /* 本文テキストリンク */
 a.hex-text-link,
 a.hex-text-link:link,
