@@ -618,6 +618,24 @@
 }
 
 /* =======================================
+   下層ページ：エクステリア商品検索
+======================================= */
+@media screen and (max-width:768px){
+  .hex-product-search{
+    margin:0 16px 42px;
+  }
+
+  .hex-product-search input{
+    font-size:16px;
+    padding:0 14px;
+  }
+
+  .hex-product-search button{
+    width:56px;
+  }
+}
+
+/* =======================================
    下層ページ：施工事例一覧
 ======================================= */
 @media screen and (max-width:768px){

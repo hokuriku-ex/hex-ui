@@ -1982,6 +1982,59 @@ body,
 }
 
 /* =======================================
+   下層ページ：エクステリア商品検索
+======================================= */
+.hex-product-search{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  max-width:720px;
+  margin:0 auto 56px;
+  background:#fff;
+  border:1px solid #d7dce8;
+  border-radius:4px;
+  overflow:hidden;
+}
+
+.hex-product-search input{
+  flex:1;
+  width:100%;
+  height:56px;
+  padding:0 18px;
+  border:none;
+  background:#fff;
+  color:#383838;
+  font-size:16px;
+  line-height:1;
+}
+
+.hex-product-search input:focus{
+  outline:none;
+}
+
+.hex-product-search button{
+  width:64px;
+  height:56px;
+  flex-shrink:0;
+  border:none;
+  border-left:1px solid #d7dce8;
+  background:#fff;
+  color:#7a859f;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.hex-product-search button:hover{
+  color:#1f2774;
+  background:#f7f8fc;
+}
+
+.hex-product-search button i{
+  font-size:18px;
+  line-height:1;
+}
+
+/* =======================================
    下層ページ：施工事例一覧
 ======================================= */
 .gc_auto_frame_post_index_box_contents_cell_tile{
