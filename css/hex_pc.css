@@ -1582,7 +1582,6 @@ body,
   opacity: 0.60;
 }
 
-/* deploy retry 20260703 */
 /* ページ別 英語タイトル */
 #gc_auto_frame_gccat3_1 h1::after { content: "ABOUT US"; }
 #gc_auto_frame_company_1 h1::after { content: "COMPANY"; }
