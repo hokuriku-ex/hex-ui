@@ -50,7 +50,9 @@
     height:24px;
   }
   .hex-section-action a,
-  .hex-section-action a i{
+  .hex-section-action a i,
+  .bg_post_index .linktext_color_basecolor2 .hex-section-action a,
+  .bg_post_index .linktext_color_basecolor2 .hex-section-action a i{
     font-size:14px;
   }
   .hex-section-action a i{

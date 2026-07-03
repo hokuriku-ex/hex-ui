@@ -117,7 +117,9 @@ html{
   background:#1f2774;
 }
 .hex-section-action a,
-.hex-section-action a i{
+.hex-section-action a i,
+.bg_post_index .linktext_color_basecolor2 .hex-section-action a,
+.bg_post_index .linktext_color_basecolor2 .hex-section-action a i{
   align-self:center;
   color:#1f2774!important;
   text-decoration:none!important;
@@ -128,7 +130,9 @@ html{
   transition:color .2s ease,opacity .2s ease;
 }
 .hex-section-action a:hover,
-.hex-section-action a:hover i{
+.hex-section-action a:hover i,
+.bg_post_index .linktext_color_basecolor2 .hex-section-action a:hover,
+.bg_post_index .linktext_color_basecolor2 .hex-section-action a:hover i{
   color:#c8a45a!important;
 }
 .hex-section-action a i{
