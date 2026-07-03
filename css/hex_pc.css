@@ -133,6 +133,7 @@ a.hex-text-link[target="_blank"]::after{
   font-size:.78em;
   line-height:1;
   text-decoration:none!important;
+  vertical-align:baseline;
 }
 
 /* 本文テキストリンク 内部リンク（既存記事内） */
