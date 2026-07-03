@@ -121,8 +121,8 @@ a.hex-text-link:hover *{
 }
 .bg_post_index .linktext_color_basecolor2 a.hex-text-link:hover,
 .bg_post_index .linktext_color_basecolor2 a.hex-text-link:hover *{
-  color:#1f2774!important;
-  text-decoration-color:#1f2774!important;
+  color:#4a7fd0!important;
+  text-decoration-color:#4a7fd0!important;
 }
 a.hex-text-link[target="_blank"]::after{
   content:"\f35d";
