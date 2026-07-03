@@ -2382,6 +2382,33 @@ function hexGetDesignSetId(){
   return '';
 }
 
+/* エクステリア商品検索 */
+document.addEventListener('DOMContentLoaded',function(){
+  var input=document.getElementById('hex-product-search-input');
+  var button=document.getElementById('hex-product-search-button');
+  if(!input||!button)return;
+
+  function searchProduct(){
+    var keyword=input.value.trim();
+    if(!keyword)return;
+
+    window.open(
+      'https://kenzai-search.jp/products/freeword-search?q='+encodeURIComponent(keyword),
+      '_blank',
+      'noopener'
+    );
+  }
+
+  button.addEventListener('click',searchProduct);
+
+  input.addEventListener('keydown',function(e){
+    if(e.key==='Enter'){
+      e.preventDefault();
+      searchProduct();
+    }
+  });
+});
+
 /* お問い合わせ */
 window.addEventListener('load',function(){
   setTimeout(function(){
