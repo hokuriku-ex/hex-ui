@@ -91,16 +91,21 @@ html{
   background:#1f2774;
 }
 
-/* 本文リンク */
-.hex-text-link{
-  color:#2a5bac;
-  text-decoration:underline;
+/* 本文テキストリンク */
+a.hex-text-link,
+a.hex-text-link:link,
+a.hex-text-link:visited{
+  color:#2a5bac!important;
+  text-decoration:underline!important;
+  text-underline-offset:3px;
   transition:.2s;
 }
-.hex-text-link:hover{
-  color:#1f2774;
+
+a.hex-text-link:hover{
+  color:#1f2774!important;
 }
-.hex-text-link[target="_blank"]::after{
+
+a.hex-text-link[target="_blank"]::after{
   content:"\f35d";
   display:inline-block;
   margin-left:.28em;
@@ -108,9 +113,10 @@ html{
   font-weight:900;
   font-size:.78em;
   line-height:1;
+  text-decoration:none!important;
 }
 
-/* 本文リンク 内部リンク（既存記事内） */
+/* 本文テキストリンク 内部リンク（既存記事内） */
 .gc_auto_frame_post_item_body a{
   color:#2a5bac!important;
   text-decoration:underline!important;
@@ -149,7 +155,7 @@ html{
   line-height:2;
 }
 
-/* 本文リンク 外部リンク（既存記事内） */
+/* 本文テキストリンク 外部リンク（既存記事内） */
 .gc_auto_frame_post_item_body a.hex-link-external::after{
   content:"\f35d";
   display:inline-block;
