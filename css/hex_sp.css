@@ -38,21 +38,28 @@
 /* 共通セクションアクション見出し（h3専用） */
 @media screen and (max-width:768px){
   .hex-section-action{
-    gap:8px;
-    margin:0 0 24px;
-    padding:0 0 16px 16px;
-  }
-  .hex-section-action:before{
-    height:24px;
+    grid-template-columns:1fr auto;
+    gap:0 16px;
+    margin:0 0 26px;
   }
   .hex-section-action h3{
+    padding-left:16px;
     font-size:20px;
   }
-  .hex-section-action p{
-    font-size:15px;
+  .hex-section-action h3:before{
+    height:24px;
   }
   .hex-section-action a{
     font-size:14px;
+  }
+  .hex-section-action a i{
+    margin-left:.35em;
+  }
+  .hex-section-action p{
+    margin:12px 0 0;
+    padding-top:14px;
+    font-size:15px;
+    line-height:1.8;
   }
 }
 
