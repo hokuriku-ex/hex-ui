@@ -2004,7 +2004,7 @@ body,
 }
 .hex-staff-joined{
   margin:0;
-  font-size:14px;
+  font-size:16px;
   line-height:1.7;
 }
 .hex-staff-divider{
@@ -2019,7 +2019,7 @@ body,
 }
 .hex-staff-detail-text{
   margin:0;
-  font-size:14px;
+  font-size:16px;
   line-height:1.8;
   white-space:normal;
 }
