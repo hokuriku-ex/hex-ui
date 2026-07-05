@@ -1540,7 +1540,7 @@ body,
 
 .welcome .title span{
   display:block;
-  font-size:42px;
+  font-size:32px;
   font-weight:700;
   line-height:1.4;
   letter-spacing:.04em;
@@ -1569,7 +1569,7 @@ body,
 .welcome .text{
   margin:0;
   color:#383838;
-  font-size:19px;
+  font-size:20px;
   line-height:2;
   letter-spacing:.05em;
 }
