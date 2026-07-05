@@ -1284,7 +1284,7 @@ a.hex-text-link[target="_blank"]::after{
   text-align:left!important;
   border-bottom:none!important;
   padding:12px 42px 12px 18px!important;
-  font-size:15px!important;
+  font-size:16px!important;
   font-weight:1000!important;
   line-height:1.5!important;
 }
@@ -1470,7 +1470,7 @@ a.hex-text-link[target="_blank"]::after{
   grid-column:1 / 4!important;
   text-align:center!important;
   margin-top:55px!important;
-  font-size:15px!important;
+  font-size:16px!important;
 }
 
 /* 固定フッターとの隙間対策 */
@@ -2306,7 +2306,7 @@ body,
   display:flex;
   align-items:center;
   gap:10px;
-  font-size:15px;
+  font-size:16px;
   line-height:1.8;
   color:#383838;
 }
@@ -2347,7 +2347,7 @@ body,
   border-radius:4px;
   background:#f4f8ff;
   padding:12px 14px;
-  font-size:15px;
+  font-size:16px;
   line-height:1.6;
   color:#383838;
 }
@@ -2507,7 +2507,7 @@ body,
 #o7cms_dialog p{
   margin:0!important;
   color:#383838!important;
-  font-size:15px!important;
+  font-size:16px!important;
   line-height:1.8!important;
 }
 #o7cms_dialog p strong{
@@ -2529,7 +2529,7 @@ body,
   border-radius:0!important;
   background:#fff!important;
   color:#1f2774!important;
-  font-size:15px!important;
+  font-size:16px!important;
   font-weight:600!important;
   cursor:pointer!important;
   transition:.3s ease!important;
@@ -2623,7 +2623,7 @@ body.hex-form-dialog-open{
 #gc_auto_frame_lp_form_dialog_box .hex-dialog-confirm-lead{
   margin:0 0 36px;
   color:#383838;
-  font-size:15px;
+  font-size:16px;
   line-height:1.8;
 }
 #gc_auto_frame_lp_form_dialog_box .gc_dialog_lp_form_line{
@@ -2640,14 +2640,14 @@ body.hex-form-dialog-open{
   margin-right:0!important;
   margin-bottom:0!important;
   color:#383838;
-  font-size:15px;
+  font-size:16px;
   line-height:1.8;
   font-weight:600;
 }
 #gc_auto_frame_lp_form_dialog_box .gc_dialog_lp_form_value{
   min-height:24px;
   color:#383838;
-  font-size:15px;
+  font-size:16px;
   line-height:1.8;
   word-break:break-word;
 }
