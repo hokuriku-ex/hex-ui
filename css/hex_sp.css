@@ -364,7 +364,7 @@
   /* Copyright */
   .hex-footer-frame .footer_copyright{
     margin-top:25px !important;
-    font-size:13px !important;
+    font-size:16px !important;
   }
 }
 
@@ -602,11 +602,11 @@
     align-self:stretch;
   }
   .hex-staff-name{
-    font-size:17px;
+    font-size:18px;
   }
   .hex-staff-joined,
   .hex-staff-detail-text{
-    font-size:13px;
+    font-size:16px;
   }
   .hex-staff-toggle{
     display:flex!important;
