@@ -72,6 +72,19 @@
   }
 }
 
+/* 標準見出しフォントサイズ（h2・h3・h4） */
+@media screen and (max-width:768px){
+  .gc_wysiwyg h2:not(.hex-section-subtitle){
+    font-size:26px;
+  }
+  .gc_wysiwyg h3:not(.hex-section-subtitle){
+    font-size:20px;
+  }
+  .gc_wysiwyg h4:not(.hex-section-smalltitle){
+    font-size:18px;
+  }
+}
+
 /* 一覧ページング */
 @media screen and (max-width:768px){
   .bg_page_button{
