@@ -509,13 +509,7 @@
   .hex-staff-iframe-mode .hex-staff-member-grid{
     display:none!important;
   }
-
   .hex-staff-iframe-mode .hex-staff-sp-button-wrap{
-    display:flex!important;
-    margin-top:22px;
-  }
-
-  .hex-staff-iframe-mode .hex-staff-pc-link-wrap{
     display:none!important;
   }
 }
@@ -532,17 +526,8 @@
   .hex-staff-section{
     margin-bottom:48px;
   }
-  .hex-staff-section-heading{
+  .hex-staff-section .hex-section-action{
     margin:0 0 24px;
-    padding-left:16px;
-  }
-  .hex-staff-section-heading .hex-section-subtitle{
-    margin:0 0 8px;
-    padding-left:0!important;
-  }
-  .hex-staff-section-description{
-    font-size:16px;
-    line-height:1.8;
   }
   .hex-staff-grid{
     grid-template-columns:1fr;
