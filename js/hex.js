@@ -1844,6 +1844,7 @@ window.addEventListener('load',function(){
       var heading=document.createElement('div');
       heading.className='hex-section-action hex-staff-section-heading';
       var title=document.createElement('h3');
+      title.className='hex-section-subtitle';
       title.textContent=group.name;
       heading.appendChild(title);
       if(group.description){
@@ -1905,22 +1906,15 @@ window.addEventListener('load',function(){
 });
 function createStaffLinkButton(group){
   var wrap=document.createElement('div');
-  wrap.className='hex-button-wrap hex-staff-sp-button-wrap';
+  wrap.className='hex-staff-sp-button-wrap';
   var link=document.createElement('a');
-  link.className='hex-btn-main light';
   link.href=hexBuildStaffAnchorUrl(group.name);
   link.target='_parent';
-  var text=document.createElement('span');
-  text.className='hex-btn-main-title';
-  text.textContent='メンバーを見る';
-  var iconWrap=document.createElement('span');
-  iconWrap.className='hex-btn-main-icon';
+  link.appendChild(document.createTextNode('メンバーを見る'));
   var icon=document.createElement('i');
   icon.className='fa-solid fa-arrow-right';
   icon.setAttribute('aria-hidden','true');
-  iconWrap.appendChild(icon);
-  link.appendChild(text);
-  link.appendChild(iconWrap);
+  link.appendChild(icon);
   wrap.appendChild(link);
   return wrap;
 }
@@ -2291,13 +2285,12 @@ function hexAdjustStaffIframeView(doc){
   for(var i=0;i<sections.length;i++){
     var section=sections[i];
     var button=section.getElementsByClassName('hex-staff-sp-button-wrap')[0];
-    var leader=section.querySelector('.hex-staff-card.is-leader');
     var heading=section.getElementsByClassName('hex-staff-section-heading')[0];
+    var leader=section.querySelector('.hex-staff-card.is-leader');
 
     if(button&&heading){
       var link=button.getElementsByTagName('a')[0];
       if(link&&!heading.getElementsByTagName('a')[0]){
-        link.className='';
         heading.insertBefore(link,heading.children[1]||null);
       }
       if(button.parentNode){
