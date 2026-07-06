@@ -1842,14 +1842,12 @@ window.addEventListener('load',function(){
       var section=document.createElement('section');
       section.className='hex-staff-section';
       var heading=document.createElement('div');
-      heading.className=group.description?'hex-staff-section-heading has-description':'hex-staff-section-heading';
-      var title=document.createElement('h2');
-      title.className='hex-section-subtitle';
+      heading.className='hex-section-action hex-staff-section-heading';
+      var title=document.createElement('h3');
       title.textContent=group.name;
       heading.appendChild(title);
       if(group.description){
-        var desc=document.createElement('h3');
-        desc.className='hex-staff-section-description';
+        var desc=document.createElement('h4');
         appendTextWithBreaks(desc,group.description);
         heading.appendChild(desc);
       }
@@ -1887,7 +1885,7 @@ window.addEventListener('load',function(){
       setTimeout(function(){
         var sections=wrap.getElementsByClassName('hex-staff-section');
         for(var i=0;i<sections.length;i++){
-          var title=sections[i].querySelector('h2');
+          var title=sections[i].querySelector('h3');
           if(!title)continue;
           if(title.textContent.trim()!==anchorParam)continue;
           var offset=window.innerWidth<=768?130:150;
@@ -2293,24 +2291,29 @@ function hexAdjustStaffIframeView(doc){
     var section=sections[i];
     var button=section.getElementsByClassName('hex-staff-sp-button-wrap')[0];
     var leader=section.querySelector('.hex-staff-card.is-leader');
-    if(!button||!leader)continue;
+    var heading=section.getElementsByClassName('hex-staff-section-heading')[0];
+
+    if(button&&heading){
+      var link=button.getElementsByTagName('a')[0];
+      if(link&&!heading.getElementsByTagName('a')[0]){
+        link.className='';
+        heading.insertBefore(link,heading.children[1]||null);
+      }
+      if(button.parentNode){
+        button.parentNode.removeChild(button);
+      }
+    }
+
+    if(!leader)continue;
 
     var head=leader.getElementsByClassName('hex-staff-head')[0];
     var joined=leader.getElementsByClassName('hex-staff-joined')[0];
 
     if(!head)continue;
 
-    /* 入社年を名前と同じヘッダー領域へ移動 */
     if(joined&&joined.parentNode!==head){
       head.appendChild(joined);
     }
-
-    /* PC用ボタン追加 */
-    if(leader.getElementsByClassName('hex-staff-pc-link-wrap')[0])continue;
-
-    var pcButton=button.cloneNode(true);
-    pcButton.className='hex-button-wrap hex-staff-pc-link-wrap';
-    head.appendChild(pcButton);
   }
 }
 function hexBindStaffIframeResize(iframe){
