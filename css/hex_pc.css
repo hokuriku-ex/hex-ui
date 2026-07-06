@@ -1,6 +1,8 @@
 /* =======================================
    全ページ共通
 ======================================= */
+/* フォント */
+
 /* スクロールバー対策 */
 html{
   overflow-y:scroll;
@@ -2809,19 +2811,4 @@ body.hex-form-dialog-open{
   color:#383838!important;
   font-size:16px;
   line-height:2;
-}
-
-/* =======================================
-   フォント
-======================================= */
-:root{
-  --font-family:'Zen Kaku Gothic New';
-  --font-family-small-headline:'Zen Kaku Gothic New';
-  --font-family-big-headline:'Zen Kaku Gothic New';
-  --font-family-button:'Zen Kaku Gothic New';
-}
-
-.gc_auto_body,
-.gc_auto_body *{
-  font-family:"Zen Kaku Gothic New",sans-serif!important;
 }
