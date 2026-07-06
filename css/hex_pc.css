@@ -4,7 +4,7 @@
 /* フォント */
 body,
 h1,h2,h3,h4,h5,h6{
-  font-family:"Zen Kaku Gothic New",sans-serif!important;
+  font-family:'GF_NotoSerifJapanese_Black',sans-serif!important;
 }
 
 /* スクロールバー対策 */
