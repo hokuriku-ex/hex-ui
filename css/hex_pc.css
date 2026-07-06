@@ -2,7 +2,10 @@
    全ページ共通
 ======================================= */
 /* フォント */
-
+body,
+h1,h2,h3,h4{
+  font-family:'GF_NotoSerifJapanese_Black',sans-serif!important;
+}
 
 /* スクロールバー対策 */
 html{
