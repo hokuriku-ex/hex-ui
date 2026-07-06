@@ -542,6 +542,10 @@ a.hex-text-link[target="_blank"]::after{
 .hex-anchor-nav-link:hover{
   color:#1f2774!important;
 }
+.bg_post_index .linktext_color_basecolor2 .hex-anchor-nav a.hex-anchor-nav-link:hover,
+.linktext_color_basecolor2 .hex-anchor-nav a.hex-anchor-nav-link:hover{
+  color:#1f2774!important;
+}
 .hex-anchor-nav-link.is-active{
   color:#1f2774!important;
   font-weight:400!important;
