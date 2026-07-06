@@ -156,13 +156,13 @@ html{
 }
 
 /* 標準見出しフォントサイズ（h2・h3・h4） */
-.gc_wysiwyg h2:not(.hex-section-subtitle){
+h2:not(.hex-section-subtitle){
   font-size:32px;
 }
-.gc_wysiwyg h3:not(.hex-section-subtitle){
+h3:not(.hex-section-subtitle){
   font-size:24px;
 }
-.gc_wysiwyg h4:not(.hex-section-smalltitle){
+h4:not(.hex-section-smalltitle){
   font-size:20px;
 }
 
