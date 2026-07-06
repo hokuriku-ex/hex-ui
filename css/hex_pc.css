@@ -1,6 +1,22 @@
 /* =======================================
    全ページ共通
 ======================================= */
+/* フォント */
+body{
+  font-family:"Zen Kaku Gothic New",sans-serif;
+  font-weight:400;
+}
+header nav a{
+  font-weight:500;
+}
+.hex-section-smalltitle{
+  font-weight:500;
+}
+.hex-section-subtitle,
+.hex-section-title{
+  font-weight:700;
+}
+
 /* スクロールバー対策 */
 html{
   overflow-y:scroll;
