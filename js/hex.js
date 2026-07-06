@@ -1522,9 +1522,9 @@ function hexCreateFooterArea(){
   p2.appendChild(document.createElement('br'));
   p2.appendChild(document.createTextNode('かほく市 / 能美市 / 川北町 / 小松市 / 加賀市'));
   p2.appendChild(document.createElement('br'));
-  p2.appendChild(document.createTextNode('羽咋市 / 宝達志水町 / 志賀町 / 中能登町 / 七尾市'));
+  p2.appendChild(document.createTextNode('羽咋市 / 宝達志水町 / 志賀町 / 中能登町'));
   p2.appendChild(document.createElement('br'));
-  p2.appendChild(document.createTextNode('穴水町 / 能登町 / 輪島市 / 珠洲市'));
+  p2.appendChild(document.createTextNode('七尾市 / 穴水町 / 能登町 / 輪島市 / 珠洲市'));
   p3.textContent='■ 富山県・福井県の一部';
   p4.textContent='状況によりご相談させていただきます';
   text.appendChild(p1);
