@@ -1848,6 +1848,7 @@ window.addEventListener('load',function(){
       heading.appendChild(title);
       if(group.description){
         var desc=document.createElement('h4');
+        desc.className='hex-section-smalltitle';
         appendTextWithBreaks(desc,group.description);
         heading.appendChild(desc);
       }
