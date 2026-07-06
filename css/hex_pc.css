@@ -2,19 +2,11 @@
    全ページ共通
 ======================================= */
 /* フォント */
-body{
-  font-family:"Zen Kaku Gothic New",sans-serif;
-  font-weight:400;
-}
-header nav a{
-  font-weight:500;
-}
-.hex-section-smalltitle{
-  font-weight:500;
-}
-.hex-section-subtitle,
-.hex-section-title{
-  font-weight:700;
+:root{
+  --font-family:'Zen Kaku Gothic New';
+  --font-family-small-headline:'Zen Kaku Gothic New';
+  --font-family-big-headline:'Zen Kaku Gothic New';
+  --font-family-button:'Zen Kaku Gothic New';
 }
 
 /* スクロールバー対策 */
