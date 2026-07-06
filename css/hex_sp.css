@@ -529,7 +529,7 @@
     padding-left:0!important;
   }
   .hex-staff-section-description{
-    font-size:14px;
+    font-size:16px;
     line-height:1.8;
   }
   .hex-staff-grid{
@@ -845,14 +845,14 @@
     font-size:18px!important;
   }
   .publicinfo_qanda .q_title{
-    font-size:15px;
+    font-size:16px;
     line-height:1.8;
   }
   .publicinfo_qanda .answer_qa{
     padding:16px 14px!important;
   }
   .publicinfo_qanda .answer_qa .qanda{
-    font-size:15px;
+    font-size:16px;
     line-height:1.9;
   }
 }
