@@ -117,9 +117,10 @@ html{
   background:#1f2774;
 }
 .hex-section-action a,
-.hex-section-action a i,
-.bg_post_index .linktext_color_basecolor2 .hex-section-action a,
-.bg_post_index .linktext_color_basecolor2 .hex-section-action a i{
+.bg_post_index .linktext_color_basecolor2 .hex-section-action a{
+  display:inline-flex;
+  align-items:center;
+  gap:.45em;
   align-self:center;
   color:#1f2774!important;
   text-decoration:none!important;
@@ -129,15 +130,16 @@ html{
   white-space:nowrap;
   transition:color .2s ease,opacity .2s ease;
 }
+.hex-section-action a i,
+.bg_post_index .linktext_color_basecolor2 .hex-section-action a i{
+  color:#1f2774!important;
+  font-size:.9em;
+}
 .hex-section-action a:hover,
 .hex-section-action a:hover i,
 .bg_post_index .linktext_color_basecolor2 .hex-section-action a:hover,
 .bg_post_index .linktext_color_basecolor2 .hex-section-action a:hover i{
   color:#c8a45a!important;
-}
-.hex-section-action a i{
-  margin-left:.45em;
-  font-size:.9em;
 }
 .hex-section-action h4{
   grid-column:1 / -1;
