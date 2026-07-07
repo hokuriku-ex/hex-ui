@@ -2064,7 +2064,7 @@ body,
 /* =======================================
    下層ページ：工事メニュー
 ======================================= */
-/* 土木工事・申請 */
+/* 土木工事・申請 申請の流れ */
 .hex-flow{
   position:relative;
   margin:0;
@@ -2076,9 +2076,9 @@ body,
   position:absolute;
   top:0;
   left:120px;
-  width:10px;
+  width:14px;
   height:100%;
-  background:#eef0f5;
+  background:#e7e9ef;
   transform:translateX(-50%);
 }
 .hex-flow > li{
@@ -2097,9 +2097,9 @@ body,
   display:block;
   width:92px;
   padding:9px 0;
-  background:linear-gradient(90deg,#1f2774 0%,#2a5bac 100%);
+  background:#1f2774;
   color:#fff;
-  font-size:12px;
+  font-size:11px;
   font-weight:700;
   line-height:1;
   text-align:center;
@@ -2111,7 +2111,7 @@ body,
   left:100%;
   border-style:solid;
   border-width:6px 0 6px 10px;
-  border-color:transparent transparent transparent #2a5bac;
+  border-color:transparent transparent transparent #1f2774;
   transform:translateY(-50%);
 }
 .hex-flow dl{
@@ -2122,11 +2122,11 @@ body,
 .hex-flow dl::before{
   content:"";
   position:absolute;
-  top:12px;
-  left:-4px;
+  top:8px;
+  left:-7px;
   z-index:2;
-  width:8px;
-  height:8px;
+  width:14px;
+  height:14px;
   background:#2a5bac;
   border-radius:50%;
 }
@@ -2134,7 +2134,7 @@ body,
   content:"";
   position:absolute;
   top:15px;
-  left:8px;
+  left:12px;
   width:46px;
   border-bottom:1px dashed #9aa1b5;
 }
