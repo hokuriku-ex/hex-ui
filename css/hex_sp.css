@@ -663,8 +663,8 @@
     padding-left:92px;
   }
   .hex-flow::before{
-    left:92px;
-    width:14px;
+    left:102px;
+    width:16px;
   }
   .hex-flow > li{
     margin-bottom:34px;
