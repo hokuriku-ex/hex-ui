@@ -2390,7 +2390,7 @@ document.addEventListener('DOMContentLoaded',function(){
     if(!keyword)return;
 
     window.open(
-      'https://kenzai-search.jp/products/freeword-search?q='+encodeURIComponent(keyword),
+      'https://kenzai-search.jp/products/search?q='+encodeURIComponent(keyword),
       '_blank',
       'noopener'
     );
