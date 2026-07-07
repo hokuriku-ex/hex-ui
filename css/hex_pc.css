@@ -806,7 +806,7 @@ a.hex-text-link[target="_blank"]::after{
 }
 .hex-card.light{
   background:#fff;
-  border-color:#383838;
+  border-color:#d8dce8;
 }
 .hex-card.dark{
   background:transparent;
