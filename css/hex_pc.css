@@ -2151,10 +2151,29 @@ body,
   font-size:16px;
   line-height:1.9;
 }
-.hex-flow-accent dt{
+
+/* ハウスメーカー側 */
+.hex-flow-client .hex-flow-icon{
+  background:#2a5bac;
+}
+.hex-flow-client .hex-flow-icon::after{
+  border-color:transparent transparent transparent #2a5bac;
+}
+.hex-flow-client dt{
   color:#2a5bac;
 }
-.hex-flow-accent dd{
+
+/* 行政審査 */
+.hex-flow-admin .hex-flow-icon{
+  background:#c94f4f;
+}
+.hex-flow-admin .hex-flow-icon::after{
+  border-color:transparent transparent transparent #c94f4f;
+}
+.hex-flow-admin dt{
+  color:#c94f4f;
+}
+.hex-flow-admin dd{
   font-weight:500;
 }
 
