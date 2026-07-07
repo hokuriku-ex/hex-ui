@@ -657,14 +657,14 @@
 /* =======================================
    下層ページ：工事メニュー
 ======================================= */
-/* 土木工事・申請 */
+/* 土木工事・申請 申請の流れ */
 @media screen and (max-width:768px){
   .hex-flow{
     padding-left:92px;
   }
   .hex-flow::before{
     left:92px;
-    width:8px;
+    width:12px;
   }
   .hex-flow > li{
     margin-bottom:34px;
@@ -673,13 +673,19 @@
     left:-92px;
     width:74px;
     padding:8px 0;
-    font-size:11px;
+    font-size:10px;
   }
   .hex-flow dl{
     padding-left:48px;
   }
+  .hex-flow dl::before{
+    left:-6px;
+    width:12px;
+    height:12px;
+  }
   .hex-flow dl::after{
-    width:32px;
+    left:10px;
+    width:30px;
   }
   .hex-flow dt{
     font-size:18px;
