@@ -1033,6 +1033,11 @@ document.addEventListener('DOMContentLoaded',function(){
       if(cards.length===0)return;
       var grid=document.createElement('div');
       grid.className='hex-card-grid hex-card-grid'+col;
+      Array.from(gridStart.classList).forEach(function(className){
+        if(className!=='hex-card-grid'+col+'-start'){
+          grid.classList.add(className);
+        }
+      });
       cards.forEach(function(cardData){
         var card=document.createElement('div');
         var body=document.createElement('div');
