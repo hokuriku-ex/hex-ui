@@ -2099,7 +2099,7 @@ body,
   padding:9px 0;
   background:#1f2774;
   color:#fff;
-  font-size:11px;
+  font-size:16px;
   font-weight:700;
   line-height:1;
   text-align:center;
@@ -2142,13 +2142,13 @@ body,
   margin:0 0 8px;
   color:#1f2774;
   font-size:20px;
-  font-weight:700;
+  font-weight:500;
   line-height:1.5;
 }
 .hex-flow dd{
   margin:0;
   color:#383838;
-  font-size:15px;
+  font-size:16px;
   line-height:1.9;
 }
 .hex-flow-accent dt{
