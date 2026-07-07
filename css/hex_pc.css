@@ -2111,13 +2111,13 @@ body,
   text-align:center;
   font-family:var(--hex-font-gothic)!important;
 }
-.hex-card-strength .hex-card-grid1 .hex-card-head{
+.hex-card-strength.hex-card-grid1 .hex-card-head{
   position:relative;
   padding-bottom:18px;
   margin-bottom:16px;
   border-bottom:1px solid #d8dce8;
 }
-.hex-card-strength .hex-card-grid1 .hex-card-title{
+.hex-card-strength.hex-card-grid1 .hex-card-title{
   margin:0;
   color:#1f2774!important;
   font-size:20px;
