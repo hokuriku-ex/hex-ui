@@ -2072,6 +2072,37 @@ body,
 /* =======================================
    下層ページ：工事メニュー
 ======================================= */
+/* 土木工事・申請 強みカード */
+.hex-card-strength .hex-card{
+  position:relative;
+}
+
+.hex-card-strength .hex-card-body{
+  position:static;
+}
+
+.hex-card-strength .hex-card-text{
+  position:absolute;
+  top:16px;
+  left:16px;
+  margin:0;
+  color:#1f2774;
+  font-size:42px;
+  font-weight:700;
+  line-height:1;
+}
+
+.hex-card-strength .hex-card-head{
+  border:none;
+}
+
+.hex-card-strength .hex-card-title{
+  margin:0;
+  padding:0;
+  border:none;
+  text-align:center;
+}
+
 /* 土木工事・申請 申請の流れ */
 .hex-flow{
   position:relative;
