@@ -978,17 +978,6 @@ document.addEventListener('DOMContentLoaded',function(){
   });
 });
 
-/* カード<br>対応テキスト許可 */
-window.hexAppendTextWithBr=function(target,text){
-  var parts=String(text||'').split(/<br\s*\/?>/gi);
-  parts.forEach(function(part,index){
-    if(index>0){
-      target.appendChild(document.createElement('br'));
-    }
-    target.appendChild(document.createTextNode(part));
-  });
-};
-
 /* カード */
 document.addEventListener('DOMContentLoaded',function(){
   ['1','2','3'].forEach(function(col){
@@ -1062,7 +1051,7 @@ document.addEventListener('DOMContentLoaded',function(){
         head.className='hex-card-head';
         title.className='hex-card-title';
         text.className='hex-card-text';
-        window.hexAppendTextWithBr(text,cardData.text);
+        text.innerHTML=cardData.text;
         imageBox.appendChild(image);
         if(cardData.title){
           if(cardData.url){
