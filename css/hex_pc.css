@@ -2081,11 +2081,18 @@ body,
   position:static;
 }
 .hex-card-strength .hex-card-text{
+  margin-top:14px;
+  color:#383838;
+  font-size:15px;
+  line-height:1.9;
+  text-align:left;
+}
+.hex-card-strength .hex-number{
   position:absolute;
   left:0;
   top:0;
   z-index:2;
-  margin:0;
+  display:block;
   color:#1f2774;
   font-size:34px;
   font-weight:800;
