@@ -1040,6 +1040,11 @@ document.addEventListener('DOMContentLoaded',function(){
         var title=document.createElement('h4');
         var text=document.createElement('p');
         card.className='hex-card '+cardData.style;
+        if(cardData.image){
+          card.classList.add('has-image');
+        }else{
+          card.classList.add('no-image');
+        }
         body.className='hex-card-body';
         head.className='hex-card-head';
         title.className='hex-card-title';
