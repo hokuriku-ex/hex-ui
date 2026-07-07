@@ -2075,6 +2075,7 @@ body,
 /* 土木工事・申請 私たちの強み */
 .hex-card-strength .hex-card{
   position:relative;
+  border:none;
 }
 .hex-card-strength .hex-card-body{
   position:static;
