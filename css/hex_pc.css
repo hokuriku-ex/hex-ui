@@ -2072,15 +2072,13 @@ body,
 /* =======================================
    下層ページ：工事メニュー
 ======================================= */
-/* 土木工事・申請 強みカード */
+/* 土木工事・申請 私たちの強み */
 .hex-card-strength .hex-card{
   position:relative;
 }
-
 .hex-card-strength .hex-card-body{
   position:static;
 }
-
 .hex-card-strength .hex-card-text{
   position:absolute;
   top:16px;
@@ -2091,11 +2089,9 @@ body,
   font-weight:700;
   line-height:1;
 }
-
 .hex-card-strength .hex-card-head{
   border:none;
 }
-
 .hex-card-strength .hex-card-title{
   margin:0;
   padding:0;
