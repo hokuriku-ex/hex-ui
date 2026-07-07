@@ -266,7 +266,10 @@
     margin-top:20px;
   }
 
-  /* リンクcol=1：詳しく見る非表示 */
+  /* リンクcol=1 */
+  .hex-link-wrap.hex-col-1 .hex-link-title{
+    font-size:20px;
+  }
   .hex-link.light .hex-link-detail{
     display:none;
   }
