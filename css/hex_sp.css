@@ -655,6 +655,33 @@
 }
 
 /* =======================================
+   下層ページ：工事メニュー
+======================================= */
+/* 土木工事・申請 */
+@media screen and (max-width:768px){
+  .hex-flow{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+  .hex-flow-item{
+    padding:18px 16px;
+  }
+  .hex-flow-item::after{
+    top:auto;
+    right:auto;
+    bottom:-12px;
+    left:50%;
+    transform:translateX(-50%) rotate(135deg);
+  }
+  .hex-flow-item:nth-child(3n)::after{
+    display:block;
+  }
+  .hex-flow-item:last-child::after{
+    display:none;
+  }
+}
+
+/* =======================================
    下層ページ：エクステリア商品検索
 ======================================= */
 @media screen and (max-width:768px){
