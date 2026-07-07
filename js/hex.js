@@ -1041,7 +1041,7 @@ document.addEventListener('DOMContentLoaded',function(){
         var image=document.createElement('img');
         var body=document.createElement('div');
         var head=document.createElement('div');
-        var title=document.createElement('h3');
+        var title=document.createElement('h4');
         var text=document.createElement('p');
         card.className='hex-card '+cardData.style;
         imageBox.className='hex-card-image';
