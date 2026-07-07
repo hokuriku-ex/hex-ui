@@ -2066,55 +2066,96 @@ body,
 ======================================= */
 /* 土木工事・申請 */
 .hex-flow{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px 28px;
-}
-.hex-flow-item{
   position:relative;
-  padding:22px 18px;
-  background:#fff;
-  border:1px solid #d9dce8;
-  border-radius:10px;
+  margin:0;
+  padding:0 0 0 120px;
+  list-style:none;
+}
+.hex-flow::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:120px;
+  width:10px;
+  height:100%;
+  background:#eef0f5;
+  transform:translateX(-50%);
+}
+.hex-flow > li{
+  position:relative;
+  margin:0 0 42px;
+  list-style:none;
+}
+.hex-flow > li:last-child{
+  margin-bottom:0;
+}
+.hex-flow-icon{
+  position:absolute;
+  top:0;
+  left:-120px;
+  z-index:2;
+  display:block;
+  width:92px;
+  padding:9px 0;
+  background:linear-gradient(90deg,#1f2774 0%,#2a5bac 100%);
+  color:#fff;
+  font-size:12px;
+  font-weight:700;
+  line-height:1;
   text-align:center;
 }
-.hex-flow-item::after{
+.hex-flow-icon::after{
   content:"";
   position:absolute;
   top:50%;
-  right:-22px;
-  width:14px;
-  height:14px;
-  border-top:2px solid #1f2774;
-  border-right:2px solid #1f2774;
-  transform:translateY(-50%) rotate(45deg);
+  left:100%;
+  border-style:solid;
+  border-width:6px 0 6px 10px;
+  border-color:transparent transparent transparent #2a5bac;
+  transform:translateY(-50%);
 }
-.hex-flow-item:nth-child(3n)::after,
-.hex-flow-item:last-child::after{
-  display:none;
+.hex-flow dl{
+  position:relative;
+  margin:0;
+  padding:0 0 0 70px;
 }
-.hex-flow-num{
-  display:block;
-  margin-bottom:8px;
+.hex-flow dl::before{
+  content:"";
+  position:absolute;
+  top:12px;
+  left:-4px;
+  z-index:2;
+  width:8px;
+  height:8px;
+  background:#2a5bac;
+  border-radius:50%;
+}
+.hex-flow dl::after{
+  content:"";
+  position:absolute;
+  top:15px;
+  left:8px;
+  width:46px;
+  border-bottom:1px dashed #9aa1b5;
+}
+.hex-flow dt{
+  margin:0 0 8px;
   color:#1f2774;
-  font-size:14px;
+  font-size:20px;
   font-weight:700;
+  line-height:1.5;
 }
-.hex-flow-item p{
+.hex-flow dd{
   margin:0;
   color:#383838;
-  font-size:16px;
-  font-weight:700;
-  line-height:1.6;
+  font-size:15px;
+  line-height:1.9;
 }
-.hex-flow-item small{
-  color:#1f2774;
-  font-size:13px;
-  font-weight:700;
+.hex-flow-accent dt{
+  color:#2a5bac;
 }
-.hex-flow-accent{
-  background:#f4f6ff;
-  border-color:#1f2774;
+.hex-flow-accent dd{
+  font-weight:500;
 }
 
 /* =======================================

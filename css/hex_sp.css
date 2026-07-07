@@ -660,24 +660,33 @@
 /* 土木工事・申請 */
 @media screen and (max-width:768px){
   .hex-flow{
-    grid-template-columns:1fr;
-    gap:14px;
+    padding-left:92px;
   }
-  .hex-flow-item{
-    padding:18px 16px;
+  .hex-flow::before{
+    left:92px;
+    width:8px;
   }
-  .hex-flow-item::after{
-    top:auto;
-    right:auto;
-    bottom:-12px;
-    left:50%;
-    transform:translateX(-50%) rotate(135deg);
+  .hex-flow > li{
+    margin-bottom:34px;
   }
-  .hex-flow-item:nth-child(3n)::after{
-    display:block;
+  .hex-flow-icon{
+    left:-92px;
+    width:74px;
+    padding:8px 0;
+    font-size:11px;
   }
-  .hex-flow-item:last-child::after{
-    display:none;
+  .hex-flow dl{
+    padding-left:48px;
+  }
+  .hex-flow dl::after{
+    width:32px;
+  }
+  .hex-flow dt{
+    font-size:18px;
+  }
+  .hex-flow dd{
+    font-size:14px;
+    line-height:1.8;
   }
 }
 
