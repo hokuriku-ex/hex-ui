@@ -489,7 +489,6 @@ a.hex-text-link[target="_blank"]::after{
 .hex-anchor-nav,
 .hex-anchor-nav *{
   box-sizing:border-box;
-  font-family:GF_NotoSerifJapanese_Light!important;
 }
 .hex-anchor-nav{
   z-index:70;
@@ -553,7 +552,6 @@ a.hex-text-link[target="_blank"]::after{
   margin:0!important;
   padding:0 18px!important;
   color:#383838!important;
-  font-family:GF_NotoSerifJapanese_Light!important;
   font-size:16px!important;
   line-height:1.8!important;
   font-weight:400!important;
@@ -1922,7 +1920,6 @@ body,
   margin:0 auto;
   padding:90px 0;
   color:#383838;
-  font-family:GF_NotoSerifJapanese_Light!important;
 }
 .hex-staff-section{
   margin:0 0 64px;
