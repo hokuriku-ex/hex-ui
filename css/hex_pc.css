@@ -800,7 +800,7 @@ a.hex-text-link[target="_blank"]::after{
 }
 .hex-card{
   background:#fff;
-  border:1px solid #383838;
+  border:1px solid #d8dce8;
   padding:22px;
   box-sizing:border-box;
 }
