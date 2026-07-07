@@ -2090,6 +2090,8 @@ body,
   line-height:1;
 }
 .hex-card-strength .hex-card-head{
+  margin:0;
+  padding:0;
   border:none;
 }
 .hex-card-strength .hex-card-title{
