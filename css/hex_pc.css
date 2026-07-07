@@ -2072,7 +2072,7 @@ body,
 /* =======================================
    下層ページ：工事メニュー
 ======================================= */
-/* 土木工事・申請 私たちの強み */
+/* 土木工事・申請 強み */
 .hex-card-strength .hex-card{
   position:relative;
   border:none;
@@ -2105,7 +2105,7 @@ body,
   font-family:var(--hex-font-gothic)!important;
 }
 
-/* 土木工事・申請 申請の流れ */
+/* 土木工事・申請 フロー */
 .hex-flow{
   position:relative;
   margin:0;
