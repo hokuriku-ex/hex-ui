@@ -1508,7 +1508,7 @@ function hexTogglePageTopButton(button){
 }
 function hexCreateFooterArea(){
   var area=document.createElement('div');
-  var title=document.createElement('h4');
+  var title=document.createElement('h3');
   var text=document.createElement('div');
   var p1=document.createElement('p');
   var p2=document.createElement('p');
