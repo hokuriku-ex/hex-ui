@@ -664,7 +664,7 @@
   }
   .hex-flow::before{
     left:92px;
-    width:12px;
+    width:14px;
   }
   .hex-flow > li{
     margin-bottom:34px;
@@ -679,11 +679,13 @@
     padding-left:48px;
   }
   .hex-flow dl::before{
-    left:-6px;
-    width:12px;
-    height:12px;
+    top:10px;
+    left:-4px;
+    width:8px;
+    height:8px;
   }
   .hex-flow dl::after{
+    top:13px;
     left:10px;
     width:30px;
   }
