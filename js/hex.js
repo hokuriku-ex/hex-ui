@@ -1014,19 +1014,17 @@ document.addEventListener('DOMContentLoaded',function(){
               if(image)break;
               imageBlock=window.hexNextBlock(imageBlock);
             }
-            if(image){
-              cards.push({
-                title:cardStart.dataset.title||'',
-                text:cardStart.dataset.text||'',
-                button:cardStart.dataset.button||'',
-                url:window.hexBuildUrl(cardStart),
-                type:cardStart.dataset.type||'internal',
-                style:cardStart.dataset.style||'light',
-                col:cardStart.dataset.col||'4',
-                image:image.src,
-                alt:image.alt||cardStart.dataset.title||''
-              });
-            }
+            cards.push({
+              title:cardStart.dataset.title||'',
+              text:cardStart.dataset.text||'',
+              button:cardStart.dataset.button||'',
+              url:window.hexBuildUrl(cardStart),
+              type:cardStart.dataset.type||'internal',
+              style:cardStart.dataset.style||'light',
+              col:cardStart.dataset.col||'4',
+              image:image?image.src:'',
+              alt:image?image.alt||cardStart.dataset.title||'':''
+            });
           }
         }
         if(currentBlock===gridEndBlock)break;
@@ -1037,22 +1035,25 @@ document.addEventListener('DOMContentLoaded',function(){
       grid.className='hex-card-grid hex-card-grid'+col;
       cards.forEach(function(cardData){
         var card=document.createElement('div');
-        var imageBox=document.createElement('div');
-        var image=document.createElement('img');
         var body=document.createElement('div');
         var head=document.createElement('div');
         var title=document.createElement('h4');
         var text=document.createElement('p');
         card.className='hex-card '+cardData.style;
-        imageBox.className='hex-card-image';
-        image.src=cardData.image;
-        image.alt=cardData.alt;
         body.className='hex-card-body';
         head.className='hex-card-head';
         title.className='hex-card-title';
         text.className='hex-card-text';
         text.innerHTML=cardData.text;
-        imageBox.appendChild(image);
+        if(cardData.image){
+          var imageBox=document.createElement('div');
+          var image=document.createElement('img');
+          imageBox.className='hex-card-image';
+          image.src=cardData.image;
+          image.alt=cardData.alt;
+          imageBox.appendChild(image);
+          card.appendChild(imageBox);
+        }
         if(cardData.title){
           if(cardData.url){
             if(!cardData.button){
@@ -1096,7 +1097,6 @@ document.addEventListener('DOMContentLoaded',function(){
             body.appendChild(buttonWrap);
           }
         }
-        card.appendChild(imageBox);
         card.appendChild(body);
         grid.appendChild(card);
       });
