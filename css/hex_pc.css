@@ -2111,6 +2111,20 @@ body,
   text-align:center;
   font-family:var(--hex-font-gothic)!important;
 }
+.hex-card-strength .hex-card-grid1 .hex-card-head{
+  position:relative;
+  padding-bottom:18px;
+  margin-bottom:16px;
+  border-bottom:1px solid #d8dce8;
+}
+.hex-card-strength .hex-card-grid1 .hex-card-title{
+  margin:0;
+  color:#1f2774!important;
+  font-size:20px;
+  font-weight:700;
+  line-height:1.5;
+  letter-spacing:.04em;
+}
 
 /* 土木工事・申請 フロー */
 .hex-flow{
