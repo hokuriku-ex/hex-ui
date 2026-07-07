@@ -2062,6 +2062,62 @@ body,
 }
 
 /* =======================================
+   下層ページ：工事メニュー
+======================================= */
+/* 土木工事・申請 */
+.hex-flow{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px 28px;
+}
+.hex-flow-item{
+  position:relative;
+  padding:22px 18px;
+  background:#fff;
+  border:1px solid #d9dce8;
+  border-radius:10px;
+  text-align:center;
+}
+.hex-flow-item::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  right:-22px;
+  width:14px;
+  height:14px;
+  border-top:2px solid #1f2774;
+  border-right:2px solid #1f2774;
+  transform:translateY(-50%) rotate(45deg);
+}
+.hex-flow-item:nth-child(3n)::after,
+.hex-flow-item:last-child::after{
+  display:none;
+}
+.hex-flow-num{
+  display:block;
+  margin-bottom:8px;
+  color:#1f2774;
+  font-size:14px;
+  font-weight:700;
+}
+.hex-flow-item p{
+  margin:0;
+  color:#383838;
+  font-size:16px;
+  font-weight:700;
+  line-height:1.6;
+}
+.hex-flow-item small{
+  color:#1f2774;
+  font-size:13px;
+  font-weight:700;
+}
+.hex-flow-accent{
+  background:#f4f6ff;
+  border-color:#1f2774;
+}
+
+/* =======================================
    下層ページ：エクステリア商品検索
 ======================================= */
 .hex-product-search{
