@@ -2,9 +2,18 @@
    全ページ共通
 ======================================= */
 /* フォント */
-body,
-h1,h2,h3,h4{
-  font-family:'GF_NotoSerifJapanese_Black',sans-serif!important;
+body{
+  font-family:'Zen Kaku Gothic New',sans-serif!important;
+}
+h1,
+h2,
+h3{
+  font-family:'GF_NotoSerifJapanese_Bold',serif!important;
+}
+h4,
+h5,
+h6{
+  font-family:'GF_NotoSerifJapanese_Medium',serif!important;
 }
 
 /* スクロールバー対策 */
