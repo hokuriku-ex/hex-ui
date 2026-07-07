@@ -168,19 +168,22 @@ html{
   margin:0 0 16px;
   color:#1f2774;
   font-size:20px;
-  font-weight:700;
+  font-weight:500;
   line-height:1.5;
 }
 
 /* 標準見出しフォントサイズ（h2・h3・h4） */
 h2:not(.hex-section-subtitle){
   font-size:32px;
+  font-weight:700;
 }
 h3:not(.hex-section-subtitle){
   font-size:24px;
+  font-weight:700;
 }
 h4:not(.hex-section-smalltitle){
   font-size:20px;
+  font-weight:500;
 }
 
 /* 本文テキストリンク */
@@ -217,7 +220,7 @@ a.hex-text-link[target="_blank"]::after{
   display:inline-block;
   margin-left:.18em;
   font-family:"Font Awesome 6 Free";
-  font-weight:900;
+  font-weight:700;
   font-size:.78em;
   line-height:1;
   text-decoration:none!important;
@@ -242,7 +245,7 @@ a.hex-text-link[target="_blank"]::after{
   display:inline-block;
   margin-left:.18em;
   font-family:"Font Awesome 6 Free";
-  font-weight:900;
+  font-weight:700;
   font-size:.78em;
   line-height:1;
   text-decoration:none!important;
@@ -269,7 +272,7 @@ a.hex-text-link[target="_blank"]::after{
   display:inline-block;
   margin-left:.28em;
   font-family:"Font Awesome 6 Free";
-  font-weight:900;
+  font-weight:700;
   font-size:.78em;
   line-height:1;
   text-decoration:none!important;
@@ -554,7 +557,7 @@ a.hex-text-link[target="_blank"]::after{
   color:#383838!important;
   font-size:16px!important;
   line-height:1.8!important;
-  font-weight:400!important;
+  font-weight:500!important;
   letter-spacing:normal!important;
   text-align:center!important;
   white-space:nowrap!important;
@@ -574,7 +577,7 @@ a.hex-text-link[target="_blank"]::after{
 }
 .hex-anchor-nav-link.is-active{
   color:#4a7fd0!important;
-  font-weight:400!important;
+  font-weight:500!important;
 }
 .hex-anchor-nav-link:not(:last-child)::after{
   content:"|";
@@ -583,7 +586,7 @@ a.hex-text-link[target="_blank"]::after{
   top:50%;
   transform:translateY(-50%);
   color:#cbd5e1;
-  font-weight:400;
+  font-weight:500;
 }
 .bg_menu_button_popup,
 .bg_menu_button_popup *,
@@ -652,7 +655,7 @@ a.hex-text-link[target="_blank"]::after{
 }
 .hex-btn-main-title{
   font-size:18px;
-  font-weight:600;
+  font-weight:500;
   line-height:1.5;
   letter-spacing:.04em;
   transition:.3s ease;
@@ -731,7 +734,7 @@ a.hex-text-link[target="_blank"]::after{
 }
 .hex-link-title{
   font-size:20px;
-  font-weight:600;
+  font-weight:700;
   line-height:1.6;
   letter-spacing:.04em;
   transition:.3s ease;
@@ -842,7 +845,7 @@ a.hex-text-link[target="_blank"]::after{
   margin:0;
   color:#1f2774!important;
   font-size:20px;
-  font-weight:600;
+  font-weight:700;
   line-height:1.5;
   letter-spacing:.04em;
 }
@@ -1287,7 +1290,7 @@ a.hex-text-link[target="_blank"]::after{
 ========================== */
 .headermenu_type8 .menu_group.menu_menu{
   color:rgb(56,56,56);
-  font-weight:1000;
+  font-weight:900;
   letter-spacing:.05em;
   transition:transform .2s ease;
 }
@@ -1315,7 +1318,7 @@ a.hex-text-link[target="_blank"]::after{
   border-bottom:none!important;
   padding:12px 42px 12px 18px!important;
   font-size:16px!important;
-  font-weight:1000!important;
+  font-weight:700!important;
   line-height:1.5!important;
 }
 
@@ -1471,7 +1474,7 @@ a.hex-text-link[target="_blank"]::after{
 
 .footer-company-name{
   font-size:20px!important;
-  font-weight:600!important;
+  font-weight:500!important;
 }
 
 /* 施工エリア */
@@ -1481,7 +1484,7 @@ a.hex-text-link[target="_blank"]::after{
 
 .footer-area h3{
   font-size:20px!important;
-  font-weight:600!important;
+  font-weight:500!important;
   margin:0 0 10px!important;
 }
 
