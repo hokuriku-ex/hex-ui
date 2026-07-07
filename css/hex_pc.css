@@ -2076,9 +2076,9 @@ body,
   position:absolute;
   top:0;
   left:120px;
-  width:14px;
+  width:16px;
   height:100%;
-  background:#e7e9ef;
+  background:#eceef3;
   transform:translateX(-50%);
 }
 .hex-flow > li{
@@ -2122,20 +2122,20 @@ body,
 .hex-flow dl::before{
   content:"";
   position:absolute;
-  top:8px;
-  left:-7px;
+  top:10px;
+  left:-4px;
   z-index:2;
-  width:14px;
-  height:14px;
+  width:8px;
+  height:8px;
   background:#2a5bac;
   border-radius:50%;
 }
 .hex-flow dl::after{
   content:"";
   position:absolute;
-  top:15px;
-  left:12px;
-  width:46px;
+  top:13px;
+  left:10px;
+  width:50px;
   border-bottom:1px dashed #9aa1b5;
 }
 .hex-flow dt{
