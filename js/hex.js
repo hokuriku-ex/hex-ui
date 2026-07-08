@@ -1356,6 +1356,10 @@ window.addEventListener('load',function(){
     if(title.textContent.trim()==='外構をご検討中の方'){
       detail.textContent='初めての方へ';
     }
+
+    if(title.textContent.trim()==='ハウスメーカー・工務店の方'){
+      detail.textContent='初めての方へ';
+    }
   });
 });
 
