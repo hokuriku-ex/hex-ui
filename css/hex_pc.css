@@ -2016,7 +2016,7 @@ body,
   margin:0 0 48px;
 }
 .hex-staff-iframe-mode .hex-section-action .hex-section-smalltitle{
-  font-family:var(--hex-font-serif)!important;
+  font-family:'GF_NotoSerifJapanese_Bold',serif!important;
 }
 .hex-staff-iframe-mode .hex-staff-member-grid{
   display:none!important;
