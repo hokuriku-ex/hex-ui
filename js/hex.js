@@ -1344,7 +1344,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 });
 
-/* トップ スクロールナビ */
+/* トップ サービス案内 */
 window.addEventListener('load',function(){
   document.querySelectorAll('#gc_auto_frame_home_2 .hex-link-wrap').forEach(function(item){
 
