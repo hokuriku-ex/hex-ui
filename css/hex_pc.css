@@ -901,6 +901,61 @@ a.hex-text-link[target="_blank"]::after{
   margin-top:24px;
 }
 
+/* 強みカード */
+.hex-card-strength .hex-card{
+  position:relative;
+  border:none;
+}
+.hex-card-strength .hex-card-body{
+  position:static;
+}
+.hex-card-strength .hex-card-text{
+  margin-top:14px;
+  color:#383838;
+  font-size:15px;
+  line-height:1.9;
+  text-align:left;
+}
+.hex-card-strength .hex-number{
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:2;
+  display:block;
+  color:#1f2774;
+  font-size:34px;
+  font-weight:800;
+  line-height:1;
+  letter-spacing:.04em;
+}
+.hex-card-strength .hex-card-head{
+  margin:0;
+  padding:0;
+  border:none;
+}
+.hex-card-strength .hex-card-title{
+  margin:0;
+  padding:0;
+  border:none;
+  text-align:center;
+  font-family:var(--hex-font-gothic)!important;
+}
+.hex-card-grid1.hex-card-strength .hex-card-head{
+  position:relative;
+  padding-bottom:18px;
+  margin-bottom:16px;
+  border-bottom:1px solid #d8dce8;
+}
+.hex-card-grid1.hex-card-strength .hex-card-title{
+  margin:0;
+  color:#1f2774!important;
+  font-size:20px;
+  font-weight:700;
+  line-height:1.5;
+  letter-spacing:.04em;
+  text-align:left;
+}
+
 /* バナー */
 .hex-banner{
   position:relative;
@@ -1165,6 +1220,94 @@ a.hex-text-link[target="_blank"]::after{
 }
 .hex-image-grid-item a:hover img{
   filter:brightness(1.06);
+}
+
+/* フロー */
+.hex-flow{
+  position:relative;
+  margin:0;
+  padding:0 0 0 120px;
+  list-style:none;
+}
+.hex-flow::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:130px;
+  width:16px;
+  height:100%;
+  background:#eceef3;
+  transform:translateX(-50%);
+}
+.hex-flow > li{
+  position:relative;
+  margin:0 0 42px;
+  list-style:none;
+}
+.hex-flow > li:last-child{
+  margin-bottom:0;
+}
+.hex-flow-icon{
+  position:absolute;
+  top:0;
+  left:-120px;
+  z-index:2;
+  display:block;
+  width:92px;
+  padding:9px 0;
+  background:#1f2774;
+  color:#fff;
+  font-size:16px;
+  font-weight:700;
+  line-height:1;
+  text-align:center;
+}
+.hex-flow-icon::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:100%;
+  border-style:solid;
+  border-width:6px 0 6px 10px;
+  border-color:transparent transparent transparent #1f2774;
+  transform:translateY(-50%);
+}
+.hex-flow dl{
+  position:relative;
+  margin:0;
+  padding:0 0 0 70px;
+}
+.hex-flow dl::before{
+  content:"";
+  position:absolute;
+  top:10px;
+  left:-4px;
+  z-index:2;
+  width:8px;
+  height:8px;
+  background:#2a5bac;
+  border-radius:50%;
+}
+.hex-flow dl::after{
+  content:"";
+  position:absolute;
+  top:13px;
+  left:10px;
+  width:50px;
+  border-bottom:1px dashed #9aa1b5;
+}
+.hex-flow dt{
+  margin:0 0 8px;
+  color:#1f2774;
+  font-size:20px;
+  font-weight:500;
+  line-height:1.5;
+}
+.hex-flow dd{
+  margin:0;
+  color:#383838;
+  font-size:16px;
+  line-height:1.9;
 }
 
 /* =======================================
@@ -2072,149 +2215,7 @@ body,
 /* =======================================
    下層ページ：工事メニュー
 ======================================= */
-/* 土木工事・申請 強み */
-.hex-card-strength .hex-card{
-  position:relative;
-  border:none;
-}
-.hex-card-strength .hex-card-body{
-  position:static;
-}
-.hex-card-strength .hex-card-text{
-  margin-top:14px;
-  color:#383838;
-  font-size:15px;
-  line-height:1.9;
-  text-align:left;
-}
-.hex-card-strength .hex-number{
-  position:absolute;
-  left:0;
-  top:0;
-  z-index:2;
-  display:block;
-  color:#1f2774;
-  font-size:34px;
-  font-weight:800;
-  line-height:1;
-  letter-spacing:.04em;
-}
-.hex-card-strength .hex-card-head{
-  margin:0;
-  padding:0;
-  border:none;
-}
-.hex-card-strength .hex-card-title{
-  margin:0;
-  padding:0;
-  border:none;
-  text-align:center;
-  font-family:var(--hex-font-gothic)!important;
-}
-.hex-card-grid1.hex-card-strength .hex-card-head{
-  position:relative;
-  padding-bottom:18px;
-  margin-bottom:16px;
-  border-bottom:1px solid #d8dce8;
-}
-.hex-card-grid1.hex-card-strength .hex-card-title{
-  margin:0;
-  color:#1f2774!important;
-  font-size:20px;
-  font-weight:700;
-  line-height:1.5;
-  letter-spacing:.04em;
-  text-align:left;
-}
-
-/* 土木工事・申請 フロー */
-.hex-flow{
-  position:relative;
-  margin:0;
-  padding:0 0 0 120px;
-  list-style:none;
-}
-.hex-flow::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:130px;
-  width:16px;
-  height:100%;
-  background:#eceef3;
-  transform:translateX(-50%);
-}
-.hex-flow > li{
-  position:relative;
-  margin:0 0 42px;
-  list-style:none;
-}
-.hex-flow > li:last-child{
-  margin-bottom:0;
-}
-.hex-flow-icon{
-  position:absolute;
-  top:0;
-  left:-120px;
-  z-index:2;
-  display:block;
-  width:92px;
-  padding:9px 0;
-  background:#1f2774;
-  color:#fff;
-  font-size:16px;
-  font-weight:700;
-  line-height:1;
-  text-align:center;
-}
-.hex-flow-icon::after{
-  content:"";
-  position:absolute;
-  top:50%;
-  left:100%;
-  border-style:solid;
-  border-width:6px 0 6px 10px;
-  border-color:transparent transparent transparent #1f2774;
-  transform:translateY(-50%);
-}
-.hex-flow dl{
-  position:relative;
-  margin:0;
-  padding:0 0 0 70px;
-}
-.hex-flow dl::before{
-  content:"";
-  position:absolute;
-  top:10px;
-  left:-4px;
-  z-index:2;
-  width:8px;
-  height:8px;
-  background:#2a5bac;
-  border-radius:50%;
-}
-.hex-flow dl::after{
-  content:"";
-  position:absolute;
-  top:13px;
-  left:10px;
-  width:50px;
-  border-bottom:1px dashed #9aa1b5;
-}
-.hex-flow dt{
-  margin:0 0 8px;
-  color:#1f2774;
-  font-size:20px;
-  font-weight:500;
-  line-height:1.5;
-}
-.hex-flow dd{
-  margin:0;
-  color:#383838;
-  font-size:16px;
-  line-height:1.9;
-}
-
+/* 土木工事・申請 申請の流れ */
 /* ハウスメーカー側 */
 .hex-flow-client .hex-flow-icon{
   background:#2a5bac;
