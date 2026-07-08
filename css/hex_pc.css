@@ -2271,6 +2271,10 @@ body,
 .hex-product-search input:focus{
   outline:none;
 }
+.hex-product-search input::placeholder{
+  color:#c7ccd6;
+  opacity:1;
+}
 .hex-product-search button{
   width:64px;
   height:56px;
