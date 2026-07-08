@@ -819,6 +819,7 @@ a.hex-text-link[target="_blank"]::after{
   border:none;
   padding-top:0;
   padding-bottom:0;
+  background:none;
 }
 .hex-card-grid1 .hex-card.has-image{
   grid-template-columns:40% 1fr;
