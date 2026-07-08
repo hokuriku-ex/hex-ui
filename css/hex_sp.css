@@ -234,6 +234,9 @@
   .hex-link-title{
     font-size:18px;
   }
+  .hex-link-detail{
+    font-size:16px;
+  }
   .hex-link-icon{
     font-size:20px;
   }
@@ -269,9 +272,6 @@
   /* リンクcol=1 */
   .hex-link-wrap.hex-col-1 .hex-link-title{
     font-size:20px;
-  }
-  .hex-link.light .hex-link-detail{
-    display:none;
   }
 }
 
