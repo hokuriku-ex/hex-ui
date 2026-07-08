@@ -1344,6 +1344,21 @@ document.addEventListener('DOMContentLoaded',function(){
 
 });
 
+/* トップ スクロールナビ */
+window.addEventListener('load',function(){
+  document.querySelectorAll('#gc_auto_frame_home_2 .hex-link-wrap').forEach(function(item){
+
+    var title=item.querySelector('.hex-link-title');
+    var detail=item.querySelector('.hex-link-detail');
+
+    if(!title||!detail)return;
+
+    if(title.textContent.trim()==='外構をご検討中の方'){
+      detail.textContent='初めての方へ';
+    }
+  });
+});
+
 /* 下層ページタイトル共通 */
 document.addEventListener('DOMContentLoaded',function(){
   var enTitle=document.querySelector('.page-title-en');
