@@ -309,7 +309,7 @@
 @media screen and (max-width:768px){
   .hex-image-grid{
     grid-template-columns:repeat(3,1fr);
-    gap:16px;
+    gap:12px;
   }
   .hex-image-grid-item img{
     width:100%;
