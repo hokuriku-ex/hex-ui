@@ -166,11 +166,12 @@ html{
 
 /* 共通セクション小見出し（h4専用） */
 .hex-section-smalltitle{
-  margin:0 0 16px;
-  color:#1f2774;
+  margin:0;
   font-size:20px;
   font-weight:500;
-  line-height:1.5;
+  line-height:2;
+  letter-spacing:.03em;
+  color:#1f2774;
 }
 
 /* 標準見出しフォントサイズ（h2・h3・h4） */
