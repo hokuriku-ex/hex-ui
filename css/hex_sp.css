@@ -481,8 +481,11 @@
     max-width:90%;
   }
   .hex-home-news-tab{
-    padding:11px 10px;
-    font-size:18px;
+    padding:8px 10px 10px;
+    font-size:16px;
+  }
+  .hex-home-news-tab.is-active{
+    border-bottom-width:2px;
   }
   .hex-home-news-button{
     padding:0 22px!important;
