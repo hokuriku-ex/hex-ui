@@ -1788,31 +1788,35 @@ body,
   justify-content:center;
   max-width:520px;
   margin:0 auto 28px;
-  border:1px solid #1f2774;
-  border-radius:0;
-  overflow:hidden;
+  border:none;
+  border-bottom:1px solid #d8dce8;
+  overflow:visible;
 }
 .hex-home-news-tab{
   flex:1;
   display:block;
   text-align:center;
-  padding:12px 20px;
+  padding:10px 20px 12px;
   border:0;
+  border-bottom:3px solid transparent;
   background:#fff;
-  color:#1f2774;
-  font-size:20px;
+  color:#777;
+  font-size:18px;
   line-height:1.4;
   cursor:pointer;
   transition:.2s;
 }
 .hex-home-news-tab+.hex-home-news-tab{
-  border-left:1px solid #1f2774;
+  border-left:none;
 }
 .hex-home-news-tab.is-active{
-  background:#1f2774;
-  color:#fff;
+  background:#fff;
+  color:#1f2774;
+  font-weight:700;
+  border-bottom-color:#1f2774;
 }
 .hex-home-news-tab:hover{
+  color:#1f2774;
   opacity:1;
 }
 .hex-home-news-list{
@@ -1822,7 +1826,7 @@ body,
 .hex-home-news-button{
   width:100%;
   max-width:1200px;
-  margin:50px auto 0;
+  margin:34px auto 0;
   padding:0 32px;
   display:flex;
   justify-content:center;
