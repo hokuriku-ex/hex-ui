@@ -1090,32 +1090,8 @@ document.addEventListener('DOMContentLoaded',function(){
             var buttonTitle=document.createElement('span');
             var buttonIcon=document.createElement('span');
             var buttonI=document.createElement('i');
-            if(cardData.button){
-              if(cardData.url){
-                var linkWrap=document.createElement('div');
-                var linkEl=document.createElement('a');
-                var linkDetail=document.createElement('span');
-                var linkIcon=document.createElement('span');
-                var linkI=document.createElement('i');
-
-                linkWrap.className='hex-card-link';
-                linkEl.className='hex-card-link-item '+cardData.style;
-                linkEl.href=cardData.url;
-                window.hexSetExternal(linkEl,cardData.type);
-
-                linkDetail.className='hex-link-detail';
-                linkDetail.textContent=cardData.button;
-
-                linkIcon.className='hex-link-icon';
-                linkI.className=window.hexIconClass(cardData.type);
-
-                linkIcon.appendChild(linkI);
-                linkEl.appendChild(linkDetail);
-                linkEl.appendChild(linkIcon);
-                linkWrap.appendChild(linkEl);
-                body.appendChild(linkWrap);
-              }
-            }
+            buttonWrap.className='hex-card-button hex-col-'+cardData.col;
+            buttonEl.className='hex-btn-main '+cardData.style;
             buttonEl.href=cardData.url;
             window.hexSetExternal(buttonEl,cardData.type);
             buttonTitle.className='hex-btn-main-title';
