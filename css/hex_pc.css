@@ -1776,6 +1776,7 @@ body,
   font-size:20px;
   font-weight:400;
   line-height:2;
+  letter-spacing:.03em;
   color:#383838;
 }
 
@@ -1916,16 +1917,6 @@ body,
 /* 記事タイトル非表示 */
 .gc_auto_frame_post_index .bg_title.accent_color_basecolor1{
   display:none !important;
-}
-
-/* 挨拶文 */
-.hex-greeting-text{
-  margin:0;
-  font-size:20px;
-  font-weight:400;
-  line-height:2;
-  color:#1f2774;
-  letter-spacing:.03em;
 }
 
 /* =======================================
