@@ -269,6 +269,14 @@
     margin-top:20px;
   }
 
+  /* カードタイトルリンク */
+  .hex-card-title-link .hex-link-detail{
+    font-size:12px;
+  }
+  .hex-card-title-link .hex-link-icon{
+    font-size:12px;
+  }
+
   /* リンクcol=1 */
   .hex-link-wrap.hex-col-1 .hex-link-title{
     font-size:20px;
