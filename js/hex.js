@@ -1066,10 +1066,23 @@ document.addEventListener('DOMContentLoaded',function(){
           if(cardData.url){
             if(!cardData.button){
               var titleLink=document.createElement('a');
+              var titleText=document.createElement('span');
+              var titleDetail=document.createElement('span');
+              var titleIcon=document.createElement('span');
+              var titleI=document.createElement('i');
               titleLink.className='hex-card-title-link';
               titleLink.href=cardData.url;
               window.hexSetExternal(titleLink,cardData.type);
-              titleLink.textContent=cardData.title;
+              titleText.className='hex-card-title-text';
+              titleText.textContent=cardData.title;
+              titleDetail.className='hex-link-detail';
+              titleDetail.textContent='詳しく見る';
+              titleIcon.className='hex-link-icon';
+              titleI.className=window.hexIconClass(cardData.type);
+              titleIcon.appendChild(titleI);
+              titleLink.appendChild(titleText);
+              titleLink.appendChild(titleDetail);
+              titleLink.appendChild(titleIcon);
               title.appendChild(titleLink);
             }else{
               title.textContent=cardData.title;
@@ -1090,18 +1103,14 @@ document.addEventListener('DOMContentLoaded',function(){
             var buttonTitle=document.createElement('span');
             var buttonIcon=document.createElement('span');
             var buttonI=document.createElement('i');
-
             buttonWrap.className='hex-card-button hex-col-'+cardData.col;
             buttonEl.className='hex-btn-main '+cardData.style;
             buttonEl.href=cardData.url;
             window.hexSetExternal(buttonEl,cardData.type);
-
             buttonTitle.className='hex-btn-main-title';
             buttonTitle.textContent=cardData.button;
-
             buttonIcon.className='hex-btn-main-icon';
             buttonI.className=window.hexIconClass(cardData.type);
-
             buttonIcon.appendChild(buttonI);
             buttonEl.appendChild(buttonTitle);
             buttonEl.appendChild(buttonIcon);
