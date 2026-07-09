@@ -744,7 +744,7 @@
 ======================================= */
 @media screen and (max-width:768px){
   .post_index_home_contents{
-    padding:26px 0 34px!important;
+    padding:0!important;
   }
   .gc_auto_frame_post_index_home_box_contents_cell_text_list,
   .gc_auto_frame_post_index_box_contents_cell_text_list{
