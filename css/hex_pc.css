@@ -870,6 +870,16 @@ a.hex-text-link[target="_blank"]::after{
   text-decoration:none!important;
   transition:color .25s ease;
 }
+.hex-card-title-text{
+  flex:1;
+}
+.hex-card-title-link .hex-link-detail{
+  white-space:nowrap;
+}
+.hex-card-title-link .hex-link-icon{
+  flex:0 0 auto;
+  line-height:1;
+}
 .hex-card.dark .hex-card-title-link{
   color:#fff!important;
 }
@@ -877,21 +887,6 @@ a.hex-text-link[target="_blank"]::after{
   color:#c8a874!important;
   text-decoration:none!important;
 }
-.hex-card-title-text{
-  flex:1;
-}
-.hex-card-title-link .hex-link-detail{
-  font-size:13px;
-  font-weight:500;
-  color:#888;
-  white-space:nowrap;
-}
-.hex-card-title-link .hex-link-icon{
-  font-size:12px;
-  color:#888;
-  line-height:1;
-}
-.hex-card-title-link:hover .hex-card-title-text,
 .hex-card-title-link:hover .hex-link-detail,
 .hex-card-title-link:hover .hex-link-icon{
   color:#c8a874!important;
