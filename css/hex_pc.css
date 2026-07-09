@@ -1799,6 +1799,7 @@ body,
   padding:10px 20px 12px;
   border:0;
   border-bottom:3px solid transparent;
+  background:transparent;
   color:#777;
   font-size:18px;
   line-height:1.4;
@@ -1809,12 +1810,14 @@ body,
   border-left:none;
 }
 .hex-home-news-tab.is-active{
+  background:transparent;
   color:#1f2774;
   font-weight:700;
   border-bottom-color:#1f2774;
 }
 .hex-home-news-tab:hover{
   color:#2a5bac;
+  opacity:1;
 }
 .hex-home-news-list{
   max-width:1200px;
