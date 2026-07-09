@@ -567,11 +567,9 @@ document.addEventListener('DOMContentLoaded',function(){
     hexIcon.className=window.hexIconClass(hexType);
     hexIconSpan.appendChild(hexIcon);
     hexAnchor.appendChild(hexTitleSpan);
-    if(hexCol==='1'){
-      hexDetailSpan.className='hex-link-detail';
-      hexDetailSpan.textContent='詳しく見る';
-      hexAnchor.appendChild(hexDetailSpan);
-    }
+    hexDetailSpan.className='hex-link-detail';
+    hexDetailSpan.textContent='詳しく見る';
+    hexAnchor.appendChild(hexDetailSpan);
     hexAnchor.appendChild(hexIconSpan);
     hexWrap.appendChild(hexAnchor);
     hexView.parentNode.insertBefore(hexWrap,hexView);
