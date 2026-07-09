@@ -1772,10 +1772,10 @@ body,
 
 .welcome .text{
   margin:0;
-  color:#383838;
   font-size:20px;
+  font-weight:400;
   line-height:2;
-  letter-spacing:.05em;
+  color:#383838;
 }
 
 .hex-welcome-sp{
