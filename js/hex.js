@@ -1090,14 +1090,18 @@ document.addEventListener('DOMContentLoaded',function(){
             var buttonTitle=document.createElement('span');
             var buttonIcon=document.createElement('span');
             var buttonI=document.createElement('i');
+
             buttonWrap.className='hex-card-button hex-col-'+cardData.col;
             buttonEl.className='hex-btn-main '+cardData.style;
             buttonEl.href=cardData.url;
             window.hexSetExternal(buttonEl,cardData.type);
+
             buttonTitle.className='hex-btn-main-title';
             buttonTitle.textContent=cardData.button;
+
             buttonIcon.className='hex-btn-main-icon';
             buttonI.className=window.hexIconClass(cardData.type);
+
             buttonIcon.appendChild(buttonI);
             buttonEl.appendChild(buttonTitle);
             buttonEl.appendChild(buttonIcon);
