@@ -106,7 +106,7 @@ function hexInitAnchorNav(){
     return item!=='';
   });
   if(!titles.length)return;
-  var targets=document.querySelectorAll('h2');
+  var targets=document.querySelectorAll('h2, .hex-anchor-target');
   if(!targets.length)return;
   var nav=document.createElement('div');
   nav.className='hex-anchor-nav';
