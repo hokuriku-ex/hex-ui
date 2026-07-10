@@ -301,7 +301,7 @@ a.hex-text-link[target="_blank"]::after{
   border:1px solid #1f2774!important;
   background:#fff!important;
   color:#383838!important;
-  font-size:15px!important;
+  font-size:16px!important;
   line-height:1!important;
   cursor:pointer!important;
   transition:background .2s ease,color .2s ease,border-color .2s ease;
@@ -1884,7 +1884,7 @@ body,
   display: block;
   margin-top: 22px;
   color: #3c4b7a;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.4;
   letter-spacing: 0.22em;
   font-family: serif;
