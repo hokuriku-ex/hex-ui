@@ -263,6 +263,11 @@ a.hex-text-link[target="_blank"]::after{
   line-height:2;
 }
 
+/* 記事下のマージン削除 */
+.content add_animation_fadein_fadein animation_fadein_fadein{
+  margin:0;
+}
+
 /* 本文テキストリンク 外部リンク（既存記事内） */
 .gc_auto_frame_post_item_body a.hex-link-external::after{
   content:"\f35d";
