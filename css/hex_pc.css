@@ -264,7 +264,7 @@ a.hex-text-link[target="_blank"]::after{
 }
 
 /* 記事下のマージン削除 */
-.content.add_animation_fadein.animation_fadein_fadein{
+.content.add_animation_fadein_fadein.animation_fadein_fadein{
   margin-bottom:0!important;
 }
 
