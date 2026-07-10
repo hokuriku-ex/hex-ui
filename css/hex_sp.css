@@ -68,7 +68,7 @@
 @media screen and (max-width:768px){
   .hex-section-smalltitle{
     margin:0 0 14px;
-    font-size:18px;
+    font-size:16px;
   }
 }
 
@@ -81,7 +81,7 @@
     font-size:20px;
   }
   h4:not(.hex-section-smalltitle){
-    font-size:18px;
+    font-size:16px;
   }
 }
 
