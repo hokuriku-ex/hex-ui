@@ -1927,10 +1927,10 @@ window.addEventListener('load',function(){
       setTimeout(function(){
         var sections=wrap.getElementsByClassName('hex-staff-section');
         for(var i=0;i<sections.length;i++){
-          var title=sections[i].querySelector('h3');
+          var title=sections[i].querySelector('hex-anchor-target');
           if(!title)continue;
           if(title.textContent.trim()!==anchorParam)continue;
-          var offset=window.innerWidth<=768?100:120;
+          var offset=window.innerWidth<=768?100:100;
           var top=sections[i].getBoundingClientRect().top+window.pageYOffset-offset;
           window.scrollTo({
             top:top,
