@@ -2058,8 +2058,7 @@ body,
   margin:0 0 48px;
 }
 .hex-staff-iframe-mode .hex-section-action .hex-section-smalltitle{
-  font-family:'GF_NotoSerifJapanese_Medium',serif!important;
-  font-weight:700!important;
+  font-family:var(--hex-font-serif)!important;
 }
 .hex-staff-iframe-mode .hex-staff-member-grid{
   display:none!important;
