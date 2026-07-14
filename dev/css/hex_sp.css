@@ -429,7 +429,7 @@
     z-index:10001!important;
   }
 
-  /* ハンバーガー側をヘッダーよりさらに前面に表示 */
+  /* ハンバーガーアイコンをヘッダーよりさらに前面に表示 */
   .bg_contactbutton{
     z-index:10002!important;
   }
@@ -437,7 +437,7 @@
     z-index:10003!important;
   }
 
-  /* メニュー表示中は既存の三本線を隠す */
+  /* メニュー表示中はハンバーガーアイコンを隠す */
   .bg_contactbutton.hex-menu-open > .menu_button .bg_svg svg{
     visibility:hidden!important;
   }
