@@ -52,8 +52,26 @@ const HOME_DISPLAY_SECTIONS=[
 
 /* -------------------------------------------------- */
 
+/* DOM読込み完了後に実行 */
+function hexReady(callback){
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',callback);
+  }else{
+    callback();
+  }
+}
+
+/* ページ読込み完了後に実行 */
+function hexLoad(callback){
+  if(document.readyState==='complete'){
+    callback();
+  }else{
+    window.addEventListener('load',callback);
+  }
+}
+
 /* トップページ交互背景 */
-window.addEventListener('load',function(){
+hexLoad(function(){
   var count=0;
 
   HOME_DISPLAY_SECTIONS.forEach(function(sectionId){
@@ -73,7 +91,7 @@ window.addEventListener('load',function(){
 });
 
 /* URLアンカー補正 */
-window.addEventListener('load',function(){
+hexLoad(function(){
   var hash=location.hash;
   var anchor='';
   var offset=160;
@@ -113,7 +131,7 @@ window.addEventListener('load',function(){
 });
 
 /* 共通アンカーナビ */
-window.addEventListener('load',function(){
+hexLoad(function(){
   setTimeout(function(){
     hexInitAnchorNav();
   },1000);
@@ -244,7 +262,7 @@ function hexInitAnchorNav(){
 }
 
 /* 記事詳細タイトル整形 */
-window.addEventListener('load',function(){
+hexLoad(function(){
   setTimeout(function(){
     var titles=document.querySelectorAll('.gc_auto_frame_post_item_title h2');
     Array.prototype.forEach.call(titles,function(title){
@@ -256,7 +274,7 @@ window.addEventListener('load',function(){
 });
 
 /* 本文リンク 外部リンクアイコン */
-window.addEventListener('load',function(){
+hexLoad(function(){
   setTimeout(function(){
     var links=document.querySelectorAll('.gc_auto_frame_post_item_body a');
     Array.prototype.forEach.call(links,function(link){
@@ -277,7 +295,7 @@ window.addEventListener('load',function(){
 });
 
 /* 一覧ページング整形 */
-window.addEventListener('load',function(){
+hexLoad(function(){
   setTimeout(function(){
     var areas=document.querySelectorAll('.bg_page_button');
     Array.prototype.forEach.call(areas,function(area){
@@ -314,7 +332,7 @@ window.addEventListener('load',function(){
 });
 
 /* 記事詳細ページング整形 */
-window.addEventListener('load',function(){
+hexLoad(function(){
   setTimeout(function(){
     var pagers=document.querySelectorAll('.gc_auto_frame_post_item_pager_box');
     Array.prototype.forEach.call(pagers,function(pager){
@@ -383,7 +401,7 @@ function hexCleanDetailPagerTitle(text){
 }
 
 /* ヘッダーメニュー採用情報URL・アイコン対応 */
-window.addEventListener('load',function(){
+hexLoad(function(){
   setTimeout(function(){
     var recruitUrl=HEX_IS_PRODUCTION
       ?HEX_URLS.RECRUIT.PRODUCTION
@@ -537,7 +555,7 @@ window.hexNextBlock=function(el){
   }
   return null;
 };
-document.addEventListener('DOMContentLoaded',function(){
+hexReady(function(){
   document.querySelectorAll('.hex-button-view').forEach(function(hexView){
     var hexTitle=hexView.dataset.title||'';
     var hexUrl=window.hexBuildUrl(hexView);
@@ -603,7 +621,7 @@ document.addEventListener('DOMContentLoaded',function(){
 });
 
 /* ギャラリー */
-document.addEventListener('DOMContentLoaded',function(){
+hexReady(function(){
   document.querySelectorAll('.hex-gallery-start').forEach(function(galleryStart){
     var galleryStartBlock=window.hexBaseBlock(galleryStart);
     var galleryEndBlock=window.hexNextBlock(galleryStartBlock);
@@ -844,7 +862,7 @@ document.addEventListener('DOMContentLoaded',function(){
 });
 
 /* バナー */
-document.addEventListener('DOMContentLoaded',function(){
+hexReady(function(){
   document.querySelectorAll('.hex-banner-start').forEach(function(start){
     var startBlock=window.hexBaseBlock(start);
     var endBlock=window.hexNextBlock(startBlock);
@@ -948,7 +966,7 @@ document.addEventListener('DOMContentLoaded',function(){
 });
 
 /* 画像グリッド */
-document.addEventListener('DOMContentLoaded',function(){
+hexReady(function(){
   ['4','5','6'].forEach(function(col){
     document.querySelectorAll('.hex-image-grid'+col+'-start').forEach(function(start){
       var startBlock=window.hexBaseBlock(start);
@@ -1002,7 +1020,7 @@ document.addEventListener('DOMContentLoaded',function(){
 });
 
 /* カード */
-document.addEventListener('DOMContentLoaded',function(){
+hexReady(function(){
   ['1','2','3'].forEach(function(col){
     document.querySelectorAll('.hex-card-grid'+col+'-start').forEach(function(gridStart){
       var gridStartBlock=window.hexBaseBlock(gridStart);
@@ -1159,7 +1177,7 @@ document.addEventListener('DOMContentLoaded',function(){
 });
 
 /* お知らせ・ブログ共通リスト整形 */
-window.addEventListener('load',function(){
+hexLoad(function(){
   setTimeout(function(){
     var items=document.querySelectorAll('.gc_auto_frame_post_index_home_box_contents_cell_text_list,.gc_auto_frame_post_index_box_contents_cell_text_list');
     Array.prototype.forEach.call(items,function(item){
@@ -1188,7 +1206,7 @@ window.addEventListener('load',function(){
 });
 
 /* トップ お知らせセクション */
-window.addEventListener('load',function(){
+hexLoad(function(){
   setTimeout(function(){
     var newsSection=document.getElementById(HOME_SECTIONS.NEWS_SECTION);
     var news=document.getElementById(HOME_SECTIONS.NEWS);
@@ -1356,7 +1374,7 @@ function hexHomeNewsUpdateButton(buttonArea,shortname,pagetype){
 }
 
 /* トップ スクロールナビ */
-document.addEventListener('DOMContentLoaded',function(){
+hexReady(function(){
 
   const scrollIndicator=document.querySelector('.hex-scroll-indicator');
   if(!scrollIndicator)return;
@@ -1381,7 +1399,7 @@ document.addEventListener('DOMContentLoaded',function(){
 });
 
 /* トップ サービス案内 */
-window.addEventListener('load',function(){
+hexLoad(function(){
   document.querySelectorAll('#gc_auto_frame_home_2 .hex-link-wrap').forEach(function(item){
 
     var title=item.querySelector('.hex-link-title');
@@ -1400,7 +1418,7 @@ window.addEventListener('load',function(){
 });
 
 /* 下層ページタイトル共通 */
-document.addEventListener('DOMContentLoaded',function(){
+hexReady(function(){
   var enTitle=document.querySelector('.page-title-en');
   var heroTitle=document.querySelector('.gc_auto_frame_page_title h1');
   if(!enTitle||!heroTitle)return;
@@ -1408,13 +1426,13 @@ document.addEventListener('DOMContentLoaded',function(){
 });
 
 /* 共通フッター レイアウト調整 */
-document.addEventListener('DOMContentLoaded',function(){
+hexReady(function(){
   hexReplaceTikTokSvgs(document);
   setTimeout(function(){
     hexReplaceTikTokSvgs(document);
   },100);
 });
-document.addEventListener('DOMContentLoaded',function(){
+hexReady(function(){
   setTimeout(function(){
     var areaView=document.getElementById('footer-area-view');
     var footerFrame=document.querySelector('.gc_auto_frame_footer');
@@ -1602,7 +1620,7 @@ function hexCreateFooterArea(){
 }
 
 /* 会社情報ページ レイアウト調整 */
-window.addEventListener('load',function(){
+hexLoad(function(){
   setTimeout(function(){
     var body=document.getElementById('gc_auto_body_company');
     var companyBox=null;
@@ -1872,7 +1890,7 @@ window.addEventListener('load',function(){
 });
 
 /* スタッフ紹介 */
-window.addEventListener('load',function(){
+hexLoad(function(){
   setTimeout(function(){
     var original=document.querySelector('.bg_publicinfo_staff');
     if(!original)return;
@@ -2279,7 +2297,7 @@ window.addEventListener('resize',function(){
 });
 
 /* 私たちについて スタッフ紹介読込 */
-window.addEventListener('load',function(){
+hexLoad(function(){
   setTimeout(function(){
     var target=document.getElementById('hex-staff-area');
     if(!target)return;
@@ -2445,7 +2463,7 @@ function hexGetDesignSetId(){
 }
 
 /* エクステリア商品検索 */
-document.addEventListener('DOMContentLoaded',function(){
+hexReady(function(){
   var input=document.getElementById('hex-product-search-input');
   var button=document.getElementById('hex-product-search-button');
   if(!input||!button)return;
@@ -2472,7 +2490,7 @@ document.addEventListener('DOMContentLoaded',function(){
 });
 
 /* お問い合わせ */
-window.addEventListener('load',function(){
+hexLoad(function(){
   setTimeout(function(){
     var form=document.getElementById('form_lp_form');
     if(!form)return;
@@ -3133,7 +3151,7 @@ window.addEventListener('load',function(){
 });
 
 /* よくある質問 */
-window.addEventListener('load',function(){
+hexLoad(function(){
   setTimeout(function(){
     var faq=document.querySelector('.publicinfo_qanda');
     if(!faq)return;
