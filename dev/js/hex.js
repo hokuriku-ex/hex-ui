@@ -517,7 +517,7 @@ window.hexBuildUrl=function(hexView){
   if(!pagetype){
     return '';
   }
-  if(host==='hokuriku-ex.co.jp'){
+  if(HEX_IS_PRODUCTION){
     url=origin+'/?p='+encodeURIComponent(shortname)+'&k='+encodeURIComponent(pagetype);
     return window.hexAddAnchor(url,anchor);
   }
