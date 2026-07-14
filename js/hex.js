@@ -385,7 +385,9 @@ function hexCleanDetailPagerTitle(text){
 /* ヘッダーメニュー採用情報URL・アイコン対応 */
 window.addEventListener('load',function(){
   setTimeout(function(){
-    var recruitUrl='/subsite/recruit/';
+    var recruitUrl=HEX_IS_PRODUCTION
+      ?HEX_URLS.RECRUIT.PRODUCTION
+      :HEX_URLS.RECRUIT.DEVELOPMENT;
 
     document.querySelectorAll('.headermenu_type8 .menu_sub .menu_inner').forEach(function(el){
       if(!el.querySelector('.hex-menu-icon')){
