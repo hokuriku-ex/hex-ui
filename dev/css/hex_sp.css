@@ -429,10 +429,14 @@
     z-index:10001!important;
   }
 
-  /* ハンバーガーボタンを最前面に維持 */
-  .bg_contactbutton .menu_button{
-    position:fixed!important;
+  /* ハンバーガーを含む領域をヘッダーより前面にする */
+  .bg_contactbutton{
     z-index:10002!important;
+  }
+
+  /* ハンバーガー自体の既存位置は変更しない */
+  .bg_contactbutton .menu_button{
+    z-index:10003!important;
   }
 
   /* メニュー表示中は既存の三本線を隠す */
