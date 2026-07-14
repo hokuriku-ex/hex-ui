@@ -3211,3 +3211,29 @@ hexLoad(function(){
     });
   },100);
 });
+
+/* 旧URLリダイレクト */
+hexReady(function(){
+  var params=new URLSearchParams(location.search);
+
+  /* 旧お問い合わせページ */
+  if(
+    params.get('blogid')==='6'&&
+    params.get('catid')==='29'
+  ){
+    var contactView={
+      dataset:{
+        type:'internal',
+        shortname:'contact',
+        pagetype:'contact',
+        anchor:''
+      }
+    };
+
+    var redirectUrl=window.hexBuildUrl(contactView);
+
+    if(redirectUrl){
+      location.replace(redirectUrl);
+    }
+  }
+});
