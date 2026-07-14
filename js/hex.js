@@ -1,4 +1,27 @@
 /* 定数定義 */
+
+/* 環境設定 */
+const HEX_HOSTS={
+  PRODUCTION:[
+    'hokuriku-ex.co.jp',
+    'www.hokuriku-ex.co.jp'
+  ],
+  DEVELOPMENT:[
+    '02sample28.hopweb.net'
+  ]
+};
+
+/* URL設定 */
+const HEX_URLS={
+  RECRUIT:{
+    PRODUCTION:'https://hokuriku-ex.co.jp/subsite/recruit/',
+    DEVELOPMENT:'http://02sample28.hopweb.net/addon/gartencloud/ajax_gethtml_site_from_db.php?gc_design_set_ID=24'
+  }
+};
+
+/* 現在の環境 */
+const HEX_IS_PRODUCTION=HEX_HOSTS.PRODUCTION.indexOf(location.hostname)!==-1;
+
 /* トップページセクション */
 const HOME_SECTIONS={
   HERO:'gc_auto_frame_home_0', /* ヒーロー画像 */
