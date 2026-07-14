@@ -440,6 +440,33 @@ hexLoad(function(){
   },100);
 });
 
+/* スマホメニュー 第一弾 */
+hexReady(function(){
+  var popup=document.getElementById(
+    'gc_auto_frame_header_object_smartphone_hum_pupup'
+  );
+  if(!popup)return;
+
+  var wrapper=popup.closest('.bg_contactbutton');
+  if(!wrapper)return;
+
+  function syncSmartphoneMenuState(){
+    var isOpen=window.getComputedStyle(popup).display!=='none';
+    wrapper.classList.toggle('hex-menu-open',isOpen);
+  }
+
+  var observer=new MutationObserver(function(){
+    syncSmartphoneMenuState();
+  });
+
+  observer.observe(popup,{
+    attributes:true,
+    attributeFilter:['style','class']
+  });
+
+  syncSmartphoneMenuState();
+});
+
 /* 共通パーツ */
 window.hexIconClass=function(hexType){
   return hexType==='external'?'fa-solid fa-arrow-up-right-from-square':'fa-solid fa-arrow-right';
