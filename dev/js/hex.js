@@ -3212,28 +3212,34 @@ hexLoad(function(){
   },100);
 });
 
-/* 旧URLリダイレクト */
+/* 旧お問い合わせリンク書き換え */
 hexReady(function(){
-  var params=new URLSearchParams(location.search);
-
-  /* 旧お問い合わせページ */
-  if(
-    params.get('blogid')==='6'&&
-    params.get('catid')==='29'
-  ){
-    var contactView={
-      dataset:{
-        type:'internal',
-        shortname:'contact',
-        pagetype:'contact',
-        anchor:''
-      }
-    };
-
-    var redirectUrl=window.hexBuildUrl(contactView);
-
-    if(redirectUrl){
-      location.replace(redirectUrl);
+  var contactView={
+    dataset:{
+      type:'internal',
+      shortname:'contact',
+      pagetype:'contact',
+      anchor:''
     }
-  }
+  };
+
+  var contactUrl=window.hexBuildUrl(contactView);
+  if(!contactUrl)return;
+
+  document.querySelectorAll('a[href]').forEach(function(link){
+    var url=null;
+
+    try{
+      url=new URL(link.getAttribute('href'),location.origin);
+    }catch(e){
+      return;
+    }
+
+    if(
+      url.searchParams.get('blogid')==='6'&&
+      url.searchParams.get('catid')==='29'
+    ){
+      link.href=contactUrl;
+    }
+  });
 });
