@@ -672,7 +672,7 @@ a.hex-text-link[target="_blank"]::after{
 }
 .hex-btn-main:hover{
   border-color:#c8a874!important;
-  background:rgba(255,255,255,0.8);
+  background:transparent;
 }
 .hex-btn-main:hover .hex-btn-main-title,
 .hex-btn-main:hover .hex-btn-main-icon,
