@@ -1050,7 +1050,7 @@ a.hex-text-link[target="_blank"]::after{
   width:100%;
   box-sizing:border-box;
   background:transparent;
-  border:2px solid #fff;
+  border:1px solid #fff;
   color:#fff;
 }
 .hex-banner-button .hex-btn-main:hover{
