@@ -1060,13 +1060,16 @@ a.hex-text-link[target="_blank"]::after{
 .hex-banner-button .hex-btn-main i{
   color:#383838!important;
 }
-.hex-banner-button .hex-btn-main-title{
+.hex-banner-button .hex-btn-main .hex-btn-main-title{
   color:#383838!important;
 }
 .hex-banner-button .hex-btn-main:hover{
   color:#c8a874!important;
 }
 .hex-banner-button .hex-btn-main:hover i{
+  color:#c8a874!important;
+}
+.hex-banner-button .hex-btn-main .hex-btn-main-title:hover{
   color:#c8a874!important;
 }
 .hex-banner-button.hex-col-4{
