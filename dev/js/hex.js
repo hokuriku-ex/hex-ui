@@ -520,6 +520,38 @@ hexReady(function(){
   syncOpenMenu();
 });
 
+/* スマホメニュー 子メニューアイコン */
+hexReady(function(){
+  var popup=document.getElementById(
+    'gc_auto_frame_header_object_smartphone_hum_pupup'
+  );
+  if(!popup)return;
+
+  var menuItems=popup.querySelectorAll('.menu_inner_group');
+
+  menuItems.forEach(function(item){
+    if(item.querySelector('.hex-menu-icon'))return;
+
+    var onclick=item.getAttribute('onclick')||'';
+    var isExternal=
+      item.classList.contains('menu-external')||
+      onclick.indexOf("'gccat8','customblog3'")!==-1;
+
+    var iconWrap=document.createElement('span');
+    var icon=document.createElement('i');
+
+    iconWrap.className='hex-menu-icon';
+    iconWrap.setAttribute('aria-hidden','true');
+
+    icon.className=isExternal
+      ? 'fa-solid fa-arrow-up-right-from-square'
+      : 'fa-solid fa-arrow-right';
+
+    iconWrap.appendChild(icon);
+    item.appendChild(iconWrap);
+  });
+});
+
 /* 共通パーツ */
 window.hexIconClass=function(hexType){
   return hexType==='external'?'fa-solid fa-arrow-up-right-from-square':'fa-solid fa-arrow-right';
