@@ -644,8 +644,8 @@ a.hex-text-link[target="_blank"]::after{
   border:1px solid #1f2774;
 }
 .hex-btn-main.dark{
-  background:#1f2774;
-  border:1px solid #fff;
+  background:#fff;
+  border:1px solid #383838;
 }
 .hex-btn-main.light .hex-btn-main-title,
 .hex-btn-main.light .hex-btn-main-icon{
@@ -653,7 +653,7 @@ a.hex-text-link[target="_blank"]::after{
 }
 .hex-btn-main.dark .hex-btn-main-title,
 .hex-btn-main.dark .hex-btn-main-icon{
-  color:#fff!important;
+  color:#1f2774!important;
 }
 .hex-btn-main-title{
   font-size:18px;
@@ -676,7 +676,7 @@ a.hex-text-link[target="_blank"]::after{
 }
 .hex-btn-main.dark:hover{
   border-color:#c8a874!important;
-  background:#2f3138;
+  background:#fff;
 }
 .hex-btn-main:hover .hex-btn-main-title,
 .hex-btn-main:hover .hex-btn-main-icon,
