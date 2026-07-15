@@ -470,6 +470,14 @@
   }
 }
 
+/* メニュー表示中も固定フッターを最前面に表示 */
+.gc_auto_frame_footer_fixed{
+  position:fixed!important;
+  left:0!important;
+  right:0!important;
+  bottom:0!important;
+  z-index:10004!important;
+}
 
 /* 固定フッターtiktokアイコン */
 @media screen and (max-width:768px){
