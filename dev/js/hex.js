@@ -520,36 +520,57 @@ hexReady(function(){
   syncOpenMenu();
 });
 
-/* スマホメニュー 子メニューアイコン */
-hexReady(function(){
-  var popup=document.getElementById(
-    'gc_auto_frame_header_object_smartphone_hum_pupup'
-  );
-  if(!popup)return;
+/* ヘッダーメニューURL・アイコン対応 */
+hexLoad(function(){
+  setTimeout(function(){
+    var recruitUrl=HEX_IS_PRODUCTION
+      ?HEX_URLS.RECRUIT.PRODUCTION
+      :HEX_URLS.RECRUIT.DEVELOPMENT;
 
-  var menuItems=popup.querySelectorAll('.menu_inner_group');
+    var selector=[
+      '.headermenu_type8 .menu_sub .menu_inner',
+      '#gc_auto_frame_header_object_smartphone_hum_pupup .menu_inner_group'
+    ].join(',');
 
-  menuItems.forEach(function(item){
-    if(item.querySelector('.hex-menu-icon'))return;
+    document.querySelectorAll(selector).forEach(function(el){
+      var iconSpan=el.querySelector('.hex-menu-icon');
+      var icon=iconSpan
+        ?iconSpan.querySelector('i')
+        :null;
 
-    var onclick=item.getAttribute('onclick')||'';
-    var isExternal=
-      item.classList.contains('menu-external')||
-      onclick.indexOf("'gccat8','customblog3'")!==-1;
+      if(!iconSpan){
+        iconSpan=document.createElement('span');
+        iconSpan.className='hex-menu-icon';
+        iconSpan.setAttribute('aria-hidden','true');
 
-    var iconWrap=document.createElement('span');
-    var icon=document.createElement('i');
+        icon=document.createElement('i');
+        icon.className='fa-solid fa-arrow-right';
 
-    iconWrap.className='hex-menu-icon';
-    iconWrap.setAttribute('aria-hidden','true');
+        iconSpan.appendChild(icon);
+        el.appendChild(iconSpan);
+      }
 
-    icon.className=isExternal
-      ? 'fa-solid fa-arrow-up-right-from-square'
-      : 'fa-solid fa-arrow-right';
+      if(el.textContent.trim()!=='採用情報')return;
 
-    iconWrap.appendChild(icon);
-    item.appendChild(iconWrap);
-  });
+      el.classList.add('menu-external');
+
+      if(icon){
+        icon.className='fa-solid fa-arrow-up-right-from-square';
+      }
+
+      el.removeAttribute('onclick');
+      el.style.cursor='pointer';
+
+      if(el.dataset.hexRecruitReady==='1')return;
+      el.dataset.hexRecruitReady='1';
+
+      el.addEventListener('click',function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        window.open(recruitUrl,'_blank','noopener');
+      },true);
+    });
+  },100);
 });
 
 /* 共通パーツ */
