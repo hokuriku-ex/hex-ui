@@ -2135,7 +2135,7 @@ hexLoad(function(){
           var title=sections[i].querySelector('.hex-anchor-target');
           if(!title)continue;
           if(title.textContent.trim()!==anchorParam)continue;
-          var offset=window.innerWidth<=768?80:100;
+          var offset=window.innerWidth<=768?60:80;
           var top=sections[i].getBoundingClientRect().top+window.pageYOffset-offset;
           window.scrollTo({
             top:top,
