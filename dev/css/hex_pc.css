@@ -644,7 +644,7 @@ a.hex-text-link[target="_blank"]::after{
   border:1px solid #1f2774;
 }
 .hex-btn-main.dark{
-  background:transparent;
+  background:#1f2774;
   border:1px solid #fff;
 }
 .hex-btn-main.light .hex-btn-main-title,
@@ -672,7 +672,7 @@ a.hex-text-link[target="_blank"]::after{
 }
 .hex-btn-main:hover{
   border-color:#c8a874!important;
-  background:transparent;
+  background:#383838;
 }
 .hex-btn-main:hover .hex-btn-main-title,
 .hex-btn-main:hover .hex-btn-main-icon,
