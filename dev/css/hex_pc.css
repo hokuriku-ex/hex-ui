@@ -1067,7 +1067,10 @@ a.hex-text-link[target="_blank"]::after{
   color:#383838!important;
 }
 .hex-banner-button .hex-btn-main:hover{
+  background:rgba(255,255,255,.96)!important;
+  border-color:#fff!important;
   color:#c8a874!important;
+  box-shadow:0 0 10px rgba(56,56,56,.45);
 }
 .hex-banner-button .hex-btn-main:hover i{
   color:#c8a874!important;
