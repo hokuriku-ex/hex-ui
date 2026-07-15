@@ -137,6 +137,8 @@ hexLoad(function(){
   },200);
 });
 function hexInitAnchorNav(){
+  if(document.body.classList.contains('hex-staff-iframe-mode'))return;
+
   var source=document.querySelector('.hex-anchor-source');
   if(!source)return;
   var text=source.textContent||'';
@@ -2494,12 +2496,13 @@ function hexPrepareStaffIframe(iframe){
       if(!doc)return;
       var staff=doc.querySelector('.hex-staff-wrap');
       if(staff){
+        doc.body.classList.add('hex-staff-iframe-mode');
+        
         clearInterval(timer);
         setTimeout(function(){
           while(doc.body.firstChild){
             doc.body.removeChild(doc.body.firstChild);
           }
-          doc.body.className=doc.body.className?doc.body.className+' hex-staff-iframe-mode':'hex-staff-iframe-mode';
           doc.body.appendChild(staff);
           hexAdjustStaffIframeView(doc);
           doc.documentElement.style.margin='0';
