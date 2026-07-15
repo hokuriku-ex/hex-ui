@@ -1229,10 +1229,10 @@ a.hex-text-link[target="_blank"]::after{
   align-items:center;
 }
 .hex-image-grid2{
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(2,1fr);
 }
 .hex-image-grid3{
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(3,1fr);
 }
 .hex-image-grid4{
   grid-template-columns:repeat(4,1fr);
