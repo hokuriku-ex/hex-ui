@@ -554,12 +554,12 @@
     height:auto!important;
     min-height:0!important;
     margin:0!important;
-    padding:17px 24px!important;
+    padding:16px 24px!important;
     color:#383838!important;
     background:none!important;
     border:none!important;
     box-sizing:border-box!important;
-    font-size:17px!important;
+    font-size:16px!important;
     font-weight:500!important;
     line-height:1.5!important;
     text-align:left!important;
@@ -569,8 +569,8 @@
   /* 開いている親メニュー */
   #gc_auto_frame_header_object_smartphone_hum_pupup
   .menu_group.hex-submenu-open > .menu_group_text{
-    color:#1f2774!important;
-    font-weight:700!important;
+    color:#383838!important;
+    font-weight:500!important;
   }
 
   /* 子メニューを1列にする */
@@ -598,8 +598,8 @@
     border:none!important;
     border-top:1px solid #edf0f4!important;
     box-sizing:border-box!important;
-    font-size:15px!important;
-    font-weight:400!important;
+    font-size:16px!important;
+    font-weight:500!important;
     line-height:1.6!important;
     text-align:left!important;
     letter-spacing:.04em!important;
