@@ -1053,9 +1053,12 @@ a.hex-text-link[target="_blank"]::after{
 .hex-banner-button .hex-btn-main{
   width:100%;
   box-sizing:border-box;
-  background:#fff!important;
-  border:1px solid #383838!important;
+  background:rgba(255,255,255,.88)!important;
+  border:1px solid rgba(255,255,255,.9)!important;
   color:#383838!important;
+  box-shadow:0 0 8px rgba(56,56,56,.35);
+  backdrop-filter:blur(3px);
+  -webkit-backdrop-filter:blur(3px);
 }
 .hex-banner-button .hex-btn-main i{
   color:#383838!important;
