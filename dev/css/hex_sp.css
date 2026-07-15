@@ -354,7 +354,7 @@
   /* 施工エリア */
   .hex-footer-frame .hex-footer-area{
     width:100% !important;
-    margin:0 auto 35px !important;
+    margin:0 !important;
     text-align:center !important;
   }
   .footer-area{
