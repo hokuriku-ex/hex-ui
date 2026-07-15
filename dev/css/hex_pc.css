@@ -1053,19 +1053,18 @@ a.hex-text-link[target="_blank"]::after{
 .hex-banner-button .hex-btn-main{
   width:100%;
   box-sizing:border-box;
-  background:transparent;
-  border:1px solid #fff;
-  color:#fff;
+  background:#fff;
+  border:1px solid #000;
+  color:#1f2774;
 }
 .hex-banner-button .hex-btn-main:hover{
-  background:transparent;
   color:#1f2774;
 }
 .hex-banner-button .hex-btn-main:hover i{
   color:#1f2774;
 }
 .hex-banner-button .hex-btn-main i{
-  color:#fff;
+  color:#1f2774;
 }
 .hex-banner-button.hex-col-4{
   width:calc(25% - 27px);
