@@ -440,7 +440,7 @@ hexLoad(function(){
   },100);
 });
 
-/* スマホメニュー 第一弾 */
+/* スマホメニュー変更 */
 hexReady(function(){
   var popup=document.getElementById(
     'gc_auto_frame_header_object_smartphone_hum_pupup'
@@ -467,7 +467,7 @@ hexReady(function(){
   syncSmartphoneMenuState();
 });
 
-/* スマホメニュー 第二弾 */
+/* スマホハンバーガーメニュー変更 */
 hexReady(function(){
   var popup=document.getElementById(
     'gc_auto_frame_header_object_smartphone_hum_pupup'
