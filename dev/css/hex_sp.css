@@ -611,6 +611,26 @@
     letter-spacing:.04em!important;
   }
 
+  /* 子メニューアイコン */
+  #gc_auto_frame_header_object_smartphone_hum_pupup
+  .menu_inner_group{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:16px!important;
+  }
+  #gc_auto_frame_header_object_smartphone_hum_pupup
+  .menu_inner_group .hex-menu-icon{
+    display:inline-flex!important;
+    flex:none!important;
+    align-items:center!important;
+    justify-content:center!important;
+    margin-left:auto!important;
+    color:rgb(56,56,56)!important;
+    font-size:13px!important;
+    line-height:1!important;
+  }
+
   /* 既存のホバー表現を無効化 */
   #gc_auto_frame_header_object_smartphone_hum_pupup
   .menu_group:hover,
