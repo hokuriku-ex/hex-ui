@@ -1069,7 +1069,7 @@ a.hex-text-link[target="_blank"]::after{
 .hex-banner-button .hex-btn-main:hover i{
   color:#c8a874!important;
 }
-.hex-banner-button .hex-btn-main .hex-btn-main-title:hover{
+.hex-banner-button .hex-btn-main:hover .hex-btn-main-title{
   color:#c8a874!important;
 }
 .hex-banner-button.hex-col-4{
