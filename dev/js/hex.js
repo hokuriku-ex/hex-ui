@@ -134,7 +134,7 @@ hexLoad(function(){
 hexLoad(function(){
   setTimeout(function(){
     hexInitAnchorNav();
-  },1000);
+  },200);
 });
 function hexInitAnchorNav(){
   var source=document.querySelector('.hex-anchor-source');
