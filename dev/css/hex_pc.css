@@ -1024,9 +1024,9 @@ a.hex-text-link[target="_blank"]::after{
 .hex-banner-title{
   margin:0;
   color:#fff;
-  -webkit-text-stroke:.5px #000;
+  -webkit-text-stroke:.5px #383838;
   paint-order:stroke fill;
-  text-shadow:0 0 2px #000;
+  text-shadow:0 0 2px #383838;
   font-size:48px;
   font-weight:700;
   line-height:1.3;
