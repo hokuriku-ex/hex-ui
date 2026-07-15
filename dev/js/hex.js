@@ -441,88 +441,92 @@ hexLoad(function(){
 });
 
 /* スマホメニュー変更 */
-hexReady(function(){
-  var popup=document.getElementById(
-    'gc_auto_frame_header_object_smartphone_hum_pupup'
-  );
-  if(!popup)return;
-
-  var wrapper=popup.closest('.bg_contactbutton');
-  if(!wrapper)return;
-
-  function syncSmartphoneMenuState(){
-    var isOpen=window.getComputedStyle(popup).display!=='none';
-    wrapper.classList.toggle('hex-menu-open',isOpen);
-  }
-
-  var observer=new MutationObserver(function(){
-    syncSmartphoneMenuState();
-  });
-
-  observer.observe(popup,{
-    attributes:true,
-    attributeFilter:['style','class']
-  });
-
-  syncSmartphoneMenuState();
-});
-
-/* スマホハンバーガーメニュー変更 */
-hexReady(function(){
-  var popup=document.getElementById(
-    'gc_auto_frame_header_object_smartphone_hum_pupup'
-  );
-  if(!popup)return;
-
-  var groups=Array.prototype.slice.call(
-    popup.querySelectorAll('.menu_right > .menu_group')
-  );
-
-  function syncOpenMenu(){
-    groups.forEach(function(group){
-      var submenu=group.querySelector(':scope > .menu_sub');
-      if(!submenu)return;
-
-      var isOpen=window.getComputedStyle(submenu).display!=='none';
-      group.classList.toggle('hex-submenu-open',isOpen);
-    });
-  }
-
-  groups.forEach(function(group){
-    group.addEventListener('click',function(event){
-      if(event.target.closest('.menu_inner_group'))return;
-
-      window.setTimeout(function(){
-        var currentSubmenu=group.querySelector(':scope > .menu_sub');
-        if(!currentSubmenu)return;
-
-        var isOpen=
-          window.getComputedStyle(currentSubmenu).display!=='none';
-
-        groups.forEach(function(otherGroup){
-          if(otherGroup===group)return;
-
-          var otherSubmenu=
-            otherGroup.querySelector(':scope > .menu_sub');
-
-          if(otherSubmenu){
-            otherSubmenu.style.display='none';
-          }
-
-          otherGroup.classList.remove('hex-submenu-open');
-        });
-
-        group.classList.toggle('hex-submenu-open',isOpen);
-      },0);
-    });
-  });
-
-  syncOpenMenu();
-});
-
-/* ヘッダーメニューURL・アイコン対応 */
 hexLoad(function(){
   setTimeout(function(){
+    var popup=document.getElementById(
+      'gc_auto_frame_header_object_smartphone_hum_pupup'
+    );
+    if(!popup)return;
+
+    var wrapper=popup.closest('.bg_contactbutton');
+    var groups=Array.prototype.slice.call(
+      popup.querySelectorAll('.menu_right > .menu_group')
+    );
+
+    /*
+     * ハンバーガーと×アイコンの切り替え
+     */
+    if(wrapper){
+      function syncSmartphoneMenuState(){
+        var isOpen=
+          window.getComputedStyle(popup).display!=='none';
+
+        wrapper.classList.toggle('hex-menu-open',isOpen);
+      }
+
+      var observer=new MutationObserver(function(){
+        syncSmartphoneMenuState();
+      });
+
+      observer.observe(popup,{
+        attributes:true,
+        attributeFilter:['style','class']
+      });
+
+      syncSmartphoneMenuState();
+    }
+
+    /*
+     * 親メニューのアコーディオン制御
+     */
+    function syncOpenMenu(){
+      groups.forEach(function(group){
+        var submenu=group.querySelector(':scope > .menu_sub');
+        if(!submenu)return;
+
+        var isOpen=
+          window.getComputedStyle(submenu).display!=='none';
+
+        group.classList.toggle('hex-submenu-open',isOpen);
+      });
+    }
+
+    groups.forEach(function(group){
+      group.addEventListener('click',function(event){
+        if(event.target.closest('.menu_inner_group'))return;
+
+        window.setTimeout(function(){
+          var currentSubmenu=
+            group.querySelector(':scope > .menu_sub');
+
+          if(!currentSubmenu)return;
+
+          var isOpen=
+            window.getComputedStyle(currentSubmenu).display!=='none';
+
+          groups.forEach(function(otherGroup){
+            if(otherGroup===group)return;
+
+            var otherSubmenu=
+              otherGroup.querySelector(':scope > .menu_sub');
+
+            if(otherSubmenu){
+              otherSubmenu.style.display='none';
+            }
+
+            otherGroup.classList.remove('hex-submenu-open');
+          });
+
+          group.classList.toggle('hex-submenu-open',isOpen);
+        },0);
+      });
+    });
+
+    syncOpenMenu();
+
+    /*
+     * PC・スマホのメニューアイコンと採用情報URL
+     */
     var recruitUrl=HEX_IS_PRODUCTION
       ?HEX_URLS.RECRUIT.PRODUCTION
       :HEX_URLS.RECRUIT.DEVELOPMENT;
@@ -541,6 +545,9 @@ hexLoad(function(){
         ?iconSpan.querySelector('i')
         :null;
 
+      /*
+       * 通常の内部リンクアイコン
+       */
       if(!iconSpan){
         iconSpan=document.createElement('span');
         iconSpan.className='hex-menu-icon';
@@ -554,8 +561,7 @@ hexLoad(function(){
       }
 
       /*
-       * スマホの子メニューをタップした際に、
-       * 親メニューの開閉処理を発生させない
+       * スマホの子メニューから親へのイベント伝播を停止
        */
       if(
         isSmartphoneItem&&
@@ -568,6 +574,9 @@ hexLoad(function(){
         });
       }
 
+      /*
+       * 採用情報を外部リンクに変更
+       */
       if(el.textContent.trim()!=='採用情報')return;
 
       el.classList.add('menu-external');
