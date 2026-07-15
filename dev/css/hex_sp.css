@@ -458,7 +458,7 @@
     height:2px;
     margin-left:-13px;
     margin-top:-1px;
-    background:#1f2774;
+    background:rgb(56,56,56);
     border-radius:2px;
     pointer-events:none;
   }
@@ -540,7 +540,7 @@
     min-height:0!important;
     margin:0!important;
     padding:0!important;
-    color:#383838!important;
+    color:rgb(56,56,56)!important;
     background:#fff!important;
     border:none!important;
     box-sizing:border-box!important;
@@ -554,13 +554,13 @@
     min-height:0!important;
     margin:0 24px!important;
     padding:16px 0!important;
-    color:#383838!important;
+    color:rgb(56,56,56)!important;
     background:none!important;
     border:none!important;
     border-bottom:1px solid #d8dce8!important;
     box-sizing:border-box!important;
     font-size:16px!important;
-    font-weight:500!important;
+    font-weight:700!important;
     line-height:1.5!important;
     text-align:left!important;
     letter-spacing:.04em!important;
@@ -569,8 +569,8 @@
   /* 開いている親メニュー */
   #gc_auto_frame_header_object_smartphone_hum_pupup
   .menu_group.hex-submenu-open > .menu_group_text{
-    color:#383838!important;
-    font-weight:500!important;
+    color:rgb(56,56,56)!important;
+    font-weight:700!important;
   }
 
   /* 子メニューを1列にする */
@@ -593,7 +593,7 @@
     min-height:0!important;
     margin:0 24px 0 48px!important;
     padding:13px 0!important;
-    color:#555!important;
+    color:rgb(56,56,56)!important;
     background:#fff!important;
     border:none!important;
     border-bottom:2px dashed #d8dce8!important;
