@@ -401,7 +401,7 @@
   }
 }
 
-/* スマホメニュー 第一弾 */
+/* スマホメニュー変更 */
 @media screen and (max-width:768px){
   /* メニュー内のホームを非表示 */
   #gc_auto_frame_header_object_smartphone_hum_pupup .home_button{
@@ -490,6 +490,151 @@
     width:20px;
     height:20px;
     background:url("../images/tiktok_icon.png") center/contain no-repeat;
+  }
+}
+
+/* =======================================
+   ヘッダーメニュー
+======================================= */
+@media screen and (max-width:768px){
+  /* メニュー領域を縦スクロール可能にする */
+  #gc_auto_frame_header_object_smartphone_hum_pupup{
+    overflow-x:hidden!important;
+    overflow-y:auto!important;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  /* 親メニュー→SNSの順に縦並び */
+  #gc_auto_frame_header_object_smartphone_hum_pupup .menu_button_popup{
+    display:flex!important;
+    flex-direction:column!important;
+    width:100%!important;
+    min-height:100%!important;
+    margin:0!important;
+    padding:0!important;
+  }
+
+  #gc_auto_frame_header_object_smartphone_hum_pupup .menu_right{
+    display:flex!important;
+    flex-direction:column!important;
+    order:1;
+    width:100%!important;
+    margin:0!important;
+    padding:0!important;
+  }
+
+  #gc_auto_frame_header_object_smartphone_hum_pupup .menu_left{
+    display:block!important;
+    order:2;
+    width:100%!important;
+    margin:0!important;
+    padding:0!important;
+    border:none!important;
+  }
+
+  /* 親メニュー */
+  #gc_auto_frame_header_object_smartphone_hum_pupup .menu_right > .menu_group{
+    display:block!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    margin:0!important;
+    padding:0!important;
+    color:#383838!important;
+    background:#fff!important;
+    border:none!important;
+    border-bottom:1px solid #d8dce8!important;
+    box-sizing:border-box!important;
+    cursor:pointer;
+  }
+
+  #gc_auto_frame_header_object_smartphone_hum_pupup .menu_group_text{
+    display:block!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    margin:0!important;
+    padding:17px 24px!important;
+    color:#383838!important;
+    background:none!important;
+    border:none!important;
+    box-sizing:border-box!important;
+    font-size:17px!important;
+    font-weight:500!important;
+    line-height:1.5!important;
+    text-align:left!important;
+    letter-spacing:.04em!important;
+  }
+
+  /* 開いている親メニュー */
+  #gc_auto_frame_header_object_smartphone_hum_pupup
+  .menu_group.hex-submenu-open > .menu_group_text{
+    color:#1f2774!important;
+    font-weight:700!important;
+  }
+
+  /* 子メニューを1列にする */
+  #gc_auto_frame_header_object_smartphone_hum_pupup .menu_sub{
+    width:100%!important;
+    height:auto!important;
+    margin:0!important;
+    padding:0!important;
+    background:#fff!important;
+    border:none!important;
+    grid-template-columns:1fr!important;
+    box-sizing:border-box!important;
+  }
+
+  /* 子メニュー */
+  #gc_auto_frame_header_object_smartphone_hum_pupup .menu_inner_group{
+    display:block!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    margin:0!important;
+    padding:13px 24px 13px 48px!important;
+    color:#555!important;
+    background:#fff!important;
+    border:none!important;
+    border-top:1px solid #edf0f4!important;
+    box-sizing:border-box!important;
+    font-size:15px!important;
+    font-weight:400!important;
+    line-height:1.6!important;
+    text-align:left!important;
+    letter-spacing:.04em!important;
+  }
+
+  /* SNSをメニュー下部へ */
+  #gc_auto_frame_header_object_smartphone_hum_pupup
+  .bg_snsbutton_content{
+    display:block!important;
+    width:100%!important;
+    margin:0!important;
+    padding:20px 24px!important;
+    background:#fff!important;
+    border:none!important;
+    box-sizing:border-box!important;
+  }
+
+  #gc_auto_frame_header_object_smartphone_hum_pupup
+  .snsbutton_content{
+    display:flex!important;
+    justify-content:flex-start!important;
+    align-items:center!important;
+    gap:18px!important;
+    margin:0!important;
+    padding:0!important;
+  }
+
+  /* 既存のホバー表現を無効化 */
+  #gc_auto_frame_header_object_smartphone_hum_pupup
+  .menu_group:hover,
+  #gc_auto_frame_header_object_smartphone_hum_pupup
+  .menu_group_text:hover,
+  #gc_auto_frame_header_object_smartphone_hum_pupup
+  .menu_inner_group:hover{
+    background:#fff!important;
   }
 }
 

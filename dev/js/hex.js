@@ -467,6 +467,59 @@ hexReady(function(){
   syncSmartphoneMenuState();
 });
 
+/* スマホメニュー 第二弾 */
+hexReady(function(){
+  var popup=document.getElementById(
+    'gc_auto_frame_header_object_smartphone_hum_pupup'
+  );
+  if(!popup)return;
+
+  var groups=Array.prototype.slice.call(
+    popup.querySelectorAll('.menu_right > .menu_group')
+  );
+
+  function syncOpenMenu(){
+    groups.forEach(function(group){
+      var submenu=group.querySelector(':scope > .menu_sub');
+      if(!submenu)return;
+
+      var isOpen=window.getComputedStyle(submenu).display!=='none';
+      group.classList.toggle('hex-submenu-open',isOpen);
+    });
+  }
+
+  groups.forEach(function(group){
+    group.addEventListener('click',function(event){
+      if(event.target.closest('.menu_inner_group'))return;
+
+      window.setTimeout(function(){
+        var currentSubmenu=group.querySelector(':scope > .menu_sub');
+        if(!currentSubmenu)return;
+
+        var isOpen=
+          window.getComputedStyle(currentSubmenu).display!=='none';
+
+        groups.forEach(function(otherGroup){
+          if(otherGroup===group)return;
+
+          var otherSubmenu=
+            otherGroup.querySelector(':scope > .menu_sub');
+
+          if(otherSubmenu){
+            otherSubmenu.style.display='none';
+          }
+
+          otherGroup.classList.remove('hex-submenu-open');
+        });
+
+        group.classList.toggle('hex-submenu-open',isOpen);
+      },0);
+    });
+  });
+
+  syncOpenMenu();
+});
+
 /* 共通パーツ */
 window.hexIconClass=function(hexType){
   return hexType==='external'?'fa-solid fa-arrow-up-right-from-square':'fa-solid fa-arrow-right';
