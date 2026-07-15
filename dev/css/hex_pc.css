@@ -640,7 +640,7 @@ a.hex-text-link[target="_blank"]::after{
   transition:.3s ease;
 }
 .hex-btn-main.light{
-  background:transparent;
+  background:#fff;
   border:1px solid #1f2774;
 }
 .hex-btn-main.dark{
@@ -670,7 +670,11 @@ a.hex-text-link[target="_blank"]::after{
   transform:translateX(0);
   transition:.3s ease;
 }
-.hex-btn-main:hover{
+.hex-btn-main.light:hover{
+  border-color:#c8a874!important;
+  background:#fff;
+}
+.hex-btn-main.dark:hover{
   border-color:#c8a874!important;
   background:#383838;
 }
