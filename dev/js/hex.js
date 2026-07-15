@@ -533,6 +533,9 @@ hexLoad(function(){
     ].join(',');
 
     document.querySelectorAll(selector).forEach(function(el){
+      var isSmartphoneItem=
+        el.classList.contains('menu_inner_group');
+
       var iconSpan=el.querySelector('.hex-menu-icon');
       var icon=iconSpan
         ?iconSpan.querySelector('i')
@@ -548,6 +551,21 @@ hexLoad(function(){
 
         iconSpan.appendChild(icon);
         el.appendChild(iconSpan);
+      }
+
+      /*
+       * スマホの子メニューをタップした際に、
+       * 親メニューの開閉処理を発生させない
+       */
+      if(
+        isSmartphoneItem&&
+        el.dataset.hexMenuPropagationReady!=='1'
+      ){
+        el.dataset.hexMenuPropagationReady='1';
+
+        el.addEventListener('click',function(e){
+          e.stopPropagation();
+        });
       }
 
       if(el.textContent.trim()!=='採用情報')return;
