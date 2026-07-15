@@ -645,7 +645,7 @@ a.hex-text-link[target="_blank"]::after{
 }
 .hex-btn-main.dark{
   background:#fff;
-  border:1px solid #383838;
+  border:1px solid #000;
 }
 .hex-btn-main.light .hex-btn-main-title,
 .hex-btn-main.light .hex-btn-main-icon{
