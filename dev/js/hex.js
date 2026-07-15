@@ -1129,7 +1129,7 @@ hexReady(function(){
 
 /* 画像グリッド */
 hexReady(function(){
-  ['4','5','6'].forEach(function(col){
+  ['2','3','4','5','6'].forEach(function(col){
     document.querySelectorAll('.hex-image-grid'+col+'-start').forEach(function(start){
       var startBlock=window.hexBaseBlock(start);
       var endBlock=window.hexNextBlock(startBlock);
