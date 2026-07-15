@@ -640,7 +640,7 @@ a.hex-text-link[target="_blank"]::after{
   transition:.3s ease;
 }
 .hex-btn-main.light{
-  background:#fff;
+  background:transparent;
   border:1px solid #1f2774;
 }
 .hex-btn-main.dark{
