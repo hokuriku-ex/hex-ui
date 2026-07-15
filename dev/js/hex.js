@@ -1666,7 +1666,12 @@ function hexCreateSnsLinks(className){
   return wrap;
 }
 function hexReplaceTikTokSvgs(scope){
-  var links=scope.querySelectorAll('a[href*="tiktok.com"]');
+  var links=scope.querySelectorAll(
+    '.bg_menu_button_popup .snsbutton_content a[href*="tiktok.com"],'+
+    '.ff_contents .ff_sns a[href*="tiktok.com"],'+
+    '.hex-header-sns a[href*="tiktok.com"],'+
+    '.hex-footer-sns a[href*="tiktok.com"]'
+  );
   for(var i=0;i<links.length;i++){
     hexReplaceTikTokSvg(links[i]);
   }
