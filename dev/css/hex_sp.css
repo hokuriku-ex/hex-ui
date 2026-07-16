@@ -170,8 +170,7 @@
     width:100vw;
     margin:0 calc(50% - 50vw) 36px;
     padding:0 16px 12px;
-    overflow-x:auto;
-    -webkit-overflow-scrolling:touch;
+    overflow:hidden;
     text-align:left;
   }
   .hex-anchor-nav.is-fixed{
@@ -179,22 +178,24 @@
     width:100vw;
     margin:0;
     padding:0 16px 12px;
-    overflow-x:auto;
-    -webkit-overflow-scrolling:touch;
+    overflow:hidden;
     text-align:left;
   }
-  .hex-anchor-nav::-webkit-scrollbar{
-    display:none;
-  }
-  .hex-anchor-nav .hex-anchor-nav-list{
+  .hex-anchor-nav-list{
     justify-content:flex-start;
     flex-wrap:nowrap;
-    width:max-content;
-    max-width:none;
+    width:100%;
+    max-width:100%;
     margin:0;
-    padding-right:16px;
+    padding:0;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .hex-anchor-nav-list::-webkit-scrollbar{
+    display:none;
   }
   .hex-anchor-nav-link{
+    flex:0 0 auto;
     padding:0 14px!important;
     font-size:16px!important;
     white-space:nowrap!important;
