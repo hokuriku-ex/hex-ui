@@ -250,11 +250,18 @@ function hexInitAnchorNav(){
     return getHexAnchorHeaderHeight()+nav.offsetHeight+40;
   }
   function refreshHexAnchorNav(){
+    var mobileAdjust=window.innerWidth<=768 ? 4 : 0;
     nav.classList.remove('is-fixed');
     placeholder.classList.remove('is-active');
     placeholder.style.height='0px';
-    if(nav.parentNode!==originalParent)originalParent.insertBefore(nav,originalNext);
-    fixedStart=nav.getBoundingClientRect().top+window.pageYOffset-getHexAnchorHeaderHeight();
+    if(nav.parentNode!==originalParent){
+      originalParent.insertBefore(nav,originalNext);
+    }
+    fixedStart=
+      nav.getBoundingClientRect().top+
+      window.pageYOffset-
+      getHexAnchorHeaderHeight()-
+      mobileAdjust;
     updateHexAnchorNav();
   }
   function updateHexAnchorNav(){
