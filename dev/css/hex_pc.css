@@ -3251,7 +3251,13 @@ body.hex-form-dialog-open{
   line-height:1.6;
 }
 
-/* 案内文 */
+/* カレンダーと案内文の高さ調整 */
+.hex-calendar-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:stretch;
+  gap:24px;
+}
 .hex-calendar-information{
   display:flex;
   flex-direction:column;
