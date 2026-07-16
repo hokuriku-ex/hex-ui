@@ -1182,7 +1182,6 @@
 @media screen and (max-width:768px){
   .publicinfo_qanda .qanda_content{
     max-width:none;
-    margin:0 20px!important;
   }
   .publicinfo_qanda .qanda_content>label{
     padding:16px 14px!important;
