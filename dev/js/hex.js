@@ -138,7 +138,7 @@ hexLoad(function(){
       }
 
       currentBlock
-        .querySelectorAll('.gc_auto_frame_spotitem_box')
+        .querySelectorAll('.gc_auto_frame_spotitem_body')
         .forEach(function(box){
           box.classList.add('hex-sp-padding-inline');
         });
