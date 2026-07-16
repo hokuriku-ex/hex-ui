@@ -112,7 +112,16 @@ hexLoad(function(){
     var section=document.getElementById(sectionId);
     if(!section)return;
 
-    section.classList.add('hex-home-side-padding');
+    /* 以前付けた外側のクラスを削除 */
+    section.classList.remove('hex-home-side-padding');
+
+    var contents=section.querySelectorAll(
+      '.gc_auto_frame_spotitem_box'
+    );
+
+    contents.forEach(function(content){
+      content.classList.add('hex-home-side-padding');
+    });
   });
 });
 
