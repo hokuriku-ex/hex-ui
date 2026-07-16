@@ -1587,10 +1587,9 @@ a.hex-text-link[target="_blank"]::after{
 /* =======================================
    フッター調整
 ======================================= */
-/* SP用左右余白範囲指定 */
+/* SP用左右余白範囲指定 マーカー非表示*/
 .hex-sp-padding-inline-start,
-.hex-sp-padding-inline-end,
-.hex-marker-block-hidden{
+.hex-sp-padding-inline-end{
   display:none!important;
 }
 
