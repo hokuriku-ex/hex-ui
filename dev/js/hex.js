@@ -66,6 +66,7 @@ const HOME_PADDING_SECTIONS=[
 
 /* 営業日カレンダー設定 */
 const HEX_BUSINESS_CALENDAR={
+  /* 表示期間 */
   startMonth:'2026-04',
   endMonth:'2027-03',
 
