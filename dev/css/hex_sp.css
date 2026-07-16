@@ -743,8 +743,8 @@
 /* 余白調整 */
 @media screen and (max-width:767px){
   .post_index_contents{
-    padding-block:32px;
-    padding-inline:16px;
+    padding-block:32px!important;
+    padding-inline:16px!important;
   }
 }
 
