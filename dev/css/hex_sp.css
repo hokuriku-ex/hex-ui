@@ -205,13 +205,13 @@
   .hex-anchor-nav::after{
     content:'\f105';
     position:absolute;
-    top:0;
+    top:2px;
     right:16px;
     z-index:2;
     display:none;
     align-items:center;
     justify-content:flex-end;
-    width:48px;
+    width:64px;
     height:calc(100% - 12px);
     padding-right:8px;
     box-sizing:border-box;
@@ -224,7 +224,7 @@
     background:linear-gradient(
       to right,
       rgba(255,255,255,0) 0%,
-      #fff 55%
+      #fff 50%
     );
   }
   .hex-anchor-nav.has-scroll-right::after{
