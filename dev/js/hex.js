@@ -64,64 +64,9 @@ const HOME_PADDING_SECTIONS=[
   HOME_SECTIONS.RECRUIT
 ];
 
-/* 営業日カレンダー設定 */
-const HEX_BUSINESS_CALENDAR={
-  /* 表示期間 */
-  startMonth:'2026-04',
-  endMonth:'2027-03',
-
-  /* 定休日・臨時休業日 */
-  closedDates:[
-    '2026-04-05',
-    '2026-04-12',
-    '2026-04-19',
-    '2026-04-26',
-    '2026-05-10',
-    '2026-05-17',
-    '2026-05-24',
-    '2026-05-31',
-    '2026-06-07',
-    '2026-06-14',
-    '2026-06-21',
-    '2026-06-28'
-  ],
-
-  /* 大型連休 */
-  closedRanges:[
-    {
-      start:'2026-05-02',
-      end:'2026-05-06',
-      label:'ゴールデンウィーク休業'
-    },
-    {
-      start:'2026-08-13',
-      end:'2026-08-16',
-      label:'夏季休業'
-    },
-    {
-      start:'2026-12-29',
-      end:'2027-01-04',
-      label:'年末年始休業'
-    }
-  ],
-
-  /* イベント */
-  events:[
-    {
-      date:'2026-07-12',
-      label:'エクステリア相談会'
-    },
-    {
-      date:'2026-10-18',
-      label:'お客様感謝祭'
-    }
-  ]
-};
-
 /* =======================================
-   イベント
+   共通処理
 ======================================= */
-
 /* DOM読込み完了後に実行 */
 function hexReady(callback){
   if(document.readyState==='loading'){
@@ -140,7 +85,9 @@ function hexLoad(callback){
   }
 }
 
-/* トップページ交互背景 */
+/* =======================================
+   トップページ交互背景
+======================================= */
 hexLoad(function(){
   var count=0;
 
@@ -160,7 +107,9 @@ hexLoad(function(){
   });
 });
 
-/* トップページSP左右余白 */
+/* =======================================
+   トップページSP左右余白
+======================================= */
 hexLoad(function(){
   HOME_PADDING_SECTIONS.forEach(function(sectionId){
     var section=document.getElementById(sectionId);
@@ -179,7 +128,9 @@ hexLoad(function(){
   });
 });
 
-/* SP用左右余白範囲指定 */
+/* =======================================
+   SP用左右余白範囲指定
+======================================= */
 hexLoad(function(){
   document.querySelectorAll('.hex-sp-padding-inline-start').forEach(function(start){
     var box=start.closest('.gc_auto_frame_spotitem_box');
@@ -192,7 +143,9 @@ hexLoad(function(){
   });
 });
 
-/* URLアンカー補正 */
+/* =======================================
+   URLアンカー補正
+======================================= */
 hexLoad(function(){
   var hash=location.hash;
   var anchor='';
@@ -232,7 +185,9 @@ hexLoad(function(){
   setTimeout(scrollToAnchor,500);
 });
 
-/* 共通アンカーナビ */
+/* =======================================
+   共通アンカーナビ
+======================================= */
 hexLoad(function(){
   setTimeout(function(){
     hexInitAnchorNav();
@@ -403,7 +358,9 @@ function hexInitAnchorNav(){
   });
 }
 
-/* 記事詳細タイトル整形 */
+/* =======================================
+   記事詳細タイトル整形
+======================================= */
 hexLoad(function(){
   setTimeout(function(){
     var titles=document.querySelectorAll('.gc_auto_frame_post_item_title h2');
@@ -415,7 +372,9 @@ hexLoad(function(){
   },0);
 });
 
-/* 本文リンク 外部リンクアイコン */
+/* =======================================
+   本文リンク 外部リンクアイコン
+======================================= */
 hexLoad(function(){
   setTimeout(function(){
     var links=document.querySelectorAll('.gc_auto_frame_post_item_body a');
@@ -436,7 +395,9 @@ hexLoad(function(){
   },100);
 });
 
-/* 一覧ページング整形 */
+/* =======================================
+   一覧ページング整形
+======================================= */
 hexLoad(function(){
   setTimeout(function(){
     var areas=document.querySelectorAll('.bg_page_button');
@@ -473,7 +434,9 @@ hexLoad(function(){
   },100);
 });
 
-/* 記事詳細ページング整形 */
+/* =======================================
+   記事詳細ページング整形
+======================================= */
 hexLoad(function(){
   setTimeout(function(){
     var pagers=document.querySelectorAll('.gc_auto_frame_post_item_pager_box');
@@ -542,7 +505,9 @@ function hexCleanDetailPagerTitle(text){
   return text.replace(/【(?:スタッフブログ|重要なお知らせ)】[ \u00A0　]*/g,'').replace(/\s+/g,' ').trim();
 }
 
-/* ヘッダーメニュー採用情報URL・アイコン対応 */
+/* =======================================
+   ヘッダーメニュー採用情報URL・アイコン対応
+======================================= */
 hexLoad(function(){
   setTimeout(function(){
     var recruitUrl=HEX_IS_PRODUCTION
@@ -582,7 +547,9 @@ hexLoad(function(){
   },100);
 });
 
-/* スマホメニュー変更 */
+/* =======================================
+   スマホメニュー変更
+======================================= */
 hexLoad(function(){
   setTimeout(function(){
     var popup=document.getElementById(
@@ -742,7 +709,9 @@ hexLoad(function(){
   },100);
 });
 
-/* 共通パーツ */
+/* =======================================
+   共通パーツ
+======================================= */
 window.hexIconClass=function(hexType){
   return hexType==='external'?'fa-solid fa-arrow-up-right-from-square':'fa-solid fa-arrow-right';
 };
@@ -922,7 +891,9 @@ hexReady(function(){
   });
 });
 
-/* ギャラリー */
+/* =======================================
+   ギャラリー
+======================================= */
 hexReady(function(){
   document.querySelectorAll('.hex-gallery-start').forEach(function(galleryStart){
     var galleryStartBlock=window.hexBaseBlock(galleryStart);
@@ -1163,7 +1134,9 @@ hexReady(function(){
   });
 });
 
-/* バナー */
+/* =======================================
+   バナー
+======================================= */
 hexReady(function(){
   document.querySelectorAll('.hex-banner-start').forEach(function(start){
     var startBlock=window.hexBaseBlock(start);
@@ -1267,7 +1240,9 @@ hexReady(function(){
   });
 });
 
-/* 画像グリッド */
+/* =======================================
+   画像グリッド
+======================================= */
 hexReady(function(){
   ['2','3','4','5','6'].forEach(function(col){
     document.querySelectorAll('.hex-image-grid'+col+'-start').forEach(function(start){
@@ -1321,7 +1296,9 @@ hexReady(function(){
   });
 });
 
-/* カード */
+/* =======================================
+   カード
+======================================= */
 hexReady(function(){
   ['1','2','3'].forEach(function(col){
     document.querySelectorAll('.hex-card-grid'+col+'-start').forEach(function(gridStart){
@@ -1478,7 +1455,9 @@ hexReady(function(){
   });
 });
 
-/* お知らせ・ブログ共通リスト整形 */
+/* =======================================
+   お知らせ・ブログ共通リスト整形
+======================================= */
 hexLoad(function(){
   setTimeout(function(){
     var items=document.querySelectorAll('.gc_auto_frame_post_index_home_box_contents_cell_text_list,.gc_auto_frame_post_index_box_contents_cell_text_list');
@@ -1507,7 +1486,9 @@ hexLoad(function(){
   },100);
 });
 
-/* トップ お知らせセクション */
+/* =======================================
+   トップ お知らせセクション
+======================================= */
 hexLoad(function(){
   setTimeout(function(){
     var newsSection=document.getElementById(HOME_SECTIONS.NEWS_SECTION);
@@ -1675,7 +1656,9 @@ function hexHomeNewsUpdateButton(buttonArea,shortname,pagetype){
   }
 }
 
-/* トップ スクロールナビ */
+/* =======================================
+   トップ スクロールナビ
+======================================= */
 hexReady(function(){
 
   const scrollIndicator=document.querySelector('.hex-scroll-indicator');
@@ -1700,7 +1683,9 @@ hexReady(function(){
 
 });
 
-/* トップ サービス案内 */
+/* =======================================
+   トップ サービス案内
+======================================= */
 hexLoad(function(){
   document.querySelectorAll('#gc_auto_frame_home_2 .hex-link-wrap').forEach(function(item){
 
@@ -1719,7 +1704,9 @@ hexLoad(function(){
   });
 });
 
-/* 下層ページタイトル共通 */
+/* =======================================
+   下層ページタイトル共通
+======================================= */
 hexReady(function(){
   var enTitle=document.querySelector('.page-title-en');
   var heroTitle=document.querySelector('.gc_auto_frame_page_title h1');
@@ -1727,7 +1714,9 @@ hexReady(function(){
   heroTitle.appendChild(enTitle);
 });
 
-/* 共通フッター レイアウト調整 */
+/* =======================================
+   共通フッター レイアウト調整
+======================================= */
 hexReady(function(){
   hexReplaceTikTokSvgs(document);
   setTimeout(function(){
@@ -1926,7 +1915,9 @@ function hexCreateFooterArea(){
   return area;
 }
 
-/* 会社情報ページ レイアウト調整 */
+/* =======================================
+   会社情報ページ レイアウト調整
+======================================= */
 hexLoad(function(){
   setTimeout(function(){
     var body=document.getElementById('gc_auto_body_company');
@@ -2199,7 +2190,9 @@ hexLoad(function(){
   },100);
 });
 
-/* スタッフ紹介 */
+/* =======================================
+   スタッフ紹介
+======================================= */
 hexLoad(function(){
   setTimeout(function(){
     var original=document.querySelector('.bg_publicinfo_staff');
@@ -2606,7 +2599,9 @@ window.addEventListener('resize',function(){
   }
 });
 
-/* 私たちについて スタッフ紹介読込 */
+/* =======================================
+   私たちについて スタッフ紹介読込
+======================================= */
 hexLoad(function(){
   setTimeout(function(){
     var target=document.getElementById('hex-staff-area');
@@ -2773,7 +2768,9 @@ function hexGetDesignSetId(){
   return '';
 }
 
-/* エクステリア商品検索 */
+/* =======================================
+   商品検索
+======================================= */
 hexReady(function(){
   var input=document.getElementById('hex-product-search-input');
   var button=document.getElementById('hex-product-search-button');
@@ -2800,7 +2797,9 @@ hexReady(function(){
   });
 });
 
-/* お問い合わせ */
+/* =======================================
+   お問い合わせ
+======================================= */
 hexLoad(function(){
   setTimeout(function(){
     var form=document.getElementById('form_lp_form');
@@ -3461,7 +3460,9 @@ hexLoad(function(){
   },300);
 });
 
-/* よくある質問 */
+/* =======================================
+   よくある質問
+======================================= */
 hexLoad(function(){
   setTimeout(function(){
     var faq=document.querySelector('.publicinfo_qanda');
@@ -3523,7 +3524,9 @@ hexLoad(function(){
   },100);
 });
 
-/* 旧お問い合わせリンク書き換え */
+/* =======================================
+   旧お問い合わせリンク書き換え
+======================================= */
 hexReady(function(){
   var contactView={
     dataset:{
@@ -3555,26 +3558,253 @@ hexReady(function(){
   });
 });
 
-/* 営業日カレンダー */
+/* =======================================
+   営業日カレンダー
+======================================= */
 hexLoad(function(){
   var target=document.getElementById('hex-calendar-area');
   if(!target)return;
   if(target.classList.contains('hex-calendar-ready'))return;
-  var config=HEX_BUSINESS_CALENDAR;
+
   var weekLabels=['日','月','火','水','木','金','土'];
+
+  var config={
+    startMonth:'',
+    endMonth:'',
+    closedDates:[],
+    closedRanges:[],
+    events:[]
+  };
+
+  /* 全角数字を半角数字に変換 */
+  function normalizeNumbers(value){
+    return String(value||'').replace(/[０-９]/g,function(character){
+      return String.fromCharCode(
+        character.charCodeAt(0)-0xFEE0
+      );
+    });
+  }
+
+  /* 年月をYYYY-MM形式に変換 */
+  function normalizeMonth(value){
+    var normalized=normalizeNumbers(value)
+      .replace(/\s+/g,'')
+      .trim();
+
+    var match=normalized.match(/^(\d{4})\/(\d{1,2})$/);
+    if(!match)return '';
+
+    var year=Number(match[1]);
+    var month=Number(match[2]);
+
+    if(month<1||month>12)return '';
+
+    return (
+      year+'-'+
+      String(month).padStart(2,'0')
+    );
+  }
+
+  /* 日付をYYYY-MM-DD形式に変換 */
+  function normalizeDate(value){
+    var normalized=normalizeNumbers(value)
+      .replace(/\s+/g,'')
+      .trim();
+
+    var match=normalized.match(
+      /^(\d{4})\/(\d{1,2})\/(\d{1,2})$/
+    );
+
+    if(!match)return '';
+
+    var year=Number(match[1]);
+    var month=Number(match[2]);
+    var date=Number(match[3]);
+    var testDate=new Date(year,month-1,date);
+
+    if(
+      testDate.getFullYear()!==year||
+      testDate.getMonth()!==month-1||
+      testDate.getDate()!==date
+    ){
+      return '';
+    }
+
+    return (
+      year+'-'+
+      String(month).padStart(2,'0')+'-'+
+      String(date).padStart(2,'0')
+    );
+  }
+
+  /* 期間を開始・終了に分割 */
+  function parseRange(value,normalizer){
+    var normalized=normalizeNumbers(value).trim();
+
+    var values=normalized.split(/\s*[-－]\s*/);
+    if(values.length!==2)return null;
+
+    var start=normalizer(values[0]);
+    var end=normalizer(values[1]);
+
+    if(!start||!end)return null;
+    if(start>end)return null;
+
+    return {
+      start:start,
+      end:end
+    };
+  }
+
+  /* 設定文を行単位で取得 */
+  function getSettingLines(){
+    var lines=[];
+    var paragraphs=target.querySelectorAll('p');
+
+    if(paragraphs.length){
+      paragraphs.forEach(function(paragraph){
+        var paragraphText=
+          paragraph.innerText||
+          paragraph.textContent||
+          '';
+
+        paragraphText.split(/\r?\n/).forEach(function(line){
+          var value=line.trim();
+
+          if(value){
+            lines.push(value);
+          }
+        });
+      });
+
+      return lines;
+    }
+
+    var targetText=
+      target.innerText||
+      target.textContent||
+      '';
+
+    targetText.split(/\r?\n/).forEach(function(line){
+      var value=line.trim();
+
+      if(value){
+        lines.push(value);
+      }
+    });
+
+    return lines;
+  }
+
+  /* DIV内の設定を読み取る */
+  function parseCalendarSettings(){
+    var lines=getSettingLines();
+
+    lines.forEach(function(line){
+      var parts=line.split(/[｜|]/).map(function(part){
+        return part.trim();
+      });
+
+      var type=parts[0];
+
+      if(type==='表示期間'){
+        var monthRange=parseRange(
+          parts[1]||'',
+          normalizeMonth
+        );
+
+        if(monthRange){
+          config.startMonth=monthRange.start;
+          config.endMonth=monthRange.end;
+        }
+
+        return;
+      }
+
+      if(type==='定休日'){
+        parts.slice(1).forEach(function(value){
+          var dateKey=normalizeDate(value);
+
+          if(
+            dateKey&&
+            config.closedDates.indexOf(dateKey)===-1
+          ){
+            config.closedDates.push(dateKey);
+          }
+        });
+
+        return;
+      }
+
+      if(type==='大型連休'){
+        var closedRange=parseRange(
+          parts[1]||'',
+          normalizeDate
+        );
+
+        if(!closedRange)return;
+
+        config.closedRanges.push({
+          start:closedRange.start,
+          end:closedRange.end,
+          label:parts.slice(2).join('｜').trim()||
+            '大型連休'
+        });
+
+        return;
+      }
+
+      if(type==='イベント'){
+        var eventDate=normalizeDate(parts[1]||'');
+
+        if(!eventDate)return;
+
+        config.events.push({
+          date:eventDate,
+          label:parts.slice(2).join('｜').trim()||
+            'イベント'
+        });
+      }
+    });
+
+    config.closedDates.sort();
+
+    config.closedRanges.sort(function(a,b){
+      return a.start.localeCompare(b.start);
+    });
+
+    config.events.sort(function(a,b){
+      return a.date.localeCompare(b.date);
+    });
+  }
+
+  parseCalendarSettings();
+
+  /* 表示期間が未設定の場合 */
+  if(!config.startMonth||!config.endMonth){
+    target.textContent=
+      '営業日カレンダーの表示期間が設定されていません。';
+
+    target.classList.add('hex-calendar-setting-error');
+    return;
+  }
+
   function parseMonth(value){
     var parts=value.split('-');
+
     return (
       Number(parts[0])*12+
       Number(parts[1])-1
     );
   }
+
   function getMonthData(monthIndex){
     return {
       year:Math.floor(monthIndex/12),
       month:monthIndex%12
     };
   }
+
   function formatDateKey(year,month,date){
     return (
       year+'-'+
@@ -3582,6 +3812,7 @@ hexLoad(function(){
       String(date).padStart(2,'0')
     );
   }
+
   function formatShortDate(value){
     var parts=value.split('-');
 
@@ -3590,6 +3821,7 @@ hexLoad(function(){
       Number(parts[2])
     );
   }
+
   function formatRange(range){
     return (
       formatShortDate(range.start)+
@@ -3597,6 +3829,7 @@ hexLoad(function(){
       formatShortDate(range.end)
     );
   }
+
   function getClosedRange(dateKey){
     for(var i=0;i<config.closedRanges.length;i++){
       var range=config.closedRanges[i];
@@ -3605,28 +3838,35 @@ hexLoad(function(){
         return range;
       }
     }
+
     return null;
   }
+
   function getEvent(dateKey){
     for(var i=0;i<config.events.length;i++){
       if(config.events[i].date===dateKey){
         return config.events[i];
       }
     }
+
     return null;
   }
+
   function isClosedDate(dateKey){
     return config.closedDates.indexOf(dateKey)!==-1;
   }
+
   function isRangeInMonth(range,year,month){
     var monthStart=formatDateKey(year,month,1);
     var lastDate=new Date(year,month+1,0).getDate();
     var monthEnd=formatDateKey(year,month,lastDate);
+
     return (
       range.start<=monthEnd&&
       range.end>=monthStart
     );
   }
+
   function isEventInMonth(event,year,month){
     var prefix=
       year+'-'+
@@ -3634,32 +3874,43 @@ hexLoad(function(){
 
     return event.date.indexOf(prefix)===0;
   }
+
   function createLegendItem(type,text){
     var item=document.createElement('li');
     var symbol=document.createElement('span');
     var label=document.createElement('span');
+
     item.className='hex-calendar-legend-item';
-    symbol.className='hex-calendar-legend-symbol '+type;
+    symbol.className=
+      'hex-calendar-legend-symbol '+type;
     label.className='hex-calendar-legend-label';
     label.textContent=text;
+
     item.appendChild(symbol);
     item.appendChild(label);
+
     return item;
   }
+
   var startMonth=parseMonth(config.startMonth);
   var endMonth=parseMonth(config.endMonth);
   var today=new Date();
+
   var currentMonth=
     today.getFullYear()*12+
     today.getMonth();
+
   if(currentMonth<startMonth){
     currentMonth=startMonth;
   }
+
   if(currentMonth>endMonth){
     currentMonth=endMonth;
   }
+
   target.textContent='';
   target.classList.add('hex-calendar-ready');
+
   var calendar=document.createElement('div');
   var header=document.createElement('div');
   var prevButton=document.createElement('button');
@@ -3668,62 +3919,98 @@ hexLoad(function(){
   var weekdays=document.createElement('div');
   var days=document.createElement('div');
   var legend=document.createElement('ul');
+
   calendar.className='hex-calendar';
   header.className='hex-calendar-header';
-  prevButton.className='hex-calendar-button hex-calendar-prev';
+  prevButton.className=
+    'hex-calendar-button hex-calendar-prev';
   monthTitle.className='hex-calendar-title';
-  nextButton.className='hex-calendar-button hex-calendar-next';
+  nextButton.className=
+    'hex-calendar-button hex-calendar-next';
   weekdays.className='hex-calendar-weekdays';
   days.className='hex-calendar-days';
   legend.className='hex-calendar-legend';
+
   prevButton.type='button';
   nextButton.type='button';
-  prevButton.setAttribute('aria-label','前月を表示');
-  nextButton.setAttribute('aria-label','翌月を表示');
+
+  prevButton.setAttribute(
+    'aria-label',
+    '前月を表示'
+  );
+
+  nextButton.setAttribute(
+    'aria-label',
+    '翌月を表示'
+  );
+
   var prevIcon=document.createElement('i');
   var nextIcon=document.createElement('i');
+
   prevIcon.className='fa-solid fa-angle-left';
   nextIcon.className='fa-solid fa-angle-right';
+
   prevButton.appendChild(prevIcon);
   nextButton.appendChild(nextIcon);
+
   weekLabels.forEach(function(labelText,index){
     var label=document.createElement('div');
+
     label.className='hex-calendar-weekday';
+
     if(index===0){
       label.classList.add('is-sunday');
     }
+
     if(index===6){
       label.classList.add('is-saturday');
     }
+
     label.textContent=labelText;
     weekdays.appendChild(label);
   });
+
   header.appendChild(prevButton);
   header.appendChild(monthTitle);
   header.appendChild(nextButton);
+
   calendar.appendChild(header);
   calendar.appendChild(weekdays);
   calendar.appendChild(days);
   calendar.appendChild(legend);
+
   target.appendChild(calendar);
+
   function renderCalendar(){
     var monthData=getMonthData(currentMonth);
     var year=monthData.year;
     var month=monthData.month;
     var firstDay=new Date(year,month,1).getDay();
     var lastDate=new Date(year,month+1,0).getDate();
+
     monthTitle.textContent=
       year+'年'+
       (month+1)+'月';
+
     prevButton.disabled=currentMonth<=startMonth;
     nextButton.disabled=currentMonth>=endMonth;
+
     days.textContent='';
     legend.textContent='';
-    for(var blankIndex=0;blankIndex<firstDay;blankIndex++){
+
+    for(
+      var blankIndex=0;
+      blankIndex<firstDay;
+      blankIndex++
+    ){
       var blank=document.createElement('div');
-      blank.className='hex-calendar-day is-empty';
+
+      blank.className=
+        'hex-calendar-day is-empty';
+
       days.appendChild(blank);
     }
+
     for(var date=1;date<=lastDate;date++){
       var dateObject=new Date(year,month,date);
       var dayOfWeek=dateObject.getDay();
@@ -3733,15 +4020,19 @@ hexLoad(function(){
       var closed=isClosedDate(dateKey);
       var day=document.createElement('div');
       var number=document.createElement('span');
+
       day.className='hex-calendar-day';
       number.className='hex-calendar-number';
       number.textContent=date;
+
       if(dayOfWeek===0){
         day.classList.add('is-sunday');
       }
+
       if(dayOfWeek===6){
         day.classList.add('is-saturday');
       }
+
       /*
        * 表示優先順位
        * イベント → 大型連休 → 定休日
@@ -3756,44 +4047,60 @@ hexLoad(function(){
         number.classList.add('is-closed');
         number.title='定休日';
       }
+
       day.appendChild(number);
       days.appendChild(day);
     }
+
     legend.appendChild(
       createLegendItem(
         'is-closed',
         '定休日'
       )
     );
+
     config.closedRanges.forEach(function(range){
       if(!isRangeInMonth(range,year,month))return;
+
       legend.appendChild(
         createLegendItem(
           'is-long-holiday',
-          range.label+'（'+formatRange(range)+'）'
+          range.label+
+          '（'+
+          formatRange(range)+
+          '）'
         )
       );
     });
+
     config.events.forEach(function(event){
       if(!isEventInMonth(event,year,month))return;
+
       legend.appendChild(
         createLegendItem(
           'is-event',
-          event.label+'（'+
-          formatShortDate(event.date)+'）'
+          event.label+
+          '（'+
+          formatShortDate(event.date)+
+          '）'
         )
       );
     });
   }
+
   prevButton.addEventListener('click',function(){
     if(currentMonth<=startMonth)return;
+
     currentMonth--;
     renderCalendar();
   });
+
   nextButton.addEventListener('click',function(){
     if(currentMonth>=endMonth)return;
+
     currentMonth++;
     renderCalendar();
   });
+
   renderCalendar();
 });
