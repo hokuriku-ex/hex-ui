@@ -742,13 +742,13 @@
 ======================================= */
 /* 余白調整 */
 @media screen and (max-width:767px){
-  /* 全体 */
+  /* 基本ページ */
   .post_index_contents{
     padding-block:32px!important;
     padding-inline:16px!important;
   }
 
-  /* 記事 */
+  /* 施工事例・お知らせページ */
   .gc_auto_frame_post_item .post_item_contents{
     padding-block:32px!important;
     padding-inline:16px!important;
