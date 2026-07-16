@@ -1179,11 +1179,6 @@
 /* =======================================
    下層ページ：よくある質問
 ======================================= */
-@media screen and (min-width:769px){
-  .publicinfo_qanda .qanda_content>label:hover{
-    background:#f8faff!important;
-  }
-}
 @media screen and (max-width:768px){
   .publicinfo_qanda .qanda_content{
     max-width:none;

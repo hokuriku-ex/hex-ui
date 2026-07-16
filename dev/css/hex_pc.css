@@ -3087,6 +3087,11 @@ body.hex-form-dialog-open{
   font-size:16px;
   line-height:2;
 }
+@media screen and (min-width:769px){
+  .publicinfo_qanda .qanda_content>label:hover{
+    background:#f8faff!important;
+  }
+}
 
 /* =======================================
    営業日カレンダー
