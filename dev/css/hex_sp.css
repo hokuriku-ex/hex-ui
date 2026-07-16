@@ -1213,3 +1213,34 @@
     line-height:1.9;
   }
 }
+
+/* =======================================
+   営業日カレンダー
+======================================= */
+@media screen and (min-width:769px){
+  .hex-calendar{
+    max-width:none;
+    padding:22px 16px;
+  }
+  .hex-calendar-header{
+    margin-bottom:20px;
+  }
+  .hex-calendar-title{
+    font-size:21px;
+  }
+  .hex-calendar-day{
+    height:44px;
+  }
+  .hex-calendar-number{
+    width:32px;
+    height:32px;
+    font-size:14px;
+  }
+  .hex-calendar-legend{
+    margin-top:20px;
+    padding-top:16px;
+  }
+  .hex-calendar-legend-label{
+    font-size:13px;
+  }
+}
