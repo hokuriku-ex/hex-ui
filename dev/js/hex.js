@@ -103,7 +103,7 @@ hexLoad(function(){
   });
 });
 
-/* トップページスマホ左右余白 */
+/* トップページSP左右余白 */
 hexLoad(function(){
   HOME_PADDING_SECTIONS.forEach(function(sectionId){
     var section=document.getElementById(sectionId);
@@ -122,7 +122,7 @@ hexLoad(function(){
   });
 });
 
-/* SP左右余白範囲指定 */
+/* SP用左右余白範囲指定 */
 hexLoad(function(){
   document.querySelectorAll('.hex-sp-padding-inline-start').forEach(function(start){
     var startBlock=window.hexBaseBlock(start);
