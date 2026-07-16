@@ -3093,7 +3093,7 @@ body.hex-form-dialog-open{
 ======================================= */
 .hex-calendar{
   --hex-calendar-closed:#c8a874;
-  --hex-calendar-holiday:#d9e7ff;
+  --hex-calendar-holiday:#e6a0b3;
   --hex-calendar-event:#55b9c7;
   width:100%;
   max-width:520px;
