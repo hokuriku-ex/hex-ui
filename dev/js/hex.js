@@ -125,33 +125,13 @@ hexLoad(function(){
 /* SP用左右余白範囲指定 */
 hexLoad(function(){
   document.querySelectorAll('.hex-sp-padding-inline-start').forEach(function(start){
-    var startBlock=window.hexBaseBlock(start);
-    if(!startBlock)return;
+    var box=start.closest('.gc_auto_frame_spotitem_box');
+    if(!box)return;
 
-    var currentBlock=window.hexNextBlock(startBlock);
-    var endBlock=null;
+    var end=box.querySelector('.hex-sp-padding-inline-end');
+    if(!end)return;
 
-    while(currentBlock){
-      if(currentBlock.querySelector('.hex-sp-padding-inline-end')){
-        endBlock=currentBlock;
-        break;
-      }
-
-      currentBlock
-        .querySelectorAll('.gc_auto_frame_spotitem_body')
-        .forEach(function(box){
-          box.classList.add('hex-sp-padding-inline');
-        });
-
-      currentBlock=window.hexNextBlock(currentBlock);
-    }
-
-    /* マーカーを含む記事ブロック自体を非表示 */
-    startBlock.classList.add('hex-sp-padding-marker-block');
-
-    if(endBlock){
-      endBlock.classList.add('hex-sp-padding-marker-block');
-    }
+    box.classList.add('hex-sp-padding-inline');
   });
 });
 
