@@ -644,6 +644,14 @@
 /* =======================================
    トップページ
 ======================================= */
+/* 左右余白クラス付与 */
+@media screen and (max-width:768px){
+  .hex-home-side-padding{
+    box-sizing:border-box;
+    padding-inline:16px!important;
+  }
+}
+
 /* ウェルカムメッセージ */
 @media screen and (max-width:768px){
   .welcome{
