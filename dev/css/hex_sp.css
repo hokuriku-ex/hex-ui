@@ -203,7 +203,7 @@
   }
   /* 右スクロール案内 */
   .hex-anchor-nav::after{
-    content:'›';
+    content:'\f105';
     position:absolute;
     top:0;
     right:16px;
@@ -211,16 +211,18 @@
     display:none;
     align-items:center;
     justify-content:center;
-    width:32px;
+    width:48px;
     height:calc(100% - 12px);
     color:#1f2774;
-    font-size:24px;
+    font-family:'Font Awesome 6 Free';
+    font-size:20px;
+    font-weight:900;
     line-height:1;
     pointer-events:none;
     background:linear-gradient(
       to right,
       rgba(255,255,255,0),
-      #fff 60%
+      #fff 55%
     );
   }
   .hex-anchor-nav.has-scroll-right::after{
