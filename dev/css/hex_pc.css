@@ -2077,6 +2077,9 @@ body,
   white-space:nowrap;
   text-align:right;
 }
+.gc_auto_frame_publicinfo_company .accent_color_basecolor1 svg{
+  fill:#383838;
+}
 
 /* =======================================
    下層ページ：私たちについて
