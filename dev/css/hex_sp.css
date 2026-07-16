@@ -742,7 +742,14 @@
 ======================================= */
 /* 余白調整 */
 @media screen and (max-width:767px){
+  /* 全体 */
   .post_index_contents{
+    padding-block:32px!important;
+    padding-inline:16px!important;
+  }
+
+  /* 記事 */
+  .gc_auto_frame_post_item .post_item_contents{
     padding-block:32px!important;
     padding-inline:16px!important;
   }
