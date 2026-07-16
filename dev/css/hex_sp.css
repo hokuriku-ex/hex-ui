@@ -331,7 +331,7 @@
 ======================================= */
 /* SP用左右余白範囲指定 */
 @media screen and (max-width:768px){
-  .gc_auto_frame_spotitem_body.hex-sp-padding-inline{
+  .gc_auto_frame_spotitem_box.hex-sp-padding-inline{
     box-sizing:border-box;
     padding-left:16px!important;
     padding-right:16px!important;
