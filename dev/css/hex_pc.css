@@ -2077,8 +2077,8 @@ body,
   white-space:nowrap;
   text-align:right;
 }
-.gc_auto_frame_publicinfo_company .accent_color_basecolor1 svg{
-  fill:#383838;
+.publicinfo_company .bg_svg svg path{
+  fill:#383838!important;
 }
 
 /* =======================================
