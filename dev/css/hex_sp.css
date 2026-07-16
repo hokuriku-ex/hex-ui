@@ -647,8 +647,9 @@
 /* 左右余白 */
 @media screen and (max-width:768px){
   .hex-home-side-padding{
+    width:100%;
     box-sizing:border-box;
-    padding-inline:16px!important;
+    padding-inline:16px;
   }
 }
 
