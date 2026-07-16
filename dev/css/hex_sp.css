@@ -1243,4 +1243,13 @@
   .hex-calendar-legend-label{
     font-size:13px;
   }
+
+  /* カレンダーと案内文の調整 */
+  .hex-calendar-layout{
+    grid-template-columns:1fr;
+    gap:32px;
+  }
+  .hex-calendar-information{
+    height:auto;
+  }
 }
