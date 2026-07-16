@@ -3087,3 +3087,166 @@ body.hex-form-dialog-open{
   font-size:16px;
   line-height:2;
 }
+
+/* =======================================
+   営業日カレンダー
+======================================= */
+.hex-calendar{
+  --hex-calendar-closed:#c8a874;
+  --hex-calendar-holiday:#d9e7ff;
+  --hex-calendar-event:#55b9c7;
+  width:100%;
+  max-width:520px;
+  margin:0 auto;
+  padding:28px 30px;
+  box-sizing:border-box;
+  color:#fff;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.16);
+}
+.hex-calendar-header{
+  display:grid;
+  grid-template-columns:44px 1fr 44px;
+  align-items:center;
+  margin-bottom:24px;
+}
+.hex-calendar-title{
+  font-family:var(--hex-font-serif);
+  font-size:24px;
+  font-weight:700;
+  line-height:1.4;
+  text-align:center;
+}
+.hex-calendar-button{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:40px;
+  height:40px;
+  padding:0;
+  border:0;
+  color:#fff;
+  font-size:20px;
+  background:transparent;
+  cursor:pointer;
+}
+.hex-calendar-button:disabled{
+  opacity:.2;
+  cursor:default;
+}
+.hex-calendar-weekdays,
+.hex-calendar-days{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+}
+.hex-calendar-weekdays{
+  margin-bottom:8px;
+}
+.hex-calendar-weekday{
+  color:rgba(255,255,255,.8);
+  font-size:13px;
+  font-weight:500;
+  text-align:center;
+}
+.hex-calendar-weekday.is-sunday{
+  color:#e7a89e;
+}
+.hex-calendar-weekday.is-saturday{
+  color:#91c8e5;
+}
+.hex-calendar-day{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-width:0;
+  height:48px;
+}
+.hex-calendar-day.is-empty{
+  pointer-events:none;
+}
+.hex-calendar-number{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:34px;
+  height:34px;
+  box-sizing:border-box;
+  color:#fff;
+  font-size:15px;
+  font-weight:500;
+  line-height:1;
+}
+.hex-calendar-day.is-sunday .hex-calendar-number{
+  color:#e7a89e;
+}
+.hex-calendar-day.is-saturday .hex-calendar-number{
+  color:#91c8e5;
+}
+/* 定休日 */
+.hex-calendar-number.is-closed{
+  border-radius:50%;
+  color:#1f2774!important;
+  background:var(--hex-calendar-closed);
+}
+/* 大型連休 */
+.hex-calendar-number.is-long-holiday{
+  color:#1f2774!important;
+  background:var(--hex-calendar-holiday);
+}
+/* イベント */
+.hex-calendar-number.is-event{
+  color:#fff!important;
+  background:var(--hex-calendar-event);
+  clip-path:polygon(
+    25% 6.7%,
+    75% 6.7%,
+    100% 50%,
+    75% 93.3%,
+    25% 93.3%,
+    0 50%
+  );
+}
+/* 凡例 */
+.hex-calendar-legend{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin:24px 0 0;
+  padding:20px 0 0;
+  border-top:1px solid rgba(255,255,255,.16);
+  list-style:none;
+}
+.hex-calendar-legend-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.hex-calendar-legend-symbol{
+  flex:0 0 auto;
+  display:block;
+  width:14px;
+  height:14px;
+}
+.hex-calendar-legend-symbol.is-closed{
+  border-radius:50%;
+  background:var(--hex-calendar-closed);
+}
+.hex-calendar-legend-symbol.is-long-holiday{
+  background:var(--hex-calendar-holiday);
+}
+.hex-calendar-legend-symbol.is-event{
+  background:var(--hex-calendar-event);
+  clip-path:polygon(
+    25% 6.7%,
+    75% 6.7%,
+    100% 50%,
+    75% 93.3%,
+    25% 93.3%,
+    0 50%
+  );
+}
+.hex-calendar-legend-label{
+  color:rgba(255,255,255,.92);
+  font-size:14px;
+  line-height:1.6;
+}
