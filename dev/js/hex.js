@@ -250,7 +250,7 @@ function hexInitAnchorNav(){
     return getHexAnchorHeaderHeight()+nav.offsetHeight+40;
   }
   function refreshHexAnchorNav(){
-    var mobileAdjust=window.innerWidth<=768?6:0;
+    var mobileAdjust=window.innerWidth<=768?8:0;
     nav.classList.remove('is-fixed');
     placeholder.classList.remove('is-active');
     placeholder.style.height='0px';
