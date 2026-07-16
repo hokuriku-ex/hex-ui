@@ -112,7 +112,10 @@ hexLoad(function(){
     var section=document.getElementById(sectionId);
     if(!section)return;
 
-    section.classList.add('hex-home-side-padding');
+    var content=section.firstElementChild;
+    if(!content)return;
+
+    content.classList.add('hex-home-side-padding');
   });
 });
 
