@@ -1587,6 +1587,14 @@ a.hex-text-link[target="_blank"]::after{
 /* =======================================
    フッター調整
 ======================================= */
+/* SP用左右余白範囲指定 */
+.hex-sp-padding-inline-start,
+.hex-sp-padding-inline-end,
+.hex-marker-block-hidden{
+  display:none!important;
+}
+
+/* フッター全体 */
 .hex-footer-frame{
   width:100%!important;
   float:none!important;
