@@ -329,6 +329,16 @@
 /* =======================================
    フッター調整
 ======================================= */
+/* SP用左右余白範囲指定 */
+@media screen and (max-width:768px){
+  .gc_auto_frame_spotitem_box.hex-sp-padding-inline{
+    box-sizing:border-box;
+    padding-left:16px!important;
+    padding-right:16px!important;
+  }
+}
+
+/* フッター全体 */
 @media screen and (max-width:768px){
   .hex-footer-frame .footer_contents{
     display:flex !important;
