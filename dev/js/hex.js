@@ -106,6 +106,16 @@ hexLoad(function(){
   });
 });
 
+/* スマホ左右余白クラス付与 */
+hexLoad(function(){
+  HOME_PADDING_SECTIONS.forEach(function(sectionId){
+    var section=document.getElementById(sectionId);
+    if(!section)return;
+
+    section.classList.add('hex-home-side-padding');
+  });
+});
+
 /* URLアンカー補正 */
 hexLoad(function(){
   var hash=location.hash;
