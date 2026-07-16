@@ -106,7 +106,7 @@ hexLoad(function(){
   });
 });
 
-/* スマホ左右余白クラス付与 */
+/* トップページスマホ左右余白 */
 hexLoad(function(){
   HOME_PADDING_SECTIONS.forEach(function(sectionId){
     var section=document.getElementById(sectionId);
