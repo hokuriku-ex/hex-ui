@@ -759,6 +759,12 @@
     padding-block:32px!important;
     padding-inline:16px!important;
   }
+
+  /* よくある質問ページ */
+  .gc_auto_frame_publicinfo_qanda .publicinfo_qanda_contents{
+    padding-block:32px!important;
+    padding-inline:16px!important;
+  }
 }
 
 /* =======================================
