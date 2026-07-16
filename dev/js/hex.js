@@ -314,6 +314,13 @@ function hexInitAnchorNav(){
       anchorList.scrollWidth-1;
     nav.classList.toggle('has-scroll-right',hasMore);
   }
+  function refreshAnchorScrollHint(){
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        syncAnchorScrollHint();
+      });
+    });
+  }
   if(anchorList){
     anchorList.addEventListener(
       'scroll',
@@ -323,12 +330,19 @@ function hexInitAnchorNav(){
   }
   setTimeout(function(){
     refreshHexAnchorNav();
+    refreshAnchorScrollHint();
   },100);
+  if(document.fonts&&document.fonts.ready){
+    document.fonts.ready.then(function(){
+      refreshAnchorScrollHint();
+    });
+  }
   window.addEventListener('scroll',function(){
     updateHexAnchorNav();
   });
   window.addEventListener('resize',function(){
     refreshHexAnchorNav();
+    refreshAnchorScrollHint();
   });
 }
 
