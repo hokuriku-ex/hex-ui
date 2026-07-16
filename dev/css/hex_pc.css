@@ -3250,3 +3250,13 @@ body.hex-form-dialog-open{
   font-size:14px;
   line-height:1.6;
 }
+
+/* 案内文 */
+.hex-calendar-information{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+.hex-calendar-information .hex-btn-main{
+  margin-top:auto;
+}
