@@ -210,9 +210,11 @@
     z-index:2;
     display:none;
     align-items:center;
-    justify-content:center;
+    justify-content:flex-end;
     width:48px;
     height:calc(100% - 12px);
+    padding-right:8px;
+    box-sizing:border-box;
     color:#1f2774;
     font-family:'Font Awesome 6 Free';
     font-size:20px;
@@ -221,7 +223,7 @@
     pointer-events:none;
     background:linear-gradient(
       to right,
-      rgba(255,255,255,0),
+      rgba(255,255,255,0) 0%,
       #fff 55%
     );
   }
