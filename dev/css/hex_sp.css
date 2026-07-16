@@ -1217,7 +1217,7 @@
 /* =======================================
    営業日カレンダー
 ======================================= */
-@media screen and (min-width:769px){
+@media screen and (max-width:768px){
   .hex-calendar{
     max-width:none;
     padding:22px 16px;
