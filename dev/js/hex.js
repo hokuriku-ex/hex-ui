@@ -3637,7 +3637,7 @@ hexLoad(function(){
     );
   }
 
-  /* 期間を開始・終了に分割 */
+  /* 期間を開始・終了に分割  */
   function parseRange(value,normalizer){
     var normalized=normalizeNumbers(value).trim();
 
