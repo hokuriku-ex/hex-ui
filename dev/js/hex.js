@@ -304,6 +304,23 @@ function hexInitAnchorNav(){
       }
     }
   }
+  /* アンカーナビ右スクロール案内 */
+  var anchorList=nav.querySelector('.hex-anchor-nav-list');
+  function syncAnchorScrollHint(){
+    if(!anchorList)return;
+    var hasMore=
+      anchorList.scrollLeft+
+      anchorList.clientWidth<
+      anchorList.scrollWidth-1;
+    nav.classList.toggle('has-scroll-right',hasMore);
+  }
+  if(anchorList){
+    anchorList.addEventListener(
+      'scroll',
+      syncAnchorScrollHint,
+      {passive:true}
+    );
+  }
   setTimeout(function(){
     refreshHexAnchorNav();
   },100);
