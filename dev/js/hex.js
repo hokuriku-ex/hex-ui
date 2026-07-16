@@ -1,5 +1,6 @@
-/* 定数定義 */
-
+/* =======================================
+   定数定義
+======================================= */
 /* 環境設定 */
 const HEX_HOSTS={
   PRODUCTION:[
@@ -63,7 +64,62 @@ const HOME_PADDING_SECTIONS=[
   HOME_SECTIONS.RECRUIT
 ];
 
-/* -------------------------------------------------- */
+/* 営業日カレンダー設定 */
+const HEX_BUSINESS_CALENDAR={
+  startMonth:'2026-04',
+  endMonth:'2027-03',
+
+  /* 定休日・臨時休業日 */
+  closedDates:[
+    '2026-04-05',
+    '2026-04-12',
+    '2026-04-19',
+    '2026-04-26',
+    '2026-05-10',
+    '2026-05-17',
+    '2026-05-24',
+    '2026-05-31',
+    '2026-06-07',
+    '2026-06-14',
+    '2026-06-21',
+    '2026-06-28'
+  ],
+
+  /* 大型連休 */
+  closedRanges:[
+    {
+      start:'2026-05-02',
+      end:'2026-05-06',
+      label:'ゴールデンウィーク休業'
+    },
+    {
+      start:'2026-08-13',
+      end:'2026-08-16',
+      label:'夏季休業'
+    },
+    {
+      start:'2026-12-29',
+      end:'2027-01-04',
+      label:'年末年始休業'
+    }
+  ],
+
+  /* イベント */
+  events:[
+    {
+      date:'2026-07-12',
+      label:'エクステリア相談会'
+    },
+    {
+      date:'2026-10-18',
+      label:'お客様感謝祭'
+    }
+  ]
+};
+
+/* =======================================
+   イベント
+======================================= */
 
 /* DOM読込み完了後に実行 */
 function hexReady(callback){
@@ -3496,4 +3552,247 @@ hexReady(function(){
       link.href=contactUrl;
     }
   });
+});
+
+/* 営業日カレンダー */
+hexLoad(function(){
+  var target=document.getElementById('hex-calendar-area');
+  if(!target)return;
+  if(target.classList.contains('hex-calendar-ready'))return;
+  var config=HEX_BUSINESS_CALENDAR;
+  var weekLabels=['日','月','火','水','木','金','土'];
+  function parseMonth(value){
+    var parts=value.split('-');
+    return (
+      Number(parts[0])*12+
+      Number(parts[1])-1
+    );
+  }
+  function getMonthData(monthIndex){
+    return {
+      year:Math.floor(monthIndex/12),
+      month:monthIndex%12
+    };
+  }
+  function formatDateKey(year,month,date){
+    return (
+      year+'-'+
+      String(month+1).padStart(2,'0')+'-'+
+      String(date).padStart(2,'0')
+    );
+  }
+  function formatShortDate(value){
+    var parts=value.split('-');
+
+    return (
+      Number(parts[1])+'/'+
+      Number(parts[2])
+    );
+  }
+  function formatRange(range){
+    return (
+      formatShortDate(range.start)+
+      '〜'+
+      formatShortDate(range.end)
+    );
+  }
+  function getClosedRange(dateKey){
+    for(var i=0;i<config.closedRanges.length;i++){
+      var range=config.closedRanges[i];
+
+      if(dateKey>=range.start&&dateKey<=range.end){
+        return range;
+      }
+    }
+    return null;
+  }
+  function getEvent(dateKey){
+    for(var i=0;i<config.events.length;i++){
+      if(config.events[i].date===dateKey){
+        return config.events[i];
+      }
+    }
+    return null;
+  }
+  function isClosedDate(dateKey){
+    return config.closedDates.indexOf(dateKey)!==-1;
+  }
+  function isRangeInMonth(range,year,month){
+    var monthStart=formatDateKey(year,month,1);
+    var lastDate=new Date(year,month+1,0).getDate();
+    var monthEnd=formatDateKey(year,month,lastDate);
+    return (
+      range.start<=monthEnd&&
+      range.end>=monthStart
+    );
+  }
+  function isEventInMonth(event,year,month){
+    var prefix=
+      year+'-'+
+      String(month+1).padStart(2,'0')+'-';
+
+    return event.date.indexOf(prefix)===0;
+  }
+  function createLegendItem(type,text){
+    var item=document.createElement('li');
+    var symbol=document.createElement('span');
+    var label=document.createElement('span');
+    item.className='hex-calendar-legend-item';
+    symbol.className='hex-calendar-legend-symbol '+type;
+    label.className='hex-calendar-legend-label';
+    label.textContent=text;
+    item.appendChild(symbol);
+    item.appendChild(label);
+    return item;
+  }
+  var startMonth=parseMonth(config.startMonth);
+  var endMonth=parseMonth(config.endMonth);
+  var today=new Date();
+  var currentMonth=
+    today.getFullYear()*12+
+    today.getMonth();
+  if(currentMonth<startMonth){
+    currentMonth=startMonth;
+  }
+  if(currentMonth>endMonth){
+    currentMonth=endMonth;
+  }
+  target.textContent='';
+  target.classList.add('hex-calendar-ready');
+  var calendar=document.createElement('div');
+  var header=document.createElement('div');
+  var prevButton=document.createElement('button');
+  var monthTitle=document.createElement('div');
+  var nextButton=document.createElement('button');
+  var weekdays=document.createElement('div');
+  var days=document.createElement('div');
+  var legend=document.createElement('ul');
+  calendar.className='hex-calendar';
+  header.className='hex-calendar-header';
+  prevButton.className='hex-calendar-button hex-calendar-prev';
+  monthTitle.className='hex-calendar-title';
+  nextButton.className='hex-calendar-button hex-calendar-next';
+  weekdays.className='hex-calendar-weekdays';
+  days.className='hex-calendar-days';
+  legend.className='hex-calendar-legend';
+  prevButton.type='button';
+  nextButton.type='button';
+  prevButton.setAttribute('aria-label','前月を表示');
+  nextButton.setAttribute('aria-label','翌月を表示');
+  var prevIcon=document.createElement('i');
+  var nextIcon=document.createElement('i');
+  prevIcon.className='fa-solid fa-angle-left';
+  nextIcon.className='fa-solid fa-angle-right';
+  prevButton.appendChild(prevIcon);
+  nextButton.appendChild(nextIcon);
+  weekLabels.forEach(function(labelText,index){
+    var label=document.createElement('div');
+    label.className='hex-calendar-weekday';
+    if(index===0){
+      label.classList.add('is-sunday');
+    }
+    if(index===6){
+      label.classList.add('is-saturday');
+    }
+    label.textContent=labelText;
+    weekdays.appendChild(label);
+  });
+  header.appendChild(prevButton);
+  header.appendChild(monthTitle);
+  header.appendChild(nextButton);
+  calendar.appendChild(header);
+  calendar.appendChild(weekdays);
+  calendar.appendChild(days);
+  calendar.appendChild(legend);
+  target.appendChild(calendar);
+  function renderCalendar(){
+    var monthData=getMonthData(currentMonth);
+    var year=monthData.year;
+    var month=monthData.month;
+    var firstDay=new Date(year,month,1).getDay();
+    var lastDate=new Date(year,month+1,0).getDate();
+    monthTitle.textContent=
+      year+'年'+
+      (month+1)+'月';
+    prevButton.disabled=currentMonth<=startMonth;
+    nextButton.disabled=currentMonth>=endMonth;
+    days.textContent='';
+    legend.textContent='';
+    for(var blankIndex=0;blankIndex<firstDay;blankIndex++){
+      var blank=document.createElement('div');
+      blank.className='hex-calendar-day is-empty';
+      days.appendChild(blank);
+    }
+    for(var date=1;date<=lastDate;date++){
+      var dateObject=new Date(year,month,date);
+      var dayOfWeek=dateObject.getDay();
+      var dateKey=formatDateKey(year,month,date);
+      var range=getClosedRange(dateKey);
+      var event=getEvent(dateKey);
+      var closed=isClosedDate(dateKey);
+      var day=document.createElement('div');
+      var number=document.createElement('span');
+      day.className='hex-calendar-day';
+      number.className='hex-calendar-number';
+      number.textContent=date;
+      if(dayOfWeek===0){
+        day.classList.add('is-sunday');
+      }
+      if(dayOfWeek===6){
+        day.classList.add('is-saturday');
+      }
+      /*
+       * 表示優先順位
+       * イベント → 大型連休 → 定休日
+       */
+      if(event){
+        number.classList.add('is-event');
+        number.title=event.label;
+      }else if(range){
+        number.classList.add('is-long-holiday');
+        number.title=range.label;
+      }else if(closed){
+        number.classList.add('is-closed');
+        number.title='定休日';
+      }
+      day.appendChild(number);
+      days.appendChild(day);
+    }
+    legend.appendChild(
+      createLegendItem(
+        'is-closed',
+        '定休日'
+      )
+    );
+    config.closedRanges.forEach(function(range){
+      if(!isRangeInMonth(range,year,month))return;
+      legend.appendChild(
+        createLegendItem(
+          'is-long-holiday',
+          range.label+'（'+formatRange(range)+'）'
+        )
+      );
+    });
+    config.events.forEach(function(event){
+      if(!isEventInMonth(event,year,month))return;
+      legend.appendChild(
+        createLegendItem(
+          'is-event',
+          event.label+'（'+
+          formatShortDate(event.date)+'）'
+        )
+      );
+    });
+  }
+  prevButton.addEventListener('click',function(){
+    if(currentMonth<=startMonth)return;
+    currentMonth--;
+    renderCalendar();
+  });
+  nextButton.addEventListener('click',function(){
+    if(currentMonth>=endMonth)return;
+    currentMonth++;
+    renderCalendar();
+  });
+  renderCalendar();
 });
