@@ -167,6 +167,7 @@
 ======================================= */
 @media screen and (max-width:768px){
   .hex-anchor-nav{
+    position:relative;
     width:100vw;
     margin:0 calc(50% - 50vw) 36px;
     padding:0 16px 12px;
@@ -199,6 +200,31 @@
     padding:0 14px!important;
     font-size:16px!important;
     white-space:nowrap!important;
+  }
+  /* 右スクロール案内 */
+  .hex-anchor-nav::after{
+    content:'›';
+    position:absolute;
+    top:0;
+    right:16px;
+    z-index:2;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    width:32px;
+    height:calc(100% - 12px);
+    color:#1f2774;
+    font-size:24px;
+    line-height:1;
+    pointer-events:none;
+    background:linear-gradient(
+      to right,
+      rgba(255,255,255,0),
+      #fff 60%
+    );
+  }
+  .hex-anchor-nav.has-scroll-right::after{
+    display:flex;
   }
 }
 
