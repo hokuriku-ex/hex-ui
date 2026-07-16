@@ -646,9 +646,10 @@
 ======================================= */
 /* 左右余白 */
 @media screen and (max-width:768px){
-  .hex-home-side-padding{
+  .gc_auto_frame_spotitem_box.hex-home-side-padding{
     box-sizing:border-box;
-    padding-inline:16px;
+    padding-left:16px!important;
+    padding-right:16px!important;
   }
 }
 
