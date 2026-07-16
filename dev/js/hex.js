@@ -1836,6 +1836,7 @@ hexLoad(function(){
   setTimeout(function(){
     var body=document.getElementById('gc_auto_body_company');
     var companyBox=null;
+    var bgContents=null;
     var historyBlock=null;
     var accessBlock=null;
     var equipmentBlock=null;
@@ -1844,6 +1845,8 @@ hexLoad(function(){
     if(body.classList.contains('hex-company-layout-done'))return;
     companyBox=document.querySelector('.publicinfo_company');
     if(!companyBox)return;
+    bgContents=companyBox.querySelector('.bg_contents');
+    if(!bgContents)return;
     function replaceTextOnly(el,from,to){
       el.childNodes.forEach(function(node){
         if(node.nodeType===3){
@@ -1869,7 +1872,7 @@ hexLoad(function(){
       var title=makeSectionTitle(text);
       section.className='hex-company-section hex-company-section-'+type;
       section.appendChild(title);
-      companyBox.appendChild(section);
+      bgContents.appendChild(section);
       return section;
     }
     function getTextLines(textBox){
